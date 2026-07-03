@@ -1,0 +1,28 @@
+# Gemini — solo generación de imágenes
+
+## Alcance
+
+- **Único uso permitido:** tool `generate_image` → modelo `gemini-3.1-flash-lite-image`.
+- **Prohibido** usar `GEMINI_API_KEY` para chat, Veo, embeddings u otros modelos Gemini.
+
+## Posts sociales Wavys
+
+- **Usar Gemini cuando haga falta:** fondos creativos, 3D glass, escenas mood, variaciones visuales.
+- **Ser creativo** dentro de paleta Wavys (`#070604`, `#01FD91`, `#5AD2D0`, aurora, glass).
+- **No** pedir titulares en la imagen — copy y Rubik van en **Figma Agente**.
+- Flujo: Gemini asset → import Figma → composición final.
+- Guía: `agent/context/wavys-visual-brand-guide.md` · Skill: `agent/skills/social_design/`
+
+## Antes de generar (correos / uso externo sensible)
+
+1. Confirmar con Phil si la pieza es publicación externa crítica.
+2. Mostrar prompt y aspect ratio propuestos en chat.
+3. Assets en `data/generated-images/` (gitignored).
+
+## Flujo
+
+```bash
+npm run tool -- generate_image '{"prompt":"Creative dark aurora background teal #5AD2D0 to green #01FD91, glass 3D chat bubbles, no text no logo, negative space left, B2B AI agency","aspectRatio":"1:1"}'
+```
+
+Documentación completa: `agent/connections/gemini-image.md`

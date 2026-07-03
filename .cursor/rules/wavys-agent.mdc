@@ -1,0 +1,48 @@
+---
+description: Operar wavys-agents como asistente de negocio desde Cursor
+alwaysApply: true
+---
+
+# Wavys business agent
+
+Este repo es un agente tipo eve gestionado por Cursor, no un servidor eve.
+
+## Antes de actuar
+
+1. Lee `agent/context/README.md` y el contexto que aplique (founder, canales, plan).
+2. Lee `agent/instructions.md`.
+3. Revisa `data/notes.json` y `data/reminders.json` por contexto reciente.
+4. Para correos, recordatorios o notas, lee el skill correspondiente en `agent/skills/`.
+5. Confirma con el usuario antes de enviar correos o acciones irreversibles.
+6. Correos: lee `.cursor/rules/email-sending.mdc` — solo `contact@wavys-technologies.com`; si Resend falla, avisar a Phil; **nunca** cambiar remitente/domino sin permiso explícito.
+
+## Ejecutar acciones
+
+Usa las tools del proyecto vía terminal:
+
+```bash
+npm run tool -- <tool_name> '<json>'
+npm run tools
+```
+
+Tools actuales: `send_email`, `create_reminder`, `log_business_note`, `generate_image`.
+
+Imágenes: lee `.cursor/rules/gemini-image-only.mdc` — solo `gemini-3.1-flash-lite-image`. En **posts sociales**, generar assets creativos con Gemini cuando haga falta e integrar en Figma Agente (ver `agent/skills/social_design/SKILL.md`).
+
+## Extender el agente
+
+- Nuevo procedimiento → `agent/skills/<nombre>/SKILL.md`
+- Nueva acción → `agent/tools/<nombre>.ts` + cliente en `lib/integrations/`
+- Nueva plataforma → doc en `agent/connections/`
+
+No uses el runtime de eve ni `defineAgent` en este proyecto.
+
+## Git antes de codear (repos Wavys)
+
+Si Phil pide **código** y el repo es Wavys (`wavys-agents`, `theros-front`, `back-theros`, `wabys-blogsite`, `theros-website`):
+
+1. `cd` al repo indicado
+2. `git pull` **primero**
+3. Luego leer/editar
+
+No aplicar en repos cliente (`Website`, JLH, Coophitel, etc.) unless Phil lo pide.

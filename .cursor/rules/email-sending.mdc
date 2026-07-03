@@ -1,0 +1,36 @@
+---
+description: Reglas estrictas para envío de correos con send_email / Resend
+alwaysApply: true
+---
+
+# Envío de correos (Resend)
+
+## Dominio y remitente — sin excepciones
+
+- **Solo** enviar desde lo configurado en `.env.local`: `EMAIL_FROM` y `EMAIL_REPLY_TO` de Phil.
+- Remitente oficial: **`contact@wavys-technologies.com`** (Wavys Technologies).
+- **Prohibido** cambiar `EMAIL_FROM`, usar otro dominio o hacer override en la shell (p. ej. `@theros.click`) **sin que Phil lo pida explícitamente en ese mensaje**.
+- Phil entregó la API de Resend **para wavys-technologies.com**. No usar credenciales, dominios ni remitentes de otros proyectos (Theros, theros.click, etc.).
+
+## Si el envío falla
+
+1. **Detener.** No reintentar con otro remitente ni otro dominio.
+2. **Informar a Phil** con el error exacto (ej. dominio no verificado).
+3. Proponer opciones y **esperar su decisión**:
+   - Verificar DNS de `wavys-technologies.com` en Resend
+   - Cambiar temporalmente `EMAIL_FROM` en `.env.local` (Phil lo hace)
+   - Enviar manualmente desde su cliente de correo
+4. Solo ejecutar `send_email` de nuevo cuando Phil confirme cómo enviar.
+
+## Flujo obligatorio antes de enviar
+
+1. Mostrar borrador completo: **Para, CC, Asunto, Cuerpo, From configurado**.
+2. Si hay riesgo técnico (dominio, API, From distinto al esperado), **avisar antes** de ejecutar.
+3. Confirmación explícita de Phil ("envía", "manda el correo", etc.).
+4. Tras enviar: reportar **id Resend**, destinatario y **From real usado**.
+
+## Prohibido
+
+- Workarounds silenciosos ante error 403/422 de Resend.
+- Asumir que "cualquier dominio verificado sirve".
+- Enviar correos comerciales de Wavys desde direcciones que no sean las de Phil/Wavys acordadas.
