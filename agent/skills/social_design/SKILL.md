@@ -2,6 +2,10 @@
 
 Parte del pipeline **`content_production`** — fases 5–6 para piezas **estáticas**.
 
+**Gate 0 (pasos):** `agent/context/pipeline-gates.md` § `social_design`
+
+**Gate 1+ (calidad):** mismo doc § Gate 1+ `social_design` — `data/pipeline-runs/<slug>-social-validation.md` (plantilla `_TEMPLATE-social-validation.md`). Requiere content fases ①–④ OK.
+
 Usar cuando la fase 3 elija post/carrusel cuadrado (no video).
 
 ## Antes de diseñar
@@ -17,6 +21,7 @@ Usar cuando la fase 3 elija post/carrusel cuadrado (no video).
 Figma (estructura + tipografía + logo)
     +
 Gemini (assets visuales creativos cuando haga falta)
+    [+ cutout PNG si el objeto debe flotar sobre el fondo]
     =
 Pieza final en Figma → export
 ```
@@ -25,11 +30,13 @@ Pieza final en Figma → export
 
 1. **Duplicar** frame ref en página Agente (`use_figma`)
 2. **Evaluar:** ¿necesita fondo/3D/escena que no está en el file? → **sí** → `generate_image`
-3. **Prompt Gemini:** usar plantilla §5 de `wavys-visual-brand-guide.md`
+3. **Evaluar cutout:** ¿el asset es un **objeto/icono/3D** que debe ir **sobre** el fondo glass/aurora (no full-bleed)? → **sí** → seguir `agent/context/image-cutout-pipeline.md` (Gemini fondo blanco → quitar fondo → PNG a Figma)
+4. **Prompt Gemini:** usar plantilla §5 de `wavys-visual-brand-guide.md`
    - Creativo, cinematic, glass, neón Wavys
    - **Sin texto ni logo** en la imagen (Rubik va en Figma)
    - Dejar espacio negativo para headline
-4. **Importar** JPG a Figma → ajustar capas, copy, CTA, logo
+   - Si habrá cutout: añadir fondo plano blanco/chroma (ver pipeline cutout)
+5. **Importar** JPG o PNG cutout a Figma → ajustar capas, copy, CTA, logo
 5. **Creatividad:** variar composición; no clonar mecánicamente — inspirarse en `833:113`, `778:14`, `651:66`
 6. Entregar frame Figma + copy canal + export bajo demanda
 7. **No publicar** sin OK de Phil
@@ -51,5 +58,6 @@ Solo si Phil pide “rápido sin Figma”. Aun así, avisar que tipografía/logo
 
 - Frame en Figma (fuente de verdad)
 - Assets Gemini usados en `data/generated-images/` (referenciados)
+- PNG cutout si aplica — `agent/context/image-cutout-pipeline.md`
 - Copy para el canal
 - Checklist §6 guía visual

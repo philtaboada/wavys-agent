@@ -18,6 +18,10 @@ GEMINI_API_KEY=
 
 `generate_image` — única acción expuesta.
 
+**Gate 0 (pasos obligatorios):** `agent/context/pipeline-gates.md` § `image_generation`
+
+**Gate 1+ (calidad):** mismo doc § Gate 1+ `image_generation` — log en `data/pipeline-runs/<asset-id>-image-validation.md` (plantilla `_TEMPLATE-image-validation.md`)
+
 ```bash
 # Text-to-image
 npm run tool -- generate_image '{"prompt":"Minimal SaaS hero illustration, dark blue gradient, Wavys tech aesthetic","aspectRatio":"16:9"}'
@@ -52,8 +56,9 @@ Salida por defecto: `data/generated-images/<timestamp>.jpg` (JPEG — único for
 Cuando el diseño en Figma Agente necesite un visual que no existe en el file:
 
 1. Generar **asset sin texto** (fondo, 3D, escena) con `generate_image`
-2. Importar JPG al frame en Figma
-3. Tipografía, logo y CTA **siempre en Figma** (Rubik)
+2. Si el objeto debe **flotar** sobre otro fondo → **`agent/context/image-cutout-pipeline.md`** (PNG transparente)
+3. Importar JPG/PNG al frame en Figma
+4. Tipografía, logo y CTA **siempre en Figma** (Rubik)
 
 Ver plantilla de prompt en `agent/context/wavys-visual-brand-guide.md` §5.
 

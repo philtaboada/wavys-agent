@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Cover Reel — Presencia Digital</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@500;700;800;900&display=swap');
+
+    :root {
+      --forest: #1a4d3e;
+      --neon: #d4ff00;
+      --white: #ffffff;
+      --dark: #0a1612;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      margin: 0;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .cover {
+      width: 1080px;
+      height: 1920px;
+      position: relative;
+      overflow: hidden;
+      font-family: 'Rubik', system-ui, sans-serif;
+      background: var(--dark);
+    }
+
+    .bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        180deg,
+        rgba(10, 22, 18, 0.55) 0%,
+        rgba(10, 22, 18, 0.35) 35%,
+        rgba(10, 22, 18, 0.75) 70%,
+        rgba(10, 22, 18, 0.92) 100%
+      );
+    }
+
+    .glow {
+      position: absolute;
+      top: 280px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, rgba(212, 255, 0, 0.22) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .content {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      padding: 72px 56px 100px;
+    }
+
+    .top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .badge {
+      background: var(--neon);
+      color: var(--forest);
+      font-weight: 800;
+      font-size: 22px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 12px 22px;
+      border-radius: 999px;
+    }
+
+    .brand {
+      font-weight: 800;
+      font-size: 20px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 40px 0 20px;
+    }
+
+    .hook {
+      font-weight: 800;
+      font-size: 72px;
+      line-height: 1.02;
+      letter-spacing: -0.06em;
+      color: var(--white);
+      text-shadow: 0 6px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    .hook-accent {
+      display: block;
+      font-size: 88px;
+      color: var(--neon);
+      margin-top: 8px;
+      text-shadow: 0 0 60px rgba(212, 255, 0, 0.35);
+    }
+
+    .pain-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 40px;
+    }
+
+    .tag {
+      background: rgba(255, 255, 255, 0.1);
+      border: 2px solid rgba(212, 255, 0, 0.45);
+      color: var(--white);
+      font-weight: 700;
+      font-size: 24px;
+      padding: 12px 20px;
+      border-radius: 12px;
+      backdrop-filter: blur(8px);
+    }
+
+    .tag.alert {
+      border-color: #e63946;
+      color: #ffb4b4;
+    }
+
+    .product-block {
+      margin-top: 48px;
+      background: linear-gradient(135deg, rgba(26, 77, 62, 0.95) 0%, rgba(10, 22, 18, 0.98) 100%);
+      border: 3px solid var(--neon);
+      border-radius: 28px;
+      padding: 36px 40px;
+      box-shadow: 0 24px 80px rgba(212, 255, 0, 0.15);
+    }
+
+    .product-label {
+      font-weight: 700;
+      font-size: 22px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.65);
+      margin-bottom: 8px;
+    }
+
+    .product-name {
+      font-weight: 900;
+      font-size: 52px;
+      letter-spacing: -0.04em;
+      color: var(--neon);
+      line-height: 1.05;
+    }
+
+    .product-sub {
+      font-weight: 500;
+      font-size: 28px;
+      color: rgba(255, 255, 255, 0.85);
+      margin-top: 12px;
+      line-height: 1.35;
+    }
+
+    .price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      margin-top: 28px;
+    }
+
+    .price-from {
+      font-weight: 600;
+      font-size: 26px;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .price {
+      font-weight: 900;
+      font-size: 72px;
+      letter-spacing: -0.05em;
+      color: var(--neon);
+      line-height: 1;
+      text-shadow: 0 0 40px rgba(212, 255, 0, 0.4);
+    }
+
+    .price-unit {
+      font-weight: 700;
+      font-size: 32px;
+      color: var(--white);
+    }
+
+    .bottom-cta {
+      font-weight: 800;
+      font-size: 30px;
+      color: var(--white);
+      text-align: center;
+      letter-spacing: -0.02em;
+      line-height: 1.3;
+      padding: 0 12px;
+    }
+
+    .bottom-cta span {
+      color: var(--neon);
+    }
+
+    .bar {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 8px;
+      background: var(--neon);
+    }
+  </style>
+</head>
+<body>
+  <article class="cover">
+    <img class="bg" src="cover-reel-bg.jpg" alt="" />
+    <div class="overlay"></div>
+    <div class="glow"></div>
+
+    <div class="content">
+      <header class="top">
+        <span class="badge">Nuevo</span>
+        <span class="brand">Wavys</span>
+      </header>
+
+      <div class="main">
+        <h1 class="hook">
+          ¿Quieres una web,
+          <span class="hook-accent">pero…?</span>
+        </h1>
+
+        <div class="pain-tags">
+          <span class="tag alert">S/1,500+</span>
+          <span class="tag">Dominio aparte</span>
+          <span class="tag">Plantillas</span>
+          <span class="tag">Fotos malas</span>
+        </div>
+
+        <div class="product-block">
+          <div class="product-label">La solución</div>
+          <div class="product-name">Presencia Digital</div>
+          <div class="product-sub">Website por suscripción · todo incluido</div>
+          <div class="price-row">
+            <span class="price-from">Desde</span>
+            <span class="price">S/149</span>
+            <span class="price-unit">/mes</span>
+          </div>
+        </div>
+      </div>
+
+      <p class="bottom-cta">
+        Sin pagar miles de golpe · <span>publicada en 1 semana</span>
+      </p>
+    </div>
+
+    <div class="bar"></div>
+  </article>
+</body>
+</html>

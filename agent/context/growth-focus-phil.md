@@ -3,36 +3,59 @@
 Phil tiene **poco tiempo** y su cuello de botella es **conseguir clientes**, no producto ni contenido masivo.
 Este doc manda sobre el plan general cuando haya conflicto de prioridades.
 
+## Campaña activa (Jul 2026)
+
+**Presencia Digital** — producto empaquetado, marketing directo a PYME.
+
+| | |
+|--|--|
+| **Doc** | `campaigns/presencia-digital.md` |
+| **Kit** | `data/presencia-digital-brief/` |
+| **Landing** | https://software.wavys-technologies.com/presencia-digital |
+| **Meta** | 3 clientes en 14–21 días |
+| **Plan acción** | `data/presencia-digital-brief/PLAN-MARKETING-7-DIAS.md` |
+
+**Regla:** si Phil pide clientes rápido, mensajes, pauta o contrato de web con fotos → **Presencia Digital primero**. Partner/Onza sigue en pipeline pero no compite por el mismo bloque de tiempo.
+
 ## Diagnóstico
 
 | Lo que funciona | Lo que NO hacer ahora |
 |-----------------|---------------------|
-| LinkedIn → agencias (Onza respondió) | TikTok/IG diario, SEO, paid ads |
-| Clientes actuales (William, JLH, Coophitel) | Rebuild producto, más features SaaS |
-| Propuesta + Calendly + follow-up | Instalar 15 skills |
-| Canal partner (1 agencia = N clientes) | Vender SaaS frío a empresa final |
+| **Presencia Digital** — landing + pricing listos, kit completo | TikTok/IG diario sin CTA a Presencia Digital |
+| WhatsApp + referidos (William, JLH, Coophitel) | Rebuild producto, más features SaaS |
+| Auditoría web gratis → gancho venta (`website_audit`) | Instalar 15 skills |
+| Meta Ads test geo Huancayo (CPL < S/50) | Vender SaaS frío a empresa final |
+| LinkedIn → agencias (Onza) — pipeline paralelo | Perfeccionar landing sin vender |
 
-## Una sola estrategia (90 días)
+## Dos carriles (90 días)
 
-**Canal partner-agencia por LinkedIn** — mismo mensaje que funcionó con Onza.
+### Carril A — Presencia Digital *(prioridad tiempo Phil)*
 
-Por qué:
-- Ya probado (respuesta real).
-- Agencia trae volumen; tú no cazas 50 empresas una a una.
-- software.wavys encaja mejor que empujar SaaS self-serve.
-- Cotización a medida = ticket más alto que Starter plan.
+Venta directa PYME: WhatsApp, referidos, Maps, Meta Ads local.
+
+- Producto y precios **ya definidos** — ejecutar plan 7 días.
+- Entrega 5–7 días — cashflow recurrente S/149–199/mes.
+- Ver `campaigns/presencia-digital.md`.
+
+### Carril B — Partner agencia *(pipeline, no bloque principal)*
+
+LinkedIn → agencias como Onza — mismo mensaje que ya funcionó.
+
+- 1 agencia = N clientes a mediano plazo.
+- Cotización custom / white-label — ticket alto.
+- Mantener follow-up Onza; no abandonar, pero **no sustituye** Carril A esta semana.
 
 ## Ritmo semanal mínimo (~3–5 h total)
 
 | Bloque | Tiempo | Acción |
 |--------|--------|--------|
-| **Lunes** | 45 min | 5 mensajes LinkedIn personalizados a agencias |
-| **Martes** | 30 min | Follow-up: Onza + quienes no respondieron (48h+) |
-| **Miércoles** | 30 min | 1 post LinkedIn (repurpose demo o dolor WhatsApp) |
-| **Jueves** | 60 min | Llamada discovery o enviar 1 propuesta |
-| **Viernes** | 20 min | Revisar pipeline: ¿quién respondió? ¿próximo paso? |
+| **Lunes** | 45 min | 10 WhatsApps Presencia Digital (red + Maps) · ver `PLAN-MARKETING-7-DIAS.md` |
+| **Martes** | 30 min | Follow-up 48h leads Presencia Digital + Onza si aplica |
+| **Miércoles** | 30 min | 1 post/carrusel IG o LinkedIn → link presencia-digital |
+| **Jueves** | 60 min | 2 auditorías web gratis + llamada cierre o contrato |
+| **Viernes** | 20 min | Pipeline: respuestas, CPL Meta Ads, `log_business_note` |
 
-**Regla:** si solo tienes 1 hora en la semana → mensajes LinkedIn + cerrar lead caliente (Onza primero).
+**Regla:** si solo tienes 1 hora → WhatsApps Presencia Digital + follow-up lead caliente más cercano al cierre.
 
 ## Skills recomendados (solo 4 — no más)
 
@@ -69,49 +92,55 @@ Mensaje corto a William, JLH, Coophitel:
 
 1 intro calificada > 20 cold messages.
 
-### 3. LinkedIn mínimo viable
-- 5 mensajes/semana a agencias marketing LatAm.
-- 1 post/semana: "lead perdido en WhatsApp" o mini demo.
-- No TikTok hasta que LinkedIn dé 2 llamadas/mes.
+### 3. LinkedIn / IG mínimo viable (Presencia Digital)
+- 1 carrusel o post/semana → link **presencia-digital**
+- 5 DMs/semana solo si hay tiempo (agencias Huancayo o partners)
+- No TikTok hasta 2 clientes Presencia Digital cerrados
 
-## ICP único (no dispersarse)
+## ICP — dos perfiles (no mezclar mensaje)
 
-**Agencia marketing digital 5–50 personas, LatAm, clientes con WhatsApp.**
+| Carril | ICP | Mensaje |
+|--------|-----|---------|
+| **A — Presencia Digital** | PYME Perú: restaurante, clínica, hotel, profesional | Landing + fotos S/149/mes, 5–7 días |
+| **B — Partner** | Agencia 5–50 personas, LatAm, clientes WhatsApp | Colaboración / white-label automatización |
 
-Filtro rápido (sales-qualification):
-- ¿Tienen clientes B2B/B2C con leads WhatsApp? → SÍ seguir
-- ¿Solo piden "chatbot genérico"? → NO por ahora
-- ¿Respondieron o pidieron propuesta? → PRIORIDAD máxima
+Filtro Presencia Digital:
+- ¿Tiene negocio local sin web decente o solo redes? → SÍ seguir
+- ¿Va a pautar en Meta? → PRIORIDAD
+- ¿Es agencia buscando partner IA? → Carril B (Onza), no Presencia Digital
 
-## Métricas que importan (solo 4)
+## Métricas que importan (Presencia Digital)
 
-1. Mensajes LinkedIn enviados / semana (meta: 5)
-2. Respuestas recibidas
-3. Llamadas agendadas (Calendly)
-4. Pilotos / clientes cerrados
+1. WhatsApps / mensajes enviados / semana (meta: 25+ semana 1)
+2. Respuestas recibidas (meta: 5+)
+3. Llamadas o WhatsApp calificados (meta: 2+)
+4. Cierres / pilotos (meta: 3 en 14–21 días)
 
-Ignorar: followers TikTok, likes IG, features shipped.
+Ignorar: followers TikTok, likes sin CTA, features SaaS shipped.
 
 ## Qué pedirle a Cursor en cada sesión
 
 Ejemplos de tareas acotadas (poco tiempo):
 
-- "5 mensajes LinkedIn agencias como Onza"
-- "Propuesta partner para Onza lista para enviar"
-- "Follow-up email 48h Onza"
-- "Mensaje referido para William"
-- "Post LinkedIn esta semana — 1 idea"
+- "10 mensajes WhatsApp Presencia Digital para Huancayo"
+- "Auditoría web gratis + mensaje venta para 3 negocios Maps"
+- "Post/carrusel IG Presencia Digital — slide listo"
+- "Follow-up 48h leads Presencia Digital"
+- "Mensaje referido para William con link presencia-digital"
+- "Rellenar contrato Presencia Digital para [cliente]"
 
 Evitar: "mejora Wavys", "plan marketing completo", "integrar 3 APIs".
 
 ## Meta 30 días (realista)
 
-- Propuesta Onza enviada + 1 llamada agendada
-- 20 mensajes LinkedIn nuevos
-- 1 referido pedido a clientes actuales
-- 1 segundo lead caliente en pipeline
+- **2 clientes Presencia Digital** cerrados o en contrato
+- Plan 7 días ejecutado (WhatsApp + referidos + Meta Ads test)
+- Propuesta Onza enviada (Carril B, paralelo)
+- Pipeline registrado en `log_business_note` tag `presencia-digital`
 
 ## Meta 90 días
 
-- 2 pilotos cerrados (ideal: 1 partner + 1 directo o vía partner)
-- Pipeline repetible: mensaje → propuesta → Calendly → piloto
+- **6+ clientes Presencia Digital** recurrentes
+- Meta Ads escalado si CPL < S/30
+- 1 partner activo (ideal: Onza o agencia Huancayo)
+- Segunda campaña documentada en `campaigns/` si Phil lanza nueva oferta

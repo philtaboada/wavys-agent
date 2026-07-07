@@ -45,6 +45,75 @@ npx skills add anthropics/knowledge-work-plugins@compose-outreach -g -y
 
 ---
 
+## Tier 2b — UI/UX y copiar referencias visuales (Pinterest, Dribbble, Behance)
+
+**No existe** un skill global que copie pins/shots tal cual. Los llamados `pinterest-ui-skills` / `dribbble-ui-skills` construyen UI **estilo app Pinterest/Dribbble**, no tu moodboard.
+
+| Recurso | Para qué |
+|---------|----------|
+| **`agent/skills/reference_ui_copy/SKILL.md`** (repo Wavys) | Pipeline: capturas Phil → patrones → build fiel → validar |
+| `design-patterns-*.md` en `agent/context/` | Fuente de verdad por proyecto (ej. Animal Health) |
+| `nextlevelbuilder/ui-ux-pro-max-skill@ui-ux-pro-max` | Auditoría UX, tipografías, contraste (~248K installs) |
+| `wondelai/skills@web-typography` | Escalas y legibilidad |
+| `notedit/happy-skills@screenshot-analyzer` | Análisis multi-agent de screenshot (opcional, pre-build) |
+
+```bash
+npx skills add nextlevelbuilder/ui-ux-pro-max-skill@ui-ux-pro-max -g -y
+npx skills add wondelai/skills@web-typography -g -y
+# opcional:
+npx skills add notedit/happy-skills@screenshot-analyzer -g -y
+```
+
+**Instalados en Phil (2026-07-03):** `ui-ux-pro-max` ✅ · `screenshot-analyzer` ✅ · `web-typography` ✅
+
+**Flujo Phil:** capturas → `reference_ui_copy` → patrones → **`one_call_landing`** (landing Astro) o **`one_call_website`** (sistema Next)
+
+---
+
+## Tier 2d — Recorte de fondo (flyers, posts, video)
+
+Cuando un asset Gemini (objeto, icono 3D, producto) debe **flotar** sobre otro fondo — no es full-bleed.
+
+| Recurso | Para qué |
+|---------|----------|
+| **`agent/context/image-cutout-pipeline.md`** | Pipeline Wavys: Gemini fondo blanco → PNG transparente → Figma/flyer/HF |
+| `inference-sh/skills@background-removal` | Skill global para quitar fondo (instalar una vez) |
+
+```bash
+npx skills add inference-sh/skills@background-removal -g -y
+```
+
+**Integrado en:** `social_design`, `presencia_brief`, `content_production`, `video_production` (Fase ③b).
+
+**Pendiente repo:** tool `remove_background` en `agent/tools/` — ver checklist en pipeline doc.
+
+---
+
+## Tier 2c — Auditoría web de clientes (investigar URL)
+
+**Skill repo:** `agent/skills/website_audit/SKILL.md` · **Referencia:** `agent/context/website-audit-tools.md`
+
+| Herramienta | Para qué |
+|-------------|----------|
+| **Cursor Browser MCP** (integrado) | Screenshots, UX visual, probar botones — **siempre** en informes |
+| **Browser Use CLI** (`browser-use`) | Python → CDP; batch, checklists repetibles, cloud Chrome |
+| **`curl`** | Peso HTML, enlaces `#`, meta, placeholders dev |
+
+Browser Use **no reemplaza** Cursor Browser para capturas en el chat. Se **complementan**.
+
+```bash
+# Instalar una vez (Mac)
+uv tool install --python 3.12 --upgrade --force browser-use
+browser-use skill install
+browser-use --doctor
+```
+
+Docs: https://docs.browser-use.com/open-source/browser-use-cli
+
+**Flujo Phil:** URL cliente → Cursor Browser (informe + screenshots 390/1440) → opcional `browser-use` si batch → `log_business_note`
+
+---
+
 ## Tier 2 — Marketing y contenido
 
 | Skill | Para qué | Área del plan |
@@ -102,7 +171,31 @@ npx skills add gokapso/agent-skills@integrate-whatsapp -g -y
 
 ---
 
-## Tier 4 — Estrategia y modelo de negocio
+## Campaña Presencia Digital (brief + storytelling)
+
+Instalar cuando reescribas brief, mensajes o landing con narrativa de venta:
+
+| Skill | Installs | Para qué |
+|-------|----------|----------|
+| `rampstackco/claude-skills@creative-brief` | ~95 | Estructurar brief comercial (problema → entregable) |
+| `louisblythe/salesskills@storytelling` | ~151 | Historias y casos en ventas — hacer beneficios concretos |
+| `gtmagents/gtm-agents@brand-narrative-playbook` | ~64 | Arco narrativo: contexto → tensión → resolución → prueba → CTA |
+| `coreyhaines31/marketingskills@copywriting` | — | Copy landing, emails, mensajes (ya en Tier 2) |
+| `thatrebeccarae/claude-marketing@copywriting-frameworks` | ~47 | Frameworks PAS/AIDA para ads y sales pages |
+
+```bash
+npx skills add rampstackco/claude-skills@creative-brief -g -y
+npx skills add louisblythe/salesskills@storytelling -g -y
+npx skills add gtmagents/gtm-agents@brand-narrative-playbook -g -y
+npx skills add thatrebeccarae/claude-marketing@copywriting-frameworks -g -y
+```
+
+Guía interna campaña: `data/presencia-digital-brief/STORYTELLING-GUIA.md`  
+Skill brief comercial: `agent/skills/presencia_brief/SKILL.md`
+
+**Evitar para este caso:** `anthropics/knowledge-work-plugins@sales-brief` — está orientado a análisis PayPal/QuickBooks, no brief comercial PYME.
+
+---
 
 | Skill | Para qué | Área del plan |
 |-------|----------|---------------|
@@ -119,6 +212,9 @@ Estos viven en `agent/skills/` y Cursor los lee en contexto del repo:
 
 | Skill | Cuándo |
 |-------|--------|
+| `one_call_landing` | **Landing** marketing → Astro |
+| `one_call_website` | **Sistema / app** → Next.js |
+| `reference_ui_copy` | Capturas Pinterest, Dribbble, Behance |
 | `sales_pipeline` | LinkedIn, propuestas, Onza |
 | `email` | Envío con `send_email` tool |
 | `reminders` | Plazos y follow-ups |

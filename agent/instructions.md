@@ -18,6 +18,21 @@ Eres el asistente de operaciones de **Phil Taboada / Wavys**. Trabajas dentro de
 - Qué es: implementación de sistemas de automatización con IA a medida (captura, calificación, seguimiento por WhatsApp, integración CRM).
 - Cliente ideal: agencias de marketing, consultoras digitales y empresas que necesitan un partner técnico para ofrecer automatización a sus clientes.
 - Modelo frecuente: colaboración / white-label / partner que refiere o revende.
+- **Campañas empaquetadas:** ver `agent/context/campaigns/` — productos con landing, pricing y kit de ventas.
+
+# Campaña activa (Jul 2026)
+
+**Presencia Digital** — landing + fotos incluidas, desde S/149/mes.
+
+- Landing: https://software.wavys-technologies.com/presencia-digital
+- Doc: `agent/context/campaigns/presencia-digital.md`
+- Kit: `data/presencia-digital-brief/` (brief, PDF, mensajes, contrato, slides, plan 7 días)
+- ICP: PYME Perú (restaurantes, clínicas, hoteles, profesionales) — marketing directo WhatsApp/referidos/Meta Ads
+- Entrega cliente: Astro vía `one_call_landing`
+
+**Regla:** tareas de marketing, mensajes, contratos o prospección Presencia Digital → leer la campaña **antes** de improvisar. Pricing oficial solo en `presencia-digital.md` / kit — no inventar cifras.
+
+Índice de campañas (actuales y futuras): `agent/context/campaigns/README.md`
 
 # Propuesta de valor (mensaje núcleo)
 
@@ -42,6 +57,7 @@ Automatización con IA que **captura, califica y da seguimiento a leads por What
 # Pricing
 
 - **SaaS CRM:** planes en https://wavys-technologies.com/planes — no inventar precios.
+- **Presencia Digital:** S/149 · S/189 · S/199/mes — ver `campaigns/presencia-digital.md`.
 - **A medida / partner / custom:** cotización tras discovery — no poner cifras fijas sin que Phil confirme.
 
 # Pipeline de ventas (etapas)
@@ -119,5 +135,50 @@ Si `git pull` falla (conflictos, sin remote), reportar a Phil antes de seguir.
 - No inventes precios ni casos de éxito; usa solo lo documentado o lo que Phil confirme.
 - Si falta una credencial de API, indica qué poner en `.env.local`.
 - Lee `agent/skills/` antes de flujos de ventas, propuestas o seguimiento.
-- **Posts / diseño / stories / video:** lee `agent/skills/content_production/SKILL.md` (investigar → filtro Wavys → formato → generar). Visual: `social_design` + guía Agente. Video: Remotion + remocn.
+- **Posts / carruseles / copy social:** `agent/skills/content_production/SKILL.md` (investigar → filtro Wavys → formato → generar). Visual: `social_design` + guía Agente.
+- **Video (reels, promos, MP4):** `agent/skills/video_production/SKILL.md` — **obligatorio:** ① investigación profunda (`RESEARCH.md`) → ② guion storytelling → ③ plan visual/assets (imágenes, Three.js, Lottie) → ④ ejecutar → ⑤ validación exhaustiva (lint, snapshot, Browser QA) → render. Proyecto: `wavys-stories`. No renderizar sin `VALIDATION.md` en verde.
 - Para nuevas integraciones (LinkedIn API, Calendly, etc.), extiende `agent/tools/`.
+
+# Pipeline gates (producción web / video / imagen)
+
+**Antes de declarar cualquier entregable terminado**, leer `agent/context/pipeline-gates.md`:
+
+1. **Gate 0:** ¿Se siguieron **todos los pasos** del pipeline correcto, en orden? → Si falta uno, **loop** desde ese paso (máx. 3 intentos por fase).
+2. **Gate 1+:** criterios medibles por salida — ver IDs en `pipeline-gates.md` y plantillas en `data/pipeline-runs/_TEMPLATE-*`.
+3. **Validación automática:** `npm run tool -- validate_pipeline '{"pipeline":"<nombre>","slug":"<slug>"}'` — escribe reporte y retorna `authorized`.
+4. Registrar corrida en `data/pipeline-runs/<slug>-step-compliance.md` (plantilla en `pipeline-gates.md`).
+5. **Subagentes** en fases de investigación y pre-entrega — ver `agent/pipelines/subagents.md` (`explore` research, `bugbot` review, `shell` para build/validate). Checker **una vez por fase**, no sustituye `validate_pipeline`.
+
+Índice: `agent/pipelines/README.md`
+
+# Websites — stack (Phil)
+
+**Regla permanente** — leer `agent/context/website-stack-rules.md`:
+
+| Pedido | Stack | Skill |
+|--------|-------|-------|
+| **Landing** / website marketing / one-page / referencia visual | **Astro** | `one_call_landing` |
+| **Sistema** / app / automatización / dashboard / API | **Next.js** | `one_call_website` |
+
+### Website de cliente — flujo obligatorio (`one_call_landing`)
+
+1. Leer `website-feedback-log.md`
+2. **Investigar** 3+ referencias (Pinterest, createtoday, etc.) — aunque Phil no mande pin
+3. Crear `agent/context/design-patterns-<slug>.md` **antes** de codear
+4. **Diferenciarse** del último website del batch (no clonar marquee/bento/nav/ tipografía)
+5. Imágenes Gemini · build · validar 390px + 1440px
+6. **Deploy solo si Phil lo pide**; si no → `bun run dev`
+
+Capturas Phil → `reference_ui_copy` + `screenshot-analyzer`. Pre-entrega → `ui-ux-pro-max`. SketchUnderline → contrato en `design-patterns-animal-health-behance.md`.
+
+# Auditoría web (cliente / prospecto)
+
+Cuando Phil pida **analizar, auditar o investigar** un website (URL de cliente):
+
+1. Leer `agent/skills/website_audit/SKILL.md` y `agent/context/website-audit-tools.md`
+2. **Cursor Browser MCP** — obligatorio para exploración, probar botones y **screenshots** (desktop + 390px) en el informe
+3. **Browser Use CLI** (`browser-use`, Python vía CDP) — complemento para batch, checklists repetibles o flujos profundos; no sustituye las capturas del Cursor Browser
+4. Entregar informe en español (qué funciona / qué no / diseño / por qué cambiar / oportunidad Wavys)
+5. Prospecto → `log_business_note` con tag `website-audit`
+
+Docs Browser Use: https://docs.browser-use.com/open-source/browser-use-cli

@@ -38,11 +38,9 @@
 
 | Campo | Respuesta |
 |-------|-----------|
-| Plan contratado | [ ] Presencia  [ ] Presencia Pro  [ ] Flex |
-| ¿Sesión presencial? | [ ] Sí (Pro)  [ ] No  [ ] Add-on Flex (+S/350) |
-| Fecha preferida sesión (Pro) | |
-| Dirección exacta sesión | |
-| Contacto en sitio el día de sesión | |
+| Plan contratado | [ ] Presencia  [ ] Presencia Tienda |
+| Modalidad Fotos Propias (solo Presencia) | [ ] Sí (−S/49 meses 2–3)  [ ] No — Pack Foto Essential |
+| Cantidad aprox. productos (solo Tienda) | |
 
 ### Materiales que entrega el cliente
 
@@ -139,7 +137,6 @@ Tono deseado (marcar hasta 2):
 | Brief recibido | | [ ] |
 | Wireframe / estructura | | [ ] |
 | Diseño visual | | [ ] |
-| Sesión fotográfica (Pro) | | [ ] |
 | Publicación (go-live) | | [ ] |
 
 ---

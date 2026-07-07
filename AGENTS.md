@@ -17,6 +17,7 @@ Cursor lee este proyecto, interpreta `agent/instructions.md`, carga skills bajo 
 |---------|-----|
 | `agent/instructions.md` | Identidad y reglas permanentes (como eve instructions) |
 | `agent/skills/` | Procedimientos bajo demanda (como eve skills) |
+| `agent/pipelines/` | Gates, loops, subagentes (`subagents.md`) |
 | `agent/tools/` | Acciones tipadas ejecutables (como eve tools) |
 | `agent/connections/` | Documentación de integraciones externas |
 | `lib/` | Código compartido (clientes API, store, registry) |
@@ -31,6 +32,7 @@ Cursor debe invocar tools con JSON validado:
 npm run tool -- send_email '{"to":["cliente@ejemplo.com"],"subject":"Seguimiento","body":"Hola..."}'
 npm run tool -- create_reminder '{"title":"Llamar proveedor","dueAt":"2026-07-05T10:00:00-05:00"}'
 npm run tool -- log_business_note '{"content":"El cliente prefiere facturación mensual","category":"clientes","tags":["facturacion"]}'
+npm run tool -- validate_pipeline '{"pipeline":"one_call_landing","slug":"miga-pasteleria","runBuild":false}'
 ```
 
 Listar tools:
@@ -45,7 +47,8 @@ npm run tools
 2. Si la tarea encaja con un skill, leer ese `SKILL.md` primero.
 3. Confirmar con el usuario acciones de escritura (email, recordatorios críticos).
 4. Ejecutar el tool correspondiente y reportar el JSON de salida.
-5. Si no existe tool, proponer crear uno en `agent/tools/` + integración en `lib/integrations/`.
+5. En fases de investigación o pre-entrega, usar subagentes según `agent/pipelines/subagents.md` (`explore`, `bugbot`, `shell`).
+6. Si no existe tool, proponer crear uno en `agent/tools/` + integración en `lib/integrations/`.
 
 ## Agregar una integración nueva
 

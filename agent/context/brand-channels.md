@@ -20,6 +20,7 @@ Redes confirmadas por Phil (2026-07-01). Usar para contenido, coherencia de mens
 | Producto SaaS | https://wavys-technologies.com/ | Cliente final |
 | Pricing SaaS | https://wavys-technologies.com/planes | Planes públicos CRM |
 | Servicios / partners | https://software.wavys-technologies.com/ | Agencias, implementación (cotización) |
+| **Presencia Digital** *(campaña activa)* | https://software.wavys-technologies.com/presencia-digital | PYME Perú — landing + fotos desde S/149/mes |
 
 ## Reglas de contenido por canal
 
@@ -46,7 +47,7 @@ Redes confirmadas por Phil (2026-07-01). Usar para contenido, coherencia de mens
 
 **Una línea:** Agentes IA en WhatsApp que capturan, califican y dan seguimiento a leads para más ventas.
 
-**No mezclar:** en post para agencias → software.wavys; en post producto → wavys-technologies.com.
+**No mezclar:** post agencias → software.wavys · post producto SaaS → wavys-technologies.com · **campaña Presencia Digital** → link presencia-digital (doc: `campaigns/presencia-digital.md`).
 
 ## Pendiente / ampliar
 

@@ -195,6 +195,7 @@ Mood: [urgency / empowerment / integration / promo — según post].
 Subject: [abstract WhatsApp chat bubbles / glowing clock / teal mascot drop shape / dashboard hologram].
 No text, no logos, no watermarks. High-end B2B SaaS LatAm aesthetic. Bold and modern, not stock photo.
 Aspect ratio [1:1 | 4:5 | 9:16]. Leave negative space [left | center] for typography overlay in Figma.
+For isolated objects that will be cut out: add solid flat white or #00FF00 chroma background — see agent/context/image-cutout-pipeline.md.
 ```
 
 Ejemplo tool:

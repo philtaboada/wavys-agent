@@ -8,10 +8,8 @@
 
     :root {
       --bg: #eef6f1;
-      --bg-card: #ffffff;
       --green-dark: #1a4d3e;
       --green-mid: #2d6a4f;
-      --green-light: #52b788;
       --green-pale: #d8f3dc;
       --text: #1a2e28;
       --text-muted: #5c7368;
@@ -19,11 +17,7 @@
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    @page {
-      size: A4;
-      margin: 0;
-    }
+    @page { size: A4; margin: 0; }
 
     body {
       font-family: 'DM Sans', system-ui, sans-serif;
@@ -43,21 +37,31 @@
       position: relative;
       background: var(--bg);
     }
-
     .page:last-child { page-break-after: auto; }
 
-    /* Cover */
     .cover {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      background: linear-gradient(165deg, #eef6f1 0%, #d8f3dc 45%, #b7e4c7 100%);
+      background: linear-gradient(165deg, #eef6f1 0%, #d8f3dc 50%, #b7e4c7 100%);
+      padding: 0;
+      overflow: hidden;
     }
+
+    .cover-hero {
+      width: 100%;
+      height: 95mm;
+      object-fit: cover;
+      display: block;
+    }
+
+    .cover-body { padding: 10mm 16mm 14mm; flex: 1; display: flex; flex-direction: column; justify-content: space-between; }
 
     .cover-top {
       display: flex;
       justify-content: space-between;
-      align-items: flex-start;
+      align-items: center;
+      padding: 10mm 16mm 0;
     }
 
     .badge {
@@ -73,12 +77,7 @@
       padding: 5px 12px;
       border-radius: 999px;
     }
-
-    .badge-dot {
-      width: 6px; height: 6px;
-      background: #95d5b2;
-      border-radius: 50%;
-    }
+    .badge-dot { width: 6px; height: 6px; background: #95d5b2; border-radius: 50%; }
 
     .cover-region {
       font-size: 8pt;
@@ -88,69 +87,35 @@
       color: var(--green-mid);
     }
 
-    .cover-main { margin-top: 28mm; }
-
     .cover-label {
       font-size: 8pt;
       letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--green-mid);
-      margin-bottom: 8mm;
+      margin-bottom: 4mm;
     }
 
     .cover h1 {
       font-family: 'Instrument Serif', Georgia, serif;
-      font-size: 38pt;
+      font-size: 34pt;
       font-weight: 400;
       line-height: 1.08;
       color: var(--green-dark);
-      max-width: 160mm;
+      max-width: 170mm;
+    }
+    .cover h1 em { font-style: italic; color: var(--accent); }
+
+    .cover-hook {
+      margin-top: 6mm;
+      font-size: 11pt;
+      color: var(--text);
+      max-width: 165mm;
+      line-height: 1.5;
     }
 
-    .cover h1 em {
-      font-style: italic;
-      color: var(--accent);
-    }
+    .cover-hook strong { color: var(--green-dark); }
 
-    .cover-price {
-      margin-top: 12mm;
-      display: flex;
-      align-items: baseline;
-      gap: 8px;
-    }
-
-    .cover-price .amount {
-      font-size: 42pt;
-      font-weight: 700;
-      color: var(--green-dark);
-      letter-spacing: -0.02em;
-    }
-
-    .cover-price .unit {
-      font-size: 14pt;
-      color: var(--text-muted);
-    }
-
-    .cover-compare {
-      margin-top: 4mm;
-      font-size: 9pt;
-      color: var(--text-muted);
-    }
-
-    .cover-compare strong {
-      color: var(--green-dark);
-      background: var(--green-pale);
-      padding: 2px 8px;
-      border-radius: 4px;
-    }
-
-    .cover-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 10mm;
-    }
-
+    .cover-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8mm; }
     .tag {
       background: #fff;
       border: 1px solid #c7e8d4;
@@ -166,25 +131,22 @@
       justify-content: space-between;
       align-items: flex-end;
       border-top: 1px solid rgba(26,77,62,0.15);
-      padding-top: 8mm;
+      padding-top: 6mm;
     }
-
     .cover-meta { font-size: 8.5pt; color: var(--text-muted); }
     .cover-meta a { color: var(--green-mid); text-decoration: none; font-weight: 600; }
     .cover-stats { display: flex; gap: 10mm; }
     .stat-num { font-size: 22pt; font-weight: 700; color: var(--green-dark); line-height: 1; }
     .stat-label { font-size: 7.5pt; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 2px; }
 
-    /* Inner pages */
     .page-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 8mm;
+      margin-bottom: 7mm;
       padding-bottom: 4mm;
       border-bottom: 2px solid var(--green-dark);
     }
-
     .page-header .brand {
       font-size: 8pt;
       font-weight: 700;
@@ -192,7 +154,6 @@
       text-transform: uppercase;
       color: var(--green-dark);
     }
-
     .page-header .chapter {
       font-size: 7.5pt;
       color: var(--text-muted);
@@ -202,10 +163,10 @@
 
     h2 {
       font-family: 'Instrument Serif', Georgia, serif;
-      font-size: 22pt;
+      font-size: 21pt;
       font-weight: 400;
       color: var(--green-dark);
-      margin-bottom: 5mm;
+      margin-bottom: 4mm;
       line-height: 1.15;
     }
 
@@ -216,13 +177,17 @@
       margin: 5mm 0 2mm;
     }
 
-    p { margin-bottom: 3mm; color: var(--text); }
+    p { margin-bottom: 3mm; }
+    .lead { font-size: 11pt; color: var(--green-mid); margin-bottom: 5mm; max-width: 98%; }
 
-    .lead {
-      font-size: 11.5pt;
-      color: var(--green-mid);
-      margin-bottom: 6mm;
-      max-width: 95%;
+    .story {
+      background: #fff;
+      border-left: 4px solid var(--accent);
+      padding: 5mm 6mm;
+      border-radius: 0 8px 8px 0;
+      margin: 5mm 0;
+      font-size: 10.5pt;
+      line-height: 1.6;
     }
 
     .quote-box {
@@ -230,17 +195,15 @@
       color: #fff;
       padding: 6mm 8mm;
       border-radius: 8px;
-      margin: 6mm 0;
+      margin: 5mm 0;
     }
-
     .quote-box p {
       color: #e8f5e9;
       font-family: 'Instrument Serif', Georgia, serif;
-      font-size: 13pt;
+      font-size: 14pt;
       font-style: italic;
       margin: 0;
     }
-
     .quote-box .sub {
       font-family: 'DM Sans', sans-serif;
       font-size: 8.5pt;
@@ -249,14 +212,7 @@
       color: #95d5b2;
     }
 
-    /* Comparison table */
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 4mm 0 6mm;
-      font-size: 9pt;
-    }
-
+    table { width: 100%; border-collapse: collapse; margin: 4mm 0 5mm; font-size: 9pt; }
     th {
       background: var(--green-dark);
       color: #fff;
@@ -264,106 +220,25 @@
       text-align: left;
       padding: 3mm 4mm;
       font-size: 8pt;
-      letter-spacing: 0.04em;
     }
+    td { padding: 3mm 4mm; border-bottom: 1px solid #c7e8d4; vertical-align: top; }
+    tr:nth-child(even) td { background: rgba(255,255,255,0.65); }
 
-    th:first-child { border-radius: 6px 0 0 0; }
-    th:last-child { border-radius: 0 6px 0 0; }
-
-    td {
-      padding: 3mm 4mm;
-      border-bottom: 1px solid #c7e8d4;
-      vertical-align: top;
-    }
-
-    tr:nth-child(even) td { background: rgba(255,255,255,0.6); }
-
-    /* Plan cards */
-    .plans {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 4mm;
-      margin: 5mm 0;
-    }
-
-    .plan-card {
-      background: #fff;
+    .visual-full img, .visual-side img {
+      width: 100%;
+      border-radius: 8px;
       border: 1px solid #c7e8d4;
-      border-radius: 10px;
-      padding: 5mm;
-      position: relative;
+      display: block;
     }
+    .visual-full img { max-height: 72mm; object-fit: cover; margin: 4mm 0; }
+    .visual-side { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 5mm; align-items: start; margin: 4mm 0; }
 
-    .plan-card.featured {
-      border: 2px solid var(--green-dark);
-      background: linear-gradient(180deg, #fff 0%, #f0faf4 100%);
-    }
-
-    .plan-card .plan-badge {
-      position: absolute;
-      top: -3mm;
-      right: 4mm;
-      background: var(--green-dark);
-      color: #fff;
-      font-size: 6.5pt;
-      font-weight: 700;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      padding: 2px 8px;
-      border-radius: 999px;
-    }
-
-    .plan-name {
-      font-size: 8pt;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-    }
-
-    .plan-price {
-      font-size: 20pt;
-      font-weight: 700;
-      color: var(--green-dark);
-      margin: 2mm 0;
-    }
-
-    .plan-price span { font-size: 9pt; font-weight: 500; color: var(--text-muted); }
-
-    .plan-note {
-      font-size: 7.5pt;
-      color: var(--text-muted);
-      margin-bottom: 3mm;
-    }
-
-    .plan-card ul {
-      list-style: none;
-      font-size: 8pt;
-      color: var(--text);
-    }
-
-    .plan-card li {
-      padding: 1.5mm 0 1.5mm 4mm;
-      position: relative;
-    }
-
-    .plan-card li::before {
-      content: '✓';
-      position: absolute;
-      left: 0;
-      color: var(--accent);
-      font-weight: 700;
-      font-size: 7pt;
-    }
-
-    /* Includes grid */
     .includes {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 3mm;
       margin: 4mm 0;
     }
-
     .include-item {
       background: #fff;
       border: 1px solid #c7e8d4;
@@ -371,13 +246,10 @@
       padding: 4mm;
       display: flex;
       gap: 3mm;
-      align-items: flex-start;
     }
-
     .include-num {
       flex-shrink: 0;
-      width: 7mm;
-      height: 7mm;
+      width: 7mm; height: 7mm;
       background: var(--green-pale);
       color: var(--green-dark);
       font-size: 8pt;
@@ -387,77 +259,87 @@
       align-items: center;
       justify-content: center;
     }
+    .include-item strong { display: block; font-size: 9pt; color: var(--green-dark); margin-bottom: 1mm; }
+    .include-item span { font-size: 8pt; color: var(--text-muted); line-height: 1.4; }
 
-    .include-item strong {
-      display: block;
-      font-size: 9pt;
+    .byo-box {
+      background: linear-gradient(135deg, #fff 0%, #f0faf4 100%);
+      border: 2px solid var(--green-dark);
+      border-radius: 10px;
+      padding: 6mm;
+      margin: 5mm 0;
+    }
+    .byo-box h3 { margin-top: 0; }
+    .byo-highlight {
+      display: inline-block;
+      background: var(--green-pale);
       color: var(--green-dark);
-      margin-bottom: 1mm;
+      font-weight: 700;
+      padding: 2px 10px;
+      border-radius: 4px;
+      font-size: 10pt;
+      margin: 2mm 0 3mm;
     }
 
-    .include-item span {
+    .plans {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5mm;
+      margin: 5mm 0;
+    }
+    .plan-card {
+      background: #fff;
+      border: 1px solid #c7e8d4;
+      border-radius: 10px;
+      padding: 5mm;
+      position: relative;
+    }
+    .plan-card.featured {
+      border: 2px solid var(--green-dark);
+      background: linear-gradient(180deg, #fff 0%, #f0faf4 100%);
+    }
+    .plan-badge {
+      position: absolute;
+      top: -3mm; right: 4mm;
+      background: var(--green-dark);
+      color: #fff;
+      font-size: 6.5pt;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 2px 8px;
+      border-radius: 999px;
+    }
+    .plan-name {
       font-size: 8pt;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
       color: var(--text-muted);
-      line-height: 1.4;
     }
+    .plan-price { font-size: 19pt; font-weight: 700; color: var(--green-dark); margin: 2mm 0; }
+    .plan-price span { font-size: 9pt; font-weight: 500; color: var(--text-muted); }
+    .plan-note { font-size: 7.5pt; color: var(--text-muted); margin-bottom: 3mm; }
+    .plan-card ul { list-style: none; font-size: 8pt; }
+    .plan-card li { padding: 1.5mm 0 1.5mm 4mm; position: relative; }
+    .plan-card li::before { content: '✓'; position: absolute; left: 0; color: var(--accent); font-weight: 700; font-size: 7pt; }
 
-    /* Process steps */
     .steps {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr 1fr;
       gap: 3mm;
       margin: 5mm 0;
     }
-
     .step {
       background: #fff;
       border-radius: 8px;
       padding: 4mm;
       border: 1px solid #c7e8d4;
     }
-
-    .step-num {
-      font-size: 18pt;
-      font-weight: 700;
-      color: var(--green-pale);
-      line-height: 1;
-      margin-bottom: 2mm;
-    }
-
-    .step strong {
-      display: block;
-      font-size: 9pt;
-      color: var(--green-dark);
-      margin-bottom: 1mm;
-    }
-
+    .step-num { font-size: 18pt; font-weight: 700; color: var(--green-pale); line-height: 1; margin-bottom: 2mm; }
+    .step strong { display: block; font-size: 9pt; color: var(--green-dark); margin-bottom: 1mm; }
     .step span { font-size: 7.5pt; color: var(--text-muted); }
 
-    /* Visual page with images */
-    .visual-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4mm;
-      margin: 4mm 0;
-    }
-
-    .visual-grid img {
-      width: 100%;
-      border-radius: 8px;
-      border: 1px solid #c7e8d4;
-      display: block;
-    }
-
-    .visual-full img {
-      width: 100%;
-      max-height: 70mm;
-      object-fit: cover;
-      border-radius: 8px;
-      border: 1px solid #c7e8d4;
-      margin: 4mm 0;
-    }
-
-    /* FAQ */
     .faq-item {
       background: #fff;
       border: 1px solid #c7e8d4;
@@ -465,17 +347,9 @@
       padding: 4mm 5mm;
       margin-bottom: 3mm;
     }
-
-    .faq-item strong {
-      display: block;
-      font-size: 9.5pt;
-      color: var(--green-dark);
-      margin-bottom: 1.5mm;
-    }
-
+    .faq-item strong { display: block; font-size: 9.5pt; color: var(--green-dark); margin-bottom: 1.5mm; }
     .faq-item p { font-size: 9pt; color: var(--text-muted); margin: 0; }
 
-    /* CTA page */
     .cta-page {
       background: linear-gradient(165deg, #eef6f1 0%, #d8f3dc 100%);
       display: flex;
@@ -484,45 +358,19 @@
       align-items: center;
       text-align: center;
     }
-
-    .cta-page h2 {
-      font-size: 28pt;
-      max-width: 150mm;
-      margin-bottom: 6mm;
-    }
-
+    .cta-page h2 { font-size: 26pt; max-width: 155mm; margin-bottom: 5mm; }
     .cta-box {
       background: var(--green-dark);
       color: #fff;
       padding: 8mm 12mm;
       border-radius: 12px;
-      margin: 6mm 0;
+      margin: 5mm 0;
       width: 100%;
       max-width: 160mm;
     }
-
-    .cta-box .url {
-      font-size: 13pt;
-      font-weight: 700;
-      color: #95d5b2;
-      word-break: break-all;
-    }
-
-    .cta-box p {
-      color: #c7e8d4;
-      font-size: 9pt;
-      margin-top: 3mm;
-      margin-bottom: 0;
-    }
-
-    .cta-checklist {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 4mm;
-      margin-top: 8mm;
-    }
-
+    .cta-box .url { font-size: 12pt; font-weight: 700; color: #95d5b2; }
+    .cta-box p { color: #c7e8d4; font-size: 9pt; margin-top: 3mm; margin-bottom: 0; }
+    .cta-checklist { display: flex; flex-wrap: wrap; justify-content: center; gap: 4mm; margin-top: 6mm; }
     .cta-check {
       background: #fff;
       border: 1px solid #c7e8d4;
@@ -545,16 +393,7 @@
       padding-top: 4mm;
     }
 
-    .examples { font-size: 8.5pt; }
-    .examples a { color: var(--green-mid); text-decoration: none; }
-
-    .audience {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 3mm;
-      margin: 4mm 0;
-    }
-
+    .audience { display: flex; flex-wrap: wrap; gap: 3mm; margin: 4mm 0; }
     .audience span {
       background: #fff;
       border: 1px solid #c7e8d4;
@@ -567,251 +406,321 @@
 </head>
 <body>
 
-  <!-- PAGE 1: COVER -->
+  <!-- P1 COVER — storytelling, sin precio -->
   <section class="page cover">
     <div class="cover-top">
-      <span class="badge"><span class="badge-dot"></span> Nuevo servicio</span>
+      <span class="badge"><span class="badge-dot"></span> Wavys Software</span>
       <span class="cover-region">Todo el Perú · 24 regiones</span>
     </div>
-
-    <div class="cover-main">
-      <p class="cover-label">Presencia Digital · Wavys Software</p>
-      <h1>Tu landing con <em>fotos incluidas</em></h1>
-
-      <div class="cover-price">
-        <span class="amount">S/149</span>
-        <span class="unit">/ mes</span>
+    <img class="cover-hero" src="cover-story.jpg" alt="Negocio local con presencia digital" />
+    <div class="cover-body">
+      <div>
+        <p class="cover-label">Presencia Digital</p>
+        <h1>Tu negocio funciona.<br /><em>Online, casi no se nota.</em></h1>
+        <p class="cover-hook">
+          Servicio mensual de presencia digital: landing profesional, fotos, dominio, hosting, SEO, WhatsApp y soporte.
+          <strong>12 meses de acompañamiento · después, renovación opcional.</strong>
+        </p>
+        <div class="cover-tags">
+          <span class="tag">Suscripción mensual</span>
+          <span class="tag">Entrega 5–7 días</span>
+          <span class="tag">Fotos incluidas o propias</span>
+          <span class="tag">Listo para Meta Ads</span>
+        </div>
       </div>
-      <p class="cover-compare">Precio preferencial 12 meses · regular S/179 &nbsp;|&nbsp; <strong>vs S/1,500+ pago único</strong> agencia tradicional</p>
-
-      <div class="cover-tags">
-        <span class="tag">Landing editorial</span>
-        <span class="tag">Pack Foto Essential</span>
-        <span class="tag">Dominio + hosting + SSL</span>
-        <span class="tag">SEO + WhatsApp</span>
-        <span class="tag">Listo para Meta Ads</span>
-        <span class="tag">Entrega 5–7 días</span>
-      </div>
-    </div>
-
-    <div class="cover-bottom">
-      <div class="cover-meta">
-        <strong style="color:var(--green-dark);">Wavys Technologies</strong><br />
-        <a href="https://software.wavys-technologies.com/presencia-digital">software.wavys-technologies.com/presencia-digital</a><br />
-        contact@wavys-technologies.com
-      </div>
-      <div class="cover-stats">
-        <div><div class="stat-num">5–7</div><div class="stat-label">días entrega</div></div>
-        <div><div class="stat-num">24</div><div class="stat-label">regiones</div></div>
+      <div class="cover-bottom">
+        <div class="cover-meta">
+          <strong style="color:var(--green-dark);">Wavys Technologies</strong><br />
+          <a href="https://software.wavys-technologies.com/presencia-digital">software.wavys-technologies.com/presencia-digital</a><br />
+          contact@wavys-technologies.com
+        </div>
+        <div class="cover-stats">
+          <div><div class="stat-num">5–7</div><div class="stat-label">días entrega</div></div>
+          <div><div class="stat-num">12</div><div class="stat-label">meses servicio</div></div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- PAGE 2: PROBLEM + VALUE -->
+  <!-- P2 CONTEXTO + TENSIÓN -->
   <section class="page">
     <div class="page-header">
       <span class="brand">Wavys · Presencia Digital</span>
-      <span class="chapter">Capítulo 01 · Propuesta</span>
+      <span class="chapter">01 · Tu historia</span>
     </div>
 
-    <h2>Tu negocio online, sin inversión inicial alta</h2>
-    <p class="lead">Te entregamos una página web profesional con fotos de calidad, dominio, hosting, SEO y WhatsApp — todo en un solo plan mensual.</p>
+    <h2>Conoces esta historia</h2>
+    <div class="story">
+      Tienes un negocio que <strong>funciona</strong>: clientes contentos, recomendaciones por WhatsApp, buen producto.
+      Pero en Google <strong>casi no existes</strong>. O tu web no transmite lo que se vive adentro — fotos del celular, diseño genérico.
+      Y cuando cotizas con una agencia: <strong>S/1,500+ de golpe</strong>, meses de espera, hosting y dominio aparte.
+    </div>
 
-    <table>
-      <thead>
-        <tr>
-          <th style="width:45%">Hoy (sin Presencia Digital)</th>
-          <th>Con Wavys</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>Solo Instagram o Facebook</td><td><strong>Landing propia en Google</strong></td></tr>
-        <tr><td>Fotos de celular sin tratar</td><td><strong>Pack Foto Essential incluido</strong></td></tr>
-        <tr><td>Dominio, hosting y SSL por separado</td><td><strong>Todo incluido en el plan</strong></td></tr>
-        <tr><td>Pauta sin landing que convierta</td><td><strong>Pixel Meta + WhatsApp listos</strong></td></tr>
-        <tr><td>Semanas o meses de espera</td><td><strong>Entrega en 5–7 días hábiles</strong></td></tr>
-      </tbody>
-    </table>
+    <div class="visual-side">
+      <div>
+        <h3>Lo que pierdes hoy</h3>
+        <table>
+          <tbody>
+            <tr><td>Solo redes sociales</td><td>No apareces cuando te buscan</td></tr>
+            <tr><td>Fotos sin tratar</td><td>Te ves menos profesional</td></tr>
+            <tr><td>Sin landing para pauta</td><td>Meta Ads convierte peor</td></tr>
+            <tr><td>Pago único alto</td><td>Difícil arrancar</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <img src="slide-02-incluye.jpg" alt="Redes vs landing profesional" />
+      </div>
+    </div>
 
     <div class="quote-box">
       <p>"Tu web no puede verse barata por culpa de las fotos."</p>
-      <p class="sub">Por eso incluimos producción visual desde el día uno — retoque, imágenes nuevas o sesión presencial según tu plan.</p>
-    </div>
-
-    <h3>¿Para quién es?</h3>
-    <div class="audience">
-      <span>Restaurantes</span>
-      <span>Clínicas</span>
-      <span>Hoteles</span>
-      <span>Inmobiliarias</span>
-      <span>Ferreterías</span>
-      <span>Tiendas</span>
-      <span>Profesionales</span>
-      <span>Meta Ads</span>
-      <span>Lima y provincias</span>
+      <p class="sub">Por eso incluimos producción visual — o adaptamos las tuyas si ya las tienes.</p>
     </div>
 
     <div class="footer-note">Wavys Software · Presencia Digital · © 2026</div>
   </section>
 
-  <!-- PAGE 3: PLANS -->
+  <!-- P3 RESOLUCIÓN -->
   <section class="page">
     <div class="page-header">
       <span class="brand">Wavys · Presencia Digital</span>
-      <span class="chapter">Capítulo 02 · Planes</span>
+      <span class="chapter">02 · La resolución</span>
     </div>
 
-    <h2>Inversión accesible para cualquier ciudad</h2>
-    <p class="lead">Un solo plan mensual. Sin sorpresas de hosting, dominio o SSL aparte.</p>
+    <h2>Presencia Digital: tu negocio online, mes a mes</h2>
+    <p class="lead">No compras "una web y chau". Contratas un <strong>servicio de suscripción</strong> que te publica en días y te acompaña todo el año.</p>
+
+    <div class="includes">
+      <div class="include-item"><div class="include-num">01</div><div><strong>Landing editorial</strong><span>Diseño premium Wavys. Sin plantillas genéricas.</span></div></div>
+      <div class="include-item"><div class="include-num">02</div><div><strong>Producción visual</strong><span>Pack Foto Essential o tus propias fotos optimizadas.</span></div></div>
+      <div class="include-item"><div class="include-num">03</div><div><strong>Dominio + hosting + SSL</strong><span>Tu dirección web, rápida y segura.</span></div></div>
+      <div class="include-item"><div class="include-num">04</div><div><strong>SEO + WhatsApp + pauta</strong><span>Pixel Meta, Google Tag, formulario listos.</span></div></div>
+      <div class="include-item"><div class="include-num">05</div><div><strong>Soporte mensual</strong><span>Cambios menores de textos, fotos y horarios.</span></div></div>
+      <div class="include-item"><div class="include-num">06</div><div><strong>Entrega 5–7 días</strong><span>Publicada y lista para captar clientes.</span></div></div>
+    </div>
+
+    <div class="visual-full">
+      <img src="slide-01-hero.jpg" alt="Local + landing profesional" />
+    </div>
+
+    <h3>¿Para quién es?</h3>
+    <div class="audience">
+      <span>Restaurantes</span><span>Clínicas</span><span>Hoteles</span><span>Inmobiliarias</span>
+      <span>Tiendas</span><span>Profesionales</span><span>Meta Ads</span><span>Lima y provincias</span>
+    </div>
+
+    <div class="footer-note">Atendemos las 24 regiones del Perú</div>
+  </section>
+
+  <!-- P4 SUSCRIPCIÓN -->
+  <section class="page">
+    <div class="page-header">
+      <span class="brand">Wavys · Presencia Digital</span>
+      <span class="chapter">03 · Suscripción</span>
+    </div>
+
+    <h2>12 meses de servicio. Después, tú decides.</h2>
+    <p class="lead">Modelo de suscripción mensual con compromiso inicial de un año — porque incluimos diseño, dominio y puesta en marcha desde el mes 1.</p>
+
+    <div class="visual-side">
+      <div>
+        <table>
+          <thead><tr><th>Etapa</th><th>Qué significa</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Mes 1</strong></td><td>Brief → visual → build → <strong>web publicada</strong></td></tr>
+            <tr><td><strong>Meses 1–12</strong></td><td>Suscripción activa: hosting, soporte, cambios menores</td></tr>
+            <tr><td><strong>Mes 13+</strong></td><td><strong>Renovación opcional</strong> mes a mes o finalizas</td></tr>
+          </tbody>
+        </table>
+        <div class="quote-box" style="margin-top:5mm;">
+          <p>No pagas miles de soles de golpe.</p>
+          <p class="sub">Pagas mes a mes por un servicio que mantiene tu negocio visible y funcionando.</p>
+        </div>
+      </div>
+      <div>
+        <img src="slide-03-planes.jpg" alt="Modelo de suscripción" />
+      </div>
+    </div>
+
+    <div class="footer-note">vs agencia tradicional: pago único + extras · Presencia Digital: cuota mensual predecible</div>
+  </section>
+
+  <!-- P5 FOTOS PROPIAS -->
+  <section class="page">
+    <div class="page-header">
+      <span class="brand">Wavys · Presencia Digital</span>
+      <span class="chapter">04 · Fotos propias</span>
+    </div>
+
+    <h2>¿Ya tienes fotos? Perfecto.</h2>
+    <p class="lead">Modalidad <strong>Fotos Propias</strong>: tú envías las imágenes, nosotros montamos la landing. Sin Pack Foto Essential — con descuento <strong>solo en meses 2 y 3</strong>.</p>
+
+    <div class="byo-box">
+      <h3>Modalidad Fotos Propias (BYO)</h3>
+      <div class="byo-highlight">−S/49 solo meses 2 y 3 · mes 4+ precio normal</div>
+      <table>
+        <thead><tr><th>Mes</th><th>Presencia BYO</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Mes 1</strong></td><td>S/149</td></tr>
+          <tr><td><strong>Mes 2</strong></td><td><strong>S/100</strong></td></tr>
+          <tr><td><strong>Mes 3</strong></td><td><strong>S/100</strong></td></tr>
+          <tr><td><strong>Mes 4–12</strong></td><td>S/149 (normal)</td></tr>
+        </tbody>
+      </table>
+      <p style="font-size:9pt; color:var(--text-muted); margin-top:3mm;">
+        Requisito: 8–10 fotos en buena resolución (≥1200px), derechos de uso tuyos.
+        Wavys optimiza para web (recorte/formato) — sin retoque profesional ni fotógrafo.
+        En <strong>Presencia Tienda</strong> las fotos de producto son siempre del cliente.
+      </p>
+    </div>
+
+    <div class="visual-full">
+      <img src="slide-04-fotos.jpg" alt="Antes y después — calidad fotográfica" />
+    </div>
+
+    <div class="footer-note">Ideal si ya invertiste en fotos o tienes material de redes que podemos adaptar</div>
+  </section>
+
+  <!-- P6 PLANES -->
+  <section class="page">
+    <div class="page-header">
+      <span class="brand">Wavys · Presencia Digital</span>
+      <span class="chapter">05 · Planes e inversión</span>
+    </div>
+
+    <h2>Inversión mensual</h2>
+    <p class="lead">Precio claro. Sin sorpresas de hosting, dominio o SSL aparte.</p>
 
     <div class="plans">
       <div class="plan-card">
         <div class="plan-name">Presencia</div>
         <div class="plan-price">S/149 <span>/ mes</span></div>
-        <div class="plan-note">12 meses · regular S/179</div>
+        <div class="plan-note">12 meses · luego opcional · regular S/179</div>
         <ul>
-          <li>Landing profesional</li>
+          <li>Landing editorial</li>
           <li>Pack Foto Essential</li>
-          <li>Dominio (año 1)</li>
-          <li>Hosting + SSL + SEO</li>
-          <li>WhatsApp + formulario</li>
+          <li>Dominio (año 1) + hosting</li>
+          <li>SEO + WhatsApp + pixels</li>
           <li>Soporte mensual</li>
+          <li>Entrega 5–7 días</li>
         </ul>
       </div>
-
       <div class="plan-card featured">
-        <span class="plan-badge">Más elegido</span>
-        <div class="plan-name">Presencia Pro</div>
-        <div class="plan-price">S/189 <span>/ mes</span></div>
-        <div class="plan-note">12 meses · regular S/219</div>
+        <span class="plan-badge">Tienda online</span>
+        <div class="plan-name">Presencia Tienda</div>
+        <div class="plan-price">S/229 <span>/ mes</span></div>
+        <div class="plan-note">12 meses · luego opcional · regular S/259</div>
         <ul>
-          <li>Todo Presencia</li>
-          <li>Sesión fotográfica presencial</li>
-          <li>15–20 fotos editadas</li>
-          <li>1 reel corto</li>
-          <li>Entrega prioritaria · 5 días</li>
-        </ul>
-      </div>
-
-      <div class="plan-card">
-        <div class="plan-name">Flex</div>
-        <div class="plan-price">S/199 <span>/ mes</span></div>
-        <div class="plan-note">Sin permanencia</div>
-        <ul>
-          <li>Todo Presencia</li>
-          <li>Cancela cuando quieras</li>
-          <li>Sesión presencial +S/350</li>
-          <li>Misma calidad premium</li>
+          <li>Catálogo autogestionable</li>
+          <li>Hasta 100 productos</li>
+          <li>Carrito → pedido a WhatsApp</li>
+          <li>Panel admin (tus fotos)</li>
+          <li>Dominio + hosting + SEO</li>
+          <li>Entrega 10–14 días</li>
         </ul>
       </div>
     </div>
 
-    <h3>Pack Foto Essential (incluido en todos los planes)</h3>
-    <p>Retoque de hasta <strong>5 fotos tuyas</strong> + <strong>6–8 imágenes profesionales</strong> nuevas para hero, servicios y redes. En Presencia Pro sumamos sesión presencial con fotógrafo en tu local (1.5–2 h): fachada, interior, equipo y producto.</p>
+    <p style="font-size:9pt; color:var(--text-muted);">
+      <strong>Comparación:</strong> agencia tradicional ≈ S/1,500+ pago único + extras anuales.
+      Presencia Digital: cuota mensual predecible con todo incluido.
+      Fotos Propias (Presencia): −S/49 solo meses 2 y 3; del mes 4 al 12, precio normal (ver capítulo 04).
+      Catálogo &gt;100 productos: +S/29/mes por cada 50 adicionales.
+    </p>
 
-    <h3>Presencia Pro — lo más pedido</h3>
-    <p>Ideal para clínicas, restaurantes, hoteles e inmobiliarias. Coordinamos sesión en Lima directamente; en provincias, red de fotógrafos locales o viaje según zona. Atendemos las <strong>24 regiones del Perú</strong>.</p>
-
-    <div class="footer-note">Comparación: agencia tradicional ≈ S/1,500+ pago único + extras · Nosotros: desde S/149/mes todo incluido</div>
+    <div class="footer-note">Ambos planes: 12 meses obligatorios, renovación opcional después</div>
   </section>
 
-  <!-- PAGE 4: INCLUDES + PROCESS -->
+  <!-- P7 PROCESO + PRUEBA -->
   <section class="page">
     <div class="page-header">
       <span class="brand">Wavys · Presencia Digital</span>
-      <span class="chapter">Capítulo 03 · Incluye y proceso</span>
+      <span class="chapter">06 · Proceso y prueba</span>
     </div>
 
-    <h2>Todo lo que tu negocio necesita online</h2>
-
-    <div class="includes">
-      <div class="include-item"><div class="include-num">01</div><div><strong>Diseño editorial premium</strong><span>Landing con dirección visual Wavys. Sin plantillas WordPress genéricas.</span></div></div>
-      <div class="include-item"><div class="include-num">02</div><div><strong>Pack Foto Essential</strong><span>Retoque + imágenes nuevas. Tu web no arranca con fotos de celular sin tratar.</span></div></div>
-      <div class="include-item"><div class="include-num">03</div><div><strong>Dominio incluido</strong><span>Tu dirección web profesional, primer año incluido.</span></div></div>
-      <div class="include-item"><div class="include-num">04</div><div><strong>Hosting + SSL</strong><span>Infraestructura rápida, HTTPS y Core Web Vitals cuidados.</span></div></div>
-      <div class="include-item"><div class="include-num">05</div><div><strong>Listo para pauta</strong><span>Pixel Meta, Google Tag, WhatsApp flotante y formulario conectado.</span></div></div>
-      <div class="include-item"><div class="include-num">06</div><div><strong>Soporte mensual</strong><span>Cambios menores de textos, fotos y horarios incluidos.</span></div></div>
-    </div>
-
-    <h2 style="margin-top:8mm;">De brief a web publicada en una semana</h2>
+    <h2>De brief a web publicada en una semana</h2>
     <div class="steps">
-      <div class="step"><div class="step-num">01</div><strong>Brief</strong><span>Formulario corto + fotos que tengas. Pro: agendamos sesión.</span></div>
-      <div class="step"><div class="step-num">02</div><strong>Visual</strong><span>Retoque, imágenes nuevas o sesión presencial antes del diseño.</span></div>
-      <div class="step"><div class="step-num">03</div><strong>Build</strong><span>Landing con copy claro, CTA visible y base técnica para campañas.</span></div>
-      <div class="step"><div class="step-num">04</div><strong>Live</strong><span>Dominio, hosting, SSL y leads conectados. Lista para vender.</span></div>
+      <div class="step"><div class="step-num">01</div><strong>Brief</strong><span>Formulario + fotos o listado productos.</span></div>
+      <div class="step"><div class="step-num">02</div><strong>Visual</strong><span>Pack Foto o optimización de tus fotos.</span></div>
+      <div class="step"><div class="step-num">03</div><strong>Build</strong><span>Landing o tienda con CTA claro.</span></div>
+      <div class="step"><div class="step-num">04</div><strong>Live</strong><span>Dominio, SSL, WhatsApp (+ panel admin Tienda).</span></div>
     </div>
 
     <div class="visual-full">
-      <img src="slide-04-fotos.jpg" alt="Antes y después — fotos profesionales" />
+      <img src="slide-05-proceso.jpg" alt="Proceso en 4 pasos" />
     </div>
 
-    <div class="footer-note">Tiempo total: 5–7 días hábiles desde brief confirmado · Presencia Pro: prioridad 5 días</div>
-  </section>
-
-  <!-- PAGE 5: EXAMPLES + FAQ + CTA -->
-  <section class="page">
-    <div class="page-header">
-      <span class="brand">Wavys · Presencia Digital</span>
-      <span class="chapter">Capítulo 04 · Ejemplos y FAQ</span>
-    </div>
-
-    <h2>Webs que ya entregamos</h2>
-    <p class="lead">Misma calidad editorial que verás en tu plan. Sitios en vivo — sin capturas de pantalla.</p>
-
-    <table class="examples">
-      <thead>
-        <tr><th>Proyecto</th><th>Sector</th><th>URL</th></tr>
-      </thead>
+    <h3>Webs que ya entregamos</h3>
+    <table>
+      <thead><tr><th>Proyecto</th><th>Sector</th><th>URL</th></tr></thead>
       <tbody>
         <tr><td>La Alcoba</td><td>Restaurante</td><td>restaurant-code.vercel.app</td></tr>
         <tr><td>Inmobiliaria Fabre</td><td>Inmobiliaria</td><td>inmobiliariafabre.com</td></tr>
         <tr><td>Wavys Technologies</td><td>Corporativo</td><td>wavys-technologies.com</td></tr>
-        <tr><td>JLH Corredores de Seguros</td><td>Seguros</td><td>jlhcorredoresdeseguros.com</td></tr>
+        <tr><td>JLH Corredores</td><td>Seguros</td><td>jlhcorredoresdeseguros.com</td></tr>
       </tbody>
     </table>
 
-    <h3 style="margin-top:6mm;">Preguntas frecuentes</h3>
-    <div class="faq-item">
-      <strong>¿Qué incluye el plan mensual?</strong>
-      <p>Landing diseñada y desarrollada, dominio el primer año, hosting con SSL, SEO técnico, WhatsApp + formulario, Pixel Meta + Google Tag, soporte con cambios menores y Pack Foto Essential.</p>
-    </div>
-    <div class="faq-item">
-      <strong>¿Sirve para campañas de Meta Ads?</strong>
-      <p>Sí. Instalamos pixel y tags. Una landing editorial con fotos reales multiplica el ROI de tu pauta en cualquier ciudad del Perú.</p>
-    </div>
-    <div class="faq-item">
-      <strong>¿Puedo cancelar?</strong>
-      <p>Presencia y Pro: 12 meses con precio preferencial. Flex (S/199/mes): sin permanencia. Al terminar, recibes los archivos de tu web.</p>
-    </div>
-
-    <div class="footer-note">Wavys Software · software.wavys-technologies.com · contact@wavys-technologies.com</div>
+    <div class="footer-note">Sitios en vivo — misma calidad editorial que recibirás</div>
   </section>
 
-  <!-- PAGE 6: CTA -->
-  <section class="page cta-page">
-    <p class="cover-label" style="margin-bottom:4mm;">Todo el Perú · Entrega en 5–7 días</p>
-    <h2>Tu negocio merece una web que se vea tan bien como lo que vendes</h2>
-    <p style="max-width:140mm; color:var(--text-muted); font-size:11pt; margin-bottom:4mm;">Landing + fotos + dominio + hosting desde S/149/mes. Escríbenos y te decimos qué plan encaja contigo en 5 minutos.</p>
+  <!-- P8 FAQ -->
+  <section class="page">
+    <div class="page-header">
+      <span class="brand">Wavys · Presencia Digital</span>
+      <span class="chapter">07 · Preguntas frecuentes</span>
+    </div>
 
+    <h2>Lo que nos preguntan antes de empezar</h2>
+
+    <div class="faq-item">
+      <strong>¿Es suscripción o compro la web de una vez?</strong>
+      <p>Suscripción mensual. Pagas por servicio continuo: hosting, soporte, cambios menores — no un pago único grande.</p>
+    </div>
+    <div class="faq-item">
+      <strong>¿Cuánto tiempo debo contratar?</strong>
+      <p>Presencia y Presencia Tienda: <strong>12 meses de servicio</strong>. Pasado el año, <strong>renovar es opcional</strong> mes a mes.</p>
+    </div>
+    <div class="faq-item">
+      <strong>¿Venden tienda online?</strong>
+      <p>Sí — plan <strong>Presencia Tienda</strong> (S/229/mes): catálogo autogestionable, carrito y pedido directo a WhatsApp. Brief aparte disponible.</p>
+    </div>
+    <div class="faq-item">
+      <strong>¿Ya tengo fotos propias?</strong>
+      <p>Modalidad <strong>Fotos Propias</strong> en Presencia: −S/49 en meses 2 y 3; del mes 4 al 12, precio normal. Ver capítulo 04.</p>
+    </div>
+    <div class="faq-item">
+      <strong>¿Sirve para Meta Ads?</strong>
+      <p>Sí. Pixel, tags y landing o tienda optimizada para convertir tráfico de campañas.</p>
+    </div>
+    <div class="faq-item">
+      <strong>¿Puedo cancelar antes de 12 meses?</strong>
+      <p>Ambos planes requieren el año inicial (cubrimos diseño y puesta en marcha). Consulta contrato para penalidades.</p>
+    </div>
+
+    <div class="footer-note">Wavys Software · contact@wavys-technologies.com</div>
+  </section>
+
+  <!-- P9 CTA -->
+  <section class="page cta-page">
+    <p class="cover-label" style="margin-bottom:4mm;">Todo el Perú · Presencia 5–7 d · Tienda 10–14 d</p>
+    <h2>Tu negocio merece verse tan bien online como en la vida real</h2>
+    <p style="max-width:140mm; color:var(--text-muted); font-size:11pt; margin-bottom:4mm;">
+      Escríbenos. Te explicamos si necesitas Presencia (landing) o Presencia Tienda (catálogo + WhatsApp) — sin compromiso, en 5 minutos.
+    </p>
     <div class="cta-box">
       <div style="font-size:9pt; text-transform:uppercase; letter-spacing:0.1em; color:#95d5b2; margin-bottom:3mm;">Consultar ahora</div>
       <div class="url">software.wavys-technologies.com/presencia-digital</div>
-      <p>WhatsApp · contact@wavys-technologies.com · Calendly disponible</p>
+      <p>WhatsApp · contact@wavys-technologies.com</p>
     </div>
-
     <div class="cta-checklist">
+      <span class="cta-check">✓ Suscripción mensual</span>
+      <span class="cta-check">✓ 12 meses · luego opcional</span>
+      <span class="cta-check">✓ Fotos incluidas o propias</span>
       <span class="cta-check">✓ Entrega 5–7 días</span>
-      <span class="cta-check">✓ Fotos incluidas</span>
-      <span class="cta-check">✓ Plan Flex sin permanencia</span>
-      <span class="cta-check">✓ 24 regiones</span>
     </div>
-
-    <div class="visual-grid" style="margin-top:10mm; width:100%; max-width:170mm;">
-      <img src="slide-01-hero.jpg" alt="Presencia Digital" />
-      <img src="slide-03-planes.jpg" alt="Planes" />
-    </div>
-
-    <div class="footer-note" style="position:relative; margin-top:8mm; bottom:auto; left:auto; right:auto;">
+    <div class="footer-note" style="position:relative; margin-top:10mm; bottom:auto; left:auto; right:auto;">
       Wavys Technologies · Presencia Digital · Documento comercial · Julio 2026
     </div>
   </section>

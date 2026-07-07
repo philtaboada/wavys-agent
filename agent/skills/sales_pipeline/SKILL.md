@@ -4,6 +4,10 @@ description: Gestionar leads de LinkedIn, agencias partner y envío de propuesta
 
 # Pipeline comercial (LinkedIn y agencias)
 
+**Gate 0 (pasos):** `agent/context/pipeline-gates.md` § `sales_pipeline`
+
+**Gate 1+ (calidad):** mismo doc § Gate 1+ `sales_pipeline` — `data/pipeline-runs/<lead>-sales-validation.md` (plantilla `_TEMPLATE-sales-validation.md`). **SP-05:** OK Phil obligatorio antes de `send_email`.
+
 Usa esta skill cuando haya respuestas de LinkedIn, pedidos de propuesta, seguimiento a agencias o clientes tipo Onza.
 
 ## Clasificar el lead
@@ -23,6 +27,7 @@ npm run tool -- log_business_note '{"content":"Onza Marketing respondió LinkedI
 ```
 
 2. Redactar propuesta de **colaboración para agencias** (no solo producto):
+   - Opcional: **`generalPurpose`** subagente solo para borrador — prompt en `agent/pipelines/subagents.md` § sales. El padre revisa antes de mostrar a Phil.
    - Qué complementa para sus clientes (captura + calificación + seguimiento WhatsApp).
    - Modelos: referido, co-entrega, implementación white-label.
    - Piloto sugerido con 1 cliente de ellos o demo en 20 min.

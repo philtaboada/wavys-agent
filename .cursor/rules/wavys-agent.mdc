@@ -25,9 +25,21 @@ npm run tool -- <tool_name> '<json>'
 npm run tools
 ```
 
-Tools actuales: `send_email`, `create_reminder`, `log_business_note`, `generate_image`.
+Tools actuales: `send_email`, `create_reminder`, `log_business_note`, `generate_image`, `validate_pipeline`.
 
 Imágenes: lee `.cursor/rules/gemini-image-only.mdc` — solo `gemini-3.1-flash-lite-image`. En **posts sociales**, generar assets creativos con Gemini cuando haga falta e integrar en Figma Agente (ver `agent/skills/social_design/SKILL.md`).
+
+## Pipelines — subagentes
+
+En producción (landing, video, content, audit, etc.), lee `agent/pipelines/subagents.md` y el skill del pipeline.
+
+| Fase | Subagente |
+|------|-----------|
+| Investigación (landing ②, video ①, content ①, audit ②, referencia ②) | `explore` en paralelo |
+| Pre-entrega (landing ⑧, next ⑤.5, video ⑤, referencia ⑥) | `shell` → `validate_pipeline` / hyperframes; luego `bugbot` readonly |
+| Copy / informe comercial | `generalPurpose` readonly como checker |
+
+Registrar en `data/pipeline-runs/<slug>-step-compliance.md` § Subagentes. **Prohibido** subagente en `send_email` o deploy sin OK Phil.
 
 ## Extender el agente
 

@@ -1,17 +1,21 @@
 # Mensajes listos para compartir — Presencia Digital
 
-## WhatsApp (prospecto frío — Huancayo / provincia)
+**Regla:** en primer contacto → **problema + valor + suscripción**. Precios y planes → cuando pidan detalle o en segundo mensaje.
+
+---
+
+## WhatsApp (prospecto frío — sin precio en el gancho)
 
 ```
 Hola [Nombre] 👋
 
-Vi que [negocio] aún no tiene una web propia (o las fotos no reflejan la calidad real del local).
+Vi que [negocio] aún depende solo de redes (o la web no refleja la calidad real del local).
 
-En Wavys lanzamos *Presencia Digital*: landing profesional + fotos incluidas + dominio + hosting + WhatsApp — desde *S/149/mes*, sin pagar S/1,500 de golpe.
+En Wavys tenemos *Presencia Digital*: un servicio mensual que te deja con landing profesional, fotos incluidas, dominio, hosting, SEO y WhatsApp — publicada en 5-7 días.
 
-Entrega en 5-7 días. Atendemos todo el Perú.
+Es suscripción (12 meses de servicio, después tú decides si sigues). Sin pagar S/1,500+ de golpe como agencia tradicional.
 
-¿Te mando el detalle de planes? 👇
+¿Te mando el detalle? 👇
 https://software.wavys-technologies.com/presencia-digital
 ```
 
@@ -22,64 +26,99 @@ https://software.wavys-technologies.com/presencia-digital
 ```
 Hola [Nombre],
 
-Revisé la web de [negocio] — el diseño está bien encaminado pero las fotos hacen que se vea menos profesional de lo que realmente es.
+Revisé la web de [negocio] — el diseño va bien pero las fotos hacen que se vea menos profesional de lo que realmente es.
 
-Tenemos un plan desde S/149/mes que incluye landing editorial + *Pack Foto Essential* (retoque + imágenes nuevas). El Pro (S/189) trae fotógrafo a tu local.
+Tenemos un servicio mensual de presencia digital: landing editorial + Pack Foto Essential (retoque + imágenes nuevas).
 
-Acá están los planes: https://software.wavys-technologies.com/presencia-digital
+12 meses de servicio incluido; después la renovación es opcional.
 
-¿Te interesa que te cuente cuál encaja mejor?
+¿Te cuento cuál plan encaja mejor — Presencia o Presencia Tienda?
+https://software.wavys-technologies.com/presencia-digital
 ```
 
 ---
 
-## WhatsApp (reenviar brief — 1 mensaje largo)
+## WhatsApp (tienda / ferretería / catálogo grande)
+
+```
+Hola [Nombre],
+
+Vi [negocio] — vendes por WhatsApp pero el catálogo se complica cuando tienes muchos productos.
+
+Tenemos *Presencia Tienda*: catálogo web autogestionable donde el cliente arma el carrito y el pedido llega directo a tu WhatsApp — tú subes fotos y precios, sin sesión fotográfica.
+
+S/229/mes · 12 meses de servicio · entrega 10-14 días · sin comisión por venta.
+
+¿Cuántos productos manejas? Te confirmo alcance 👇
+https://software.wavys-technologies.com/presencia-digital#tienda
+```
+
+---
+
+## WhatsApp (cliente que ya tiene fotos — storytelling + BYO)
+
+```
+Hola [Nombre],
+
+Vi [negocio] — se nota el nivel del local, pero online las fotos no cuentan esa misma historia (mucho celular o material viejo).
+
+Si ya tienes fotos listas, tenemos Presencia Digital en modalidad *Fotos Propias*: tú las envías, nosotros montamos la landing, dominio, hosting, WhatsApp y soporte mensual.
+
+Mes 1 publicamos todo. *Meses 2 y 3* bajan S/49 porque no incluimos producción visual. *Del mes 4 al 12*, precio normal del plan.
+
+¿Te explico cómo funciona? Sin compromiso 👇
+https://software.wavys-technologies.com/presencia-digital
+```
+
+---
+
+## WhatsApp (detalle con precios — segundo mensaje)
 
 ```
 📌 *Presencia Digital — Wavys*
 
-Tu landing con *fotos incluidas* desde *S/149/mes*
+*Qué es:* servicio mensual de presencia online — landing o tienda, dominio, hosting, SEO, WhatsApp y soporte.
+
+*Cómo funciona:*
+• Pagas mes a mes (no un pago único grande)
+• 12 meses de servicio en ambos planes
+• Después del año: sigues si quieres, o finalizas
 
 ✅ Diseño editorial (sin plantillas)
-✅ Pack Foto Essential incluido
-✅ Dominio + hosting + SSL
-✅ SEO + WhatsApp + formulario
+✅ Dominio + hosting + SSL + SEO
 ✅ Listo para Meta Ads
-✅ Entrega 5-7 días · Todo el Perú
+✅ Todo el Perú
 
-*Planes:*
-• Presencia — S/149/mes (12 meses)
-• Presencia Pro ⭐ — S/189/mes + sesión fotográfica presencial
-• Flex — S/199/mes sin permanencia
-
-vs agencia tradicional: S/1,500+ pago único
+*Inversión mensual:*
+• Presencia — S/149/mes (landing + Pack Foto Essential)
+• Presencia Tienda — S/229/mes (catálogo + carrito → WhatsApp + panel admin)
 
 👉 Ver todo: https://software.wavys-technologies.com/presencia-digital
 ```
 
 ---
 
-## LinkedIn post (copiar)
+## LinkedIn post (valor primero)
 
 ```
-La mayoría de landings en Perú arrancan con fotos de celular sin tratar.
+La mayoría de negocios en Perú siguen vendiendo solo por Instagram.
 
-El diseño puede ser perfecto — si las fotos se ven baratas, la web se ve barata.
+El diseño puede ser perfecto — si no tienes landing propia o las fotos se ven baratas, pierdes confianza (y conversiones en pauta).
 
-Por eso en Wavys lanzamos Presencia Digital:
+En Wavys lanzamos *Presencia Digital*:
 
-→ Landing editorial premium
-→ Pack Foto Essential incluido (retoque + imágenes nuevas)
-→ Dominio, hosting, SEO, WhatsApp
-→ Desde S/149/mes — sin inversión inicial alta
-→ Entrega en 5-7 días · 24 regiones
+→ Landing editorial premium (Presencia)
+→ Tienda con pedido a WhatsApp (Presencia Tienda)
+→ Dominio, hosting, SEO
+→ Servicio mensual — 12 meses de acompañamiento, después renovación opcional
+→ Entrega 5–7 días (landing) · 10–14 días (tienda)
 
-Plan Pro (S/189/mes): fotógrafo en tu local + 15-20 fotos editadas + reel.
+No es “comprar una web y chau”. Es tener presencia online funcionando mes a mes.
 
-Ejemplos en vivo en la página 👇
+Ejemplos y planes 👇
 https://software.wavys-technologies.com/presencia-digital
 
-#marketingdigital #pymes #Perú #landingpage #Huancayo
+#marketingdigital #pymes #Perú #landingpage #ecommerce
 ```
 
 ---
@@ -87,32 +126,34 @@ https://software.wavys-technologies.com/presencia-digital
 ## Instagram caption (carrusel 5 slides)
 
 ```
-Tu negocio merece una web que se vea tan bien como lo que vendes 📸
+Tu negocio merece estar en Google — con landing o tienda que vende 📸
 
 Desliza → te explico Presencia Digital en 5 slides.
 
-Landing + fotos + dominio + hosting desde S/149/mes.
-Sin pagar S/1,500 de golpe. Entrega en 5-7 días.
+Servicio mensual: web + dominio + hosting + soporte.
+12 meses de servicio. Después, tú decides si sigues.
+
+¿Productos? Presencia Tienda: catálogo + pedido a WhatsApp.
 
 Link en bio 👉 software.wavys-technologies.com/presencia-digital
 
-#presenciadigital #landingpage #emprendedores #Huancayo #Perú #wavys
+#presenciadigital #landingpage #emprendedores #Perú #wavys
 ```
 
 ---
 
 ## Email corto (referido / partner)
 
-**Asunto:** Landing + fotos incluidas para tus clientes — desde S/149/mes
+**Asunto:** Servicio mensual de presencia digital para tus clientes
 
 ```
 Hola [Nombre],
 
-Somos Wavys Software. Acabamos de lanzar Presencia Digital: landing editorial con fotos profesionales incluidas, dominio, hosting, SEO y WhatsApp — desde S/149/mes.
+Somos Wavys Software. Lanzamos Presencia Digital: servicio de suscripción mensual con landing editorial o tienda con pedido a WhatsApp, dominio, hosting, SEO y soporte.
 
-Creemos que encaja perfecto con clientes tuyos que necesitan web pero no quieren pagar S/1,500+ de golpe.
+Modelo: 12 meses de servicio (compromiso inicial), renovación opcional después. Ideal para clientes tuyos que necesitan web pero no quieren S/1,500+ de golpe.
 
-¿Te interesa ver la página y hablar de colaboración / referidos?
+¿Te interesa ver la página y hablar de referidos?
 
 https://software.wavys-technologies.com/presencia-digital
 

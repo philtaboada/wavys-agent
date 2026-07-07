@@ -14,6 +14,19 @@ Documento vivo para Phil y para Cursor. Actualizar cuando cambien precios, ICP o
 
 **Regla:** agencia que pide propuesta → Software/partner primero. Empresa con dolor operativo → SaaS Wavys.
 
+### Campaña activa — Presencia Digital
+
+Producto empaquetado bajo Wavys Software (landing + fotos + hosting mensual). **No es SaaS CRM ni partner custom.**
+
+| | |
+|--|--|
+| Landing | https://software.wavys-technologies.com/presencia-digital |
+| Doc campaña | `agent/context/campaigns/presencia-digital.md` |
+| Kit ventas | `data/presencia-digital-brief/` |
+| Pricing | S/149 Presencia · S/229 Presencia Tienda/mes |
+
+Ver `growth-focus-phil.md` para prioridad de tiempo Phil.
+
 ---
 
 ## 1. Marketing

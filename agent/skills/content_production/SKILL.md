@@ -1,21 +1,31 @@
 # Skill — Producción de contenido Wavys (investigar → decidir → crear)
 
-Usar cuando Phil pida posts, stories, reels, carruseles o video (IG, LinkedIn, Facebook, TikTok).
+Usar cuando Phil pida posts, stories, carruseles o copy social (IG, LinkedIn, Facebook, TikTok).
+
+**Video (reels, promos, MP4):** usar **`agent/skills/video_production/SKILL.md`** — pipeline propio (investigación profunda → storytelling → plan visual → ejecutar → validación exhaustiva). Este skill complementa con filtro Wavys cuando aplique.
 
 **Regla madre:** Nada se publica sin OK de Phil. Cada pieza debe **conectar con lo que hace Wavys** (IA, WhatsApp, leads, automatización, agencias) — no contenido genérico de tendencia.
 
+**Gate 0 (pasos):** `agent/context/pipeline-gates.md` § `content_production` — log en `data/pipeline-runs/<slug>-step-compliance.md`
+
+**Gate 1+ (calidad):** mismo doc § Gate 1+ `content_production` — `data/pipeline-runs/<slug>-content-validation.md` + copy en `data/content-drafts/<slug>-copy.md` (plantilla `_TEMPLATE-content-validation.md`)
+
 ---
 
-## Pipeline completo (7 fases)
+## Pipeline completo (7 fases) — posts / carruseles / copy
 
 ```
 ① INVESTIGAR → ② FILTRAR WAVYS → ③ ELEGIR FORMATO → ④ GUION + COPY
        → ⑤ VISUAL (Figma / Gemini / Remotion) → ⑥ GENERAR → ⑦ ENTREGAR
 ```
 
+**Nota video:** la Fase 1 de este skill es **básica** para posts. Para **video**, la investigación vive en `video_production` Fase ① (8+ búsquedas, 10+ fuentes, `RESEARCH.md`).
+
 ---
 
 ## Fase 1 — Investigar
+
+**Subagente ①:** **`explore`** en paralelo — prompt en `agent/pipelines/subagents.md` § content ①.
 
 **Objetivo:** Qué se está haciendo / diciendo en el tema (ej. Mundial, IA, WhatsApp marketing).
 
@@ -84,6 +94,10 @@ Decisión documentada en 1 línea: *“Ángulo X → Story 15s porque…”*
 
 **Creatividad:** cada pieza distinta en metáfora visual y hook; no repetir el mismo template de frase.
 
+### Subagente ④ (después de guardar copy)
+
+**`generalPurpose`** readonly — score copy vs `content-feedback-log` y filtro Wavys (`CP-F01`–`CP-C07`). Prompt en `agent/pipelines/subagents.md`. Si algún criterio <8 → loop en ④ (máx. 3).
+
 ---
 
 ## Fase 5 — Visual (creativo, híbrido)
@@ -97,19 +111,21 @@ Leer siempre:
 | Tipo pieza | Herramientas |
 |------------|--------------|
 | **Imagen estática** | Figma Agente + Gemini assets (`generate_image`) |
+| **Objeto flotante / cutout** | Gemini → quitar fondo → PNG — `agent/context/image-cutout-pipeline.md` |
 | **Video 15s** | **Remotion + remocn** (+ Gemini fondos si aplica) |
 
 ### Gemini (cuando aplique)
 
 - Fondos aurora, 3D glass, escenas **sin texto**
+- **Cutout:** si un objeto debe ir sobre otro fondo → pipeline cutout (blanco/chroma → PNG)
 - Prompt: plantilla §5 guía visual
 - Ratio story: `9:16`
 
-### Video (Remotion)
+### Video (Remotion / HyperFrames)
 
-- Proyecto: crear/mantener repo o carpeta `wavys-stories` (fuera de wavys-agents o subcarpeta — decidir con Phil)
-- Skills: `bunx skills add remotion-dev/skills`
-- Componentes: remocn (typewriter, transitions, mesh-gradient, etc.)
+- **Pipeline obligatorio:** `agent/skills/video_production/SKILL.md`
+- Proyecto: `wavys-stories` (`videos/<slug>/` HyperFrames o `src/compositions/` Remotion)
+- Skills: `remotion-best-practices`, `hyperframes-animation`, `product-launch-video`
 - Ver `agent/context/remocn-video-ecosystem.md`
 
 ### Figma
@@ -171,6 +187,8 @@ Mismo ángulo investigado:
 
 ## Checklist rápido (agente)
 
+**Gate 1+ completo:** `data/pipeline-runs/<slug>-content-validation.md` — criterios en `agent/context/pipeline-gates.md` § Gate 1+ `content_production`.
+
 - [ ] Investigué tendencias reales del tema
 - [ ] Ángulo pasa filtro Wavys (WhatsApp / IA / leads)
 - [ ] Elegí formato con razón
@@ -188,9 +206,11 @@ Mismo ángulo investigado:
 |-----|-----|
 | `agent/context/wavys-visual-brand-guide.md` | Marca visual |
 | `agent/context/brand-channels.md` | CTAs por canal |
+| `agent/skills/video_production/SKILL.md` | **Pipeline video completo** |
 | `agent/context/remocn-video-ecosystem.md` | Video Remotion/remocn |
 | `agent/skills/content_craft/SKILL.md` | Anti AI-slop — mezcla Figma/screenshot/Gemini |
 | `agent/connections/gemini-image.md` | Tool imágenes |
+| `agent/context/image-cutout-pipeline.md` | **Recorte fondo** — Gemini → PNG para flyers/video |
 | `agent/connections/figma-posts.md` | File Figma |
 
 ---

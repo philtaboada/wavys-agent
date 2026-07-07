@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Presencia Tienda — Wavys Technologies</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap');
+
+    :root {
+      --bg: #eef6f1;
+      --green-dark: #1a4d3e;
+      --green-mid: #2d6a4f;
+      --green-pale: #d8f3dc;
+      --text: #1a2e28;
+      --text-muted: #5c7368;
+      --accent: #40916c;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    @page { size: A4; margin: 0; }
+
+    body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      font-size: 10.5pt;
+      line-height: 1.55;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      padding: 14mm 16mm 18mm;
+      page-break-after: always;
+      position: relative;
+      background: var(--bg);
+    }
+    .page:last-child { page-break-after: auto; }
+
+    .cover {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: linear-gradient(165deg, #eef6f1 0%, #d8f3dc 50%, #b7e4c7 100%);
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .cover-hero {
+      width: 100%;
+      height: 95mm;
+      object-fit: cover;
+      display: block;
+    }
+
+    .cover-body { padding: 10mm 16mm 14mm; flex: 1; display: flex; flex-direction: column; justify-content: space-between; }
+
+    .cover-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10mm 16mm 0;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--green-dark);
+      color: #fff;
+      font-size: 7.5pt;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 999px;
+    }
+    .badge-dot { width: 6px; height: 6px; background: #95d5b2; border-radius: 50%; }
+
+    .cover-region {
+      font-size: 8pt;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--green-mid);
+    }
+
+    .cover-label {
+      font-size: 8pt;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--green-mid);
+      margin-bottom: 4mm;
+    }
+
+    .cover h1 {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: 34pt;
+      font-weight: 400;
+      line-height: 1.08;
+      color: var(--green-dark);
+      max-width: 170mm;
+    }
+    .cover h1 em { font-style: italic; color: var(--accent); }
+
+    .cover-hook {
+      margin-top: 6mm;
+      font-size: 11pt;
+      color: var(--text);
+      max-width: 165mm;
+      line-height: 1.5;
+    }
+    .cover-hook strong { color: var(--green-dark); }
+
+    .cover-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8mm; }
+    .tag {
+      background: #fff;
+      border: 1px solid #c7e8d4;
+      color: var(--green-dark);
+      font-size: 8pt;
+      font-weight: 500;
+      padding: 5px 12px;
+      border-radius: 999px;
+    }
+
+    .cover-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      border-top: 1px solid rgba(26,77,62,0.15);
+      padding-top: 6mm;
+    }
+    .cover-meta { font-size: 8.5pt; color: var(--text-muted); }
+    .cover-meta a { color: var(--green-mid); text-decoration: none; font-weight: 600; }
+    .cover-stats { display: flex; gap: 10mm; }
+    .stat-num { font-size: 22pt; font-weight: 700; color: var(--green-dark); line-height: 1; }
+    .stat-label { font-size: 7.5pt; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 2px; }
+
+    .page-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 7mm;
+      padding-bottom: 4mm;
+      border-bottom: 2px solid var(--green-dark);
+    }
+    .page-header .brand {
+      font-size: 8pt;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--green-dark);
+    }
+    .page-header .chapter {
+      font-size: 7.5pt;
+      color: var(--text-muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: 21pt;
+      font-weight: 400;
+      color: var(--green-dark);
+      margin-bottom: 4mm;
+      line-height: 1.15;
+    }
+
+    h3 {
+      font-size: 11pt;
+      font-weight: 700;
+      color: var(--green-dark);
+      margin: 5mm 0 2mm;
+    }
+
+    p { margin-bottom: 3mm; }
+    .lead { font-size: 11pt; color: var(--green-mid); margin-bottom: 5mm; max-width: 98%; }
+
+    .story {
+      background: #fff;
+      border-left: 4px solid var(--accent);
+      padding: 5mm 6mm;
+      border-radius: 0 8px 8px 0;
+      margin: 5mm 0;
+      font-size: 10.5pt;
+      line-height: 1.6;
+    }
+
+    .quote-box {
+      background: var(--green-dark);
+      color: #fff;
+      padding: 6mm 8mm;
+      border-radius: 8px;
+      margin: 5mm 0;
+    }
+    .quote-box p {
+      color: #e8f5e9;
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: 14pt;
+      font-style: italic;
+      margin: 0;
+    }
+    .quote-box .sub {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 8.5pt;
+      font-style: normal;
+      margin-top: 3mm;
+      color: #95d5b2;
+    }
+
+    table { width: 100%; border-collapse: collapse; margin: 4mm 0 5mm; font-size: 9pt; }
+    th {
+      background: var(--green-dark);
+      color: #fff;
+      font-weight: 600;
+      text-align: left;
+      padding: 3mm 4mm;
+      font-size: 8pt;
+    }
+    td { padding: 3mm 4mm; border-bottom: 1px solid #c7e8d4; vertical-align: top; }
+    tr:nth-child(even) td { background: rgba(255,255,255,0.65); }
+
+    .visual-full img, .visual-side img {
+      width: 100%;
+      border-radius: 8px;
+      border: 1px solid #c7e8d4;
+      display: block;
+    }
+    .visual-full img { max-height: 72mm; object-fit: cover; margin: 4mm 0; }
+    .visual-side { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 5mm; align-items: start; margin: 4mm 0; }
+
+    .includes {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3mm;
+      margin: 4mm 0;
+    }
+    .include-item {
+      background: #fff;
+      border: 1px solid #c7e8d4;
+      border-radius: 8px;
+      padding: 4mm;
+      display: flex;
+      gap: 3mm;
+    }
+    .include-num {
+      flex-shrink: 0;
+      width: 7mm; height: 7mm;
+      background: var(--green-pale);
+      color: var(--green-dark);
+      font-size: 8pt;
+      font-weight: 700;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .include-item strong { display: block; font-size: 9pt; color: var(--green-dark); margin-bottom: 1mm; }
+    .include-item span { font-size: 8pt; color: var(--text-muted); line-height: 1.4; }
+
+    .flow-box {
+      background: linear-gradient(135deg, #fff 0%, #f0faf4 100%);
+      border: 2px solid var(--green-dark);
+      border-radius: 10px;
+      padding: 6mm;
+      margin: 5mm 0;
+    }
+    .flow-step {
+      display: flex;
+      gap: 4mm;
+      padding: 3mm 0;
+      border-bottom: 1px solid #d8f3dc;
+      font-size: 9pt;
+    }
+    .flow-step:last-child { border-bottom: none; }
+    .flow-num {
+      flex-shrink: 0;
+      width: 8mm; height: 8mm;
+      background: var(--green-dark);
+      color: #fff;
+      font-size: 8pt;
+      font-weight: 700;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .flow-step strong { display: block; color: var(--green-dark); font-size: 9pt; }
+    .flow-step span { color: var(--text-muted); font-size: 8pt; }
+
+    .plan-card {
+      background: #fff;
+      border: 2px solid var(--green-dark);
+      border-radius: 10px;
+      padding: 6mm;
+      background: linear-gradient(180deg, #fff 0%, #f0faf4 100%);
+      margin: 5mm 0;
+    }
+    .plan-name {
+      font-size: 8pt;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .plan-price { font-size: 24pt; font-weight: 700; color: var(--green-dark); margin: 2mm 0; }
+    .plan-price span { font-size: 10pt; font-weight: 500; color: var(--text-muted); }
+    .plan-note { font-size: 8pt; color: var(--text-muted); margin-bottom: 4mm; }
+    .plan-card ul { list-style: none; font-size: 9pt; columns: 2; column-gap: 6mm; }
+    .plan-card li { padding: 1.5mm 0 1.5mm 4mm; position: relative; break-inside: avoid; }
+    .plan-card li::before { content: '✓'; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+
+    .steps {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      gap: 3mm;
+      margin: 5mm 0;
+    }
+    .step {
+      background: #fff;
+      border-radius: 8px;
+      padding: 4mm;
+      border: 1px solid #c7e8d4;
+    }
+    .step-num { font-size: 18pt; font-weight: 700; color: var(--green-pale); line-height: 1; margin-bottom: 2mm; }
+    .step strong { display: block; font-size: 9pt; color: var(--green-dark); margin-bottom: 1mm; }
+    .step span { font-size: 7.5pt; color: var(--text-muted); }
+
+    .faq-item {
+      background: #fff;
+      border: 1px solid #c7e8d4;
+      border-radius: 8px;
+      padding: 4mm 5mm;
+      margin-bottom: 3mm;
+    }
+    .faq-item strong { display: block; font-size: 9.5pt; color: var(--green-dark); margin-bottom: 1.5mm; }
+    .faq-item p { font-size: 9pt; color: var(--text-muted); margin: 0; }
+
+    .cta-page {
+      background: linear-gradient(165deg, #eef6f1 0%, #d8f3dc 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    .cta-page h2 { font-size: 26pt; max-width: 155mm; margin-bottom: 5mm; }
+    .cta-box {
+      background: var(--green-dark);
+      color: #fff;
+      padding: 8mm 12mm;
+      border-radius: 12px;
+      margin: 5mm 0;
+      width: 100%;
+      max-width: 160mm;
+    }
+    .cta-box .url { font-size: 12pt; font-weight: 700; color: #95d5b2; }
+    .cta-box p { color: #c7e8d4; font-size: 9pt; margin-top: 3mm; margin-bottom: 0; }
+    .cta-checklist { display: flex; flex-wrap: wrap; justify-content: center; gap: 4mm; margin-top: 6mm; }
+    .cta-check {
+      background: #fff;
+      border: 1px solid #c7e8d4;
+      padding: 3mm 6mm;
+      border-radius: 999px;
+      font-size: 8.5pt;
+      font-weight: 500;
+      color: var(--green-dark);
+    }
+
+    .footer-note {
+      position: absolute;
+      bottom: 12mm;
+      left: 16mm;
+      right: 16mm;
+      text-align: center;
+      font-size: 7.5pt;
+      color: var(--text-muted);
+      border-top: 1px solid rgba(26,77,62,0.12);
+      padding-top: 4mm;
+    }
+
+    .audience { display: flex; flex-wrap: wrap; gap: 3mm; margin: 4mm 0; }
+    .audience span {
+      background: #fff;
+      border: 1px solid #c7e8d4;
+      padding: 2mm 4mm;
+      border-radius: 6px;
+      font-size: 8.5pt;
+      color: var(--green-dark);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- P1 COVER — storytelling, sin precio -->
+  <section class="page cover">
+    <div class="cover-top">
+      <span class="badge"><span class="badge-dot"></span> Presencia Tienda</span>
+      <span class="cover-region">Todo el Perú · 24 regiones</span>
+    </div>
+    <img class="cover-hero" src="cover-tienda.jpg" alt="Tienda local con catálogo digital" />
+    <div class="cover-body">
+      <div>
+        <p class="cover-label">Presencia Digital · E-commerce</p>
+        <h1>Vendes por WhatsApp.<br /><em>Tu catálogo no escala.</em></h1>
+        <p class="cover-hook">
+          Servicio mensual con tienda web autogestionable: el cliente arma el carrito y el pedido llega ordenado a tu WhatsApp.
+          <strong>12 meses de acompañamiento · después, renovación opcional.</strong>
+        </p>
+        <div class="cover-tags">
+          <span class="tag">Catálogo en Google</span>
+          <span class="tag">Panel autogestionable</span>
+          <span class="tag">Sin comisión por venta</span>
+          <span class="tag">Tus fotos de producto</span>
+        </div>
+      </div>
+      <div class="cover-bottom">
+        <div class="cover-meta">
+          <strong style="color:var(--green-dark);">Wavys Technologies</strong><br />
+          <a href="https://software.wavys-technologies.com/presencia-digital#tienda">software.wavys-technologies.com/presencia-digital</a><br />
+          contact@wavys-technologies.com
+        </div>
+        <div class="cover-stats">
+          <div><div class="stat-num">10–14</div><div class="stat-label">días entrega</div></div>
+          <div><div class="stat-num">12</div><div class="stat-label">meses servicio</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- P2 CONTEXTO + TENSIÓN -->
+  <section class="page">
+    <div class="page-header">
+      <span class="brand">Wavys · Presencia Tienda</span>
+      <span class="chapter">01 · Tu historia</span>
+    </div>
+
+    <h2>Conoces esta historia</h2>
+    <div class="story">
+      Vendes bien por WhatsApp e Instagram. Clientes contentos, repiten, recomiendan.
+      Pero en Google <strong>casi no existen tus productos</strong>. Mandas fotos una por una, respondes precio por precio.
+      Con 20 SKUs aguanta — con <strong>80 o 200</strong>, el caos come ventas.
+      Y la agencia pide <strong>S/4,000–5,000+ de golpe</strong> por un e-commerce a medida — catálogo, diseño e integraciones aparte. Meses de espera.
+    </div>
+
+    <div class="visual-side">
+      <div>
+        <h3>Lo que pierdes hoy</h3>
+        <table>
+          <tbody>
+            <tr><td>Solo catálogo WhatsApp</td><td>No indexas en Google</td></tr>
+            <tr><td>Fotos sueltas en chat</td><td>Cliente abandona</td></tr>
+            <tr><td>Plantilla Tiendanube</td><td>Genérico + comisiones</td></tr>
+            <tr><td>Agencia e-commerce</td><td>S/4,000–8,000+ de golpe + extras</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <img src="slide-02-incluye.jpg" alt="Caos en chat vs catálogo ordenado" />
+      </div>
+    </div>
+
+    <div class="quote-box">
+      <p>"No necesitas un fotógrafo por cada producto — necesitas un catálogo que ordene tu venta."</p>
+      <p class="sub">Tú subes las fotos. Nosotros diseñamos, publicamos y te capacitamos.</p>
+    </div>
+
+    <div class="footer-note">Wavys Software · Presencia Tienda · © 2026</div>
+  </section>
+
+  <!-- P3 RESOLUCIÓN -->
+  <section class="page">
+    <div class="page-header">
+      <span class="brand">Wavys · Presencia Tienda</span>
+      <span class="chapter">02 · La resolución</span>
+    </div>
+
+    <h2>Presencia Tienda: catálogo profesional que cierra en WhatsApp</h2>
+    <p class="lead">No es software que instalas y te olvidas. Es un <strong>servicio mensual</strong>: diseño, tienda publicada, hosting, panel admin y soporte.</p>
+
+    <div class="includes">
+      <div class="include-item"><div class="include-num">01</div><div><strong>Catálogo web</strong><span>Productos indexables en Google — categorías y búsqueda.</span></div></div>
+      <div class="include-item"><div class="include-num">02</div><div><strong>Carrito → WhatsApp</strong><span>Pedido prellenado: productos, cantidades, total.</span></div></div>
+      <div class="include-item"><div class="include-num">03</div><div><strong>Panel admin</strong><span>Tú subes fotos, precios y activas productos.</span></div></div>
+      <div class="include-item"><div class="include-num">04</div><div><strong>Dominio + hosting + SSL</strong><span>Infraestructura incluida, sin sorpresas.</span></div></div>
+      <div class="include-item"><div class="include-num">05</div><div><strong>SEO + pixels Meta/Google</strong><span>Listo para campañas de producto.</span></div></div>
+      <div class="include-item"><div class="include-num">06</div><div><strong>Sin comisión por venta</strong><span>Cobras en chat: Yape, Plin, transferencia.</span></div></div>
+    </div>
+
+    <div class="visual-full">
+      <img src="slide-01-hero.jpg" alt="Negocio local con presencia digital profesional" />
+    </div>
+
+    <h3>¿Para quién es?</h3>
+    <div class="audience">
+      <span>Ferreterías</span><span>Textiles</span><span>Bodegas</span><span>Repuestos</span>
+      <span>Ropa</span><span>20–100+ productos</span><span>Meta Ads</span><span>Lima y provincias</span>
+    </div>
+
+    <div class="footer-note">Hasta 100 productos incluidos · fotos siempre del cliente</div>
+  </section>
+
+  <!-- P4 SUSCRIPCIÓN -->
+  <section class="page">
+    <div class="page-header">
+      <span class="brand">Wavys · Presencia Tienda</span>
+      <span class="chapter">03 · Suscripción</span>
+    </div>
+
+    <h2>12 meses de servicio. Después, tú decides.</h2>
+    <p class="lead">Suscripción mensual con compromiso inicial de un año — cubrimos diseño, catálogo, panel y puesta en marcha desde el mes 1.</p>
+
+    <div class="visual-side">
+      <div>
+        <table>
+          <thead><tr><th>Etapa</th><th>Qué significa</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Mes 1</strong></td><td>Brief catálogo → build → <strong>tienda publicada</strong></td></tr>
+            <tr><td><strong>Meses 1–12</strong></td><td>Hosting, panel admin, soporte, cambios menores</td></tr>
+            <tr><td><strong>Mes 13+</strong></td><td><strong>Renovación opcional</strong> mes a mes</td></tr>
+          </tbody>
+        </table>
+
+        <table style="margin-top:4mm;">
+          <thead><tr><th>Alternativa</th><th>Costo típico e-commerce</th></tr></thead>
+          <tbody>
+            <tr><td>Agencia a medida</td><td><strong>S/4,000 – S/8,000+</strong> pago único</td></tr>
+            <tr><td>+ Mantenimiento</td><td>Hosting, SSL, cambios y soporte aparte</td></tr>
+            <tr><td>Tiendanube / Shopify</td><td>S/80–200/mes + comisiones por venta</td></tr>
+            <tr><td><strong>Presencia Tienda</strong></td><td>Cuota mensual — todo incluido desde mes 1</td></tr>
+          </tbody>
+        </table>
+
+        <div class="quote-box" style="margin-top:5mm;">
+          <p>No desembolsas S/4,000–5,000+ de golpe por un catálogo profesional.</p>
+          <p class="sub">Cuota mensual predecible: diseño, tienda, panel admin, hosting y soporte — como suscripción, no como proyecto de agencia.</p>
+        </div>
+      </div>
+      <div>
+        <img src="slide-03-planes.jpg" alt="Modelo de suscripción Presencia Digital" />
+      </div>
+    </div>
+
+    <div class="footer-note">vs agencia e-commerce: S/4,000–5,000+ pago único + mantenimiento · vs Tiendanube: 0% comisión por venta</div>
+  </section>
+
+  <!-- P5 FLUJO WHATSAPP -->
+  <section class="page">
+    <div class="page-header">
+      <span class="brand">Wavys · Presencia Tienda</span>
+      <span class="chapter">04 · Flujo del pedido</span>
+    </div>
+
+    <h2>Así llega el pedido a tu WhatsApp</h2>
+    <p class="lead">El cliente no paga en la web — cierra contigo en chat, como ya lo haces. Pero llega con el pedido <strong>armado</strong>.</p>
+
+    <div class="flow-box">
+      <div class="flow-step">
+        <div class="flow-num">1</div>
+        <div><strong>Cliente navega</strong><span>Tu catálogo en Google — productos, precios, categorías.</span></div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">2</div>
+        <div><strong>Arma el carrito</strong><span>Cantidades, nombre, dirección y notas.</span></div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">3</div>
+        <div><strong>Finaliza pedido</strong><span>Se abre WhatsApp con el detalle completo.</span></div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">4</div>
+        <div><strong>Tú cierras la venta</strong><span>Yape, Plin, transferencia o contraentrega.</span></div>
+      </div>
+    </div>
+
+    <h3>Panel autogestionable — tú mandas</h3>
+    <table>
+      <thead><tr><th>Tú puedes</th><th>Wavys mantiene</th></tr></thead>
+      <tbody>
+        <tr><td>Subir foto y precio por producto</td><td>Optimización de imágenes para web</td></tr>
+        <tr><td>Crear categorías y activar/desactivar</td><td>Hosting, SSL, backups, seguridad</td></tr>
+        <tr><td>Ver pedidos en WhatsApp</td><td>Soporte mensual + 1 capacitación incluida</td></tr>
+      </tbody>
+    </table>
+
+    <div class="footer-note">Sin pasarela de pago en web · sin facturación SUNAT automática en v1</div>
+  </section>
+
+  <!-- P6 PROCESO + PRUEBA -->
+  <section class="page">
+    <div class="page-header">
+      <span class="brand">Wavys · Presencia Tienda</span>
+      <span class="chapter">05 · Proceso y prueba</span>
+    </div>
+
+    <h2>De brief a tienda publicada en dos semanas</h2>
+    <div class="steps">
+      <div class="step"><div class="step-num">01</div><strong>Brief</strong><span>Listado productos + fotos tuyas.</span></div>
+      <div class="step"><div class="step-num">02</div><strong>Setup</strong><span>Categorías, carga inicial, imágenes.</span></div>
+      <div class="step"><div class="step-num">03</div><strong>Build</strong><span>Tienda + carrito + panel admin.</span></div>
+      <div class="step"><div class="step-num">04</div><strong>Live</strong><span>Dominio, SSL, capacitación.</span></div>
+    </div>
+
+    <div class="visual-full">
+      <img src="slide-05-proceso.jpg" alt="Proceso en 4 pasos" />
+    </div>
+
+    <h3>Misma calidad editorial que ya entregamos</h3>
+    <table>
+      <thead><tr><th>Proyecto</th><th>Sector</th><th>URL</th></tr></thead>
+      <tbody>
+        <tr><td>La Alcoba</td><td>Restaurante</td><td>restaurant-code.vercel.app</td></tr>
+        <tr><td>Inmobiliaria Fabre</td><td>Inmobiliaria</td><td>inmobiliariafabre.com</td></tr>
+        <tr><td>Wavys Technologies</td><td>Corporativo</td><td>wavys-technologies.com</td></tr>
+        <tr><td>JLH Corredores</td><td>Seguros</td><td>jlhcorredoresdeseguros.com</td></tr>
+      </tbody>
+    </table>
+
+    <div class="footer-note">Diseño Wavys — no plantilla Tiendanube genérica</div>
+  </section>
+
+  <!-- P7 INVERSIÓN — precio solo aquí -->
+  <section class="page">
+    <div class="page-header">
+      <span class="brand">Wavys · Presencia Tienda</span>
+      <span class="chapter">06 · Inversión</span>
+    </div>
+
+    <h2>Inversión mensual</h2>
+    <p class="lead">Precio claro. Sin sorpresas de hosting, dominio, SSL o comisiones por venta.</p>
+
+    <div class="plan-card">
+      <div class="plan-name">Presencia Tienda</div>
+      <div class="plan-price">S/229 <span>/ mes</span></div>
+      <div class="plan-note">12 meses obligatorios · luego renovación opcional · regular S/259</div>
+      <ul>
+        <li>Catálogo autogestionable</li>
+        <li>Hasta 100 productos incluidos</li>
+        <li>Carrito → pedido a WhatsApp</li>
+        <li>Panel admin + capacitación</li>
+        <li>Dominio (año 1) + hosting + SSL</li>
+        <li>SEO + Pixel Meta + Google Tag</li>
+        <li>Soporte mensual</li>
+        <li>Entrega 10–14 días</li>
+      </ul>
+    </div>
+
+    <p style="font-size:9pt; color:var(--text-muted); margin-top:4mm;">
+      <strong>Comparación:</strong> agencia e-commerce ≈ S/4,000–8,000+ pago único + hosting y cambios aparte.
+      Tiendanube ≈ S/80–200/mes + comisiones por venta.
+      Más de 100 productos: +S/29/mes por cada bloque de 50 adicionales.
+    </p>
+
+    <p style="font-size:9pt; color:var(--text-muted);">
+      ¿Solo necesitas landing para servicios? Plan <strong>Presencia S/149/mes</strong> — ver brief Presencia Digital.
+    </p>
+
+    <div class="footer-note">12 meses de servicio. Después, tú decides.</div>
+  </section>
+
+  <!-- P8 FAQ -->
+  <section class="page">
+    <div class="page-header">
+      <span class="brand">Wavys · Presencia Tienda</span>
+      <span class="chapter">07 · Preguntas frecuentes</span>
+    </div>
+
+    <h2>Lo que nos preguntan antes de empezar</h2>
+
+    <div class="faq-item">
+      <strong>¿El cliente paga en la web?</strong>
+      <p>No. El pago se coordina en WhatsApp — Yape, Plin, transferencia o contraentrega. Así vende la mayoría de PYMEs en Perú.</p>
+    </div>
+    <div class="faq-item">
+      <strong>¿Incluye sesión de fotos?</strong>
+      <p>No. Con muchos productos, tú subes las fotos. Nosotros optimizamos peso y formato para web.</p>
+    </div>
+    <div class="faq-item">
+      <strong>¿Cuántos productos soporta?</strong>
+      <p>100 incluidos en el plan. Más de 100: +S/29/mes por cada bloque de 50 productos.</p>
+    </div>
+    <div class="faq-item">
+      <strong>¿Es suscripción o compro la tienda?</strong>
+      <p>Suscripción mensual — pagas por servicio continuo: hosting, panel, soporte. No un pago único.</p>
+    </div>
+    <div class="faq-item">
+      <strong>¿Sirve para Meta Ads?</strong>
+      <p>Sí. Pixel, tags y catálogo optimizado para campañas de producto.</p>
+    </div>
+    <div class="faq-item">
+      <strong>¿Puedo cancelar antes de 12 meses?</strong>
+      <p>El año inicial cubre diseño y puesta en marcha. Consulta contrato para condiciones de terminación anticipada.</p>
+    </div>
+
+    <div class="footer-note">Wavys Software · contact@wavys-technologies.com</div>
+  </section>
+
+  <!-- P9 CTA -->
+  <section class="page cta-page">
+    <p class="cover-label" style="margin-bottom:4mm;">Todo el Perú · Entrega 10–14 días</p>
+    <h2>Tu catálogo merece vender tan bien como lo haces en el local</h2>
+    <p style="max-width:140mm; color:var(--text-muted); font-size:11pt; margin-bottom:4mm;">
+      Escríbenos con aproximadamente cuántos productos tienes. Te confirmamos alcance — sin compromiso, en 5 minutos.
+    </p>
+    <div class="cta-box">
+      <div style="font-size:9pt; text-transform:uppercase; letter-spacing:0.1em; color:#95d5b2; margin-bottom:3mm;">Consultar Presencia Tienda</div>
+      <div class="url">software.wavys-technologies.com/presencia-digital#tienda</div>
+      <p>WhatsApp · contact@wavys-technologies.com</p>
+    </div>
+    <div class="cta-checklist">
+      <span class="cta-check">✓ Catálogo autogestionable</span>
+      <span class="cta-check">✓ Pedido a WhatsApp</span>
+      <span class="cta-check">✓ 12 meses · luego opcional</span>
+      <span class="cta-check">✓ Sin comisión por venta</span>
+    </div>
+    <div class="footer-note" style="position:relative; margin-top:10mm; bottom:auto; left:auto; right:auto;">
+      Wavys Technologies · Presencia Tienda · Documento comercial · Julio 2026
+    </div>
+  </section>
+
+</body>
+</html>

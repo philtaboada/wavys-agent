@@ -72,6 +72,8 @@ No tiene skill/agent index tan formal como RemotionUI todavía, pero la doc por 
 
 ## Cuál elegir para Wavys (uso intensivo)
 
+**Pipeline operativo Phil (Jul 2026):** ver `agent/skills/video_production/SKILL.md` — investigación profunda → storytelling → plan visual → HyperFrames/Remotion → validación exhaustiva antes de render.
+
 ```mermaid
 flowchart LR
   A[Objetivo] --> B{Stack}

@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Presencia Digital — Website por suscripción | Wavys</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap');
+
+    :root {
+      --bg: #eef6f1;
+      --green-dark: #1a4d3e;
+      --green-mid: #2d6a4f;
+      --green-pale: #d8f3dc;
+      --text: #1a2e28;
+      --text-muted: #5c7368;
+      --accent: #40916c;
+      --white: #ffffff;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    @page { size: A4; margin: 0; }
+
+    body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      font-size: 10pt;
+      line-height: 1.5;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .flyer {
+      width: 210mm;
+      min-height: 297mm;
+      background: var(--bg);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      height: 88mm;
+      overflow: hidden;
+    }
+
+    .hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+      display: block;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        180deg,
+        rgba(26, 77, 62, 0.55) 0%,
+        rgba(26, 77, 62, 0.25) 45%,
+        rgba(238, 246, 241, 0.95) 100%
+      );
+    }
+
+    .hero-content {
+      position: absolute;
+      inset: 0;
+      padding: 10mm 14mm 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+
+    .hero-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--white);
+      color: var(--green-dark);
+      font-size: 7pt;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 999px;
+    }
+
+    .badge-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+    }
+
+    .brand {
+      font-size: 7.5pt;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--white);
+      text-shadow: 0 1px 8px rgba(0,0,0,0.3);
+    }
+
+    .hero-title {
+      margin-top: auto;
+      padding-bottom: 4mm;
+    }
+
+    .hero-title h1 {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: 32pt;
+      font-weight: 400;
+      line-height: 1.05;
+      color: var(--white);
+      text-shadow: 0 2px 16px rgba(0,0,0,0.35);
+      max-width: 95%;
+    }
+
+    .hero-title h1 em {
+      font-style: italic;
+      color: #b7e4c7;
+    }
+
+    /* Body */
+    .body {
+      padding: 8mm 14mm 12mm;
+    }
+
+    .hook {
+      font-size: 11pt;
+      color: var(--text);
+      line-height: 1.55;
+      margin-bottom: 6mm;
+      max-width: 98%;
+    }
+
+    .hook strong { color: var(--green-dark); }
+
+    .quote-strip {
+      background: var(--green-dark);
+      color: #e8f5e9;
+      padding: 5mm 7mm;
+      border-radius: 10px;
+      margin-bottom: 7mm;
+    }
+
+    .quote-strip p {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: 13pt;
+      font-style: italic;
+      line-height: 1.35;
+      margin: 0;
+    }
+
+    .quote-strip .sub {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 8pt;
+      font-style: normal;
+      color: #95d5b2;
+      margin-top: 2mm;
+    }
+
+    /* Grid sections */
+    .section-label {
+      font-size: 7pt;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--green-mid);
+      margin-bottom: 3mm;
+    }
+
+    .includes-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 4mm;
+      margin-bottom: 7mm;
+    }
+
+    .include-item {
+      background: var(--white);
+      border: 1px solid #c7e8d4;
+      border-radius: 10px;
+      padding: 4mm 4mm 4mm 5mm;
+    }
+
+    .include-item .icon {
+      font-size: 14pt;
+      line-height: 1;
+      margin-bottom: 2mm;
+    }
+
+    .include-item h4 {
+      font-size: 8.5pt;
+      font-weight: 700;
+      color: var(--green-dark);
+      margin-bottom: 1mm;
+      line-height: 1.25;
+    }
+
+    .include-item p {
+      font-size: 7.5pt;
+      color: var(--text-muted);
+      line-height: 1.4;
+      margin: 0;
+    }
+
+    /* Subscription model */
+    .model-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 4mm;
+      margin-bottom: 7mm;
+    }
+
+    .model-step {
+      text-align: center;
+      background: var(--green-pale);
+      border-radius: 10px;
+      padding: 4mm 3mm;
+    }
+
+    .model-step .num {
+      width: 22px;
+      height: 22px;
+      background: var(--green-dark);
+      color: var(--white);
+      border-radius: 50%;
+      font-size: 9pt;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 2mm;
+    }
+
+    .model-step h4 {
+      font-size: 8pt;
+      font-weight: 700;
+      color: var(--green-dark);
+      margin-bottom: 1mm;
+    }
+
+    .model-step p {
+      font-size: 7pt;
+      color: var(--text-muted);
+      margin: 0;
+      line-height: 1.35;
+    }
+
+    /* Plans */
+    .plans {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5mm;
+      margin-bottom: 7mm;
+    }
+
+    .plan-card {
+      background: var(--white);
+      border: 2px solid #c7e8d4;
+      border-radius: 12px;
+      padding: 5mm 6mm;
+      position: relative;
+    }
+
+    .plan-card.featured {
+      border-color: var(--green-dark);
+      box-shadow: 0 4px 20px rgba(26, 77, 62, 0.12);
+    }
+
+    .plan-card .plan-tag {
+      position: absolute;
+      top: -3mm;
+      right: 5mm;
+      background: var(--accent);
+      color: var(--white);
+      font-size: 6.5pt;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 2px 8px;
+      border-radius: 999px;
+    }
+
+    .plan-card h3 {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: 16pt;
+      font-weight: 400;
+      color: var(--green-dark);
+      margin-bottom: 1mm;
+    }
+
+    .plan-card .plan-desc {
+      font-size: 7.5pt;
+      color: var(--text-muted);
+      margin-bottom: 3mm;
+      line-height: 1.4;
+    }
+
+    .plan-card .price {
+      font-size: 20pt;
+      font-weight: 700;
+      color: var(--green-dark);
+      line-height: 1;
+    }
+
+    .plan-card .price span {
+      font-size: 9pt;
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+
+    .plan-card ul {
+      list-style: none;
+      margin-top: 3mm;
+    }
+
+    .plan-card li {
+      font-size: 7.5pt;
+      color: var(--text);
+      padding-left: 4mm;
+      position: relative;
+      margin-bottom: 1.5mm;
+      line-height: 1.35;
+    }
+
+    .plan-card li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 7pt;
+    }
+
+    /* Stats bar */
+    .stats-bar {
+      display: flex;
+      justify-content: space-between;
+      background: var(--green-dark);
+      color: var(--white);
+      border-radius: 10px;
+      padding: 4mm 8mm;
+      margin-bottom: 6mm;
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat .num {
+      font-size: 18pt;
+      font-weight: 700;
+      line-height: 1;
+      color: #b7e4c7;
+    }
+
+    .stat .label {
+      font-size: 6.5pt;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #95d5b2;
+      margin-top: 1mm;
+    }
+
+    /* CTA */
+    .cta-block {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: linear-gradient(135deg, var(--green-dark) 0%, var(--green-mid) 100%);
+      border-radius: 12px;
+      padding: 6mm 8mm;
+      color: var(--white);
+    }
+
+    .cta-block h2 {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-size: 14pt;
+      font-weight: 400;
+      line-height: 1.2;
+      margin-bottom: 2mm;
+    }
+
+    .cta-block p {
+      font-size: 8pt;
+      color: #c7e8d4;
+      margin: 0;
+    }
+
+    .cta-block .url {
+      font-size: 9pt;
+      font-weight: 700;
+      color: #b7e4c7;
+      margin-top: 2mm;
+    }
+
+    .cta-qr-placeholder {
+      background: var(--white);
+      border-radius: 8px;
+      width: 22mm;
+      height: 22mm;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-left: 6mm;
+    }
+
+    .cta-qr-placeholder span {
+      font-size: 6pt;
+      color: var(--green-dark);
+      text-align: center;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    .footer {
+      margin-top: 4mm;
+      display: flex;
+      justify-content: space-between;
+      font-size: 7pt;
+      color: var(--text-muted);
+    }
+
+    .footer a {
+      color: var(--green-mid);
+      text-decoration: none;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <article class="flyer">
+    <header class="hero">
+      <img src="flyer-hero-website-suscripcion.jpg" alt="" />
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <div class="hero-top">
+          <span class="badge"><span class="badge-dot"></span> Nuevo servicio</span>
+          <span class="brand">Wavys Software</span>
+        </div>
+        <div class="hero-title">
+          <h1>Tu negocio merece una web profesional <em>sin pagar miles de golpe</em></h1>
+        </div>
+      </div>
+    </header>
+
+    <div class="body">
+      <p class="hook">
+        Si vendes por Instagram o WhatsApp pero <strong>no apareces en Google</strong>, pierdes clientes que ya te buscan.
+        Con <strong>Presencia Digital</strong> tienes website propia, dominio, hosting y soporte — en una cuota mensual predecible.
+      </p>
+
+      <div class="quote-strip">
+        <p>«No es comprar una web y chau. Es tener presencia online funcionando mes a mes.»</p>
+        <p class="sub">12 meses de servicio incluido · después, tú decides si sigues</p>
+      </div>
+
+      <p class="section-label">Todo incluido en tu plan</p>
+      <div class="includes-grid">
+        <div class="include-item">
+          <div class="icon">🌐</div>
+          <h4>Website editorial</h4>
+          <p>Diseño premium, sin plantillas genéricas</p>
+        </div>
+        <div class="include-item">
+          <div class="icon">📸</div>
+          <h4>Pack Foto Essential</h4>
+          <p>Retoque + imágenes nuevas para tu landing</p>
+        </div>
+        <div class="include-item">
+          <div class="icon">🔗</div>
+          <h4>Dominio + hosting</h4>
+          <p>SSL, SEO técnico y publicación incluidos</p>
+        </div>
+        <div class="include-item">
+          <div class="icon">💬</div>
+          <h4>WhatsApp integrado</h4>
+          <p>Formulario y botón listos para convertir</p>
+        </div>
+        <div class="include-item">
+          <div class="icon">📊</div>
+          <h4>Meta + Google Tag</h4>
+          <p>Listo para pauta digital desde el día 1</p>
+        </div>
+        <div class="include-item">
+          <div class="icon">🛠️</div>
+          <h4>Soporte mensual</h4>
+          <p>Cambios menores y acompañamiento continuo</p>
+        </div>
+      </div>
+
+      <p class="section-label">Cómo funciona la suscripción</p>
+      <div class="model-row">
+        <div class="model-step">
+          <div class="num">1</div>
+          <h4>Brief + fotos</h4>
+          <p>Cuéntanos tu negocio y enviamos el formulario</p>
+        </div>
+        <div class="model-step">
+          <div class="num">2</div>
+          <h4>Diseño + build</h4>
+          <p>Visual, desarrollo y publicación en días</p>
+        </div>
+        <div class="model-step">
+          <div class="num">3</div>
+          <h4>Online + soporte</h4>
+          <p>Tu web vive mes a mes con nosotros</p>
+        </div>
+      </div>
+
+      <div class="stats-bar">
+        <div class="stat">
+          <div class="num">5–7</div>
+          <div class="label">Días entrega landing</div>
+        </div>
+        <div class="stat">
+          <div class="num">12</div>
+          <div class="label">Meses de servicio</div>
+        </div>
+        <div class="stat">
+          <div class="num">0%</div>
+          <div class="label">Comisión por venta</div>
+        </div>
+        <div class="stat">
+          <div class="num">100%</div>
+          <div class="label">Perú — remoto</div>
+        </div>
+      </div>
+
+      <p class="section-label">Elige tu plan</p>
+      <div class="plans">
+        <div class="plan-card featured">
+          <span class="plan-tag">Más popular</span>
+          <h3>Presencia</h3>
+          <p class="plan-desc">Landing editorial para restaurantes, clínicas, hoteles, profesionales</p>
+          <div class="price">S/149 <span>/mes · 12 meses</span></div>
+          <ul>
+            <li>Landing + Pack Foto Essential</li>
+            <li>Dominio (1er año) + hosting + SSL</li>
+            <li>SEO técnico + Pixel Meta</li>
+            <li>Entrega en 5–7 días</li>
+          </ul>
+        </div>
+        <div class="plan-card">
+          <h3>Presencia Tienda</h3>
+          <p class="plan-desc">Catálogo autogestionable con pedido directo a WhatsApp</p>
+          <div class="price">S/229 <span>/mes · 12 meses</span></div>
+          <ul>
+            <li>Hasta 100 productos + panel admin</li>
+            <li>Carrito → pedido ordenado a WhatsApp</li>
+            <li>Fotos de producto del cliente</li>
+            <li>Entrega en 10–14 días</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="cta-block">
+        <div>
+          <h2>Te explicamos en 5 minutos — sin compromiso</h2>
+          <p>Restaurantes · clínicas · tiendas · ferreterías · todo el Perú</p>
+          <p class="url">software.wavys-technologies.com/presencia-digital</p>
+        </div>
+        <div class="cta-qr-placeholder">
+          <span>Escanea<br/>o visita<br/>el link →</span>
+        </div>
+      </div>
+
+      <footer class="footer">
+        <span>Wavys Technologies · contact@wavys-technologies.com</span>
+        <span>Promo 12 meses · Precios regulares S/179 y S/259</span>
+      </footer>
+    </div>
+  </article>
+</body>
+</html>

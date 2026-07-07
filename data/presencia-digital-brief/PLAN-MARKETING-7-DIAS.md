@@ -110,7 +110,7 @@ Registrar en `log_business_note` + recordatorio follow-up 48h.
 | Concepto | Monto |
 |----------|-------|
 | Meta Ads test | S/140 (S/20/día × 7) |
-| Fotógrafo | S/0 (solo al cerrar Pro) |
+| Fotógrafo | S/0 (no aplica — Pack Foto digital en Presencia) |
 | Tiempo Phil | ~8 h total |
 | **Total cash** | **~S/140** |
 

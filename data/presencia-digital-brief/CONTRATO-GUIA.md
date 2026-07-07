@@ -12,7 +12,8 @@ Documento interno para Phil / Wavys. Explica **cómo debe ser el contrato**, cu�
 |-----------|--------|---------|
 | **Contrato de servicio** | Siempre, antes del primer pago | `CONTRATO-PRESENCIA-DIGITAL.md` |
 | **Anexo A — Alcance del plan** | Adjunto al contrato (incluido en plantilla) | Mismo archivo |
-| **Anexo B — Brief y datos del proyecto** | Tras la llamada de venta, antes del build | `ANEXO-B-BRIEF-CLIENTE.md` |
+| **Anexo B — Brief landing** | Tras la llamada de venta (Presencia) | `ANEXO-B-BRIEF-CLIENTE.md` |
+| **Anexo B — Brief tienda** | Tras la llamada de venta (Presencia Tienda) | `ANEXO-B-TIENDA-CLIENTE.md` |
 | **Boleta / factura** | Cada mes, al cobrar | Tu sistema contable |
 | **Acta de entrega** (opcional) | Al publicar la web | Email o 1 página PDF firmada |
 
@@ -37,8 +38,8 @@ Sin RUC del cliente puedes facturar boleta a persona natural; con RUC, factura.
 
 Dejar claro que es un **servicio recurrente de presencia digital**, no solo “una web”:
 
-- Diseño y desarrollo de landing page
-- Pack Foto Essential y/o sesión presencial (según plan)
+- Diseño y desarrollo de landing page **o tienda con catálogo** (según plan)
+- Pack Foto Essential (solo Presencia)
 - Dominio (año 1), hosting, SSL, SEO técnico
 - Integraciones WhatsApp / formulario / pixels
 - Soporte mensual con cambios menores
@@ -48,15 +49,25 @@ Dejar claro que es un **servicio recurrente de presencia digital**, no solo “u
 | Plan | Precio contrato | Permanencia | Notas |
 |------|-----------------|-------------|-------|
 | Presencia | S/149/mes | 12 meses | Precio preferencial vs S/179 regular |
-| Presencia Pro | S/189/mes | 12 meses | Incluye sesión fotográfica |
-| Flex | S/199/mes | Sin mínimo | Sesión presencial +S/350 aparte |
+| Presencia Tienda | S/229/mes | 12 meses | Catálogo + carrito WhatsApp · hasta 100 productos |
+| **Fotos Propias (BYO)** | −S/49 **solo meses 2 y 3** | Solo Presencia | Cliente envía fotos; renuncia a Pack Foto Essential |
+| **Productos extra (Tienda)** | +S/29/mes | Presencia Tienda | Por cada bloque de 50 productos sobre 100 |
+
+**Reglas BYO (Fotos Propias — solo Presencia):**
+
+- Mes 1 siempre precio completo (build + publicación).
+- Descuento S/49 **solo meses 2 y 3**.
+- **Mes 4 en adelante:** precio normal del plan hasta completar 12 meses.
+- Cliente entrega mín. 8–10 fotos, ≥1200px ancho, derechos de uso propios.
+- Wavys: solo optimización web (crop/compresión), no retoque ni imágenes nuevas.
+- Anexo B: marcar `[x] Modalidad Fotos Propias`.
+
+**Presencia Tienda:** fotos de producto **siempre del cliente**. Sin Pack Foto ni sesión.
 
 **Reglas de cobro sugeridas:**
 
 - Pago **mensual anticipado** (día fijo cada mes — ej. día 5 — desde firma).
 - Primer mes **antes** de iniciar el brief/build.
-- **Presencia Pro:** cobrar **mes 2 antes de agendar fotógrafo** si no conoces al cliente (provincias).
-- Sesión presencial add-on Flex: cobrar **S/350 antes** de agendar fotógrafo.
 - Medios: transferencia, Yape/Plin (según lo que uses).
 - Moneda: **soles (PEN)** salvo acuerdo escrito en USD.
 
@@ -65,23 +76,23 @@ Dejar claro que es un **servicio recurrente de presencia digital**, no solo “u
 | Plan | Estimado |
 |------|----------|
 | Presencia | ~S/450 |
-| Presencia Pro | ~S/750 (incluye fotógrafo) |
+| Presencia Tienda | ~S/800 |
 
 El mes 1 **no es prueba gratis**. Si publican la web e impagan mes 2, aplica penalidad §4.9 del contrato.
 
 ### 4. Plazo y entrega
 
-- **Vigencia:** 12 meses (Presencia/Pro) o mes a mes (Flex).
-- **Entrega inicial:** 5–7 días hábiles desde brief confirmado + primer pago (Pro: 5 días prioritarios).
-- El plazo **no corre** si el cliente no entrega textos, fotos o no aprueba diseño en **5 días hábiles** (cláusula de suspensión).
+- **Vigencia:** 12 meses en ambos planes.
+- **Entrega inicial:** 5–7 días hábiles (Presencia) · 10–14 días (Presencia Tienda).
+- El plazo **no corre** si el cliente no entrega textos, fotos, catálogo o no aprueba diseño en **5 días hábiles** (cláusula de suspensión).
 
 ### 5. Obligaciones del cliente (crítico)
 
 El cliente debe:
 
-- Completar el brief (Anexo B).
+- Completar el brief (Anexo B o Anexo B Tienda).
 - Enviar textos, logo (si tiene), referencias y fotos base en **7 días** de firmado.
-- Dar acceso al local para sesión Pro (horario acordado).
+- En Tienda: entregar listado inicial de productos y fotos de producto.
 - Aprobar diseño/copy en **1 ronda incluida** (más rondas = cambio mayor, cotizable).
 - Mantener al día los pagos mensuales.
 - No usar la web para contenido ilegal, engañoso o que viole derechos de terceros.
@@ -91,24 +102,24 @@ El cliente debe:
 **Incluido (cambios menores):**
 
 - Textos cortos, horarios, teléfono, dirección
-- Reemplazo de hasta 3 imágenes del pack existente
-- Ajustes de copy en bloques ya diseñados
+- Reemplazo de hasta 3 imágenes ya contempladas en el sitio
+- Ajustes menores de copy en bloques existentes
+- En Tienda: soporte de uso básico del panel (no carga masiva de productos)
 
 **No incluido (cotizar aparte):**
 
 - Nueva sección o página adicional
 - Rediseño completo
-- E-commerce, blog, login, reservas complejas
-- Segunda sesión fotográfica en el mismo mes
+- Pasarela de pagos en web
+- Carga masiva de catálogo (>100 productos sin add-on contratado)
 - Gestión de pauta Meta/Google (salvo acuerdo aparte)
 - Redacción extensa de contenido
 
 ### 7. Fotografía — cláusulas específicas
 
-- **Pack Essential:** retoque de hasta 5 fotos del cliente + 6–8 imágenes nuevas generadas/producidas por Wavys.
-- **Sesión Pro:** 1 sesión de 1.5–2 h; 15–20 fotos editadas + 1 reel. Reagendamiento por no-show del cliente: **1 gratis**; segundo intento puede tener cargo de desplazamiento.
-- **Derechos de imagen:** el cliente autoriza uso de fotos de su negocio en la web y redes **del cliente**. Wavys puede usar el proyecto en **portafolio** salvo oposición escrita.
-- Si hay **personas identificables** (equipo, clientes), el cliente garantiza tener autorización o firmar releases si aplica.
+- **Pack Essential (Presencia):** retoque de hasta 5 fotos del cliente + 6–8 imágenes nuevas generadas/producidas por Wavys.
+- **Presencia Tienda:** fotos de producto del cliente; Wavys solo optimiza para web.
+- **Derechos de imagen:** el cliente autoriza uso de fotos en la web y redes **del cliente**. Wavys puede usar el proyecto en **portafolio** salvo oposición escrita.
 
 ### 8. Dominio, hosting y propiedad
 
@@ -124,7 +135,6 @@ El cliente debe:
 - Diseño y código: licencia de uso **mientras el contrato esté vigente y al día**.
 - Al **finalizar** contrato cumplido o cancelación con saldo pagado: entrega de **archivos estáticos / export** acordados.
 - Wavys retiene derecho a mostrar el trabajo en portafolio.
-- Componentes de terceros (fuentes, librerías) sujetos a sus licencias.
 
 ### 9. Impago, penalidad y mes 2 (CRÍTICO)
 
@@ -142,28 +152,26 @@ El cliente debe:
 
 **(B) = el mayor entre 50% meses restantes O mínimo fijo:**
 - **Presencia:** 4 mensualidades extra
-- **Presencia Pro:** 5 mensualidades extra
+- **Presencia Tienda:** 5 mensualidades extra
 
 #### Ejemplos para explicar al cliente en la venta
 
 | Caso | Debe aprox. |
 |------|-------------|
 | Presencia, pagó mes 1, impaga mes 2 | **S/745** (149 + 4×149) |
-| Presencia Pro, pagó mes 1, impaga mes 2 | **S/1.134** (189 + 5×189) |
+| Presencia Tienda, pagó mes 1, impaga mes 2 | **S/1.374** (229 + 5×229) |
 
 Hasta pagar: **sin export**, **sin dominio**, web **caída**.
 
 #### Medidas operativas
 
 1. Explicar penalidad **en la llamada de venta**, no solo al firmar.
-2. Pro: **mes 2 antes del fotógrafo** si cliente nuevo.
-3. Día de vencimiento fijo en contrato.
-4. Recordatorio automático 3 días antes.
+2. Día de vencimiento fijo en contrato.
+3. Recordatorio automático 3 días antes.
 
 | Plan | Cancelación voluntaria (al día) |
 |------|----------------------------------|
-| **Flex** | Aviso 15 días |
-| **Presencia / Pro** | Misma fórmula §4.9 |
+| **Presencia / Presencia Tienda** | Misma fórmula §4.9 |
 
 Al terminar con deuda saldada: export en 15 días hábiles; dominio solo tras liquidación.
 
@@ -173,9 +181,6 @@ Si el formulario captura datos personales (nombre, teléfono, email):
 
 - Cliente es **titular del tratamiento** de leads de su negocio.
 - Wavys actúa como **encargado** solo para alojar/formulario técnico.
-- Anexo breve: datos no se venden; retención según instrucción del cliente; medidas razonables de seguridad.
-
-Para escala: anexo DPA formal.
 
 ### 11. Limitación de responsabilidad
 
@@ -183,31 +188,28 @@ No prometer en contrato:
 
 - Posiciones específicas en Google
 - Número de leads o ventas
-- Resultados de Meta Ads (dependen del cliente y su pauta)
+- Resultados de Meta Ads
 
 Sí prometer:
 
 - Entrega técnica según alcance
 - Tiempos de respuesta de soporte (ej. **24–48 h hábiles**)
 
-Tope de responsabilidad sugerido: **monto pagado en los últimos 3 meses** del servicio.
-
 ### 12. Ley aplicable y firmas
 
 - Leyes de la **República del Perú**.
-- Jurisdicción: domicilio del prestador o arbitraje (definir con abogado).
-- Firmas: PDF firmado (DocuSign, Adobe Sign) o firma manuscrita escaneada + DNI/RUC de ambas partes.
+- Firmas: PDF firmado (DocuSign, Adobe Sign) o firma manuscrita escaneada.
 
 ---
 
 ## Checklist antes de firmar (Phil)
 
-- [ ] Plan correcto (Presencia / Pro / Flex) y precio en soles
+- [ ] Plan correcto (Presencia / Presencia Tienda) y precio en soles
 - [ ] RUC y razón social del cliente verificados
 - [ ] Email y WhatsApp de contacto del decisor
-- [ ] Ciudad para sesión Pro (si aplica)
+- [ ] Si Tienda: cantidad aproximada de productos y categorías
 - [ ] Primer mes cobrado o fecha de cobro acordada
-- [ ] Anexo B enviado al cliente
+- [ ] Anexo B correcto enviado al cliente
 - [ ] Cliente entiende qué NO está incluido
 - [ ] Copia firmada guardada en Drive/carpeta del cliente
 
@@ -218,9 +220,10 @@ Tope de responsabilidad sugerido: **monto pagado en los últimos 3 meses** del s
 | Archivo | Uso |
 |---------|-----|
 | `CONTRATO-PRESENCIA-DIGITAL.md` | Plantilla legal para firmar |
-| `ANEXO-B-BRIEF-CLIENTE.md` | Brief operativo post-venta |
+| `ANEXO-B-BRIEF-CLIENTE.md` | Brief operativo Presencia |
+| `ANEXO-B-TIENDA-CLIENTE.md` | Brief operativo Presencia Tienda |
 | `BRIEF-CLIENTE.md` / PDF comercial | Solo ventas — **no sustituye** contrato |
-| `../business-plan.md` §11 | Legal general Wavys |
+| `BRIEF-TIENDA-CLIENTE.md` / PDF tienda | Solo ventas tienda |
 
 ---
 
