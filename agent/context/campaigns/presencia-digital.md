@@ -68,7 +68,7 @@ Cuando el cliente **no quiere Pack Foto Essential** y **enviará sus propias im�
 
 **Incluye (Presencia):** diseño editorial, Pack Foto Essential (retoque 5 fotos + 6–8 imágenes nuevas), dominio (1er año), hosting + SSL, SEO técnico, WhatsApp + formulario, Pixel Meta + Google Tag, soporte mensual.
 
-**Incluye (Catálogo):** catálogo web editorial · panel sencillo (agregar/editar productos) · categorías + búsqueda · consultar por WhatsApp · dominio/hosting/SSL/SEO en planes de pago · métricas del negocio · soporte mensual. **Sin carrito, sin API, sin Pack Foto.**
+**Incluye (Catálogo):** catálogo web editorial · panel sencillo · categorías + búsqueda · consultar por WhatsApp · dominio propio en **Grow/Max** · hosting/SSL/SEO en planes de pago · métricas · soporte mensual. **Start:** link Wavys, sin dominio propio. **Sin carrito, sin API, sin Pack Foto.**
 
 **Incluye (Tienda):** todo Presencia excepto Pack Foto · catálogo + categorías + carrito WhatsApp · panel admin · capacitación panel · fotos producto del cliente.
 

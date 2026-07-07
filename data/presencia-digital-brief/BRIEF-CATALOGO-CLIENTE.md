@@ -49,7 +49,7 @@ Te entregamos en **7–10 días**:
 - Categorías, búsqueda y ficha por producto
 - Botón **Consultar por WhatsApp** con producto prellenado
 - **Panel sencillo:** agregar, editar y activar productos
-- Dominio, hosting, SSL y SEO técnico (planes de pago)
+- Dominio propio (Grow y Max) · hosting, SSL y SEO técnico en planes de pago
 - Métricas del negocio · soporte mensual
 - **Sin carrito · sin comisión por venta**
 
@@ -65,7 +65,7 @@ Te entregamos en **7–10 días**:
 |-------|----------|
 | **Plan Gratis** | Hasta 10 productos · **sin permanencia** · prueba el panel |
 | **Mes 1 (plan pago)** | Firmas, primer pago → brief catálogo → build → **catálogo publicado** |
-| **Meses 1–12** | **Suscripción activa (12 meses)** — hosting, panel, soporte, dominio |
+| **Meses 1–12** | **Suscripción activa (12 meses)** — hosting, panel, soporte; dominio propio en Grow y Max |
 | **Mes 13 en adelante** | **Renovación opcional** — sigues mes a mes o finalizas |
 
 **En simple:**
@@ -151,15 +151,15 @@ Misma calidad editorial que La Alcoba, Inmobiliaria Fabre, Wavys Technologies y 
 | Plan | Productos | Precio | Compromiso |
 |------|-----------|--------|------------|
 | **Gratis** | Hasta 10 | **S/0** | Sin permanencia |
-| **Básico** | Hasta 200 | **S/69/mes** | 12 meses → luego opcional |
-| **Pro** | Hasta 500 | **S/99/mes** | 12 meses → luego opcional |
-| **Plus** | Hasta 2.000 | **S/159/mes** | 12 meses → luego opcional |
+| **Básico (Start)** | Hasta 200 | **S/69/mes** | 12 meses → luego opcional · **sin dominio propio** |
+| **Pro (Grow)** | Hasta 500 | **S/99/mes** | 12 meses → luego opcional · dominio incluido |
+| **Plus (Max)** | Hasta 2.000 | **S/159/mes** | 12 meses → luego opcional · dominio incluido |
 
 | Concepto | Detalle |
 |----------|---------|
 | **Setup inicial (planes pago)** | ~S/350 (contrato) |
 | **Entrega** | 7–10 días hábiles |
-| **Incluye (pago)** | Dominio (año 1), hosting, SSL, SEO, panel, soporte |
+| **Incluye (pago)** | Start: hosting + SSL (link Wavys) · Grow/Max: dominio (año 1), hosting, SSL, SEO, panel, soporte |
 
 **vs agencia catálogo:** S/2,000–4,000+ pago único + hosting + mantenimiento.  
 **Presencia Catálogo:** desde gratis para probar · cuota mensual en planes de pago.
@@ -175,6 +175,9 @@ No. El cliente consulta por WhatsApp. Si necesitas carrito → Presencia Tienda.
 
 **¿Puedo empezar gratis?**  
 Sí — hasta 10 productos, sin permanencia. Ideal para probar antes de escalar.
+
+**¿Start incluye dominio propio?**  
+No. Start publica en link Wavys. Dominio propio desde Grow y Max.
 
 **¿Sirve para Meta Ads?**  
 Sí — catálogo indexable y listo para campañas de producto.

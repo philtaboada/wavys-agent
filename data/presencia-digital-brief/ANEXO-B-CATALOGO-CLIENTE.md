@@ -38,7 +38,7 @@
 | Campo | Respuesta |
 |-------|-----------|
 | Cantidad aproximada de productos | |
-| Plan contratado | [ ] Gratis (10)  [ ] Básico (200)  [ ] Pro (500)  [ ] Plus (2.000) |
+| Plan contratado | [ ] Gratis (10)  [ ] Básico/Start (200, sin dominio)  [ ] Pro/Grow (500)  [ ] Plus/Max (2.000) |
 | Categorías principales (listar) | |
 | ¿Productos con variantes (talla/color)? | [ ] Sí — detalle: ___  [ ] No |
 | Formato listado inicial | [ ] Excel  [ ] WhatsApp  [ ] Otro: ___ |
@@ -78,6 +78,8 @@ Ej: Envío Lima metropolitana 24h · Provincias coordinar
 ---
 
 ## 5. Dominio y técnico
+
+> Dominio propio solo en planes **Grow** y **Max**. Start usa link Wavys.
 
 | Campo | Respuesta |
 |-------|-----------|
