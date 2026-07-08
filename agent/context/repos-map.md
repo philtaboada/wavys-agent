@@ -1,12 +1,18 @@
 # Mapa de repositorios — Phil / Wavys
 
-Raíz de todos los proyectos:
+Raíz de todos los proyectos (**Phil — Windows**):
 
 ```
-/Volumes/mac externo/Mac Externo/projects/
+C:\Users\siste\Project
 ```
 
-**Entorno cloud (agente Cursor):** `/workspace/project/` — ver `project/README.md`. `wavys-agents` → `project/wavys-agents/`.
+Detalle y comandos: `agent/context/projects-path.md`
+
+| Entorno | Raíz |
+|---------|------|
+| **Windows (Phil)** | `C:\Users\siste\Project` |
+| Mac externo (histórico) | `/Volumes/mac externo/Mac Externo/projects/` |
+| Cloud agent | `/workspace/project/` |
 
 ## Regla git (Phil)
 

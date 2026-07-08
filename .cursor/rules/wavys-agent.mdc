@@ -53,7 +53,7 @@ No uses el runtime de eve ni `defineAgent` en este proyecto.
 
 Si Phil pide **código** y el repo es Wavys (`wavys-agents`, `theros-front`, `back-theros`, `wabys-blogsite`, `theros-website`):
 
-1. `cd` al repo indicado
+1. `cd` al repo en `C:\Users\siste\Project\<repo>` (ver `agent/context/projects-path.md`)
 2. `git pull` **primero**
 3. Luego leer/editar
 

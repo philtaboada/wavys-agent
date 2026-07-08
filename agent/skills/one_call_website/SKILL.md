@@ -4,7 +4,9 @@ Usar cuando Phil pida **sistema, app, plataforma, automatización, dashboard** o
 
 **Para landings de marketing (one-page):** usar **`one_call_landing`** (Astro) — ver `agent/context/website-stack-rules.md`.
 
-**Referencia demo UI (Next):** `/Volumes/mac externo/Mac Externo/projects/lumen-vet` (veterinaria — anterior a regla Astro)  
+**Raíz proyectos Phil:** `C:\Users\siste\Project` — `agent/context/projects-path.md`
+
+**Referencia demo UI (Next):** `C:\Users\siste\Project\lumen-vet` (veterinaria — anterior a regla Astro)  
 **Live:** https://lumen-vet.vercel.app
 
 **Gate 0 (pasos):** `agent/context/pipeline-gates.md` § `one_call_website` — log en `data/pipeline-runs/<slug>-step-compliance.md`
@@ -104,7 +106,7 @@ Vibe:       Boutique, bioluminiscente, cálido, premium LatAm
 ### Fase 3 — Scaffold
 
 ```bash
-cd "/Volumes/mac externo/Mac Externo/projects"
+cd "C:/Users/siste/Project"
 bunx create-next-app@latest <slug> --typescript --tailwind --eslint --app --src-dir --no-import-alias --turbopack --yes
 cd <slug>
 bun add framer-motion lucide-react
@@ -123,7 +125,7 @@ mkdir -p public/images src/components src/lib
 **Siempre** vía wavys-agents, **nunca** `GenerateImage` de Cursor.
 
 ```bash
-cd "/Volumes/mac externo/Mac Externo/projects/wavys-agents"
+cd "C:/Users/siste/Project/wavys-agents"
 npm run tool -- generate_image '{"prompt":"...","aspectRatio":"16:9","outputPath":"/abs/path/public/images/hero.jpg"}'
 ```
 
@@ -238,7 +240,7 @@ Si hay issue **Alta** → corregir y re-validar antes de deploy.
 ### Fase 6 — Deploy Vercel
 
 ```bash
-cd "/Volumes/mac externo/Mac Externo/projects/<slug>"
+cd "C:/Users/siste/Project/<slug>"
 git init && git add -A && git commit -m "feat: <nombre> — website <industria>"
 vercel deploy -y
 ```

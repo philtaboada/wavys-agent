@@ -93,15 +93,15 @@ Automatización con IA que **captura, califica y da seguimiento a leads por What
 
 # Repositorios (código)
 
-Raíz: `/Volumes/mac externo/Mac Externo/projects/`
+Raíz: `C:\Users\siste\Project` — ver `agent/context/projects-path.md`
 
 | Repo | Rol |
 |------|-----|
+| `wavys-agents` | Este agente (operaciones) |
 | `theros-front` | App SaaS CRM (front) |
 | `back-theros` | Backend SaaS |
 | `wabys-blogsite` | Web wavys-technologies.com |
 | `theros-website` | Software a medida / estudio |
-| `wavys-agents` | Este agente (operaciones) |
 | `Website` | Proyecto **2YA** — no es software Wavys |
 
 Detalle: `agent/context/repos-map.md`
@@ -110,7 +110,7 @@ Detalle: `agent/context/repos-map.md`
 
 Cuando Phil pida **código** y señale un repo de la lista Wavys, **siempre empezar con `git pull`** en ese repo antes de leer, editar o commitear.
 
-**Repos Wavys** (raíz `/Volumes/mac externo/Mac Externo/projects/`):
+**Repos Wavys** (raíz `C:\Users\siste\Project`):
 
 - `wavys-agents`
 - `theros-front`
@@ -123,8 +123,10 @@ Cuando Phil pida **código** y señale un repo de la lista Wavys, **siempre empe
 Si Phil no nombra el repo, preguntar cuál o inferir del contexto (SaaS → `theros-front`, software a medida → `theros-website`, etc.) y confirmar si hay duda.
 
 ```bash
-cd "/Volumes/mac externo/Mac Externo/projects/<repo-wavys>" && git pull
+cd "C:/Users/siste/Project/<repo-wavys>" && git pull
 ```
+
+En Mac: `"/Volumes/mac externo/Mac Externo/projects/<repo-wavys>"`. En cloud: `/workspace/project/<repo-wavys>`.
 
 Si `git pull` falla (conflictos, sin remote), reportar a Phil antes de seguir.
 
