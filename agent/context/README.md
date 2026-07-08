@@ -11,7 +11,7 @@ Lee estos archivos **al iniciar cualquier tarea** para Phil / Wavys.
 | [growth-focus-phil.md](./growth-focus-phil.md) | **Prioridad Phil:** poco tiempo, foco clientes |
 | [campaigns/README.md](./campaigns/README.md) | **Campañas comerciales** — productos empaquetados (activa + futuras) |
 | [campaigns/presencia-digital.md](./campaigns/presencia-digital.md) | **Campaña activa:** Presencia Digital — pricing, kit, marketing |
-| [repos-map.md](./repos-map.md) | **Repos** en `/Volumes/mac externo/Mac Externo/projects/` |
+| [repos-map.md](./repos-map.md) | **Repos** — raíz `C:\Users\siste\Project` (ver [projects-path.md](./projects-path.md)) |
 | [remocn-video-ecosystem.md](./remocn-video-ecosystem.md) | **Video en código:** remocn, RemotionUI, Framecn, skills y quick start |
 | [../connections/figma-posts.md](../connections/figma-posts.md) | **Posts sociales:** Figma *Posts* — tipografía, colores, formatos |
 | [../connections/brand-logos.md](../connections/brand-logos.md) | **Logos oficiales** — isotipo + lockups (2026) |

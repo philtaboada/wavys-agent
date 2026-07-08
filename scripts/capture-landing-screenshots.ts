@@ -7,10 +7,11 @@ import { execSync, spawn } from "node:child_process";
 import { existsSync } from "node:fs";
 import { join, resolve } from "node:path";
 import { chromium } from "playwright";
+import { resolveProjectsRoot } from "../lib/projects-root.js";
 
 const slug = process.argv[2];
 const url = process.argv[3] ?? "http://127.0.0.1:4321";
-const projectsRoot = "/Volumes/mac externo/Mac Externo/projects";
+const projectsRoot = resolveProjectsRoot();
 const repoRoot = resolve(import.meta.dirname, "..");
 const outDir = join(repoRoot, "data/pipeline-runs");
 

@@ -15,6 +15,7 @@ import {
 } from "./checks.js";
 import type { CheckResult, ValidateContext, ValidationOutput } from "./types.js";
 import { formatReport, summarizeChecks } from "./utils.js";
+import { resolveProjectsRoot } from "../projects-root.js";
 
 export const PIPELINES = [
   "one_call_landing",
@@ -31,8 +32,6 @@ export const PIPELINES = [
 ] as const;
 
 export type PipelineName = (typeof PIPELINES)[number];
-
-const DEFAULT_PROJECTS_ROOT = "/Volumes/mac externo/Mac Externo/projects";
 
 export function resolveRepoRoot(): string {
   return resolve(import.meta.dirname, "../..");
@@ -105,7 +104,7 @@ export async function validatePipeline(
   input: ValidatePipelineInput,
 ): Promise<ValidationOutput> {
   const repoRoot = resolveRepoRoot();
-  const projectsRoot = input.projectsRoot ?? DEFAULT_PROJECTS_ROOT;
+  const projectsRoot = input.projectsRoot ?? resolveProjectsRoot();
   const ctx: ValidateContext = {
     ...input,
     repoRoot,

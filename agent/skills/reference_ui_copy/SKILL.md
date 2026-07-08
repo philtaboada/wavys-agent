@@ -91,7 +91,7 @@ Entrada en `website-feedback-log.md` con reglas derivadas.
 - Nombres descriptivos: `svc-therapy.jpg`, `cta-dog-nose.jpg`
 
 ```bash
-cd "/Volumes/mac externo/Mac Externo/projects/wavys-agents"
+cd "C:/Users/siste/Project/wavys-agents"
 npm run tool -- generate_image '{"prompt":"...","aspectRatio":"4:3","outputPath":"/abs/path/public/images/svc-xxx.jpg"}'
 ```
 

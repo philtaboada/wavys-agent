@@ -5,7 +5,7 @@ Usar cuando Phil pida una **landing** / **website** de marketing (one-page) para
 **Stack fijo:** Astro + Tailwind + TypeScript + Bun  
 **No usar para:** sistemas, apps, dashboards, automatizaciones → `one_call_website` (Next.js).
 
-**Regla stack:** `agent/context/website-stack-rules.md`
+**Raíz proyectos Phil:** `C:\Users\siste\Project` — `agent/context/projects-path.md`
 
 **Gate 0 (pasos):** `agent/context/pipeline-gates.md` § `one_call_landing` — log en `data/pipeline-runs/<slug>-step-compliance.md`
 
@@ -148,7 +148,7 @@ Crear **`agent/context/design-patterns-<slug>.md`** con:
 ## ⑤ — Scaffold Astro
 
 ```bash
-cd "/Volumes/mac externo/Mac Externo/projects"
+cd "C:/Users/siste/Project"
 bun create astro@latest <slug> -- --template minimal --typescript strict --install --git
 cd <slug>
 bun astro add tailwind --yes
@@ -177,7 +177,7 @@ public/images/
 **Nunca** `GenerateImage` de Cursor. Solo:
 
 ```bash
-cd "/Volumes/mac externo/Mac Externo/projects/wavys-agents"
+cd "C:/Users/siste/Project/wavys-agents"
 npm run tool -- generate_image '{"prompt":"...","aspectRatio":"16:9","outputPath":"/abs/.../public/images/hero.jpg"}'
 ```
 
@@ -239,7 +239,7 @@ No declarar ⑨ hasta `authorized: true` (automático) + bugbot sin CRITICAL + s
 **Si Phil pidió deploy:**
 
 ```bash
-cd "/Volumes/mac externo/Mac Externo/projects/<slug>"
+cd "C:/Users/siste/Project/<slug>"
 vercel deploy --yes
 # vercel deploy --prod --yes  # solo si confirma producción
 ```
