@@ -6,6 +6,8 @@ Raíz de todos los proyectos:
 /Volumes/mac externo/Mac Externo/projects/
 ```
 
+**Entorno cloud (agente Cursor):** `/workspace/project/` — ver `project/README.md`. `wavys-agents` → `project/wavys-agents/`.
+
 ## Regla git (Phil)
 
 Antes de **cualquier tarea de código** en un repo Wavys que Phil indique → **`git pull` primero**.

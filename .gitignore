@@ -14,3 +14,4 @@ data/*.json
 !data/.gitkeep
 data/generated-images/*
 !data/generated-images/.gitkeep
+project/wavys-agents/
