@@ -1,6 +1,15 @@
-# Proyectos locales
+# Proyectos — local + nube
 
-## Windows (Phil — canónico)
+Phil usa **dos entornos** con el mismo agente:
+
+| Entorno | Ruta wavys-agents |
+|---------|-------------------|
+| **Local (Windows)** | `C:\Users\siste\Project\wavys-agents` |
+| **Nube (Cloud Agent)** | `/workspace` (repo principal) o `/workspace/project/wavys-agents/` |
+
+Detalle completo: `agent/context/projects-path.md`
+
+## Windows (local — principal)
 
 ```
 C:\Users\siste\Project
@@ -21,17 +30,22 @@ npm install
 copy .env.example .env.local
 ```
 
-## Cloud agent (este entorno)
+## Cloud agent (nube — además de local)
 
-```
-/workspace/project/wavys-agents/
+El mismo repo se puede abrir en **Cursor Cloud Agent**. El workspace raíz es `/workspace`.
+
+```bash
+cd /workspace && git pull origin main
+npm run tools
 ```
 
-Clon local para el agente en la nube (en `.gitignore`).
+Clon espejo (otros repos junto al agente): `/workspace/project/wavys-agents/` — en `.gitignore`.
 
 ```bash
 cd /workspace/project/wavys-agents && git pull origin main && npm install
 ```
+
+**Sync con tu PC:** push desde local o nube → `git pull` en el otro. `.env.local` no viaja por Git.
 
 ## Mac (histórico)
 

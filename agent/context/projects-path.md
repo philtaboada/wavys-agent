@@ -1,6 +1,17 @@
 # Rutas de proyectos — Phil
 
-**Raíz canónica (Windows):** Phil siempre trabaja en:
+Phil trabaja en **dos entornos** con el mismo repo:
+
+| Dónde | Para qué | Raíz |
+|-------|----------|------|
+| **Local (Windows)** | Día a día en tu PC — Cursor, tools, landings, `.env.local` | `C:\Users\siste\Project` |
+| **Nube (Cloud Agent)** | Tareas desde el móvil / sin abrir la PC — mismo agente vía GitHub | `/workspace` + `/workspace/project/` |
+
+**Regla:** el código y la documentación del agente viven en **Git** (`github.com/philtaboada/wavys-agent`). Local y nube comparten `main` vía `git pull` / `git push`. Lo que no va al repo (`.env.local`, `data/notes.json`, `data/reminders.json`) **no se sincroniza solo** — cada entorno tiene su copia.
+
+---
+
+**Raíz canónica (Windows):** Phil siempre trabaja localmente en:
 
 ```
 C:\Users\siste\Project
@@ -19,6 +30,38 @@ Todos los repos Wavys y clientes viven como subcarpetas ahí (mismo layout que a
 | theros-website | `C:\Users\siste\Project\theros-website` |
 | wavys-stories | `C:\Users\siste\Project\wavys-stories` |
 | Landings cliente | `C:\Users\siste\Project\<slug>` |
+
+## Flujo local + nube
+
+### Empezar en local (tu PC)
+
+```powershell
+cd C:\Users\siste\Project
+git clone https://github.com/philtaboada/wavys-agent wavys-agents
+cd wavys-agents
+copy .env.example .env.local   # APIs: Resend, Gemini, etc.
+npm install
+```
+
+Abre `C:\Users\siste\Project\wavys-agents` en **Cursor Desktop** → trabajas como siempre.
+
+### Trabajar en la nube
+
+1. Abre el repo en **Cursor Cloud Agent** (o desde el móvil).
+2. El agente corre en `/workspace` (mismo código, `git pull` al arrancar).
+3. Otros repos cliente pueden clonarse en `/workspace/project/<slug>` si hace falta.
+
+### Mantener sincronizado
+
+| Qué | Cómo |
+|-----|------|
+| Código, skills, docs | `git commit` + `git push` (local o nube) → `git pull` en el otro |
+| `.env.local` | Copiar manualmente o rellenar en cada máquina (no va a Git) |
+| Notas / recordatorios (`data/*.json`) | Por ahora locales; si quieres compartir, `log_business_note` en el entorno que uses |
+
+**Antes de codear en cualquier entorno:** `git pull` en el repo Wavys que toques.
+
+---
 
 ## Otras máquinas
 
@@ -51,12 +94,8 @@ PROJECTS_ROOT=C:\Users\siste\Project
 
 `validate_pipeline` y scripts de captura usan `lib/projects-root.ts` (env → OS → fallback).
 
-## Clonar wavys-agents (primera vez en Windows)
+## Resumen rápido
 
-```powershell
-cd C:\Users\siste\Project
-git clone https://github.com/philtaboada/wavys-agent wavys-agents
-cd wavys-agents
-copy .env.example .env.local
-npm install
-```
+- **Local:** `C:\Users\siste\Project\wavys-agents` — tu setup principal
+- **Nube:** `/workspace` — mismo repo, Cloud Agent
+- **Sync:** Git entre los dos; `.env.local` aparte en cada lado
