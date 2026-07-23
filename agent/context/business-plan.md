@@ -14,16 +14,17 @@ Documento vivo para Phil y para Cursor. Actualizar cuando cambien precios, ICP o
 
 **Regla:** agencia que pide propuesta → Software/partner primero. Empresa con dolor operativo → SaaS Wavys.
 
-### Campaña activa — Presencia Digital
+### Campaña activa — Wavys OS
 
-Producto empaquetado bajo Wavys Software (landing + fotos + hosting mensual). **No es SaaS CRM ni partner custom.**
+SaaS chat-first (packs Tienda / Salón / Restaurante). **Presencia Digital retirada** (paso previo; canibalizaba OS).
 
 | | |
 |--|--|
-| Landing | https://software.wavys-technologies.com/presencia-digital |
-| Doc campaña | `agent/context/campaigns/presencia-digital.md` |
-| Kit ventas | `data/presencia-digital-brief/` |
-| Pricing | S/149 Presencia · S/229 Presencia Tienda/mes |
+| Doc campaña | `agent/context/campaigns/wavys-os.md` |
+| Kit ventas | `data/wavys-os-campaign-brief/` |
+| Producto | `data/wavys-os-brief/` |
+| CTA | https://calendly.com/philtaboada2julio |
+| Pricing | Presence S/169 · Operate S/279 · Scale S/449 |
 
 Ver `growth-focus-phil.md` para prioridad de tiempo Phil.
 

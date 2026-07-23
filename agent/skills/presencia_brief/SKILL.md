@@ -1,6 +1,10 @@
 # Skill — Brief comercial Presencia Digital / Presencia Tienda
 
-**Usar siempre** cuando Phil pida un brief, PDF comercial, reescritura de `BRIEF-*.md` o `brief-presencia-*.html`.
+> **RETIRADO (2026-07-22).** Presencia Digital ya no se vende (canibaliza Wavys OS).  
+> Para venta nueva → `agent/context/campaigns/wavys-os.md` + `data/wavys-os-campaign-brief/`.  
+> Este skill solo si Phil pide explícitamente editar el **archivo histórico** en `data/presencia-digital-brief/`.
+
+**Usar solo** cuando Phil pida reescritura histórica de `BRIEF-*.md` o `brief-presencia-*.html` del archivo PD.
 
 **Gate 0 (pasos):** `agent/context/pipeline-gates.md` § `presencia_brief`
 

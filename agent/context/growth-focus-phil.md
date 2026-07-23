@@ -5,142 +5,140 @@ Este doc manda sobre el plan general cuando haya conflicto de prioridades.
 
 ## Campaña activa (Jul 2026)
 
-**Presencia Digital** — producto empaquetado, marketing directo a PYME.
+**Wavys OS** — SaaS chat-first PYME (Tienda / Salón / Restaurante).  
+**Presencia Digital está retirada** (no vender; evitamos canibalización).
 
 | | |
 |--|--|
-| **Doc** | `campaigns/presencia-digital.md` |
-| **Kit** | `data/presencia-digital-brief/` |
-| **Landing** | https://software.wavys-technologies.com/presencia-digital |
-| **Meta** | 3 clientes en 14–21 días |
-| **Plan acción** | `data/presencia-digital-brief/PLAN-MARKETING-7-DIAS.md` |
+| **Doc** | `campaigns/wavys-os.md` |
+| **Kit venta** | `data/wavys-os-campaign-brief/` |
+| **Producto** | `data/wavys-os-brief/` |
+| **CTA** | https://calendly.com/philtaboada2julio |
+| **Landing** | pendiente `/wavys-os` |
+| **Meta fase** | 5–10 demos / design partners en 14–21 días |
+| **Plan acción** | `data/wavys-os-campaign-brief/PLAN-MARKETING-7-DIAS.md` |
 
-**Regla:** si Phil pide clientes rápido, mensajes, pauta o contrato de web con fotos → **Presencia Digital primero**. Partner/Onza sigue en pipeline pero no compite por el mismo bloque de tiempo.
+**Regla:** clientes rápidos, mensajes, demos o pricing sistema PYME → **Wavys OS primero**. Partner/Onza en pipeline paralelo.
 
 ## Diagnóstico
 
 | Lo que funciona | Lo que NO hacer ahora |
 |-----------------|---------------------|
-| **Presencia Digital** — landing + pricing listos, kit completo | TikTok/IG diario sin CTA a Presencia Digital |
-| WhatsApp + referidos (William, JLH, Coophitel) | Rebuild producto, más features SaaS |
-| Auditoría web gratis → gancho venta (`website_audit`) | Instalar 15 skills |
-| Meta Ads test geo Huancayo (CPL < S/50) | Vender SaaS frío a empresa final |
-| LinkedIn → agencias (Onza) — pipeline paralelo | Perfeccionar landing sin vender |
+| WhatsApp + referidos (William, JLH, Coophitel) | Revivir Presencia Digital |
+| Auditoría web gratis → puente a demo OS | TikTok/IG sin CTA a demo OS |
+| Flyer / infografía OS listos | Prometer cobro Polar prod sin OK legal |
+| LinkedIn → agencias (Onza) — pipeline paralelo | Vender “web a mano” como producto actual |
 
 ## Dos carriles (90 días)
 
-### Carril A — Presencia Digital *(prioridad tiempo Phil)*
+### Carril A — Wavys OS *(prioridad tiempo Phil)*
 
-Venta directa PYME: WhatsApp, referidos, Maps, Meta Ads local.
+Venta / demos PYME: WhatsApp, referidos, Maps.
 
-- Producto y precios **ya definidos** — ejecutar plan 7 días.
-- Entrega 5–7 días — cashflow recurrente S/149–199/mes.
-- Ver `campaigns/presencia-digital.md`.
+- Pricing: `campaigns/wavys-os.md` / `precios-soles-finales.md`.
+- Soft launch cobro cuando legal + Polar + DNS estén listos.
 
 ### Carril B — Partner agencia *(pipeline, no bloque principal)*
 
-LinkedIn → agencias como Onza — mismo mensaje que ya funcionó.
+LinkedIn → agencias como Onza — ticket alto / white-label.
 
-- 1 agencia = N clientes a mediano plazo.
-- Cotización custom / white-label — ticket alto.
-- Mantener follow-up Onza; no abandonar, pero **no sustituye** Carril A esta semana.
+- Mantener follow-up Onza; no sustituye Carril A esta semana.
 
 ## Ritmo semanal mínimo (~3–5 h total)
 
 | Bloque | Tiempo | Acción |
 |--------|--------|--------|
-| **Lunes** | 45 min | 10 WhatsApps Presencia Digital (red + Maps) · ver `PLAN-MARKETING-7-DIAS.md` |
-| **Martes** | 30 min | Follow-up 48h leads Presencia Digital + Onza si aplica |
-| **Miércoles** | 30 min | 1 post/carrusel IG o LinkedIn → link presencia-digital |
-| **Jueves** | 60 min | 2 auditorías web gratis + llamada cierre o contrato |
-| **Viernes** | 20 min | Pipeline: respuestas, CPL Meta Ads, `log_business_note` |
+| **Lunes** | 45 min | 10 WhatsApps Wavys OS · `PLAN-MARKETING-7-DIAS.md` |
+| **Martes** | 30 min | Follow-up 48h demos + Onza si aplica |
+| **Miércoles** | 30 min | 1 post/carrusel → Calendly OS |
+| **Jueves** | 60 min | 2 auditorías web gratis + agendar demos |
+| **Viernes** | 20 min | Pipeline: demos, packs, `log_business_note` tag `wavys-os` |
 
-**Regla:** si solo tienes 1 hora → WhatsApps Presencia Digital + follow-up lead caliente más cercano al cierre.
+**Regla:** si solo tienes 1 hora → WhatsApps OS + follow-up demo más cercana al cierre.
 
 ## Skills recomendados (solo 4 — no más)
-
-Instalar **solo estos** hasta tener 2 conversaciones calificadas/mes:
 
 ```bash
 npx skills add anthropics/knowledge-work-plugins@compose-outreach -g -y
 npx skills add claude-office-skills/skills@proposal-writer -g -y
 npx skills add refoundai/lenny-skills@sales-qualification -g -y
-npx skills add coreyhaines31/marketingskills@email-sequence -g -y
+npx skills add github/awesome-copilot@gtm-0-to-1-launch -g -y
 ```
 
 | Skill | Para qué (Phil) |
 |-------|-----------------|
-| **compose-outreach** | Escribir 5 DMs/semana rápido, estilo Onza |
-| **proposal-writer** | Propuesta Onza y similares sin partir de cero |
-| **sales-qualification** | Descartar leads malos; no perder tiempo |
-| **email-sequence** | Follow-up 48h / 5d sin pensar cada correo |
+| **compose-outreach** | DMs/WhatsApps rápidos |
+| **proposal-writer** | Propuesta Onza y similares |
+| **sales-qualification** | Descartar leads malos |
+| **gtm-0-to-1-launch** | Primeros clientes OS |
 
-**Ya instalados — usar, no acumular:**
-- `persona-sales-ops` + `gws-gmail-send` + `gws-workflow-meeting-prep`
-
-**Posponer:** copywriting, content-strategy, SEO, paid-ads, TikTok skills, whatsapp integrate (hasta vender).
+**Ya instalados — usar:** `persona-sales-ops` + `gws-gmail-send` + `gws-workflow-meeting-prep`  
+**Posponer:** SEO/TikTok skills; paid-ads hasta landing OS live.
 
 ## 3 palancas rápidas (esta semana)
 
 ### 1. Cerrar el loop caliente
-- Onza: propuesta hoy + Calendly + follow-up 48h.
-- Cualquier otro LinkedIn que haya respondido: mismo tratamiento.
+- Onza: propuesta + Calendly + follow-up 48h (Carril B).
+- Cualquier LinkedIn que respondió: mismo tratamiento.
 
 ### 2. Referidos de clientes actuales
-Mensaje corto a William, JLH, Coophitel:
-> "¿Conoces alguna agencia o empresa que pierda leads por WhatsApp? Te agradezco una intro."
+Mensaje a William, JLH, Coophitel (adaptar):
+> "¿Conoces dueño de tienda, salón o restaurante que quiera ver Wavys OS en demo? Te agradezco una intro."
 
 1 intro calificada > 20 cold messages.
 
-### 3. LinkedIn / IG mínimo viable (Presencia Digital)
-- 1 carrusel o post/semana → link **presencia-digital**
-- 5 DMs/semana solo si hay tiempo (agencias Huancayo o partners)
-- No TikTok hasta 2 clientes Presencia Digital cerrados
+### 3. LinkedIn / IG mínimo viable (Wavys OS)
+- 1 carrusel o post/semana → Calendly OS / flyer
+- 5 DMs/semana solo si hay tiempo
+- No TikTok hasta 2 demos OS convertidas o primer pago
 
 ## ICP — dos perfiles (no mezclar mensaje)
 
 | Carril | ICP | Mensaje |
 |--------|-----|---------|
-| **A — Presencia Digital** | PYME Perú: restaurante, clínica, hotel, profesional | Landing + fotos S/149/mes, 5–7 días |
-| **B — Partner** | Agencia 5–50 personas, LatAm, clientes WhatsApp | Colaboración / white-label automatización |
+| **A — Wavys OS** | PYME: tienda, salón, restaurante | Chat → web + oferta (+ operación en Operate) |
+| **B — Partner** | Agencia 5–50, LatAm | Colaboración / white-label automatización |
 
-Filtro Presencia Digital:
-- ¿Tiene negocio local sin web decente o solo redes? → SÍ seguir
-- ¿Va a pautar en Meta? → PRIORIDAD
-- ¿Es agencia buscando partner IA? → Carril B (Onza), no Presencia Digital
+Filtro OS:
+- ¿Tienda / salón / resto con caos WhatsApp+Excel? → SÍ
+- ¿Pide “solo landing con fotos a mano”? → Educar a Presence OS, no revivir PD
+- ¿Agencia partner IA? → Carril B
 
-## Métricas que importan (Presencia Digital)
+## Métricas que importan (fase demos)
 
-1. WhatsApps / mensajes enviados / semana (meta: 25+ semana 1)
-2. Respuestas recibidas (meta: 5+)
-3. Llamadas o WhatsApp calificados (meta: 2+)
-4. Cierres / pilotos (meta: 3 en 14–21 días)
+1. WhatsApps / mensajes / semana (meta: 25+ semana 1)
+2. Respuestas (meta: 5+)
+3. Demos Calendly (meta: 5–10 en 14–21 días)
+4. Packs cubiertos (≥1 Tienda + ≥1 Salón o Resto)
 
-Ignorar: followers TikTok, likes sin CTA, features SaaS shipped.
+Ignorar: followers sin CTA, cobro Polar hasta OK legal.
 
 ## Qué pedirle a Cursor en cada sesión
 
-Ejemplos de tareas acotadas (poco tiempo):
+- "10 mensajes WhatsApp Wavys OS para Huancayo"
+- "Auditoría web + mensaje puente a demo OS"
+- "Post/carrusel IG Wavys OS"
+- "Follow-up 48h demos wavys-os"
+- "Mensaje referido para William con Calendly OS"
 
-- "10 mensajes WhatsApp Presencia Digital para Huancayo"
-- "Auditoría web gratis + mensaje venta para 3 negocios Maps"
-- "Post/carrusel IG Presencia Digital — slide listo"
-- "Follow-up 48h leads Presencia Digital"
-- "Mensaje referido para William con link presencia-digital"
-- "Rellenar contrato Presencia Digital para [cliente]"
-
-Evitar: "mejora Wavys", "plan marketing completo", "integrar 3 APIs".
+Evitar: "reactivar Presencia Digital", "mejora Wavys genérico", "integrar 3 APIs".
 
 ## Meta 30 días (realista)
 
-- **2 clientes Presencia Digital** cerrados o en contrato
-- Plan 7 días ejecutado (WhatsApp + referidos + Meta Ads test)
+- **5–10 demos** OS agendadas o hechas
+- Plan 7 días ejecutado (WhatsApp + referidos)
 - Propuesta Onza enviada (Carril B, paralelo)
-- Pipeline registrado en `log_business_note` tag `presencia-digital`
+- Pipeline en `log_business_note` tag `wavys-os`
+- Landing `/wavys-os` o soft launch en camino
 
 ## Meta 90 días
 
-- **6+ clientes Presencia Digital** recurrentes
-- Meta Ads escalado si CPL < S/30
-- 1 partner activo (ideal: Onza o agencia Huancayo)
-- Segunda campaña documentada en `campaigns/` si Phil lanza nueva oferta
+- Primeros pagos Presence/Operate (post-legal + Polar)
+- DNS `*.wavys.app` en prod
+- 1 partner activo (Onza u otra)
+- Presencia Digital sigue archivada
+
+## Archivo Presencia Digital
+
+- Doc: `campaigns/presencia-digital.md` (retirada)
+- Kit histórico: `data/presencia-digital-brief/` (ideas, no oferta)

@@ -20,7 +20,8 @@ Redes confirmadas por Phil (2026-07-01). Usar para contenido, coherencia de mens
 | Producto SaaS | https://wavys-technologies.com/ | Cliente final |
 | Pricing SaaS | https://wavys-technologies.com/planes | Planes públicos CRM |
 | Servicios / partners | https://software.wavys-technologies.com/ | Agencias, implementación (cotización) |
-| **Presencia Digital** *(campaña activa)* | https://software.wavys-technologies.com/presencia-digital | PYME Perú — landing + fotos desde S/149/mes |
+| **Wavys OS** *(campaña activa)* | CTA demo: https://calendly.com/philtaboada2julio · landing `/wavys-os` pendiente | PYME — SaaS chat-first Tienda/Salón/Resto |
+| Presencia Digital | *(retirada — redirect `/`)* | No vender; ver `campaigns/presencia-digital.md` |
 
 ## Reglas de contenido por canal
 
@@ -47,7 +48,7 @@ Redes confirmadas por Phil (2026-07-01). Usar para contenido, coherencia de mens
 
 **Una línea:** Agentes IA en WhatsApp que capturan, califican y dan seguimiento a leads para más ventas.
 
-**No mezclar:** post agencias → software.wavys · post producto SaaS → wavys-technologies.com · **campaña Presencia Digital** → link presencia-digital (doc: `campaigns/presencia-digital.md`).
+**No mezclar:** post agencias → software.wavys · post SaaS CRM → wavys-technologies.com · **Wavys OS** → Calendly / landing OS (doc: `campaigns/wavys-os.md`). No linkear Presencia Digital.
 
 ## Pendiente / ampliar
 

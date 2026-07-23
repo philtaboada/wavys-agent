@@ -9,8 +9,9 @@ Lee estos archivos **al iniciar cualquier tarea** para Phil / Wavys.
 | [business-plan.md](./business-plan.md) | Plan operativo completo (ventas, marketing, finanzas, etc.) |
 | [recommended-skills.md](./recommended-skills.md) | Skills Cursor/Claude a instalar por área |
 | [growth-focus-phil.md](./growth-focus-phil.md) | **Prioridad Phil:** poco tiempo, foco clientes |
-| [campaigns/README.md](./campaigns/README.md) | **Campañas comerciales** — productos empaquetados (activa + futuras) |
-| [campaigns/presencia-digital.md](./campaigns/presencia-digital.md) | **Campaña activa:** Presencia Digital — pricing, kit, marketing |
+| [campaigns/README.md](./campaigns/README.md) | **Campañas comerciales** — productos empaquetados (activa + retiradas) |
+| [campaigns/wavys-os.md](./campaigns/wavys-os.md) | **Campaña activa:** Wavys OS — pricing, kit, demos |
+| [campaigns/presencia-digital.md](./campaigns/presencia-digital.md) | **Retirada:** Presencia Digital (archivo; no vender) |
 | [repos-map.md](./repos-map.md) | **Repos** en `/Volumes/mac externo/Mac Externo/projects/` |
 | [remocn-video-ecosystem.md](./remocn-video-ecosystem.md) | **Video en código:** remocn, RemotionUI, Framecn, skills y quick start |
 | [../connections/figma-posts.md](../connections/figma-posts.md) | **Posts sociales:** Figma *Posts* — tipografía, colores, formatos |
@@ -33,6 +34,8 @@ Lee estos archivos **al iniciar cualquier tarea** para Phil / Wavys.
 
 | Skill | Cuándo |
 |-------|--------|
+| `agent/skills/wavys_os_onboarding/SKILL.md` | **Onboarding Wavys OS** — Tienda / Salón / Restaurante (chat → pack → web → oferta → módulos) |
+| `agent/skills/wavys_os_phase_validator/SKILL.md` | **Gates build** Wavys OS por fase |
 | `agent/skills/one_call_landing/SKILL.md` | **Landing cliente** → Astro — **pipeline fijo:** investigar → doc patrones → build → validar |
 | `agent/skills/one_call_website/SKILL.md` | **Sistema / app / automatización** → **Next.js** |
 | `agent/skills/reference_ui_copy/SKILL.md` | Capturas Pinterest, Dribbble, Behance — copiar UI fiel |
@@ -52,7 +55,7 @@ Lee estos archivos **al iniciar cualquier tarea** para Phil / Wavys.
 ```
 1. founder-profile.md       → quién es y qué priorizar
 2. growth-focus-phil.md     → campaña / canal que manda ahora
-3. campaigns/<slug>.md      → si es marketing o venta de producto empaquetado (Presencia Digital, etc.)
+3. campaigns/wavys-os.md     → marketing / demos / pricing PYME (PD retirada)
 4. brand-channels.md        → si es contenido en redes
 5. business-plan.md         → si es ventas/ops/estrategia general
 6. data/*.json              → contexto reciente
