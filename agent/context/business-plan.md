@@ -23,6 +23,7 @@ SaaS chat-first (packs Tienda / Salón / Restaurante). **Presencia Digital retir
 | Doc campaña | `agent/context/campaigns/wavys-os.md` |
 | Kit ventas | `data/wavys-os-campaign-brief/` |
 | Producto | `data/wavys-os-brief/` |
+| Landing | https://software.wavys-technologies.com/wavys-os |
 | CTA | https://calendly.com/philtaboada2julio |
 | Pricing | Presence S/169 · Operate S/279 · Scale S/449 |
 

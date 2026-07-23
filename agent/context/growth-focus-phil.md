@@ -14,7 +14,7 @@ Este doc manda sobre el plan general cuando haya conflicto de prioridades.
 | **Kit venta** | `data/wavys-os-campaign-brief/` |
 | **Producto** | `data/wavys-os-brief/` |
 | **CTA** | https://calendly.com/philtaboada2julio |
-| **Landing** | pendiente `/wavys-os` |
+| **Landing** | https://software.wavys-technologies.com/wavys-os |
 | **Meta fase** | 5–10 demos / design partners en 14–21 días |
 | **Plan acción** | `data/wavys-os-campaign-brief/PLAN-MARKETING-7-DIAS.md` |
 
@@ -129,7 +129,7 @@ Evitar: "reactivar Presencia Digital", "mejora Wavys genérico", "integrar 3 API
 - Plan 7 días ejecutado (WhatsApp + referidos)
 - Propuesta Onza enviada (Carril B, paralelo)
 - Pipeline en `log_business_note` tag `wavys-os`
-- Landing `/wavys-os` o soft launch en camino
+- Landing `/wavys-os` live (deploy si falta)
 
 ## Meta 90 días
 

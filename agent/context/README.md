@@ -36,6 +36,7 @@ Lee estos archivos **al iniciar cualquier tarea** para Phil / Wavys.
 |-------|--------|
 | `agent/skills/wavys_os_onboarding/SKILL.md` | **Onboarding Wavys OS** — Tienda / Salón / Restaurante (chat → pack → web → oferta → módulos) |
 | `agent/skills/wavys_os_phase_validator/SKILL.md` | **Gates build** Wavys OS por fase |
+| `agent/skills/wavys_os_campaign_validator/SKILL.md` | **Gate GTM** campaña OS (doc, kit, landing, CTA) |
 | `agent/skills/one_call_landing/SKILL.md` | **Landing cliente** → Astro — **pipeline fijo:** investigar → doc patrones → build → validar |
 | `agent/skills/one_call_website/SKILL.md` | **Sistema / app / automatización** → **Next.js** |
 | `agent/skills/reference_ui_copy/SKILL.md` | Capturas Pinterest, Dribbble, Behance — copiar UI fiel |

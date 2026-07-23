@@ -2,8 +2,8 @@
 
 **Objetivo fase:** 5–10 demos / design partners (packs MVP), no cobro masivo aún.  
 **CTA:** https://calendly.com/philtaboada2julio  
-**Landing pública:** pendiente — usar flyer + Calendly.  
-**Assets:** `data/wavys-os-brief/marketing/`
+**Landing:** https://software.wavys-technologies.com/wavys-os  
+**Assets:** `data/wavys-os-brief/marketing/` · PDF kit `Wavys-OS-Brief.pdf`
 
 ---
 

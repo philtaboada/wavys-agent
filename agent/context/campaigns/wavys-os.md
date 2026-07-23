@@ -6,8 +6,8 @@
 | Campo | Valor |
 |-------|-------|
 | **Producto** | SaaS chat-first · packs Tienda / Salón / Restaurante |
-| **Landing** | *pendiente* — ruta futura en `theros-website` (ej. `/wavys-os`) |
-| **CTA actual** | Demo registrada → https://calendly.com/philtaboada2julio |
+| **Landing** | https://software.wavys-technologies.com/wavys-os · repo `theros-website` `/wavys-os` |
+| **CTA primario** | Demo registrada → https://calendly.com/philtaboada2julio |
 | **Email** | contact@wavys-technologies.com |
 | **Kit operativo** | `data/wavys-os-campaign-brief/` |
 | **Brief producto (build)** | `data/wavys-os-brief/` |
@@ -31,9 +31,23 @@
 | Vender “Presencia Digital”, “Presencia Tienda”, “Presencia Catálogo” | Hablar solo de **Wavys OS** (Presence / Operate / Scale) |
 | Prometer entrega Astro/manual tipo agencia como producto | Prometer onboarding chat + subdominio `{slug}.wavys.app` |
 | Usar precios PD (S/149 landing+fotos) | Usar precios OS oficiales abajo |
-| Empujar a `/presencia-digital` | CTA demo Calendly (hasta landing OS live) |
+| Empujar a `/presencia-digital` | CTA demo Calendly + landing `/wavys-os` |
 
 Kit histórico PD (`data/presencia-digital-brief/`) = **archivo de ideas**, no oferta activa.
+
+---
+
+## Decisión CTA (oficial — no improvisar)
+
+| Fase | CTA primario | No usar como primario |
+|------|--------------|------------------------|
+| **Ahora (demos / design partners)** | **Demo Calendly** `https://calendly.com/philtaboada2julio` | Waitlist, checkout Polar, “regístrate solo” |
+| **Soft launch cobro** | Calendly **o** self-serve Polar Presence | Waitlist genérica |
+| **Post-legal + Polar prod + DNS** | Self-serve signup + checkout Polar; Calendly = enterprise / partners | Prometer self-serve antes de unlock |
+
+**Unlock self-serve (los tres):** (1) OK legal Términos/Privacidad · (2) Polar products prod · (3) DNS `*.wavys.app` + app reachable.  
+**Waitlist:** descartada como CTA primario — queremos conversación y packs MVP cubiertos.  
+**Misma URL** en campaña, `MENSAJES-COMPARTIR.md`, `DEMO-CONTRATO.md` y botón landing.
 
 ---
 
@@ -94,6 +108,9 @@ Detalle: `data/wavys-os-brief/mvp-onboarding-tienda-salon-resto.md`.
 | `MENSAJES-COMPARTIR.md` | Copy WhatsApp, LinkedIn, IG |
 | `STORYTELLING-GUIA.md` | Arco 5 actos — sin precio al inicio |
 | `PLAN-MARKETING-7-DIAS.md` | Acciones día a día · demos / design partners |
+| `DEMO-CONTRATO.md` | Guía demo + mini-acuerdo design partner |
+| `Wavys-OS-Brief.pdf` | PDF comercial (flyer) para enviar |
+| `validador-campana.md` | Gate GTM estricto P1–P5 |
 | Assets flyer/infografía | `data/wavys-os-brief/marketing/` |
 
 ---
@@ -135,7 +152,8 @@ Detalle: `data/wavys-os-brief/mvp-onboarding-tienda-salon-resto.md`.
 
 ## Pendiente Phil
 
-- [ ] Landing pública `/wavys-os` en `theros-website`
+- [x] Landing pública `/wavys-os` en `theros-website`
+- [ ] Deploy landing a prod (si CI no auto-deploy)
 - [ ] Polar sandbox productos reales
 - [ ] Soft launch cobro + DNS `*.wavys.app`
 - [ ] Revisar copy mensajes antes de blast masivo

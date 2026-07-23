@@ -16,6 +16,8 @@ Vi que [negocio] vive mucho en WhatsApp y redes — se vende, pero la web y el d
 
 ¿Agendamos una demo registrada? 👇
 https://calendly.com/philtaboada2julio
+
+Más info: https://software.wavys-technologies.com/wavys-os
 ```
 
 ---

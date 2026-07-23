@@ -20,7 +20,7 @@ Redes confirmadas por Phil (2026-07-01). Usar para contenido, coherencia de mens
 | Producto SaaS | https://wavys-technologies.com/ | Cliente final |
 | Pricing SaaS | https://wavys-technologies.com/planes | Planes públicos CRM |
 | Servicios / partners | https://software.wavys-technologies.com/ | Agencias, implementación (cotización) |
-| **Wavys OS** *(campaña activa)* | CTA demo: https://calendly.com/philtaboada2julio · landing `/wavys-os` pendiente | PYME — SaaS chat-first Tienda/Salón/Resto |
+| **Wavys OS** *(campaña activa)* | https://software.wavys-technologies.com/wavys-os · demo Calendly | PYME — SaaS chat-first Tienda/Salón/Resto |
 | Presencia Digital | *(retirada — redirect `/`)* | No vender; ver `campaigns/presencia-digital.md` |
 
 ## Reglas de contenido por canal

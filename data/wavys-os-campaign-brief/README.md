@@ -11,7 +11,11 @@ Producto (build, schema, onboarding): `data/wavys-os-brief/`
 | `STORYTELLING-GUIA.md` | Arco narrativo 5 actos (sin precio al inicio) |
 | `MENSAJES-COMPARTIR.md` | WhatsApp, LinkedIn, IG |
 | `PLAN-MARKETING-7-DIAS.md` | Semana 1 — demos / design partners |
+| `DEMO-CONTRATO.md` | Demo + design partner / mini-acuerdo |
+| `Wavys-OS-Brief.pdf` | PDF para WhatsApp/email |
+| `validador-campana.md` | Gate GTM P1–P5 |
 | Flyer / infografía | `../wavys-os-brief/marketing/` |
 
-**CTA actual:** https://calendly.com/philtaboada2julio  
-**Landing pública:** pendiente.
+**CTA:** https://calendly.com/philtaboada2julio  
+**Landing:** https://software.wavys-technologies.com/wavys-os  
+**Validar:** skill `wavys_os_campaign_validator`
