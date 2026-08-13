@@ -12,5 +12,8 @@ dist
 *.tsbuildinfo
 data/*.json
 !data/.gitkeep
+!data/workana-bids.json
 data/generated-images/*
 !data/generated-images/.gitkeep
+data/workana-storage-state.json
+data/workana-screenshots/
