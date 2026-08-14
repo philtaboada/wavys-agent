@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>RADAR N°1 — 04 Tema central · tres reglas</title>
+    <link rel="stylesheet" href="css/radar.css" />
+    <style>
+      /* ============================================================
+         04e · TEMA CENTRAL, CIERRE — personalidad: TRES REGLAS.
+         Página sin foto a propósito: viene después de dos páginas con
+         escena. Numerales enormes colgados a la izquierda, la regla
+         en grotesca y el matiz en serif. Cierra con la firma.
+         ============================================================ */
+
+      .page {
+        background:
+          radial-gradient(80% 50% at 14% 96%, #0e100f 0%, rgba(14, 16, 15, 0) 60%),
+          var(--ink);
+      }
+
+      .section {
+        position: absolute;
+        left: var(--margin);
+        right: var(--margin);
+        top: 124px;
+        z-index: 20;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        border-bottom: 2px solid var(--white);
+        padding-bottom: 10px;
+      }
+
+      .section h2 {
+        font-weight: 800;
+        font-stretch: 74%;
+        font-size: 92px;
+        line-height: 0.82;
+        text-transform: uppercase;
+        letter-spacing: 0.004em;
+      }
+
+      .section h2 small {
+        display: block;
+        font-family: var(--mono);
+        font-weight: 400;
+        font-stretch: 100%;
+        font-size: 11px;
+        letter-spacing: 0.26em;
+        color: var(--teal);
+        margin-bottom: 12px;
+      }
+
+      .section__meta {
+        width: 360px;
+        text-align: right;
+        padding-bottom: 8px;
+        font-family: var(--read);
+        font-size: 17px;
+        line-height: 1.44;
+        color: var(--ink-70);
+      }
+
+      .rules {
+        position: absolute;
+        left: var(--margin);
+        right: var(--margin);
+        top: 320px;
+        z-index: 12;
+      }
+
+      .rule-row {
+        display: grid;
+        grid-template-columns: 262px 1fr;
+        gap: 44px;
+        padding: 74px 0 80px;
+        border-top: 1px solid var(--ink-18);
+      }
+
+      .rule-row:first-child {
+        border-top: 3px solid var(--teal);
+      }
+
+      .rule-row__num {
+        font-family: var(--display);
+        font-variation-settings: "SOFT" 22, "WONK" 1, "opsz" 144;
+        font-weight: 900;
+        font-size: 224px;
+        line-height: 0.74;
+        letter-spacing: -0.05em;
+        color: var(--white);
+      }
+
+      .rule-row:nth-child(2) .rule-row__num {
+        color: var(--teal);
+      }
+
+      .rule-row__num small {
+        display: block;
+        font-family: var(--mono);
+        font-weight: 400;
+        font-size: 10.5px;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+        color: var(--ink-45);
+        margin-top: 18px;
+      }
+
+      .rule-row__title {
+        font-family: var(--sans);
+        font-weight: 800;
+        font-stretch: 84%;
+        font-size: 62px;
+        line-height: 1.02;
+        letter-spacing: -0.02em;
+        color: var(--white);
+      }
+
+      .rule-row__title em {
+        font-style: normal;
+        color: var(--teal);
+      }
+
+      .rule-row__text {
+        margin-top: 22px;
+        max-width: 760px;
+        font-family: var(--read);
+        font-size: 20px;
+        line-height: 1.6;
+        color: rgba(253, 253, 253, 0.85);
+      }
+
+      .rule-row__text b {
+        font-weight: 600;
+        color: var(--white);
+      }
+
+      .close {
+        position: absolute;
+        left: var(--margin);
+        right: var(--margin);
+        bottom: 128px;
+        z-index: 14;
+        border-top: 3px solid var(--teal);
+        padding-top: 20px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 40px;
+      }
+
+      .close p {
+        max-width: 760px;
+        font-family: var(--sans);
+        font-weight: 600;
+        font-stretch: 92%;
+        font-size: 26px;
+        line-height: 1.26;
+        letter-spacing: -0.012em;
+        color: var(--white);
+      }
+
+      .close span {
+        flex: none;
+        font-family: var(--italic);
+        font-style: italic;
+        font-weight: 500;
+        font-size: 46px;
+        line-height: 1;
+        color: rgba(253, 253, 253, 0.9);
+      }
+    </style>
+  </head>
+  <body>
+    <article class="page grain">
+      <header class="head">
+        <span class="head__mast">Radar</span>
+        <span class="head__section">Tema central · cierre</span>
+      </header>
+
+      <div class="section">
+        <h2><small>Antes del 1 de octubre</small>Tres reglas</h2>
+        <p class="section__meta">
+          No es una lista de buenas intenciones. Es lo que yo dejaría escrito en la operación antes de que el
+          chat empiece a costar.
+        </p>
+      </div>
+
+      <div class="rules">
+        <div class="rule-row">
+          <p class="rule-row__num">01<small>Confirmar</small></p>
+          <div>
+            <p class="rule-row__title">No “ya te confirmo” <em>si no hay nada que confirmar</em>.</p>
+            <p class="rule-row__text">
+              Si no está en la ficha, no lo mandes. <b>Escala.</b> Un mensaje que promete y no cumple te cuesta
+              dos veces: el mensaje y la llamada del cliente preguntando lo mismo.
+            </p>
+          </div>
+        </div>
+
+        <div class="rule-row">
+          <p class="rule-row__num">02<small>Contestar</small></p>
+          <div>
+            <p class="rule-row__title">Lo que se puede decir solo, <em>en una línea corta</em>.</p>
+            <p class="rule-row__text">
+              Horario, estado del pedido, “recibí tu mensaje”. Eso lo dice el sistema y se acaba ahí. Sin
+              saludo de tres párrafos, sin dos mensajes para lo que cabe en uno.
+            </p>
+          </div>
+        </div>
+
+        <div class="rule-row">
+          <p class="rule-row__num">03<small>Cerrar</small></p>
+          <div>
+            <p class="rule-row__title">Lo que mueve plata o una cita, <em>lo ve una persona</em>.</p>
+            <p class="rule-row__text">
+              El sistema prepara: junta los datos, arma la ficha, deja el estado listo. <b>No cierra solo.</b>
+              Quien cobra o agenda es alguien de tu equipo.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="close">
+        <p>
+          Si esto queda escrito antes de octubre, el 1 de octubre no te cambia el mes: te cambia una costumbre.
+        </p>
+        <span>— Phil</span>
+      </div>
+
+      <footer class="folio">
+        <span class="folio__ticks"><i></i><i></i><i class="on"></i><i></i></span>
+        <span>Radar N°1 · Tema central</span>
+        <span class="folio__num">04</span>
+      </footer>
+    </article>
+  </body>
+</html>
