@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>RADAR N°2 — 01 Tapa · LOCK</title>
+    <link rel="stylesheet" href="css/radar.css" />
+    <style>
+      /* ============================================================
+         01 · TAPA — LOCK. Businessweek: el objeto llena el campo.
+         Masthead RADAR en slab. Punch OTRA VEZ / EXCEL.
+         No se redibuja el sistema de tipo de esta tapa.
+         El die es el campo (oro / ocre / púrpura + pines).
+         ============================================================ */
+
+      .page {
+        background: #0a0908;
+      }
+
+      /* campo: die de chip, llena los dos tercios superiores -------- */
+      .die {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        height: 1188px;
+        z-index: 1;
+        overflow: hidden;
+        background:
+          radial-gradient(90% 70% at 50% 42%, #5a3040 0%, #2a1420 48%, #10080c 100%);
+      }
+
+      .die__frame {
+        position: absolute;
+        left: 4.5%;
+        right: 4.5%;
+        top: 198px;
+        bottom: 118px;
+        border: 10px solid #c9a24a;
+        box-shadow: inset 0 0 0 3px #8a6a28;
+        z-index: 2;
+      }
+
+      .die__grid {
+        position: absolute;
+        left: 7%;
+        right: 7%;
+        top: 228px;
+        bottom: 148px;
+        display: grid;
+        grid-template-columns: repeat(14, 1fr);
+        grid-template-rows: repeat(10, 1fr);
+        gap: 4px 3px;
+        z-index: 3;
+      }
+
+      .die__grid b {
+        display: block;
+        border-radius: 1px;
+      }
+
+      .die__grid b:nth-child(3n) { background: #c4a05a; }
+      .die__grid b:nth-child(3n+1) { background: #8a5a28; }
+      .die__grid b:nth-child(3n+2) { background: #3d2248; }
+      .die__grid b:nth-child(5n) { background: #d8b56a; }
+      .die__grid b:nth-child(7n) { background: #5c2a4a; }
+      .die__grid b:nth-child(11n) { background: #a87838; }
+      .die__grid b:nth-child(13n) { background: #2a1838; }
+      .die__grid b:nth-child(4n+2) { background: #b8924a; }
+
+      .pins {
+        position: absolute;
+        left: 8%;
+        right: 8%;
+        height: 72px;
+        display: flex;
+        justify-content: space-between;
+        z-index: 4;
+      }
+
+      .pins--top { top: 126px; }
+      .pins--bot { bottom: 46px; transform: rotate(180deg); }
+
+      .pins i {
+        width: 16px;
+        height: 72px;
+        background: linear-gradient(180deg, #f0d078 0%, #c8962e 50%, #8a6418 100%);
+        clip-path: polygon(22% 0, 78% 0, 100% 100%, 0 100%);
+      }
+
+      /* masthead LOCK — slab, blanco, no se cambia ------------------ */
+      .mast {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 28px;
+        z-index: 20;
+        text-align: center;
+      }
+
+      .mast h1 {
+        font-family: var(--slab);
+        font-weight: 700;
+        font-size: 156px;
+        line-height: 0.78;
+        letter-spacing: 0.1em;
+        color: #fdfdfd;
+        text-transform: uppercase;
+        text-shadow: 0 8px 28px rgba(7, 6, 4, 0.55);
+      }
+
+      .meta {
+        position: absolute;
+        left: 74px;
+        right: 74px;
+        top: 168px;
+        z-index: 20;
+        display: flex;
+        justify-content: space-between;
+        font-family: var(--sans);
+        font-weight: 700;
+        font-size: 13px;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+      }
+
+      .meta__n { color: #fdfdfd; }
+      .meta__d { color: var(--teal); }
+
+      /* punch sobre el corte inferior del die ----------------------- */
+      .punch {
+        position: absolute;
+        left: 74px;
+        right: 74px;
+        top: 1004px;
+        z-index: 22;
+        text-align: center;
+      }
+
+      .punch__k {
+        font-family: var(--sans);
+        font-weight: 700;
+        font-size: 18px;
+        letter-spacing: 0.42em;
+        text-transform: uppercase;
+        color: #fdfdfd;
+      }
+
+      .punch h2 {
+        margin-top: 6px;
+        font-family: var(--display);
+        font-variation-settings: "SOFT" 18, "WONK" 1, "opsz" 144;
+        font-weight: 900;
+        font-size: 268px;
+        line-height: 0.78;
+        letter-spacing: -0.035em;
+        color: #f3ead4;
+        text-shadow: 0 10px 40px rgba(7, 6, 4, 0.65);
+      }
+
+      .punch__dek {
+        margin-top: 10px;
+        font-family: var(--sans);
+        font-weight: 500;
+        font-size: 22px;
+        letter-spacing: -0.01em;
+        color: #fdfdfd;
+      }
+
+      /* pie de tapa: tres teasers ----------------------------------- */
+      .foot {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 566px;
+        z-index: 10;
+        background:
+          radial-gradient(80% 60% at 50% 0%, #1a1816 0%, #0c0b0a 55%, #070604 100%);
+      }
+
+      .foot::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        opacity: 0.35;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E");
+        background-size: 240px 240px;
+        mix-blend-mode: overlay;
+        pointer-events: none;
+      }
+
+      .teasers {
+        position: absolute;
+        left: 74px;
+        right: 74px;
+        bottom: 88px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 36px;
+        z-index: 12;
+      }
+
+      .teasers article {
+        border-top: 1px solid rgba(253, 253, 253, 0.16);
+        padding-top: 18px;
+      }
+
+      .teasers b {
+        display: block;
+        font-family: var(--sans);
+        font-weight: 800;
+        font-size: 12px;
+        letter-spacing: 0.32em;
+        text-transform: uppercase;
+        color: var(--teal);
+        margin-bottom: 12px;
+      }
+
+      .t-maps h3 {
+        font-family: var(--sans);
+        font-weight: 800;
+        font-stretch: 88%;
+        font-size: 28px;
+        line-height: 1.05;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: #fdfdfd;
+      }
+
+      .t-ficha h3 {
+        font-family: var(--italic);
+        font-style: italic;
+        font-weight: 500;
+        font-size: 30px;
+        line-height: 1.15;
+        color: #fdfdfd;
+      }
+
+      .t-agenda h3 {
+        font-family: var(--display);
+        font-style: italic;
+        font-variation-settings: "SOFT" 40, "WONK" 1, "opsz" 72;
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 1.1;
+        color: #fdfdfd;
+      }
+    </style>
+  </head>
+  <body>
+    <article class="page grain">
+      <div class="die" aria-hidden="true">
+        <div class="die__frame" aria-hidden="true"></div>
+        <div class="pins pins--top">
+          <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+          <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+          <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+        </div>
+        <div class="die__grid">
+          <b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b>
+          <b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b>
+          <b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b>
+          <b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b>
+          <b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b>
+          <b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b>
+          <b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b>
+          <b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b>
+          <b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b>
+          <b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b>
+        </div>
+        <div class="pins pins--bot">
+          <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+          <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+          <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+        </div>
+      </div>
+
+      <header class="mast">
+        <h1>Radar</h1>
+      </header>
+
+      <p class="meta">
+        <span class="meta__n">Nº 2 · Prueba</span>
+        <span class="meta__d">17–21 ago 2026</span>
+      </p>
+
+      <div class="punch">
+        <p class="punch__k">Otra vez</p>
+        <h2>Excel</h2>
+        <p class="punch__dek">El modelo nuevo no arregla la hoja de siempre.</p>
+      </div>
+
+      <div class="foot">
+        <div class="teasers">
+          <article class="t-maps">
+            <b>Maps</b>
+            <h3>El lead<br />se pierde</h3>
+          </article>
+          <article class="t-ficha">
+            <b>Ficha</b>
+            <h3>Si no está, no existe</h3>
+          </article>
+          <article class="t-agenda">
+            <b>Agenda</b>
+            <h3>El hueco vacío</h3>
+          </article>
+        </div>
+      </div>
+    </article>
+  </body>
+</html>
