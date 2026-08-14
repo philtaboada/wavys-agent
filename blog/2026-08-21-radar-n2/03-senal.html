@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>RADAR N°2 — 03 Señal</title>
+    <link rel="stylesheet" href="css/radar.css" />
+    <style>
+      /* ============================================================
+         03 · SEÑAL — una página, tres notas cortas, filetes.
+         Dossier / alambre. NO Time Briefing. NO clone N°1
+         (sin Sans 86 + foto 548 + dos columnas iguales). Sin cards.
+         Espina vertical + notas de largo desigual.
+         ============================================================ */
+
+      .page {
+        background: var(--ink);
+      }
+
+      .spine {
+        position: absolute;
+        left: 74px;
+        top: 200px;
+        z-index: 8;
+      }
+
+      .spine b {
+        display: block;
+        font-family: var(--sans);
+        font-weight: 800;
+        font-stretch: 80%;
+        font-size: 16px;
+        letter-spacing: 0.42em;
+        text-transform: uppercase;
+        color: var(--teal);
+        writing-mode: vertical-rl;
+        transform: rotate(180deg);
+      }
+
+      .bar {
+        position: absolute;
+        left: 182px;
+        top: 128px;
+        bottom: 118px;
+        width: 1px;
+        background: var(--ink-18);
+        z-index: 6;
+      }
+
+      .stack {
+        position: absolute;
+        left: 220px;
+        right: 74px;
+        top: 128px;
+        z-index: 8;
+      }
+
+      .note {
+        padding: 28px 0 32px;
+        border-bottom: 1px solid var(--ink-18);
+      }
+
+      .note:first-child { padding-top: 0; }
+      .note--long { padding-bottom: 40px; }
+      .note--mid { padding-bottom: 28px; }
+      .note--short { padding-bottom: 18px; border-bottom: 0; }
+
+      .note__id {
+        font-family: var(--mono);
+        font-size: 12px;
+        letter-spacing: 0.18em;
+        color: var(--teal);
+        margin-bottom: 8px;
+      }
+
+      .note h3 {
+        font-weight: 400;
+      }
+
+      .note--long h3 {
+        font-family: var(--sans);
+        font-weight: 800;
+        font-stretch: 78%;
+        font-size: 64px;
+        line-height: 0.9;
+        letter-spacing: -0.02em;
+        text-transform: uppercase;
+        color: var(--white);
+      }
+
+      .note--mid h3 {
+        font-family: var(--italic);
+        font-style: italic;
+        font-weight: 500;
+        font-size: 52px;
+        line-height: 0.98;
+        letter-spacing: -0.025em;
+        color: var(--white);
+      }
+
+      .note--short h3 {
+        font-family: var(--slab);
+        font-weight: 600;
+        font-size: 40px;
+        line-height: 1.02;
+        letter-spacing: -0.02em;
+        color: var(--white);
+      }
+
+      .note p {
+        margin-top: 16px;
+        max-width: 38em;
+        font-family: var(--read);
+        font-size: 18px;
+        line-height: 1.45;
+        color: rgba(253, 253, 253, 0.82);
+      }
+
+      .note--short p {
+        font-size: 16.5px;
+        max-width: 32em;
+      }
+
+      .why-inline {
+        margin-top: 14px;
+        font-family: var(--sans);
+        font-weight: 600;
+        font-size: 14px;
+        letter-spacing: 0.02em;
+        color: var(--teal);
+      }
+    </style>
+  </head>
+  <body>
+    <article class="page grain">
+      <header class="head">
+        <span class="head__mast">Radar</span>
+        <span class="head__section">Señal · tres notas · borrador</span>
+      </header>
+
+      <div class="spine"><b>Señal</b></div>
+      <div class="bar" aria-hidden="true"></div>
+
+      <div class="stack">
+        <article class="note note--long">
+          <p class="note__id">01 · Maps</p>
+          <h3>El pin<br />no es el lead</h3>
+          <p>
+            Si el nombre se queda en el mapa y no baja a la hoja, el viernes no existe.
+            No es una noticia de la semana: es lo que veo cuando abro la operación.
+            El pin marca un lugar. El lead es una fila.
+          </p>
+          <p class="why-inline">Why it matters — el mapa no cierra la venta.</p>
+        </article>
+
+        <article class="note note--mid">
+          <p class="note__id">02 · Fila</p>
+          <h3>Lo que no escribiste no pasó.</h3>
+          <p>
+            El chat puede estar lleno y la hoja, en blanco. Este número no inventa
+            un anuncio para tapar eso. La fila vacía es la señal.
+          </p>
+        </article>
+
+        <article class="note note--short">
+          <p class="note__id">03 · Viernes</p>
+          <h3>El tablero espera al 21.</h3>
+          <p>
+            Hoy es layout. Sin filas inventadas, sin precios. El dato se llena
+            cuando cierre la semana — página 08.
+          </p>
+        </article>
+      </div>
+
+      <footer class="folio">
+        <span class="folio__ticks"><i></i><i class="on"></i><i></i><i></i><i></i><i></i></span>
+        <span>N°2 · Borrador · 17–21 ago 2026</span>
+        <span class="folio__num">03</span>
+      </footer>
+    </article>
+  </body>
+</html>

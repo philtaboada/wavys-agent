@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>RADAR N°1 — 08 Tablero de IA</title>
+    <link rel="stylesheet" href="css/radar.css" />
+    <style>
+      /* ============================================================
+         08 · TABLERO DE IA — personalidad: DATO (Bloomberg, no Wired).
+         Mono, filetes finos, cifras grandes. Tres gráficos REALES
+         recortados de artificialanalysis.ai (capturas, no dibujos) más
+         la tabla tipografiada del índice. El benchmark de AA y la
+         línea de Wavys van separados y rotulados.
+         Kimi K3 queda fuera del recorte: no entra al tablero.
+         ============================================================ */
+
+      .page {
+        background:
+          radial-gradient(70% 40% at 100% 0%, #0b0d11 0%, rgba(11, 13, 17, 0) 60%),
+          var(--ink-cold);
+      }
+
+      .section {
+        position: absolute;
+        left: var(--margin);
+        right: var(--margin);
+        top: 120px;
+        z-index: 20;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        border-bottom: 2px solid var(--white);
+        padding-bottom: 9px;
+      }
+
+      .section h2 {
+        font-weight: 800;
+        font-stretch: 72%;
+        font-size: 84px;
+        line-height: 0.82;
+        letter-spacing: 0.004em;
+        text-transform: uppercase;
+      }
+
+      .section h2 small {
+        display: block;
+        font-family: var(--mono);
+        font-weight: 400;
+        font-stretch: 100%;
+        font-size: 11px;
+        letter-spacing: 0.24em;
+        color: var(--teal);
+        margin-bottom: 10px;
+      }
+
+      .section__meta {
+        text-align: right;
+        padding-bottom: 6px;
+        font-family: var(--mono);
+        font-size: 10.5px;
+        line-height: 1.8;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--ink-45);
+      }
+
+      /* línea Wavys, separada del benchmark ---------------------------- */
+      .wavys {
+        position: absolute;
+        left: var(--margin);
+        right: var(--margin);
+        top: 240px;
+        z-index: 14;
+        border-top: 3px solid var(--teal);
+        padding-top: 14px;
+        display: grid;
+        grid-template-columns: 176px 1fr;
+        gap: 30px;
+      }
+
+      .wavys__label {
+        font-family: var(--sans);
+        font-weight: 800;
+        font-size: 10.5px;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+        color: var(--teal);
+        line-height: 1.6;
+      }
+
+      .wavys__label span {
+        display: block;
+        color: var(--ink-45);
+        font-weight: 600;
+        letter-spacing: 0.14em;
+      }
+
+      .wavys__text {
+        font-family: var(--sans);
+        font-weight: 600;
+        font-stretch: 92%;
+        font-size: 25px;
+        line-height: 1.28;
+        letter-spacing: -0.012em;
+        color: var(--white);
+      }
+
+      .wavys__text em {
+        font-style: normal;
+        color: var(--teal);
+      }
+
+      /* tabla tipografiada -------------------------------------------- */
+      .index {
+        position: absolute;
+        left: var(--margin);
+        top: 400px;
+        width: 526px;
+        z-index: 14;
+      }
+
+      .block-label {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 16px;
+        border-bottom: 1px solid var(--ink-18);
+        padding-bottom: 8px;
+        margin-bottom: 14px;
+      }
+
+      .block-label b {
+        font-family: var(--sans);
+        font-weight: 800;
+        font-size: 10.5px;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+        color: var(--white);
+      }
+
+      .block-label span {
+        font-family: var(--mono);
+        font-size: 10px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--ink-45);
+      }
+
+      .row {
+        display: grid;
+        grid-template-columns: 30px 1fr 62px;
+        align-items: center;
+        gap: 12px;
+        padding: 10px 0 11px;
+        border-bottom: 1px solid var(--ink-10);
+      }
+
+      .row__rank {
+        font-family: var(--mono);
+        font-size: 12px;
+        color: var(--ink-45);
+      }
+
+      .row__name {
+        font-family: var(--sans);
+        font-weight: 700;
+        font-size: 19px;
+        letter-spacing: -0.01em;
+        color: var(--white);
+      }
+
+      .row__name i {
+        font-style: normal;
+        font-family: var(--sans);
+        font-weight: 800;
+        font-size: 9.5px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--ink-cold);
+        background: var(--teal);
+        padding: 3px 6px 2px;
+        margin-left: 10px;
+        vertical-align: 2px;
+      }
+
+      .row__bar {
+        margin-top: 7px;
+        height: 6px;
+        background: rgba(253, 253, 253, 0.12);
+      }
+
+      .row__bar i {
+        display: block;
+        height: 100%;
+        background: var(--white);
+      }
+
+      .row--new .row__bar i {
+        background: var(--teal);
+      }
+
+      .row__score {
+        font-family: var(--mono);
+        font-size: 34px;
+        text-align: right;
+        letter-spacing: -0.03em;
+        color: var(--white);
+      }
+
+      .index__foot {
+        margin-top: 14px;
+        font-family: var(--mono);
+        font-size: 10px;
+        line-height: 1.8;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--ink-45);
+      }
+
+      /* gráficos reales ------------------------------------------------ */
+      .chart {
+        position: relative;
+        overflow: hidden;
+        background: #ffffff;
+        z-index: 14;
+      }
+
+      .chart img {
+        position: absolute;
+        display: block;
+      }
+
+      .chart__tag {
+        position: absolute;
+        z-index: 16;
+        bottom: 0;
+        right: 0;
+        background: var(--ink-cold);
+        color: var(--teal);
+        font-family: var(--mono);
+        font-size: 9.5px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        padding: 6px 9px 5px;
+      }
+
+      /* 1 · costo por tarea (recorte del panel de Highlights) */
+      .chart--cost {
+        position: absolute;
+        left: 640px;
+        top: 440px;
+        width: 461px;
+        height: 396px;
+      }
+
+      .chart--cost img {
+        width: 1440px;
+        left: -960px;
+        top: -46px;
+      }
+
+      /* 2 · leaderboard */
+      .chart--board {
+        position: absolute;
+        left: var(--margin);
+        top: 936px;
+        width: 998px;
+        height: 248px;
+      }
+
+      .chart--board img {
+        width: 1400px;
+        left: 0;
+        top: 0;
+      }
+
+      /* 3 · inteligencia vs costo */
+      .chart--scatter {
+        position: absolute;
+        left: var(--margin);
+        top: 1240px;
+        width: 1092px;
+        height: 414px;
+      }
+
+      .chart--scatter img {
+        width: 1128px;
+        left: -18px;
+        top: -130px;
+      }
+
+      .chart-label {
+        position: absolute;
+        z-index: 16;
+        display: flex;
+        align-items: baseline;
+        gap: 14px;
+        font-family: var(--sans);
+        font-weight: 800;
+        font-size: 10.5px;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+        color: var(--white);
+      }
+
+      .chart-label em {
+        font-style: normal;
+        font-family: var(--mono);
+        font-weight: 400;
+        font-size: 10px;
+        letter-spacing: 0.1em;
+        color: var(--ink-45);
+      }
+
+      .chart-label--board {
+        left: var(--margin);
+        top: 910px;
+      }
+
+      .chart-label--scatter {
+        left: var(--margin);
+        top: 1214px;
+      }
+
+      .chart-label--cost {
+        left: 640px;
+        top: 404px;
+      }
+    </style>
+  </head>
+  <body>
+    <article class="page grain">
+      <header class="head">
+        <span class="head__mast">Radar</span>
+        <span class="head__section">Tablero de IA · índice y gráficos</span>
+      </header>
+
+      <div class="section">
+        <h2><small>El tablero, al final</small>Tablero de IA</h2>
+        <p class="section__meta">
+          Artificial Analysis Intelligence Index<br />
+          Captura del 14 ago 2026 · artificialanalysis.ai
+        </p>
+      </div>
+
+      <div class="wavys">
+        <p class="wavys__label">Lo que leo yo<span>Línea Wavys · no es el benchmark</span></p>
+        <p class="wavys__text">
+          Arriba siguen los de siempre. Grok se sentó en esa mesa en tres días. Gemini 3.7 Flash no es el más
+          inteligente: <em>es barato y rápido</em>. El tablero no te llena la silla. El cambio útil de la semana
+          es el chat que deja de ser gratis.
+        </p>
+      </div>
+
+      <section class="index">
+        <div class="block-label">
+          <b>Índice de inteligencia</b>
+          <span>Benchmark AA · 14 ago 2026</span>
+        </div>
+
+        <div class="row">
+          <span class="row__rank">01</span>
+          <div>
+            <p class="row__name">Claude Opus 5</p>
+            <p class="row__bar"><i style="width: 100%"></i></p>
+          </div>
+          <span class="row__score">63</span>
+        </div>
+
+        <div class="row">
+          <span class="row__rank">02</span>
+          <div>
+            <p class="row__name">Claude Fable 5</p>
+            <p class="row__bar"><i style="width: 93%"></i></p>
+          </div>
+          <span class="row__score">62</span>
+        </div>
+
+        <div class="row">
+          <span class="row__rank">03</span>
+          <div>
+            <p class="row__name">GPT-5.6 Sol</p>
+            <p class="row__bar"><i style="width: 87%"></i></p>
+          </div>
+          <span class="row__score">61</span>
+        </div>
+
+        <div class="row row--new">
+          <span class="row__rank">04</span>
+          <div>
+            <p class="row__name">Grok 4.6 <i>nuevo</i></p>
+            <p class="row__bar"><i style="width: 87%"></i></p>
+          </div>
+          <span class="row__score">61</span>
+        </div>
+
+        <div class="row">
+          <span class="row__rank">05</span>
+          <div>
+            <p class="row__name">Qwen 3.8 Max</p>
+            <p class="row__bar"><i style="width: 67%"></i></p>
+          </div>
+          <span class="row__score">58</span>
+        </div>
+
+        <div class="row">
+          <span class="row__rank">06</span>
+          <div>
+            <p class="row__name">DeepSeek V4 Flash</p>
+            <p class="row__bar"><i style="width: 27%"></i></p>
+          </div>
+          <span class="row__score">52</span>
+        </div>
+
+        <p class="index__foot">
+          Índice de terceros, no de Wavys. Grok entró esta semana.<br />
+          Gemini 3.7 Flash no tiene puesto acá: aparece en los gráficos de costo y velocidad.
+        </p>
+      </section>
+
+      <p class="chart-label chart-label--cost">Costo por tarea <em>captura real · AA</em></p>
+      <figure class="chart chart--cost">
+        <img src="charts/aa-intelligence-bars.png" alt="Gráfico real de Artificial Analysis: costo por tarea del índice de inteligencia" />
+        <span class="chart__tag">artificialanalysis.ai</span>
+      </figure>
+
+      <p class="chart-label chart-label--board">
+        Leaderboard, primeras filas <em>captura real · artificialanalysis.ai · 14 ago 2026</em>
+      </p>
+      <figure class="chart chart--board">
+        <img src="charts/aa-leaderboard.png" alt="Captura real del leaderboard de modelos de Artificial Analysis" />
+      </figure>
+
+      <p class="chart-label chart-label--scatter">
+        Inteligencia vs costo por tarea <em>captura real · escala log · AA</em>
+      </p>
+      <figure class="chart chart--scatter">
+        <img
+          src="charts/aa-intelligence-vs-cost.png"
+          alt="Gráfico real de Artificial Analysis: índice de inteligencia contra costo por tarea"
+        />
+        <span class="chart__tag">artificialanalysis.ai</span>
+      </figure>
+
+      <footer class="folio">
+        <span class="folio__ticks"><i></i><i></i><i></i><i class="on"></i></span>
+        <span>Radar N°1 · Tablero de IA</span>
+        <span class="folio__num">08</span>
+      </footer>
+    </article>
+  </body>
+</html>

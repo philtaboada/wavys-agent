@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>RADAR N°2 — 02 Carta del editor</title>
+    <link rel="stylesheet" href="css/radar.css" />
+    <style>
+      /* ============================================================
+         02 · CARTA — 90% tipo, papel crema, una página.
+         El H1 ES la apertura. Punch: HOJA. No “esta semana”.
+         No drop-cap, no diamante, no slide de founder, no cascada N°1.
+         Columna única + margen de carta. Firma al pie.
+         ============================================================ */
+
+      .page {
+        background:
+          linear-gradient(180deg, #f6f1e6 0%, #efe6d4 48%, #e7dcc8 100%);
+      }
+
+      .rule-spine {
+        position: absolute;
+        left: 118px;
+        top: 128px;
+        bottom: 118px;
+        width: 2px;
+        background: #0c0b09;
+        z-index: 4;
+      }
+
+      .k {
+        position: absolute;
+        left: 156px;
+        top: 136px;
+        z-index: 8;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        font-family: var(--sans);
+        font-weight: 700;
+        font-size: 11px;
+        letter-spacing: 0.32em;
+        text-transform: uppercase;
+        color: var(--pap-45);
+      }
+
+      .k i {
+        width: 36px;
+        height: 2px;
+        background: #0f6b6a;
+        display: block;
+      }
+
+      h1 {
+        position: absolute;
+        left: 156px;
+        right: 74px;
+        top: 188px;
+        z-index: 8;
+      }
+
+      h1 .punch {
+        display: block;
+        font-family: var(--display);
+        font-variation-settings: "SOFT" 8, "WONK" 1, "opsz" 144;
+        font-weight: 900;
+        font-size: 228px;
+        line-height: 0.78;
+        letter-spacing: -0.055em;
+        color: #0c0b09;
+      }
+
+      h1 .rest {
+        display: block;
+        margin-top: 18px;
+        font-family: var(--read);
+        font-style: italic;
+        font-weight: 400;
+        font-size: 42px;
+        line-height: 1.05;
+        letter-spacing: -0.02em;
+        color: #1a1813;
+        max-width: 16ch;
+      }
+
+      .letter {
+        position: absolute;
+        left: 156px;
+        top: 680px;
+        width: 640px;
+        z-index: 8;
+      }
+
+      .letter p {
+        font-family: var(--read);
+        font-size: 21px;
+        line-height: 1.48;
+        color: #16140f;
+        margin-bottom: 22px;
+      }
+
+      .aside {
+        position: absolute;
+        right: 74px;
+        top: 688px;
+        width: 280px;
+        z-index: 8;
+        border-top: 3px solid #0f6b6a;
+        padding-top: 14px;
+      }
+
+      .aside b {
+        display: block;
+        font-family: var(--sans);
+        font-weight: 800;
+        font-size: 10.5px;
+        letter-spacing: 0.26em;
+        text-transform: uppercase;
+        color: #0f6b6a;
+        margin-bottom: 10px;
+      }
+
+      .aside p {
+        font-family: var(--sans);
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 1.4;
+        color: #1a1813;
+      }
+
+      .sign {
+        position: absolute;
+        left: 156px;
+        right: 74px;
+        top: 1440px;
+        z-index: 8;
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        border-top: 2px solid #0c0b09;
+        padding-top: 16px;
+      }
+
+      .sign__name {
+        font-family: var(--italic);
+        font-style: italic;
+        font-weight: 500;
+        font-size: 56px;
+        line-height: 0.9;
+        color: #0c0b09;
+      }
+
+      .sign__meta {
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--pap-45);
+        text-align: right;
+        line-height: 1.7;
+      }
+    </style>
+  </head>
+  <body>
+    <article class="page page--paper grain">
+      <header class="head">
+        <span class="head__mast">Radar</span>
+        <span class="head__section">Carta · N°2 · Borrador · 17–21 ago 2026</span>
+      </header>
+
+      <div class="rule-spine" aria-hidden="true"></div>
+
+      <p class="k"><i></i>Carta del editor</p>
+
+      <h1>
+        <span class="punch">Hoja</span>
+        <span class="rest">La abrí después de<br />X.</span>
+      </h1>
+
+      <div class="letter">
+        <p>
+          En X vi otro hilo de un modelo nuevo. Lo cerré. No porque no importe: porque el lunes
+          mío no vive en el anuncio. Vive en una hoja que ya tenía abierta, con la misma columna
+          de siempre.
+        </p>
+        <p>
+          Este número es un borrador. La semana del 17 al 21 todavía no cierra. El tema ya está
+          puesto en la tapa: el modelo nuevo no arregla la hoja de siempre. Lo demás —la señal,
+          la ficha, el tablero— se escribe el viernes. Hoy te dejo la costura.
+        </p>
+        <p>
+          Si el lead se queda en el mapa, si la fila no existe, si el hueco de la agenda sigue
+          vacío, el modelo no te lo va a llenar. Eso lo vi al volver de X a la hoja. Desde Lima,
+          con el archivo de siempre.
+        </p>
+      </div>
+
+      <aside class="aside">
+        <b>Desde Lima</b>
+        <p>Viernes de layout. La semana cierra el 21. Hoy, la hoja.</p>
+      </aside>
+
+      <div class="sign">
+        <p class="sign__name">Phil</p>
+        <p class="sign__meta">Phil Taboada · Lima<br />Wavys · borrador N°2</p>
+      </div>
+
+      <footer class="folio">
+        <span class="folio__ticks"><i class="on"></i><i></i><i></i><i></i><i></i><i></i></span>
+        <span>N°2 · Borrador · 17–21 ago 2026</span>
+        <span class="folio__num">02</span>
+      </footer>
+    </article>
+  </body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>RADAR N°2 — 08 Data</title>
+    <link rel="stylesheet" href="css/radar.css" />
+    <style>
+      /* ============================================================
+         08 · DATA — una tesis visual. Un número que se lee a un metro.
+         HONESTO: no hay captura de Artificial Analysis en este
+         entorno. No se inventan filas ni precios. El tablero se
+         llena el viernes. No es un dashboard SaaS.
+         ============================================================ */
+
+      .page {
+        background: var(--ink-cold);
+      }
+
+      .k {
+        position: absolute;
+        left: var(--margin);
+        right: var(--margin);
+        top: 128px;
+        z-index: 8;
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        border-bottom: 1px solid var(--ink-18);
+        padding-bottom: 12px;
+        font-family: var(--sans);
+        font-weight: 800;
+        font-size: 11px;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+        color: var(--teal);
+      }
+
+      .k span { color: var(--ink-45); font-weight: 600; }
+
+      .meter {
+        position: absolute;
+        left: var(--margin);
+        right: var(--margin);
+        top: 220px;
+        z-index: 8;
+      }
+
+      .meter b {
+        display: block;
+        font-family: var(--display);
+        font-variation-settings: "SOFT" 0, "WONK" 0, "opsz" 144;
+        font-weight: 900;
+        font-size: 620px;
+        line-height: 0.78;
+        letter-spacing: -0.07em;
+        color: var(--white);
+      }
+
+      .meter i {
+        display: block;
+        margin-top: -12px;
+        font-family: var(--sans);
+        font-style: normal;
+        font-weight: 800;
+        font-stretch: 90%;
+        font-size: 72px;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+        color: var(--teal);
+      }
+
+      .thesis {
+        position: absolute;
+        left: var(--margin);
+        right: var(--margin);
+        top: 1120px;
+        z-index: 8;
+        border-top: 3px solid var(--teal);
+        padding-top: 22px;
+      }
+
+      .thesis h2 {
+        font-family: var(--sans);
+        font-weight: 700;
+        font-stretch: 92%;
+        font-size: 36px;
+        line-height: 1.15;
+        letter-spacing: -0.02em;
+        color: var(--white);
+        max-width: 18em;
+      }
+
+      .frame {
+        position: absolute;
+        left: var(--margin);
+        right: var(--margin);
+        top: 1320px;
+        height: 280px;
+        z-index: 8;
+        border: 1px solid var(--ink-18);
+        padding: 22px 26px;
+      }
+
+      .frame__lab {
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--ink-45);
+        margin-bottom: 18px;
+      }
+
+      .empty {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 180px;
+        border-top: 1px solid var(--ink-10);
+        font-family: var(--italic);
+        font-style: italic;
+        font-size: 28px;
+        color: rgba(253, 253, 253, 0.55);
+      }
+    </style>
+  </head>
+  <body>
+    <article class="page grain">
+      <header class="head">
+        <span class="head__mast">Radar</span>
+        <span class="head__section">Data · sin ranking inventado</span>
+      </header>
+
+      <p class="k">Tablero de IA <span>Artificial Analysis · se captura el viernes</span></p>
+
+      <div class="meter">
+        <b>21</b>
+        <i>Ago</i>
+      </div>
+
+      <div class="thesis">
+        <h2>Borrador: el tablero se llena el viernes.</h2>
+      </div>
+
+      <div class="frame">
+        <p class="frame__lab">Índice · filas · costo — vacío a propósito</p>
+        <p class="empty">Sin captura en vivo. Sin filas inventadas.</p>
+      </div>
+
+      <footer class="folio">
+        <span class="folio__ticks"><i></i><i></i><i></i><i></i><i class="on"></i><i></i></span>
+        <span>N°2 · Borrador · 17–21 ago 2026</span>
+        <span class="folio__num">08</span>
+      </footer>
+    </article>
+  </body>
+</html>

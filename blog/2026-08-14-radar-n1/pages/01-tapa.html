@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>RADAR N°1 — 01 Tapa</title>
+    <link rel="stylesheet" href="css/radar.css" />
+    <style>
+      /* ============================================================
+         01 · TAPA — placa de casa.
+         El PNG cyborg LOCK no viajó a este entorno. Esta página es
+         tipografía del sistema (radar.css), sin cara, sin titular
+         de 04a (el interior dice que la tapa no se repite).
+         Si llega el PNG LOCK, reemplazar tapa.png y rearmar el PDF.
+         ============================================================ */
+
+      .page {
+        background:
+          radial-gradient(90% 70% at 12% 8%, #141210 0%, rgba(20, 18, 16, 0) 58%),
+          var(--ink);
+      }
+
+      .brand {
+        position: absolute;
+        left: var(--margin);
+        right: var(--margin);
+        top: 220px;
+        z-index: 8;
+      }
+
+      .brand b {
+        display: block;
+        font-family: var(--sans);
+        font-weight: 800;
+        font-stretch: 118%;
+        font-size: 168px;
+        line-height: 0.78;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+      }
+
+      .rule-teal {
+        position: absolute;
+        left: var(--margin);
+        top: 392px;
+        width: 220px;
+        height: 4px;
+        background: var(--teal);
+      }
+
+      .num {
+        position: absolute;
+        left: var(--margin);
+        top: 448px;
+        font-family: var(--display);
+        font-variation-settings: "SOFT" 20, "WONK" 1, "opsz" 144;
+        font-weight: 900;
+        font-size: 286px;
+        line-height: 0.78;
+        letter-spacing: -0.06em;
+        color: var(--teal);
+      }
+
+      .meta {
+        position: absolute;
+        left: var(--margin);
+        right: var(--margin);
+        bottom: 168px;
+        z-index: 8;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        gap: 24px;
+        border-top: 1px solid var(--ink-18);
+        padding-top: 22px;
+      }
+
+      .meta p {
+        font-family: var(--sans);
+        font-weight: 600;
+        font-size: 22px;
+        letter-spacing: 0.04em;
+        max-width: 28em;
+      }
+
+      .meta span {
+        flex: none;
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--ink-45);
+        text-align: right;
+      }
+    </style>
+  </head>
+  <body>
+    <article class="page grain">
+      <header class="head">
+        <span class="head__mast">Radar</span>
+        <span class="head__section">N°1 · 10–14 ago 2026</span>
+      </header>
+
+      <div class="brand"><b>Radar</b></div>
+      <i class="rule-teal"></i>
+      <p class="num">N°1</p>
+
+      <div class="meta">
+        <p>Semanario de Wavys. El interior ya está cerrado.</p>
+        <span>10–14 ago 2026<br />wavys-technologies.com</span>
+      </div>
+
+      <footer class="folio">
+        <span class="folio__ticks"><i class="on"></i><i></i><i></i><i></i></span>
+        <span>Radar N°1 · Tapa</span>
+        <span class="folio__num">01</span>
+      </footer>
+    </article>
+  </body>
+</html>

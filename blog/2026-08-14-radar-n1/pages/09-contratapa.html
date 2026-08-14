@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>RADAR N°1 — 09 Contratapa</title>
+    <link rel="stylesheet" href="css/radar.css" />
+    <style>
+      /* ============================================================
+         09 · CONTRATAPA — personalidad: CIERRE.
+         Separada del tablero: acá no hay ranking ni gráficos. Escena
+         de cierre a sangre por abajo, la última idea grande arriba y
+         un solo CTA de 30 minutos. Sin precios, sin geografía.
+         ============================================================ */
+
+      .scene {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 1160px;
+        overflow: hidden;
+        z-index: 2;
+      }
+
+      .scene img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: 50% 42%;
+        display: block;
+        filter: saturate(0.66) contrast(1.14) brightness(0.72);
+      }
+
+      .scene::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(180deg, #070604 0%, rgba(7, 6, 4, 0.72) 14%, rgba(7, 6, 4, 0.1) 34%),
+          linear-gradient(
+            180deg,
+            rgba(7, 6, 4, 0) 40%,
+            rgba(7, 6, 4, 0.5) 56%,
+            rgba(7, 6, 4, 0.88) 72%,
+            rgba(7, 6, 4, 0.98) 86%
+          );
+      }
+
+      /* última idea ----------------------------------------------------- */
+      .last {
+        position: absolute;
+        left: var(--margin);
+        right: var(--margin);
+        top: 188px;
+        z-index: 14;
+      }
+
+      .last__kicker {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        font-family: var(--sans);
+        font-weight: 800;
+        font-size: 11px;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+        color: var(--teal);
+      }
+
+      .last__kicker i {
+        display: block;
+        width: 46px;
+        height: 3px;
+        background: var(--teal);
+      }
+
+      .last__kicker em {
+        font-style: normal;
+        color: var(--ink-45);
+      }
+
+      .last h1 {
+        margin-top: 26px;
+        font-family: var(--display);
+        font-variation-settings: "SOFT" 26, "WONK" 1, "opsz" 144;
+        font-weight: 900;
+        font-size: 148px;
+        line-height: 0.88;
+        letter-spacing: -0.045em;
+        color: var(--white);
+      }
+
+      .last h1 em {
+        font-style: normal;
+        color: var(--teal);
+      }
+
+      .last__text {
+        margin-top: 38px;
+        max-width: 700px;
+      }
+
+      .last__text p {
+        font-family: var(--read);
+        font-size: 22px;
+        line-height: 1.52;
+        color: rgba(253, 253, 253, 0.9);
+        margin-bottom: 16px;
+      }
+
+      /* CTA ------------------------------------------------------------- */
+      .cta {
+        position: absolute;
+        left: var(--margin);
+        right: var(--margin);
+        bottom: 232px;
+        z-index: 16;
+        border-top: 3px solid var(--teal);
+        padding-top: 24px;
+        display: grid;
+        grid-template-columns: 1fr 420px;
+        gap: 44px;
+        align-items: end;
+      }
+
+      .cta__label {
+        font-family: var(--sans);
+        font-weight: 800;
+        font-size: 10.5px;
+        letter-spacing: 0.26em;
+        text-transform: uppercase;
+        color: var(--teal);
+        margin-bottom: 12px;
+      }
+
+      .cta__url span {
+        color: var(--ink-45);
+        font-size: 22px;
+      }
+
+      .cta__url {
+        font-family: var(--mono);
+        font-size: 33px;
+        letter-spacing: -0.02em;
+        color: var(--white);
+        word-break: break-all;
+      }
+
+      .cta__note {
+        font-family: var(--sans);
+        font-weight: 600;
+        font-size: 17px;
+        line-height: 1.44;
+        color: rgba(253, 253, 253, 0.72);
+        text-align: right;
+      }
+
+      /* firma ----------------------------------------------------------- */
+      .sign {
+        position: absolute;
+        left: var(--margin);
+        right: var(--margin);
+        bottom: 126px;
+        z-index: 16;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 30px;
+      }
+
+      .sign__bye {
+        font-family: var(--italic);
+        font-style: italic;
+        font-weight: 500;
+        font-size: 52px;
+        line-height: 1;
+        color: var(--white);
+      }
+
+      .sign__who {
+        text-align: right;
+        font-family: var(--sans);
+        font-weight: 800;
+        font-stretch: 108%;
+        font-size: 26px;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+        color: var(--white);
+      }
+
+      .sign__who span {
+        display: block;
+        margin-top: 8px;
+        font-family: var(--mono);
+        font-weight: 400;
+        font-size: 10.5px;
+        letter-spacing: 0.14em;
+        color: var(--ink-45);
+      }
+
+      .caption {
+        position: absolute;
+        right: var(--margin);
+        top: 748px;
+        width: 330px;
+        z-index: 14;
+        text-align: right;
+        font-family: var(--mono);
+        font-size: 10.5px;
+        line-height: 1.7;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: rgba(253, 253, 253, 0.5);
+      }
+    </style>
+  </head>
+  <body>
+    <article class="page grain">
+      <figure class="scene">
+        <img src="img/escena-cierre.jpg" alt="Negocio después de cerrar: el mostrador vacío y un celular cargando" />
+      </figure>
+
+      <header class="head">
+        <span class="head__mast">Radar</span>
+        <span class="head__section">Contratapa · nos leemos el viernes</span>
+      </header>
+
+      <section class="last">
+        <p class="last__kicker"><i></i>La última<em>Radar N°1 · cierre</em></p>
+        <h1>Mira tu<br />WhatsApp <em>antes<br />de octubre</em></h1>
+        <div class="last__text">
+          <p>
+            Si esto te sirve para mirar tu WhatsApp antes de octubre, bien. Si quieres ver cómo se ve un sistema
+            que vive en el chat y a la ficha, nos escribes y lo vemos en 30 minutos.
+          </p>
+        </div>
+      </section>
+
+      <p class="caption">
+        Cierre del día. El mostrador ya está vacío; el celular sigue cargando con la conversación de mañana
+        dentro.
+      </p>
+
+      <div class="cta">
+        <div>
+          <p class="cta__label">30 minutos, una llamada</p>
+          <p class="cta__url"><span>https://</span>cal.com/wavys-call/30min</p>
+        </div>
+        <p class="cta__note">Nos escribes, miramos tu chat y tu hoja, y sales con las tres reglas escritas.</p>
+      </div>
+
+      <div class="sign">
+        <p class="sign__bye">Nos leemos el viernes que viene.</p>
+        <p class="sign__who">— Wavys<span>Radar · semanal</span></p>
+      </div>
+
+      <footer class="folio">
+        <span class="folio__ticks"><i></i><i></i><i></i><i class="on"></i></span>
+        <span>Radar N°1 · Contratapa</span>
+        <span class="folio__num">09</span>
+      </footer>
+    </article>
+  </body>
+</html>
