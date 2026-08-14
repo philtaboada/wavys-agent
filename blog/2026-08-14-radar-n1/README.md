@@ -4,16 +4,14 @@
 
 Revista semanal de Wavys. Interior aprobado por Phil (Opus 5).
 
-**Tapa:** el PNG cyborg LOCK (Phil + masthead RADAR) no estaba en este entorno
-(`/opt/cursor/artifacts` vacío). `tapa.png` es una **placa tipográfica** a 1240×1754,
-sin cara y sin repetir el titular de 04a. Si Phil deja el PNG LOCK, reemplazar
-`tapa.png` y correr `python3 assemble-pdf.py`. **No regenerar la cara.**
+**Tapa:** PNG cyborg CUESTA LOCK (~2.1 MB, 1240×1754). Phil 14 ago 2026.
+No regenerar la cara. Si hay que rearmar el PDF: `python3 assemble-pdf.py`.
 
 ## Archivos
 
 | Archivo | Qué es |
 |---|---|
-| `tapa.png` | Portada a 1240×1754. Hoy: placa tipográfica. Mañana: PNG LOCK si Phil lo deja. No regenerar la cara. |
+| `tapa.png` | Portada LOCK cyborg CUESTA, 1240×1754 (~2.1 MB). No regenerar. |
 | `radar-n1.pdf` | 11 páginas a 1240×1754, para WhatsApp / imprenta. |
 | `index.html` | El número para leer en el navegador. |
 | `email.html` | HTML para Resend. Pocas imágenes, no un dump de 10 páginas. |
