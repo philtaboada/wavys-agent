@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>RADAR N°2 — 09 Cierre</title>
+    <link rel="stylesheet" href="css/radar.css" />
+    <style>
+      /* ============================================================
+         09 · CIERRE — type-is-layout. UNA palabra: ABRE.
+         No LIFE, no CUESTA. Cal oficial. Logo PNG. Sin nube de
+         nombres. Sin poster “agenda una llamada”.
+         ============================================================ */
+
+      .page {
+        background: var(--ink);
+      }
+
+      .word {
+        position: absolute;
+        left: -20px;
+        right: -20px;
+        top: 180px;
+        z-index: 6;
+        text-align: center;
+        font-family: var(--display);
+        font-variation-settings: "SOFT" 4, "WONK" 1, "opsz" 144;
+        font-weight: 900;
+        font-size: 420px;
+        line-height: 0.78;
+        letter-spacing: -0.06em;
+        color: var(--white);
+      }
+
+      .url {
+        position: absolute;
+        left: var(--margin);
+        right: var(--margin);
+        top: 720px;
+        z-index: 10;
+        text-align: center;
+      }
+
+      .url b {
+        display: block;
+        font-family: var(--sans);
+        font-weight: 800;
+        font-size: 11px;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        color: var(--teal);
+        margin-bottom: 14px;
+      }
+
+      .url a,
+      .url p {
+        font-family: var(--mono);
+        font-size: 28px;
+        letter-spacing: -0.02em;
+        color: var(--white);
+        text-decoration: none;
+      }
+
+      .url span { color: var(--ink-45); }
+
+      .logo {
+        position: absolute;
+        left: 50%;
+        bottom: 168px;
+        transform: translateX(-50%);
+        z-index: 10;
+        width: 420px;
+      }
+
+      .logo img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <article class="page grain">
+      <header class="head">
+        <span class="head__mast">Radar</span>
+        <span class="head__section">Cierre · N°2 · Borrador</span>
+      </header>
+
+      <p class="word">Abre</p>
+
+      <div class="url">
+        <b>30 minutos</b>
+        <p><span>https://</span>cal.com/wavys-call/30min</p>
+      </div>
+
+      <figure class="logo">
+        <img src="img/logo-wavys-technologies.png" alt="Wavys Technologies" />
+      </figure>
+
+      <footer class="folio">
+        <span class="folio__ticks"><i></i><i></i><i></i><i></i><i></i><i class="on"></i></span>
+        <span>N°2 · Borrador · 17–21 ago 2026</span>
+        <span class="folio__num">09</span>
+      </footer>
+    </article>
+  </body>
+</html>

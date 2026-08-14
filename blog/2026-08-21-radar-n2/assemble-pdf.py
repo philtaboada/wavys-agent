@@ -1,0 +1,85 @@
+#!/usr/bin/env python3
+"""Arma radar-n2-borrador.pdf: tapa + 6 interiores, 1240×1754."""
+
+from __future__ import annotations
+
+import shutil
+import struct
+import subprocess
+import sys
+from pathlib import Path
+
+W, H = 1240, 1754
+HERE = Path(__file__).resolve().parent
+EXPORT = HERE / "export"
+TAPA_SRC = HERE / "tapa.png"
+TAPA_FIT = EXPORT / "01-tapa.png"
+PDF = HERE / "radar-n2-borrador.pdf"
+
+INTERIORS = [
+    "02-carta-del-editor.png",
+    "03-senal.png",
+    "04-apertura.png",
+    "05-modulos.png",
+    "08-data.png",
+    "09-cierre.png",
+]
+
+
+def png_size(path: Path) -> tuple[int, int]:
+    data = path.read_bytes()
+    if data[:8] != b"\x89PNG\r\n\x1a\n":
+        raise SystemExit(f"{path.name} no es PNG")
+    return struct.unpack(">II", data[16:24])
+
+
+def fit_tapa() -> None:
+    if not TAPA_SRC.exists():
+        raise SystemExit(f"Falta {TAPA_SRC}.")
+    src_w, src_h = png_size(TAPA_SRC)
+    if (src_w, src_h) == (W, H):
+        if TAPA_FIT.resolve() != TAPA_SRC.resolve():
+            TAPA_FIT.write_bytes(TAPA_SRC.read_bytes())
+        return
+    from PIL import Image
+
+    img = Image.open(TAPA_SRC).convert("RGB")
+    canvas = Image.new("RGB", (W, H), (7, 6, 4))
+    scale = min(W / img.width, H / img.height)
+    nw, nh = int(round(img.width * scale)), int(round(img.height * scale))
+    fitted = img.resize((nw, nh), Image.Resampling.LANCZOS)
+    canvas.paste(fitted, ((W - nw) // 2, (H - nh) // 2))
+    canvas.save(TAPA_FIT, "PNG")
+
+
+def main() -> None:
+    EXPORT.mkdir(parents=True, exist_ok=True)
+    missing = [n for n in INTERIORS if not (EXPORT / n).exists()]
+    if missing:
+        print("Faltan PNG de interior:", ", ".join(missing), file=sys.stderr)
+        raise SystemExit(1)
+    fit_tapa()
+    pages = [TAPA_FIT] + [EXPORT / n for n in INTERIORS]
+    for p in pages:
+        w, h = png_size(p)
+        if (w, h) != (W, H):
+            raise SystemExit(f"{p.name} mide {w}×{h}, no {W}×{H}")
+    subprocess.check_call(
+        [
+            sys.executable,
+            "-m",
+            "img2pdf",
+            "--pagesize",
+            f"{W}x{H}",
+            "--imgsize",
+            f"{W}x{H}",
+            *[str(p) for p in pages],
+            "-o",
+            str(PDF),
+        ]
+    )
+    print(f"wrote {PDF}  {len(pages)} pages  {W}x{H}")
+
+
+if __name__ == "__main__":
+    main()
