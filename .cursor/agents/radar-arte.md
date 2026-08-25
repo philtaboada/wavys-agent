@@ -19,15 +19,21 @@ lectura de archivos y míralos de verdad, uno por uno. Un juicio sobre una pági
 que no abriste no vale nada.
 
 Ten a mano `data/radar-issues/<slug>.json` para saber qué campo produce cada
-elemento, y `agent/radar-kit/templates/kit.css` para saber qué regla lo compone.
+elemento, `agent/radar-kit/VOICES.md` para el mapa de titulares, y
+`agent/radar-kit/templates/kit.css` para saber qué regla lo compone.
 
 ## Cómo es RADAR cuando está bien
 
 Papel oscuro (`#070604`) con acento teal (`#5ad2d0`), salvo la carta del editor,
-que va en papel claro y es el respiro del número. Tipografía de contraste
-fuerte: Archivo condensada para titulares, Fraunces para los remates serif,
-Spectral para leer. Las fotos se colocan —sangran, se recortan, pasan por detrás
-del tipo— y nunca son miniaturas dentro de una columna.
+que va en papel claro y es el respiro del número. Las fotos se colocan —sangran,
+se recortan, pasan por detrás del tipo— y nunca son miniaturas dentro de una
+columna.
+
+La tipografía **cambia de voz en cada tipo de página**. Fraunces en tapa y
+reportaje, cascada en la carta, Archivo condensada solo en Señal, Playfair
+itálica en Más, Spectral itálica en reglas, Zilla en casos, mono en el
+tablero. Si hojéas y todos los titulares parecen el mismo cartel, la edición
+está mal aunque el texto esté bien.
 
 Es una revista que se hojea. Cada pliego debe tener una razón visual para
 existir.
@@ -52,6 +58,11 @@ columnas debajo—? El lector necesita cambios de marcha.
 **5. Contraste tipográfico.** ¿Hay salto real de escala entre el titular y el
 cuerpo, o todo vive en tamaños medios? El salto de escala es lo que hace que una
 página se lea como revista.
+
+**5b. Voces distintas.** Alinea los titulares de las diez páginas. Si tres o
+más usan la misma familia + la misma caja (casi siempre Archivo condensada
+en versales), es fallo. El mapa está en `VOICES.md`. Señal y Más no pueden
+gritar igual. Un reportaje no puede titularse como una portada de afiche.
 
 **6. Colisiones.** Texto que se monta sobre texto, números grandes que chocan con
 párrafos, pull quotes que invaden columnas, badges que parten una línea. Míralo

@@ -28,10 +28,11 @@ Si una página no se ve bien, el arreglo va en el contenido del contrato o en
 
 Lee, en este orden:
 
-1. `agent/radar-kit/README.md` — cómo funciona el kit
-2. `lib/radar/issue.ts` — el contrato, que es la fuente de verdad de los largos
-3. `agent/skills/radar_issue/SKILL.md` — el flujo y la tabla de errores
-4. La última edición en `data/radar-issues/` — para no repetir ángulo ni foto
+1. `agent/radar-kit/VOICES.md` — cada tipo de página tiene su propia voz de titular
+2. `agent/radar-kit/README.md` — cómo funciona el kit
+3. `lib/radar/issue.ts` — el contrato, que es la fuente de verdad de los largos
+4. `agent/skills/radar_issue/SKILL.md` — el flujo y la tabla de errores
+5. La última edición en `data/radar-issues/` — para no repetir ángulo ni foto
 
 ## El contrato
 
@@ -112,6 +113,30 @@ una captura real, `disclaimer` 40–260 y `source`.
 `steps` [2–18, 4–24], `body` 2–3 párrafos de 60–320 (el primero sale en
 tipografía grande, escríbelo como remate), `ctaLabel` 6–60, `ctaUrl`, `image`.
 
+## Voces: el titular no puede ser el mismo en todas las páginas
+
+El fallo más común de esta revista —el que Phil ya vio— es que todos los
+títulos salen en la misma Archivo condensada, caja alta, mismo peso. Eso
+convierte diez páginas en un informe con portada.
+
+El kit ya asigna una voz distinta a cada `type`. Tú no eliges la fuente. Tú
+escribes el título **para** esa voz. El mapa está en `agent/radar-kit/VOICES.md`.
+Resumen:
+
+- `tapa` y `tema-texto` → Fraunces, caja de frase. Reportaje, no afiche.
+- `carta` → tres escalones, el último es la palabra más corta.
+- `notas` "Señal" → una palabra en versales. `notas` "Más" → una palabra en
+  itálica. Nunca las dos iguales.
+- Titular de cada nota → frase, no versales.
+- `tema-apertura` → `titleMain` de 1–2 palabras, el golpe teal.
+- `tema-casos` → dos palabras, voz de slab. Los casos van en itálica dicha.
+- `tema-reglas` → una frase hablada, itálica. No un grito de afiche.
+- `tablero` → etiqueta de dato, mono.
+- `contratapa` → remate corto en el segundo step.
+
+Si alineas los diez titulares en una lista y todos suenan igual, reescribe
+antes de renderizar.
+
 ## El ritmo de la edición
 
 Una edición normal son 10 páginas: `tapa`, `carta`, `notas`, `tema-apertura`,
@@ -172,7 +197,10 @@ npm run tool -- render_issue '{"issuePath":"data/radar-issues/n3.json"}'
    herramienta de lectura de archivos y míralo de verdad. Este paso no es
    opcional y no se sustituye por los chequeos automáticos.
 4. Corrige y vuelve a renderizar. Repite hasta que las páginas estén bien.
-5. Reporta a Phil.
+5. Pasa la edición por el subagente `radar-arte`. Si dice "hay que corregir",
+   aplica y vuelve a renderizar. No reportes a Phil una edición que el
+   director de arte rechazó.
+6. Reporta a Phil.
 
 Los chequeos automáticos cazan desbordes, huecos muertos, relleno e imágenes
 que faltan. **No cazan una página fea, un titular flojo ni un ritmo aburrido.**
@@ -186,6 +214,8 @@ Eso es tuyo.
   texto pegado al folio.
 - ¿La foto sangra o está colocada con intención, o parece una miniatura suelta?
 - ¿El titular se entiende sin leer el cuerpo?
+- ¿El titular de esta página usa una voz distinta a la de la anterior? Si
+  ambas gritan en la misma caja alta condensada, el kit o el copy están mal.
 - ¿Se solapa algo? Presta atención a los pull quotes y a los números grandes.
 - ¿Esta página se parece demasiado a la anterior?
 
