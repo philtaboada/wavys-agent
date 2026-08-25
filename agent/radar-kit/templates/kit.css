@@ -1,0 +1,988 @@
+/* ==========================================================================
+   RADAR kit — layout elástico.
+   radar.css aporta tokens, .page, grano, velos, cabeza y folio.
+   Aquí vive lo que las páginas artesanales resolvían con coordenadas fijas:
+   bloques que se estiran con el texto en vez de quedar clavados a un `top`.
+   ========================================================================== */
+
+.stack {
+  position: absolute;
+  left: var(--margin);
+  right: var(--margin);
+  top: 118px;
+  bottom: 104px;
+  z-index: 20;
+}
+
+.stack__inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* El aire sobrante se concentra aquí, no entre los bloques de texto. */
+.stack__grow {
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.t-kicker {
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: 12px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--teal);
+}
+
+.page--paper .t-kicker {
+  color: #0f6b6a;
+}
+
+/* Primitivas. No las uses como titular de página: cada tipo tiene la suya
+   (ver VOICES.md). Si dos pliegos gritan en la misma Archivo condensada,
+   el kit está roto. */
+.t-section {
+  font-family: var(--sans);
+  font-weight: 800;
+  font-stretch: 84%;
+  font-size: 76px;
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+
+.t-hed {
+  font-family: var(--sans);
+  font-weight: 800;
+  font-stretch: 84%;
+  font-size: 62px;
+  line-height: 0.94;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+.t-serif {
+  font-family: var(--display);
+  font-variation-settings: "SOFT" 24, "WONK" 1, "opsz" 144;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 0.9;
+}
+
+.t-italic {
+  font-family: var(--italic);
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+.t-read {
+  font-family: var(--read);
+  font-size: 17.5px;
+  line-height: 1.66;
+  text-wrap: pretty;
+}
+
+.t-dek {
+  font-family: var(--read);
+  font-size: 25px;
+  line-height: 1.36;
+  text-wrap: pretty;
+}
+
+.t-standfirst {
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.44;
+  color: var(--ink-70);
+  text-wrap: pretty;
+}
+
+.page--paper .t-standfirst {
+  color: var(--pap-70);
+}
+
+/* ------------------------------------------------------------------- tapa */
+.cover__mast {
+  font-family: var(--display);
+  font-variation-settings: "SOFT" 0, "WONK" 0, "opsz" 144;
+  font-weight: 900;
+  font-size: 172px;
+  line-height: 0.82;
+  letter-spacing: 0.02em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.cover__meta {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--ink-45);
+  margin-top: 18px;
+  padding-bottom: 14px;
+}
+
+.cover__frame {
+  flex: 1 1 auto;
+  min-height: 0;
+  margin: 0 calc(var(--margin) * -1) 30px;
+  overflow: hidden;
+  position: relative;
+}
+
+.cover__frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: saturate(0.86) contrast(1.05);
+}
+
+.cover__title {
+  font-size: 150px;
+  /* line-height 0.9 deja el descender de Fraunces fuera de la caja: el dek
+     necesita su propio colchón o lo cruza el trazo. */
+  margin-bottom: 22px;
+}
+
+.cover__overline {
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 6px;
+}
+
+.cover__teasers {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 34px;
+  margin-top: 30px;
+  padding-top: 18px;
+  border-top: 1px solid var(--ink-18);
+}
+
+.cover__teasers b {
+  display: block;
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: 10.5px;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 8px;
+}
+
+.cover__teasers span {
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 21px;
+  line-height: 1.14;
+  letter-spacing: -0.01em;
+}
+
+/* ------------------------------------------------------------------ carta */
+.letter {
+  display: grid;
+  grid-template-columns: 500px 1fr;
+  gap: 62px;
+  height: 100%;
+}
+
+.letter__photo {
+  position: relative;
+  overflow: hidden;
+  box-shadow: 18px 22px 0 rgba(12, 11, 9, 0.06);
+}
+
+.letter__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: contrast(1.05) saturate(0.88);
+}
+
+.letter__caption {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  line-height: 1.7;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--pap-45);
+  margin-top: 12px;
+}
+
+.letter__col {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.letter__steps span {
+  display: block;
+}
+
+.letter__steps .s1 {
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 1;
+  color: #4a463c;
+}
+
+.letter__steps .s2 {
+  font-family: var(--read);
+  font-weight: 300;
+  font-style: italic;
+  font-size: 92px;
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+  color: #24211b;
+  margin-top: 4px;
+}
+
+.letter__steps .s3 {
+  font-family: var(--display);
+  font-variation-settings: "SOFT" 26, "WONK" 1, "opsz" 144;
+  font-weight: 900;
+  font-size: 138px;
+  line-height: 0.9;
+  letter-spacing: -0.045em;
+  color: #0c0b09;
+  margin-top: 2px;
+}
+
+.letter__body p {
+  font-family: var(--read);
+  font-size: 17.5px;
+  line-height: 1.68;
+  color: #17150f;
+  text-align: justify;
+  hyphens: auto;
+  margin-bottom: 15px;
+}
+
+.letter__body p:first-child::first-letter {
+  float: left;
+  font-family: var(--display);
+  font-variation-settings: "SOFT" 20, "WONK" 0, "opsz" 96;
+  font-weight: 800;
+  font-size: 74px;
+  line-height: 0.76;
+  margin: 7px 9px 0 0;
+}
+
+.letter__sign {
+  font-family: var(--italic);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 88px;
+  line-height: 0.82;
+  color: #0c0b09;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 2px solid #0c0b09;
+}
+
+.letter__sign small {
+  display: block;
+  font-family: var(--mono);
+  font-style: normal;
+  font-size: 11px;
+  line-height: 1.8;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--pap-45);
+  margin-top: 14px;
+}
+
+/* ------------------------------------------------------------------ notas */
+.notes {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* El aire se reparte entre las notas, nunca entre el título y la primera. */
+.notes__list {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.notes__head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--ink-18);
+}
+
+.notes__name {
+  font-family: var(--sans);
+  font-weight: 800;
+  font-stretch: 84%;
+  font-size: 76px;
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+
+/* "Más" no puede gritar igual que "Señal": si hojéas, se leen como la
+   misma página impresa dos veces. */
+.notes--digest .notes__name {
+  font-family: var(--italic);
+  font-style: italic;
+  font-weight: 500;
+  font-stretch: 100%;
+  font-size: 92px;
+  line-height: 0.88;
+  letter-spacing: -0.03em;
+  text-transform: none;
+}
+
+.notes__head .t-standfirst {
+  max-width: 460px;
+  text-align: right;
+}
+
+.note {
+  flex: 0 1 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 44px;
+  padding-top: 26px;
+  border-top: 1px solid var(--ink-18);
+}
+
+.note:first-of-type {
+  border-top: none;
+  padding-top: 0;
+}
+
+.note__meta {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-45);
+  margin-bottom: 10px;
+}
+
+.note__title {
+  font-family: var(--sans);
+  font-weight: 800;
+  font-stretch: 100%;
+  font-size: 40px;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  text-transform: none;
+  text-wrap: balance;
+}
+
+.note__body p {
+  margin-bottom: 13px;
+}
+
+.note__aside {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: 44px;
+}
+
+.note__take {
+  font-family: var(--read);
+  font-style: italic;
+  font-weight: 300;
+  font-stretch: 100%;
+  font-size: 27px;
+  line-height: 1.18;
+  letter-spacing: -0.015em;
+  padding-top: 16px;
+  border-top: 3px solid var(--teal);
+  text-wrap: balance;
+}
+
+/* Las fotos se colocan: sangran por los bordes. Una imagen con márgenes
+   iguales por los cuatro lados se lee como lámina de informe. */
+.bleed-x {
+  margin-left: calc(var(--margin) * -1);
+  margin-right: calc(var(--margin) * -1);
+}
+
+.notes__band {
+  flex: 1 1 auto;
+  min-height: 200px;
+  overflow: hidden;
+  order: 1;
+  margin-left: calc(var(--margin) * -1);
+  margin-right: calc(var(--margin) * -1);
+}
+
+.notes__band img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: saturate(0.82) contrast(1.06) brightness(0.86);
+}
+
+.note__src {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-45);
+  line-height: 1.5;
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid var(--ink-18);
+}
+
+/* --------------------------------------------------------- tema: apertura */
+.open__stamp {
+  position: absolute;
+  right: var(--margin);
+  top: 132px;
+  z-index: 10;
+  text-align: right;
+}
+
+.open__stamp b {
+  display: block;
+  font-family: var(--sans);
+  font-weight: 800;
+  font-stretch: 84%;
+  font-size: 108px;
+  line-height: 0.88;
+  letter-spacing: -0.03em;
+  /* A 0.14 no se leía; a 0.34 seguía flojo sobre foto oscura. */
+  color: rgba(253, 253, 253, 0.5);
+  text-transform: uppercase;
+}
+
+.open__stamp i {
+  display: block;
+  font-family: var(--mono);
+  font-style: normal;
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-top: 10px;
+}
+
+.open__title .top {
+  display: block;
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 62px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.open__title .main {
+  display: block;
+  font-family: var(--sans);
+  font-weight: 800;
+  font-stretch: 82%;
+  font-size: 138px;
+  line-height: 0.88;
+  letter-spacing: -0.045em;
+  color: var(--teal);
+}
+
+.open__hint {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 40px;
+  margin-top: 26px;
+  padding-top: 16px;
+  border-top: 1px solid var(--ink-18);
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.01em;
+}
+
+/* ------------------------------------------------------------ tema: texto */
+.feature__title {
+  font-family: var(--display);
+  font-variation-settings: "SOFT" 20, "WONK" 1, "opsz" 144;
+  font-weight: 800;
+  font-size: 68px;
+  line-height: 0.95;
+  letter-spacing: -0.035em;
+  text-transform: none;
+  text-wrap: balance;
+}
+
+.feature__cols {
+  display: grid;
+  gap: 42px;
+  margin-top: 30px;
+  flex: 0 0 auto;
+}
+
+/* Columnas anchas: a 17.5px el cuerpo se veía minúsculo al lado de la foto. */
+.feature__cols .t-read {
+  font-size: 19.5px;
+  line-height: 1.62;
+}
+
+/* Banda de foto: absorbe el aire sobrante en vez de dejarlo muerto al pie. */
+.feature__band {
+  flex: 1 1 auto;
+  min-height: 220px;
+  margin: 32px calc(var(--margin) * -1) 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.feature__band img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: saturate(0.82) contrast(1.06) brightness(0.86);
+}
+
+.feature__pull {
+  flex: 0 0 auto;
+  font-family: var(--display);
+  font-variation-settings: "SOFT" 26, "WONK" 1, "opsz" 144;
+  font-weight: 900;
+  font-size: 44px;
+  line-height: 1.04;
+  letter-spacing: -0.035em;
+  padding-left: 26px;
+  border-left: 5px solid var(--teal);
+  margin-top: 34px;
+  text-wrap: balance;
+}
+
+/* ------------------------------------------------------------ tema: casos */
+.cases__title {
+  font-family: var(--slab);
+  font-weight: 500;
+  font-size: 72px;
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+  text-transform: none;
+}
+
+.cases {
+  display: grid;
+  grid-template-columns: repeat(var(--case-cols, 3), 1fr);
+  gap: 44px;
+  margin-top: 34px;
+}
+
+.case__n {
+  font-family: var(--display);
+  font-variation-settings: "SOFT" 0, "WONK" 0, "opsz" 144;
+  font-weight: 900;
+  font-size: 76px;
+  line-height: 0.86;
+  color: transparent;
+  -webkit-text-stroke: 2px var(--teal);
+}
+
+.case__label {
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: 10.5px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-top: 12px;
+}
+
+.case__title {
+  font-family: var(--italic);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 31px;
+  line-height: 1.08;
+  margin: 10px 0 12px;
+  text-wrap: balance;
+}
+
+.closer {
+  position: relative;
+  flex: 1 1 auto;
+  margin: 34px calc(var(--margin) * -1) 0;
+  min-height: 372px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+}
+
+.closer img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.82) contrast(1.06) brightness(0.82);
+}
+
+.closer__veil {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(7, 6, 4, 0.94) 0%,
+      rgba(7, 6, 4, 0.62) 44%,
+      rgba(7, 6, 4, 0.1) 100%
+    ),
+    linear-gradient(180deg, rgba(7, 6, 4, 0) 40%, rgba(7, 6, 4, 0.72) 100%);
+}
+
+.closer__text {
+  position: relative;
+  z-index: 2;
+  padding: 34px var(--margin);
+  max-width: 680px;
+}
+
+/* Sobre foto el número calado se disuelve: aquí va relleno. */
+.closer__text .case__n {
+  color: var(--teal);
+  -webkit-text-stroke: 0;
+}
+
+/* ----------------------------------------------------------- tema: reglas */
+.rules__title {
+  font-family: var(--read);
+  font-style: italic;
+  font-weight: 300;
+  font-size: 76px;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  text-transform: none;
+  max-width: 16ch;
+  text-wrap: balance;
+}
+
+/* Reglas en columna elástica: con cuerpos largos, space-between reparte
+   el aire entre ítems (~150–200px) en vez de un solo hueco de media hoja
+   antes de la cita. */
+.rules {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 28px;
+  min-height: 0;
+}
+
+.rule-item {
+  display: grid;
+  grid-template-columns: 132px 1fr;
+  gap: 34px;
+  align-items: start;
+  padding: 22px 0 4px;
+  border-top: 1px solid var(--ink-18);
+}
+
+.rule-item .n {
+  font-family: var(--display);
+  font-variation-settings: "SOFT" 0, "WONK" 0, "opsz" 144;
+  font-weight: 900;
+  font-size: 96px;
+  line-height: 0.82;
+  color: var(--teal);
+}
+
+.rule-item h3 {
+  font-family: var(--sans);
+  font-weight: 800;
+  font-stretch: 100%;
+  font-size: 34px;
+  line-height: 1.12;
+  letter-spacing: -0.015em;
+  margin-bottom: 14px;
+  text-transform: none;
+  text-wrap: balance;
+}
+
+.rule-item .t-read {
+  font-size: 22.5px;
+  line-height: 1.58;
+  max-width: 860px;
+}
+
+.rules__quote {
+  flex: 0 0 auto;
+  margin-top: 22px;
+  font-family: var(--display);
+  font-variation-settings: "SOFT" 26, "WONK" 1, "opsz" 144;
+  font-weight: 900;
+  font-size: 48px;
+  line-height: 1.04;
+  letter-spacing: -0.035em;
+  padding-top: 26px;
+  border-top: 3px solid var(--teal);
+  text-wrap: balance;
+}
+
+/* ---------------------------------------------------------------- tablero */
+.board__title {
+  font-family: var(--mono);
+  font-weight: 500;
+  font-size: 52px;
+  line-height: 1;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.board__reading {
+  font-family: var(--read);
+  font-size: 22px;
+  line-height: 1.42;
+  margin-top: 20px;
+  padding-left: 24px;
+  border-left: 4px solid var(--teal);
+  text-wrap: pretty;
+}
+
+/* El ranking va en banda horizontal: es poca información y así deja el ancho
+   completo a los gráficos, que son lo que realmente llena la página. */
+.board__rank {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0 40px;
+  margin-top: 30px;
+  border-top: 2px solid var(--ink-18);
+}
+
+.rank {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--ink-18);
+  min-width: 0;
+}
+
+.rank__pos {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--ink-45);
+  width: 20px;
+}
+
+.rank__model {
+  flex: 1 1 auto;
+  min-width: 0;
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 17px;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
+.rank__score {
+  flex: none;
+}
+
+.rank__badge {
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #070604;
+  background: var(--teal);
+  padding: 3px 6px;
+  margin-left: 7px;
+  white-space: nowrap;
+}
+
+.rank__score {
+  font-family: var(--mono);
+  font-size: 25px;
+}
+
+.board__charts {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 22px;
+}
+
+/* El contenedor crece; la captura tiene que llenarlo. Si la figura solo
+   mide el alto natural del PNG, queda medio tablero en negro. */
+.board__charts figure {
+  flex: 1 1 0;
+  min-height: 0;
+  background: var(--white);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.board__charts img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+}
+
+.board__foot {
+  margin-top: 26px;
+  padding-top: 16px;
+  border-top: 1px solid var(--ink-18);
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 40px;
+  align-items: start;
+}
+
+.board__disclaimer {
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--ink-45);
+}
+
+/* ------------------------------------------------------------- contratapa */
+.back {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.back__steps .s1 {
+  display: block;
+  font-family: var(--read);
+  font-style: italic;
+  font-weight: 300;
+  font-size: 76px;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--ink-70);
+}
+
+.back__steps .s2 {
+  display: block;
+  font-family: var(--sans);
+  font-weight: 800;
+  font-stretch: 84%;
+  font-size: 124px;
+  line-height: 0.9;
+  letter-spacing: -0.045em;
+}
+
+.back__body {
+  max-width: 700px;
+  margin-top: 40px;
+}
+
+.back__body p {
+  font-family: var(--read);
+  font-size: 27px;
+  line-height: 1.46;
+  margin-bottom: 22px;
+  text-wrap: pretty;
+}
+
+.back__body p:first-child {
+  font-family: var(--display);
+  font-variation-settings: "SOFT" 26, "WONK" 1, "opsz" 144;
+  font-weight: 800;
+  font-size: 40px;
+  line-height: 1.14;
+  letter-spacing: -0.03em;
+  margin-bottom: 26px;
+}
+
+.back__cta {
+  margin-top: 30px;
+  padding-top: 22px;
+  border-top: 3px solid var(--teal);
+}
+
+.back__cta b {
+  display: block;
+  font-family: var(--sans);
+  font-weight: 800;
+  font-stretch: 88%;
+  font-size: 40px;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+  max-width: 720px;
+  text-wrap: balance;
+}
+
+/* Es lo único que esta página tiene que conseguir: no puede ser la
+   tipografía más pequeña del pliego. */
+.back__cta a {
+  font-family: var(--mono);
+  font-size: 26px;
+  letter-spacing: 0.01em;
+  color: var(--teal);
+  text-decoration: none;
+}
+
+.back__photo {
+  position: absolute;
+  right: calc(var(--margin) * -1);
+  left: calc(var(--margin) * -1);
+  bottom: calc(var(--margin) * -1 - 64px);
+  height: 880px;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.back__photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  /* Oscuro arriba para el titular, limpio en medio para que la escena se vea,
+     y oscuro otra vez al pie o el folio queda ilegible sobre la foto. */
+  background: linear-gradient(
+    180deg,
+    #070604 0%,
+    rgba(7, 6, 4, 0.58) 24%,
+    rgba(7, 6, 4, 0.14) 62%,
+    rgba(7, 6, 4, 0.82) 92%,
+    #070604 100%
+  );
+}
+
+.back__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.78) contrast(1.05) brightness(0.92);
+}

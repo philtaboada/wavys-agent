@@ -25,7 +25,11 @@ npm run tool -- <tool_name> '<json>'
 npm run tools
 ```
 
-Tools actuales: `send_email`, `create_reminder`, `log_business_note`, `generate_image`, `validate_pipeline`.
+Tools actuales: `send_email`, `create_reminder`, `log_business_note`, `generate_image`, `validate_pipeline`, `render_design`, `render_issue`.
+
+Diseño social estándar (briefs de los bots de Grok): usa `render_design` con el design kit — ver `agent/skills/design_kit/SKILL.md`. No compongas a mano lo que la plantilla ya resuelve.
+
+Revista RADAR: delega en el subagente `radar` (`/radar`). Él arma el contrato, renderiza con `render_issue` y revisa. Antes de dar una edición por terminada, pásala por `radar-arte` (readonly). **Nunca** escribas HTML por edición; el layout vive en `agent/radar-kit/templates/`. Detalle en `agent/skills/radar_issue/SKILL.md`.
 
 Imágenes: lee `.cursor/rules/gemini-image-only.mdc` — solo `gemini-3.1-flash-lite-image`. En **posts sociales**, generar assets creativos con Gemini cuando haga falta e integrar en Figma Agente (ver `agent/skills/social_design/SKILL.md`).
 
@@ -38,6 +42,8 @@ En producción (landing, video, content, audit, etc.), lee `agent/pipelines/suba
 | Investigación (landing ②, video ①, content ①, audit ②, referencia ②) | `explore` en paralelo |
 | Pre-entrega (landing ⑧, next ⑤.5, video ⑤, referencia ⑥) | `shell` → `validate_pipeline` / hyperframes; luego `bugbot` readonly |
 | Copy / informe comercial | `generalPurpose` readonly como checker |
+| Revista RADAR (armado y render) | `radar` — ver `.cursor/agents/radar.md` |
+| Revista RADAR (revisión visual) | `radar-arte` readonly, antes de entregar |
 
 Registrar en `data/pipeline-runs/<slug>-step-compliance.md` § Subagentes. **Prohibido** subagente en `send_email` o deploy sin OK Phil.
 

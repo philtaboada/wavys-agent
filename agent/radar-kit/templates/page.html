@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>RADAR — página</title>
+    <link rel="stylesheet" href="radar.css" />
+    <link rel="stylesheet" href="kit.css" />
+  </head>
+  <body>
+    <script>
+      (function () {
+        const page = window.__PAGE__;
+        const issue = window.__ISSUE__;
+        const assets = window.__ASSETS__ || {};
+
+        const SECTION_LABEL = {
+          tapa: "Portada",
+          carta: "Carta del editor",
+          notas: "Señal",
+          "tema-apertura": "Tema central",
+          "tema-texto": "Tema central",
+          "tema-casos": "Tema central",
+          "tema-reglas": "Tema central",
+          tablero: "Tablero de IA",
+          contratapa: "Cierre",
+        };
+
+        function sectionLabel(p) {
+          if (p.type === "notas" && p.section) return p.section;
+          return SECTION_LABEL[p.type] || p.type;
+        }
+
+        const PAPER_TYPES = new Set(["carta"]);
+
+        function el(tag, cls, text) {
+          const n = document.createElement(tag);
+          if (cls) n.className = cls;
+          if (text != null) n.textContent = text;
+          return n;
+        }
+
+        function img(src) {
+          const n = document.createElement("img");
+          n.src = src;
+          return n;
+        }
+
+        function paras(list, cls) {
+          const wrap = el("div", cls);
+          for (const p of list) wrap.appendChild(el("p", "t-read", p));
+          return wrap;
+        }
+
+        // La URL entera partida en tres líneas es suciedad ocupando el sitio
+        // del dato. En papel basta el medio, la fecha y el dominio.
+        function sourceLine(src) {
+          let host = src.url;
+          try {
+            host = new URL(src.url).hostname.replace(/^www\./, "");
+          } catch (e) {}
+          return el("p", "note__src", `${src.outlet} · ${src.date} · ${host}`);
+        }
+
+        const article = el("article", "page grain");
+        if (PAPER_TYPES.has(page.type)) article.classList.add("page--paper");
+        document.body.appendChild(article);
+
+        // --- cabeza y folio: iguales en toda la edición, salvo la tapa ---
+        if (page.type !== "tapa") {
+          const head = el("header", "head");
+          head.appendChild(el("span", "head__mast", "Radar"));
+          head.appendChild(
+            el(
+              "span",
+              "head__section",
+              `${sectionLabel(page)} · N°${issue.number} · ${issue.dateRange}`,
+            ),
+          );
+          article.appendChild(head);
+
+          const folio = el("footer", "folio");
+          const ticks = el("span", "folio__ticks");
+          for (let i = 0; i < 4; i++) {
+            ticks.appendChild(el("i", i === page.__tick % 4 ? "on" : null));
+          }
+          folio.appendChild(ticks);
+          folio.appendChild(
+            el(
+              "span",
+              null,
+              `Radar N°${issue.number} · ${sectionLabel(page)}`,
+            ),
+          );
+          folio.appendChild(
+            el("span", "folio__num", String(page.__folio).padStart(2, "0")),
+          );
+          article.appendChild(folio);
+        }
+
+        const outer = el("div", "stack");
+        const inner = el("div", "stack__inner");
+        outer.appendChild(inner);
+        article.appendChild(outer);
+
+        // El build escribe en `inner`; `outer` solo define el área de la caja
+        // para que el auto-ajuste tenga contra qué medir.
+        const stack = inner;
+
+        const build = {
+          tapa() {
+            outer.style.top = "56px";
+            outer.style.bottom = "56px";
+            stack.appendChild(el("h1", "cover__mast", "Radar"));
+            const meta = el("div", "cover__meta");
+            meta.appendChild(el("span", null, `N°${issue.number}`));
+            meta.appendChild(el("span", null, issue.dateRange));
+            stack.appendChild(meta);
+
+            const frame = el("figure", "cover__frame");
+            frame.appendChild(img(assets.image));
+            stack.appendChild(frame);
+
+            stack.appendChild(el("p", "cover__overline", page.overline));
+            const title = el("h2", "t-serif cover__title", page.title);
+            stack.appendChild(title);
+            stack.appendChild(el("p", "t-dek", page.dek));
+
+            const teasers = el("div", "cover__teasers");
+            for (const t of page.teasers) {
+              const cell = el("div");
+              cell.appendChild(el("b", null, t.label));
+              cell.appendChild(el("span", null, t.text));
+              teasers.appendChild(cell);
+            }
+            stack.appendChild(teasers);
+          },
+
+          carta() {
+            const grid = el("div", "letter");
+            const left = el("div");
+            const photo = el("figure", "letter__photo");
+            photo.appendChild(img(assets.image));
+            left.appendChild(photo);
+            left.appendChild(el("p", "letter__caption", page.caption));
+            left.style.display = "flex";
+            left.style.flexDirection = "column";
+            photo.style.flex = "1 1 auto";
+            grid.appendChild(left);
+
+            const col = el("div", "letter__col");
+            const steps = el("h1", "letter__steps");
+            steps.appendChild(el("span", "s1", page.steps[0]));
+            steps.appendChild(el("span", "s2", page.steps[1]));
+            steps.appendChild(el("span", "s3", page.steps[2]));
+            col.appendChild(steps);
+
+            const dek = el("p", "t-dek", page.dek);
+            dek.style.marginTop = "24px";
+            dek.style.paddingTop = "18px";
+            dek.style.borderTop = "1px solid var(--pap-18)";
+            dek.style.fontStyle = "italic";
+            col.appendChild(dek);
+
+            const body = el("div", "letter__body");
+            body.style.marginTop = "22px";
+            for (const p of page.body) body.appendChild(el("p", null, p));
+            col.appendChild(body);
+
+            col.appendChild(el("div", "stack__grow"));
+
+            const sign = el("p", "letter__sign", "Phil");
+            sign.appendChild(
+              el(
+                "small",
+                null,
+                `Phil · ${issue.dateRange} · Wavys Technologies`,
+              ),
+            );
+            col.appendChild(sign);
+            grid.appendChild(col);
+            stack.appendChild(grid);
+          },
+
+          notas() {
+            const wrap = el("div", "notes");
+            const name = (page.section || "").toLowerCase();
+            if (name.includes("más") || name === "mas") {
+              wrap.classList.add("notes--digest");
+            }
+            const head = el("div", "notes__head");
+            head.appendChild(el("h1", "notes__name", page.section));
+            head.appendChild(el("p", "t-standfirst", page.standfirst));
+            wrap.appendChild(head);
+
+            const list = el("div", "notes__list");
+            for (const n of page.notes) {
+              const note = el("article", "note");
+              const main = el("div");
+              main.appendChild(
+                el("p", "note__meta", `${n.kicker} · ${n.source.date}`),
+              );
+              main.appendChild(el("h2", "note__title", n.title));
+              const body = paras(n.body, "note__body");
+              body.style.marginTop = "16px";
+              main.appendChild(body);
+              note.appendChild(main);
+
+              const aside = el("div", "note__aside");
+              aside.appendChild(el("p", "note__take", n.takeaway));
+              aside.appendChild(sourceLine(n.source));
+              note.appendChild(aside);
+              list.appendChild(note);
+            }
+            // Con pocas notas sobra alto: una banda de foto lo ocupa mejor
+            // que estirar los espacios entre bloques de texto.
+            if (assets.image) {
+              const band = el("figure", "notes__band");
+              band.appendChild(img(assets.image));
+              list.appendChild(band);
+            }
+            wrap.appendChild(list);
+            stack.appendChild(wrap);
+          },
+
+          "tema-apertura"() {
+            const ph = el("div", "ph ph--deep");
+            ph.style.inset = "0";
+            ph.appendChild(img(assets.image));
+            article.insertBefore(ph, article.firstChild);
+            const veil = el("div", "veil veil--bottom");
+            article.insertBefore(veil, ph.nextSibling);
+
+            const stamp = el("div", "open__stamp");
+            stamp.appendChild(el("b", null, page.stamp));
+            stamp.appendChild(el("i", null, page.stampNote));
+            article.appendChild(stamp);
+
+            stack.appendChild(el("div", "stack__grow"));
+            stack.appendChild(el("p", "t-kicker", page.kicker));
+            const title = el("h1", "open__title");
+            title.style.marginTop = "14px";
+            title.appendChild(el("span", "top", page.titleTop));
+            title.appendChild(el("span", "main", page.titleMain));
+            stack.appendChild(title);
+
+            const dek = el("p", "t-dek", page.dek);
+            dek.style.marginTop = "22px";
+            dek.style.maxWidth = "760px";
+            stack.appendChild(dek);
+
+            const hint = el("div", "open__hint");
+            hint.appendChild(el("span", null, page.hint));
+            hint.appendChild(el("span", "mono", "sigue"));
+            stack.appendChild(hint);
+          },
+
+          "tema-texto"() {
+            stack.appendChild(el("p", "t-kicker", page.kicker));
+            const h = el("h1", "feature__title", page.title);
+            h.style.marginTop = "12px";
+            stack.appendChild(h);
+
+            const cols = el("div", "feature__cols");
+            cols.style.gridTemplateColumns = `repeat(${page.columns.length}, 1fr)`;
+            for (const c of page.columns) {
+              cols.appendChild(el("p", "t-read", c));
+            }
+            stack.appendChild(cols);
+
+            if (page.pull) {
+              stack.appendChild(el("p", "feature__pull", page.pull));
+            }
+            if (assets.image) {
+              const band = el("figure", "feature__band");
+              band.appendChild(img(assets.image));
+              stack.appendChild(band);
+            } else {
+              stack.appendChild(el("div", "stack__grow"));
+            }
+          },
+
+          "tema-casos"() {
+            stack.appendChild(el("p", "t-kicker", page.kicker));
+            const head = el("div");
+            head.style.display = "flex";
+            head.style.justifyContent = "space-between";
+            head.style.alignItems = "flex-end";
+            head.style.gap = "40px";
+            head.style.marginTop = "10px";
+            head.appendChild(el("h1", "cases__title", page.title));
+            const sf = el("p", "t-standfirst", page.standfirst);
+            sf.style.maxWidth = "420px";
+            sf.style.textAlign = "right";
+            head.appendChild(sf);
+            stack.appendChild(head);
+
+            const grid = el("div", "cases");
+            grid.style.setProperty("--case-cols", String(page.cases.length));
+            page.cases.forEach((c, i) => {
+              const cell = el("div");
+              cell.appendChild(
+                el("p", "case__n", String(i + 1).padStart(2, "0")),
+              );
+              cell.appendChild(el("p", "case__label", c.label));
+              cell.appendChild(el("h3", "case__title", c.title));
+              cell.appendChild(el("p", "t-read", c.body));
+              grid.appendChild(cell);
+            });
+            stack.appendChild(grid);
+            if (!page.closer) stack.appendChild(el("div", "stack__grow"));
+
+            if (page.closer) {
+              const closer = el("div", "closer");
+              closer.appendChild(img(assets.closer));
+              closer.appendChild(el("div", "closer__veil"));
+              const text = el("div", "closer__text");
+              text.appendChild(
+                el(
+                  "p",
+                  "case__n",
+                  String(page.cases.length + 1).padStart(2, "0"),
+                ),
+              );
+              text.appendChild(el("p", "case__label", page.closer.label));
+              const t = el("h3", "case__title", page.closer.title);
+              t.style.margin = "10px 0 12px";
+              text.appendChild(t);
+              text.appendChild(el("p", "t-read", page.closer.body));
+              closer.appendChild(text);
+              stack.appendChild(closer);
+            }
+          },
+
+          "tema-reglas"() {
+            stack.appendChild(el("p", "t-kicker", page.kicker));
+            const h = el("h1", "rules__title", page.title);
+            h.style.marginTop = "10px";
+            stack.appendChild(h);
+
+            const list = el("div", "rules");
+            page.rules.forEach((r, i) => {
+              const item = el("div", "rule-item");
+              item.appendChild(el("p", "n", String(i + 1).padStart(2, "0")));
+              const body = el("div");
+              body.appendChild(el("h3", null, r.title));
+              body.appendChild(el("p", "t-read", r.body));
+              item.appendChild(body);
+              list.appendChild(item);
+            });
+            stack.appendChild(list);
+            stack.appendChild(el("p", "rules__quote", page.quote));
+          },
+
+          tablero() {
+            stack.appendChild(el("p", "t-kicker", "El tablero, al final"));
+            const h = el("h1", "board__title", page.title);
+            h.style.marginTop = "10px";
+            stack.appendChild(h);
+            stack.appendChild(el("p", "board__reading", page.reading));
+
+            const rank = el("div", "board__rank");
+            page.ranking.forEach((r, i) => {
+              const row = el("div", "rank");
+              row.appendChild(
+                el("span", "rank__pos", String(i + 1).padStart(2, "0")),
+              );
+              const model = el("span", "rank__model", r.model);
+              if (r.badge) model.appendChild(el("i", "rank__badge", r.badge));
+              row.appendChild(model);
+              row.appendChild(el("span", "rank__score", String(r.score)));
+              rank.appendChild(row);
+            });
+            stack.appendChild(rank);
+
+            const charts = el("div", "board__charts");
+            for (const c of assets.charts || []) {
+              const fig = el("figure");
+              fig.appendChild(img(c));
+              charts.appendChild(fig);
+            }
+            stack.appendChild(charts);
+
+            const foot = el("div", "board__foot");
+            foot.appendChild(el("p", "board__disclaimer", page.disclaimer));
+            foot.appendChild(sourceLine(page.source));
+            stack.appendChild(foot);
+          },
+
+          contratapa() {
+            const wrap = el("div", "back");
+            const photo = el("div", "back__photo");
+            photo.appendChild(img(assets.image));
+            wrap.appendChild(photo);
+
+            const steps = el("h1", "back__steps");
+            steps.appendChild(el("span", "s1", page.steps[0]));
+            steps.appendChild(el("span", "s2", page.steps[1]));
+            wrap.appendChild(steps);
+
+            const body = el("div", "back__body");
+            for (const p of page.body) body.appendChild(el("p", null, p));
+            wrap.appendChild(body);
+
+            wrap.appendChild(el("div", "stack__grow"));
+
+            const cta = el("div", "back__cta");
+            cta.appendChild(el("b", null, page.ctaLabel));
+            let ctaHost = page.ctaUrl;
+            try {
+              ctaHost = new URL(page.ctaUrl).hostname.replace(/^www\./, "");
+            } catch (e) {}
+            const a = el("a", null, ctaHost);
+            a.href = page.ctaUrl;
+            cta.appendChild(a);
+            wrap.appendChild(cta);
+            stack.appendChild(wrap);
+          },
+        };
+
+        build[page.type]();
+
+        const waitImages = Array.from(document.images).map((i) =>
+          i.complete
+            ? Promise.resolve()
+            : new Promise((res) => {
+                i.onload = res;
+                i.onerror = res;
+              }),
+        );
+
+        Promise.all([document.fonts.ready, ...waitImages]).then(() => {
+          // Auto-ajuste: el texto de una semana nunca mide lo mismo que el de
+          // otra. Se escala el bloque interno lo justo para que entre, sin
+          // rehacer la maquetación. Por debajo de 0.88 el texto queda ilegible
+          // frente al resto de la revista, así que ahí se reporta y se acorta.
+          const need = inner.scrollHeight;
+          const have = stack.clientHeight;
+          let fit = 1;
+
+          if (need > have + 1) {
+            fit = Math.max(0.88, have / need);
+            inner.style.transformOrigin = "top left";
+            inner.style.transform = `scale(${fit})`;
+            inner.style.width = `${100 / fit}%`;
+            inner.style.height = `${100 / fit}%`;
+          }
+
+          window.__FIT__ = fit;
+          window.__OVERFLOW__ = Math.max(0, Math.round(need * fit - have));
+          window.__READY__ = true;
+        });
+      })();
+    </script>
+  </body>
+</html>
