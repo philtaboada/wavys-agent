@@ -1,0 +1,221 @@
+{
+  "number": 2,
+  "dateRange": "18–25 ago 2026",
+  "slug": "radar-n2",
+  "pages": [
+    {
+      "type": "tapa",
+      "overline": "Tema central · Domi",
+      "title": "Atiende y agenda",
+      "dek": "El WhatsApp de la inmobiliaria califica, arma la visita y retoma al que se enfrió.",
+      "image": "radar-n2/img/escena-tapa.jpg",
+      "teasers": [
+        { "label": "Stella", "text": "El teléfono deja la cita" },
+        { "label": "Raintree", "text": "7 de 10 no dejan recado" },
+        { "label": "Local Falcon", "text": "ChatGPT no te nombra" }
+      ]
+    },
+    {
+      "type": "carta",
+      "steps": ["Esta semana", "el chat", "de las 11"],
+      "dek": "El lead de las once de la noche deja de vivir en el celular del asesor.",
+      "body": [
+        "Esta semana no vi otra IA de laboratorio. Vi un WhatsApp que atiende solo y te deja la visita armada. Lo sacó QuintoAndar, se llama Domi, y lo leí como el chat de cualquiera de nosotros: el que escribe a las once de la noche y hoy se queda en visto hasta el jueves.",
+        "Si mandas paquetes, atiendes citas, cotizas o tienes una oficina chica, te habla igual. El cliente no espera a tu rubro. Espera una respuesta, y la espera hoy, no cuando alguien del equipo se acuerde de abrir la conversación en el teléfono personal.",
+        "El centro de este número es ese chat. Antes y después: el teléfono que deja la cita puesta, el buzón del que se van siete de cada diez, y el ChatGPT que no te nombra. Al final, un tablero honesto: no hay ranking fresco; lo que se movió está en el mostrador."
+      ],
+      "image": "radar-n2/img/escena-carta.jpg",
+      "caption": "Escritorio, viernes de noche. La conversación que quedó abierta desde el martes."
+    },
+    {
+      "type": "notas",
+      "section": "Señal",
+      "standfirst": "Dos señales de la semana: el teléfono que agenda y el buzón que ya nadie usa.",
+      "notes": [
+        {
+          "kicker": "EIN Presswire / Solutionreach",
+          "title": "El teléfono deja la cita",
+          "body": [
+            "Solutionreach sacó Stella. No es un contestador que anota el nombre: atiende el teléfono las 24 horas —también de noche y cuando la línea está llena— y deja la cita puesta en la agenda del consultorio. Reserva, mueve o cancela con las reglas de la clínica, directo al PMS (Dentrix, Eaglesoft, Open Dental, athena).",
+            "La regla la pones tú: Stella agenda lo que le permites. Lo demás lo pasa a una persona. Eso lo leí para dental, visión y médica, y también para cualquiera que pierde la llamada de las 19:40 mientras atiende al de adelante."
+          ],
+          "takeaway": "El hueco de las 7 pm no es \"no había quién\". Es una cita que no se escribió.",
+          "source": {
+            "outlet": "EIN Presswire",
+            "date": "24 ago 2026",
+            "url": "https://www.einpresswire.com/article/935137667/solutionreach-launches-new-generation-of-ai-powered-tools-for-healthcare-practices"
+          }
+        },
+        {
+          "kicker": "PR Newswire / Raintree",
+          "title": "7 de 10 no dejan recado",
+          "body": [
+            "Raintree mostró IA de recepción y cobro en consultorios de rehab: reagenda, llama al que no vino y verifica el seguro en el mismo sistema. Contesta todo el año, en inglés y en español, con las reglas del local.",
+            "Me quedé en un número de ellos, no en el nombre del producto: cerca de 7 de cada 10 que caen al buzón no dejan recado. Se van con el de al lado. Eso no es solo rehabilitación. Es el martes a las 9 de la noche en cualquier negocio que vive del teléfono."
+          ],
+          "takeaway": "Si el teléfono sigue en buzón, el hueco ya se decidió.",
+          "source": {
+            "outlet": "PR Newswire",
+            "date": "20 ago 2026",
+            "url": "https://www.prnewswire.com/news-releases/raintree-extends-its-invisible-emr-vision-with-agentic-ai-across-the-front-desk-and-revenue-cycle-302854802.html"
+          }
+        }
+      ],
+      "image": "radar-n2/img/escena-telefono.jpg"
+    },
+    {
+      "type": "tema-apertura",
+      "stamp": "19 ago",
+      "stampNote": "El día que el chat armó la visita",
+      "kicker": "Tema central · QuintoAndar / Domi",
+      "titleTop": "Atiende y",
+      "titleMain": "agenda",
+      "dek": "QuintoAndar for Business lanzó Domi. Vive en WhatsApp, portales y CRM. Califica, agenda visitas y recupera fríos. El lead de las 11 deja de vivir en el chat personal del asesor.",
+      "hint": "Hasta ahora ese chat esperaba a que alguien lo abriera.",
+      "image": "radar-n2/img/escena-agenda.jpg"
+    },
+    {
+      "type": "tema-texto",
+      "kicker": "Tema central · Época NEGÓCIOS",
+      "title": "Domi, por dentro",
+      "columns": [
+        "Época NEGÓCIOS lo contó el 19 de agosto. Domi, dicen, es un asistente de ventas para inmobiliarias: recomienda inmuebles, califica al que escribe, organiza visitas y recupera contactos que se enfriaron. Entra al WhatsApp, a los portales y al CRM —a la lista de clientes que ya usas—. Va dentro de QuintoAndar for Business, la capa que armaron para agencias y corredores.",
+        "Ellos dan sus números de casa: entre el 50 y el 70% de los \"me interesa\" se quedan sin respuesta. Lo dejo como dato de ellos, no como prueba de que a ti te vaya a pasar lo mismo. Yo no lo leí como \"hay un bot de casas en Brasil\". Lo leí así: el chat que ya tienes puede dejar de ser una bandeja que se pudre.",
+        "Puede atender, ordenar y devolver una visita. El humano se queda para la relación y el cierre. Hasta fin de año prometen marcar si un aviso ya se vendió, para no tener inventario mentiroso. Eso todavía no está: no lo doy por hecho."
+      ],
+      "pull": "Ellos: 50–70% de los \"me interesa\" se quedan sin respuesta.",
+      "image": "blog/2026-08-21-radar-n2/img/escena-maps-hoja.jpg"
+    },
+    {
+      "type": "tema-casos",
+      "kicker": "Los mismos oficios de siempre",
+      "title": "Cuatro casos",
+      "standfirst": "Porque el hecho es el chat, no el rubro. Una sola pregunta: ¿alguien contesta y deja algo puesto?",
+      "cases": [
+        {
+          "label": "Reparto · el estado",
+          "title": "\"¿A qué hora pasan?\"",
+          "body": "Si eso se queda en visto, el cliente le pide a otro. Con un chat que lee el estado del pedido —preparando, en camino, entregado— contestas una vez y dejas de inventar. Si no hay estado, no mientes: pasa a quien está en el almacén."
+        },
+        {
+          "label": "Citas · la agenda",
+          "title": "\"¿Tienen hora el sábado?\"",
+          "body": "Si cada mensaje lo contestas a mano, la persona de la puerta se atrasa y el hueco se llena de aire. El chat pregunta lo mínimo y mira la agenda. Si hay espacio, lo ofrece. Si no, no promete nada que después no puedas cumplir."
+        },
+        {
+          "label": "Cotiza · el número",
+          "title": "\"Pásame precio de 20 bolsas\"",
+          "body": "El \"ya te paso\" que nunca llega es el mismo contacto frío que Domi dice retomar. Juntas qué, cuánto y distrito en una sola vuelta. El número lo manda una persona, una vez, con todo lo que necesita para decidir."
+        }
+      ],
+      "closer": {
+        "label": "RealReports · Aiden",
+        "title": "Tres al abrir",
+        "body": "Aiden, vía MLS, propone tres oportunidades al entrar al sistema. En la demo: 87 prospects desde un cierre. Pulse sigue al cliente después de firmar. El follow-up post-cierre deja de ser \"cuando hay tiempo\".",
+        "image": "radar-n2/img/escena-oficio.jpg"
+      }
+    },
+    {
+      "type": "tema-reglas",
+      "kicker": "Tema central · el arreglo",
+      "title": "No es un chat más lindo",
+      "rules": [
+        {
+          "title": "Que conteste, no que salude",
+          "body": "\"Te respondo en un rato\" no es una respuesta: es la misma espera con mejor letra. La regla es que la primera vuelta resuelva algo concreto —un estado, un horario, un precio— o pase a una persona con nombre."
+        },
+        {
+          "title": "Que deje algo puesto",
+          "body": "Una visita agendada, una hora reservada, un pedido con estado. Si la conversación termina y no quedó nada escrito en ningún lado, el chat solo movió aire y mañana empiezas de cero con el mismo cliente."
+        },
+        {
+          "title": "Que retome al que se enfrió",
+          "body": "El contacto que dejó de escribir hace dos semanas sigue en tu lista. Retomarlo es trabajo de sistema, no de memoria: es lo que Domi promete y lo que la recepción nueva hace llamando al que no vino."
+        }
+      ],
+      "quote": "Es que alguien —o algo— conteste y deje la visita puesta."
+    },
+    {
+      "type": "notas",
+      "section": "Más",
+      "standfirst": "Tres notas: el buscador que no te nombra, el recado que entra al sistema y el lead que cae al CRM.",
+      "notes": [
+        {
+          "kicker": "Inman / Local Falcon",
+          "title": "ChatGPT no te nombra",
+          "body": [
+            "Local Falcon corrió 37.500 búsquedas en las 100 ciudades más grandes de EE.UU. —\"mejor agente cerca\" y variantes— en ChatGPT, Gemini, Grok y los resúmenes de Google. El 91,5% de los agentes que tienen web no apareció ni una vez.",
+            "No es un ranking de casas. Es lo que pasa cuando un cliente le pregunta al chat quién lo atiende cerca. Los modelos leen páginas, no el MLS. Si no estás en la respuesta, el portal no te salva."
+          ],
+          "takeaway": "El lead nuevo pregunta a ChatGPT. Si no sales, no existes para esa persona.",
+          "source": {
+            "outlet": "Inman",
+            "date": "20 ago 2026",
+            "url": "https://www.inman.com/2026/08/20/ai-search-real-estate-agents/"
+          }
+        },
+        {
+          "kicker": "PR Newswire / Luma + PCC",
+          "title": "El recado entra al sistema",
+          "body": [
+            "Luma y PCC juntaron mensajes de más de 300 consultorios de niños independientes. Recordatorios y avisos en más de 30 idiomas, por niño —no por número de teléfono—, nativos en el EHR. El recado entra al sistema de la clínica, no a un grupo de tres personas.",
+            "Lo leí para cualquiera que reparte avisos a mano: cierre, cambio de hora, \"¿confirmas?\". Si el mensaje vive en el chat personal de alguien, la oficina no es dueña de su propia información."
+          ],
+          "takeaway": "El \"¿confirmas?\" deja de perderse entre Excel y tres chats.",
+          "source": {
+            "outlet": "PR Newswire",
+            "date": "19 ago 2026",
+            "url": "https://www.prnewswire.com/news-releases/luma-and-pcc-partner-to-bring-patient-centered-ai-enabled-communications-to-300-pediatric-practices-302854659.html"
+          }
+        },
+        {
+          "kicker": "HousingWire / Top Producer",
+          "title": "El lead cae al CRM",
+          "body": [
+            "HouseValues —leads de gente que quiere saber cuánto vale su casa— entra a Top Producer, el CRM que el agente ya usa. Desde el 26 de agosto en EE.UU. El contacto llega a la lista, con report de equity mensual y emails/SMS automáticos; el agente entra cuando toca.",
+            "No es un portal nuevo. Es el lead dejando de vivir en una pestaña y un Excel, que es la diferencia entre una lista que trabajas y una lista que solo miras cuando te acuerdas."
+          ],
+          "takeaway": "El lead comprado deja de vivir en una pestaña y un Excel.",
+          "source": {
+            "outlet": "HousingWire",
+            "date": "24 ago 2026",
+            "url": "https://www.housingwire.com/articles/constellation1-brings-housevalues-to-top-producer-crm/"
+          }
+        }
+      ]
+    },
+    {
+      "type": "tablero",
+      "title": "Tablero de IA",
+      "reading": "Este número no trae ranking fresco. Las capturas son de Artificial Analysis del 14 de agosto: las dejo como contexto, no como noticia de la semana. Lo que se movió está en el WhatsApp, el teléfono y el CRM —producto que atiende, no modelo de lab.",
+      "ranking": [
+        { "model": "Claude Opus 5 (max effort)", "score": 63 },
+        { "model": "Claude Opus 5 (xhigh effort)", "score": 63 },
+        { "model": "Claude Fable 5 (con fallback)", "score": 62 },
+        { "model": "Claude Opus 5 (high effort)", "score": 61 },
+        { "model": "GPT-5.6 Sol (max)", "score": 61 },
+        { "model": "Grok 4.6 (high)", "score": 61, "badge": "En mesa" }
+      ],
+      "charts": [
+        "blog/2026-08-21-radar-n2/charts/aa-intelligence-bars.png"
+      ],
+      "disclaimer": "Capturas de Artificial Analysis del 14 ago 2026, no de esta ventana 18–25. Índice de terceros, no benchmark Wavys. Sin modelo de lab nuevo en el pack: el ángulo es producto que atiende.",
+      "source": {
+        "outlet": "Artificial Analysis",
+        "date": "14 ago 2026",
+        "url": "https://artificialanalysis.ai/evaluations/artificial-analysis-intelligence-index"
+      }
+    },
+    {
+      "type": "contratapa",
+      "steps": ["deja", "la visita puesta"],
+      "body": [
+        "El número se va por donde entró. El chat que espera es el que pierde. El que atiende y deja la hora puesta se queda con el cliente.",
+        "Esta semana no cambió el ranking de modelos. Cambió dónde se sentaron: en el teléfono, en el WhatsApp y en el CRM. El lead de las once ya no puede vivir solo en tu celular."
+      ],
+      "ctaLabel": "Leé la fuente · Época NEGÓCIOS",
+      "ctaUrl": "https://epocanegocios.globo.com/inteligencia-artificial/noticia/2026/08/quintoandar-lanca-ia-que-atende-clientes-pelo-whatsapp-para-tentar-ajudar-imobiliarias-a-vender-mais.ghtml",
+      "image": "radar-n2/img/escena-cierre.jpg"
+    }
+  ]
+}

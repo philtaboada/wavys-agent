@@ -1,0 +1,327 @@
+/* ==========================================================================
+   RADAR — sistema de interiores (Wavys semanal)
+   Hoja compartida: página, tinta, folios, tratamiento de foto, reglas.
+   La personalidad de cada sección vive en el <style> de su propio HTML.
+   Página: 1240 × 1754 exactos. Export: Chrome headless, ver export-page.sh
+   ========================================================================== */
+
+@import url("../fonts/fonts.css");
+
+:root {
+  /* Superficies bloqueadas */
+  --ink: #070604;
+  --ink-cold: #050608;
+  --teal: #5ad2d0;
+
+  /* Papel (solo secciones humanas / dato) */
+  --paper: #f2ede3;
+  --paper-warm: #efe7d8;
+  --paper-cold: #f4f4f1;
+
+  --bone: #e8e3d8;
+  --white: #fdfdfd;
+
+  /* Grises de tinta */
+  --ink-70: rgba(253, 253, 253, 0.7);
+  --ink-45: rgba(253, 253, 253, 0.45);
+  --ink-18: rgba(253, 253, 253, 0.18);
+  --ink-10: rgba(253, 253, 253, 0.1);
+
+  /* Grises sobre papel */
+  --pap-70: rgba(12, 11, 9, 0.7);
+  --pap-45: rgba(12, 11, 9, 0.45);
+  --pap-18: rgba(12, 11, 9, 0.18);
+  --pap-10: rgba(12, 11, 9, 0.1);
+
+  --sans: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --display: "Fraunces", Georgia, serif;
+  --italic: "Playfair Display", Georgia, serif;
+  --read: "Spectral", Georgia, serif;
+  --slab: "Zilla Slab", Georgia, serif;
+  --mono: "IBM Plex Mono", "JetBrains Mono", monospace;
+
+  --margin: 74px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  background: #1b1b1b;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+}
+
+.page {
+  position: relative;
+  width: 1240px;
+  height: 1754px;
+  overflow: hidden;
+  background: var(--ink);
+  color: var(--white);
+  font-family: var(--sans);
+  font-synthesis: none;
+}
+
+.page--paper {
+  background: var(--paper);
+  color: #0c0b09;
+}
+
+/* Grano de impresión: mata el brillo de plástico de la foto ampliada
+   y une foto + tipografía en un mismo material. */
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: -20px;
+  pointer-events: none;
+  z-index: 60;
+  opacity: 0.16;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 240px 240px;
+}
+
+.page--paper.grain::after {
+  opacity: 0.3;
+  mix-blend-mode: multiply;
+}
+
+/* --------------------------------------------------------------- fotografía
+   Las fotos se COLOCAN: sangran, se recortan, pasan por detrás del tipo.
+   Nunca miniatura dentro de una columna. */
+.ph {
+  position: absolute;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.ph img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.ph--deep img {
+  filter: saturate(0.82) contrast(1.06) brightness(0.9);
+}
+
+/* Velo direccional: deja ver la escena y sostiene el tipo. Nunca un veló
+   plano que apague la foto (rechazado en la ronda anterior). */
+.veil {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.veil--bottom {
+  background: linear-gradient(
+    180deg,
+    rgba(7, 6, 4, 0) 34%,
+    rgba(7, 6, 4, 0.55) 62%,
+    rgba(7, 6, 4, 0.93) 88%,
+    #070604 100%
+  );
+}
+
+.veil--left {
+  background: linear-gradient(
+    90deg,
+    rgba(7, 6, 4, 0.9) 0%,
+    rgba(7, 6, 4, 0.5) 34%,
+    rgba(7, 6, 4, 0) 66%
+  );
+}
+
+.veil--top {
+  background: linear-gradient(180deg, rgba(7, 6, 4, 0.92) 0%, rgba(7, 6, 4, 0) 52%);
+}
+
+/* ------------------------------------------------------------------- tipos */
+.kicker {
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+
+.kicker--teal {
+  color: var(--teal);
+}
+
+.mono {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+}
+
+.src {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.02em;
+  color: var(--teal);
+  word-break: break-all;
+  line-height: 1.5;
+}
+
+.page--paper .src {
+  color: #0f6b6a;
+}
+
+.rule {
+  height: 1px;
+  background: var(--ink-18);
+}
+
+.page--paper .rule {
+  background: var(--pap-18);
+}
+
+.rule--teal {
+  height: 3px;
+  background: var(--teal);
+}
+
+/* ------------------------------------------------------------------ cabeza */
+.head {
+  position: absolute;
+  top: 46px;
+  left: var(--margin);
+  right: var(--margin);
+  z-index: 30;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--ink-18);
+}
+
+.page--paper .head {
+  border-bottom-color: var(--pap-18);
+}
+
+.head__mast {
+  font-family: var(--sans);
+  font-weight: 800;
+  font-stretch: 112%;
+  font-size: 15px;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+}
+
+.head__section {
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 11.5px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--ink-45);
+}
+
+.page--paper .head__section {
+  color: var(--pap-45);
+}
+
+/* ------------------------------------------------------------------- folio */
+.folio {
+  position: absolute;
+  bottom: 40px;
+  left: var(--margin);
+  right: var(--margin);
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 12px;
+  border-top: 1px solid var(--ink-18);
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 10.5px;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--ink-45);
+}
+
+.page--paper .folio {
+  border-top-color: var(--pap-18);
+  color: var(--pap-45);
+}
+
+.folio__ticks {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.folio__ticks i {
+  width: 3px;
+  height: 11px;
+  background: var(--ink-18);
+  display: block;
+}
+
+.page--paper .folio__ticks i {
+  background: var(--pap-18);
+}
+
+.folio__ticks i.on {
+  background: var(--teal);
+}
+
+.folio__num {
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: 21px;
+  letter-spacing: 0.06em;
+  color: var(--white);
+}
+
+.page--paper .folio__num {
+  color: #0c0b09;
+}
+
+/* --------------------------------------------------------------- utilidades */
+.teal {
+  color: var(--teal);
+}
+
+.mark {
+  /* resaltador teal: acento sin volver el texto neón */
+  background: linear-gradient(180deg, rgba(90, 210, 208, 0) 54%, rgba(90, 210, 208, 0.55) 54%);
+  padding: 0 0.06em;
+}
+
+.why {
+  border-top: 3px solid var(--teal);
+  padding-top: 12px;
+}
+
+.why__label {
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: 10.5px;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 7px;
+}
+
+.why__text {
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 16.5px;
+  line-height: 1.42;
+  letter-spacing: -0.005em;
+}
