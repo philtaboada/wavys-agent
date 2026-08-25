@@ -21,7 +21,9 @@ contrato, nunca en un HTML suelto por edición.
 
 ## Flujo
 
-1. Lee `agent/radar-kit/README.md` y el contrato en `lib/radar/issue.ts`.
+1. Lee `agent/radar-kit/VOICES.md`, `agent/radar-kit/README.md` y el contrato
+   en `lib/radar/issue.ts`. Escribe cada título para su voz, no en la misma
+   caja alta condensada.
 2. Escribe o edita el JSON de la edición en `data/radar-issues/<slug>.json`.
 3. Renderiza:
 

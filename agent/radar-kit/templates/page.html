@@ -183,8 +183,12 @@
 
           notas() {
             const wrap = el("div", "notes");
+            const name = (page.section || "").toLowerCase();
+            if (name.includes("más") || name === "mas") {
+              wrap.classList.add("notes--digest");
+            }
             const head = el("div", "notes__head");
-            head.appendChild(el("h1", "t-section", page.section));
+            head.appendChild(el("h1", "notes__name", page.section));
             head.appendChild(el("p", "t-standfirst", page.standfirst));
             wrap.appendChild(head);
 
@@ -195,7 +199,7 @@
               main.appendChild(
                 el("p", "note__meta", `${n.kicker} · ${n.source.date}`),
               );
-              main.appendChild(el("h2", "t-hed", n.title));
+              main.appendChild(el("h2", "note__title", n.title));
               const body = paras(n.body, "note__body");
               body.style.marginTop = "16px";
               main.appendChild(body);
@@ -252,7 +256,7 @@
 
           "tema-texto"() {
             stack.appendChild(el("p", "t-kicker", page.kicker));
-            const h = el("h1", "t-hed", page.title);
+            const h = el("h1", "feature__title", page.title);
             h.style.marginTop = "12px";
             stack.appendChild(h);
 
@@ -283,7 +287,7 @@
             head.style.alignItems = "flex-end";
             head.style.gap = "40px";
             head.style.marginTop = "10px";
-            head.appendChild(el("h1", "t-section", page.title));
+            head.appendChild(el("h1", "cases__title", page.title));
             const sf = el("p", "t-standfirst", page.standfirst);
             sf.style.maxWidth = "420px";
             sf.style.textAlign = "right";
@@ -318,7 +322,7 @@
                 ),
               );
               text.appendChild(el("p", "case__label", page.closer.label));
-              const t = el("h3", "t-hed", page.closer.title);
+              const t = el("h3", "case__title", page.closer.title);
               t.style.margin = "10px 0 12px";
               text.appendChild(t);
               text.appendChild(el("p", "t-read", page.closer.body));
@@ -329,7 +333,7 @@
 
           "tema-reglas"() {
             stack.appendChild(el("p", "t-kicker", page.kicker));
-            const h = el("h1", "t-section", page.title);
+            const h = el("h1", "rules__title", page.title);
             h.style.marginTop = "10px";
             stack.appendChild(h);
 
@@ -349,7 +353,7 @@
 
           tablero() {
             stack.appendChild(el("p", "t-kicker", "El tablero, al final"));
-            const h = el("h1", "t-section", page.title);
+            const h = el("h1", "board__title", page.title);
             h.style.marginTop = "10px";
             stack.appendChild(h);
             stack.appendChild(el("p", "board__reading", page.reading));

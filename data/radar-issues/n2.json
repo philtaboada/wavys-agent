@@ -61,7 +61,7 @@
           }
         }
       ],
-      "image": "radar-n2/img/escena-telefono.jpg"
+      "image": "radar-n2/img/escena-recepcion.jpg"
     },
     {
       "type": "tema-apertura",
@@ -105,14 +105,14 @@
         {
           "label": "Cotiza · el número",
           "title": "\"Pásame precio de 20 bolsas\"",
-          "body": "El \"ya te paso\" que nunca llega es el mismo contacto frío que Domi dice retomar. Juntas qué, cuánto y distrito en una sola vuelta. El número lo manda una persona, una vez, con todo lo que necesita para decidir."
+          "body": "El \"ya te paso\" que nunca llega es el mismo contacto frío que Domi dice retomar. Juntas qué, cuánto y distrito en una sola vuelta. El número lo manda una persona, una vez."
         }
       ],
       "closer": {
         "label": "RealReports · Aiden",
-        "title": "Tres al abrir",
+        "title": "\"Tres al abrir\"",
         "body": "Aiden, vía MLS, propone tres oportunidades al entrar al sistema. En la demo: 87 prospects desde un cierre. Pulse sigue al cliente después de firmar. El follow-up post-cierre deja de ser \"cuando hay tiempo\".",
-        "image": "radar-n2/img/escena-oficio.jpg"
+        "image": "blog/2026-08-21-radar-n2/img/escena-laptop-noche.jpg"
       }
     },
     {
@@ -122,15 +122,15 @@
       "rules": [
         {
           "title": "Que conteste, no que salude",
-          "body": "\"Te respondo en un rato\" no es una respuesta: es la misma espera con mejor letra. La regla es que la primera vuelta resuelva algo concreto —un estado, un horario, un precio— o pase a una persona con nombre."
+          "body": "\"Te respondo en un rato\" no es una respuesta: es la misma espera con mejor letra. La regla es que la primera vuelta resuelva algo concreto —un estado, un horario, un precio— o pase a una persona con nombre. Si solo saluda, el cliente sigue esperando lo mismo que antes."
         },
         {
           "title": "Que deje algo puesto",
-          "body": "Una visita agendada, una hora reservada, un pedido con estado. Si la conversación termina y no quedó nada escrito en ningún lado, el chat solo movió aire y mañana empiezas de cero con el mismo cliente."
+          "body": "Una visita agendada, una hora reservada, un pedido con estado. Si la conversación termina y no quedó nada escrito en ningún lado, el chat solo movió aire y mañana empiezas de cero con el mismo cliente. Lo que no quedó puesto no existe para el negocio."
         },
         {
           "title": "Que retome al que se enfrió",
-          "body": "El contacto que dejó de escribir hace dos semanas sigue en tu lista. Retomarlo es trabajo de sistema, no de memoria: es lo que Domi promete y lo que la recepción nueva hace llamando al que no vino."
+          "body": "El contacto que dejó de escribir hace dos semanas sigue en tu lista. Retomarlo es trabajo de sistema, no de memoria: es lo que Domi promete y lo que la recepción nueva hace llamando al que no vino. Si depende de que alguien se acuerde, no es un arreglo."
         }
       ],
       "quote": "Es que alguien —o algo— conteste y deje la visita puesta."
@@ -139,6 +139,7 @@
       "type": "notas",
       "section": "Más",
       "standfirst": "Tres notas: el buscador que no te nombra, el recado que entra al sistema y el lead que cae al CRM.",
+      "image": "blog/2026-08-21-radar-n2/img/escena-sheets.jpg",
       "notes": [
         {
           "kicker": "Inman / Local Falcon",
@@ -197,7 +198,8 @@
         { "model": "Grok 4.6 (high)", "score": 61, "badge": "En mesa" }
       ],
       "charts": [
-        "blog/2026-08-21-radar-n2/charts/aa-intelligence-bars.png"
+        "blog/2026-08-21-radar-n2/charts/aa-intelligence-bars.png",
+        "blog/2026-08-21-radar-n2/charts/aa-intelligence-vs-cost.png"
       ],
       "disclaimer": "Capturas de Artificial Analysis del 14 ago 2026, no de esta ventana 18–25. Índice de terceros, no benchmark Wavys. Sin modelo de lab nuevo en el pack: el ángulo es producto que atiende.",
       "source": {
@@ -215,7 +217,7 @@
       ],
       "ctaLabel": "Leé la fuente · Época NEGÓCIOS",
       "ctaUrl": "https://epocanegocios.globo.com/inteligencia-artificial/noticia/2026/08/quintoandar-lanca-ia-que-atende-clientes-pelo-whatsapp-para-tentar-ajudar-imobiliarias-a-vender-mais.ghtml",
-      "image": "radar-n2/img/escena-cierre.jpg"
+      "image": "radar-n2/img/escena-silla.jpg"
     }
   ]
 }

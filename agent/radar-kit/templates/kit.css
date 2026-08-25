@@ -40,6 +40,9 @@
   color: #0f6b6a;
 }
 
+/* Primitivas. No las uses como titular de página: cada tipo tiene la suya
+   (ver VOICES.md). Si dos pliegos gritan en la misma Archivo condensada,
+   el kit está roto. */
 .t-section {
   font-family: var(--sans);
   font-weight: 800;
@@ -332,6 +335,29 @@
   border-bottom: 2px solid var(--ink-18);
 }
 
+.notes__name {
+  font-family: var(--sans);
+  font-weight: 800;
+  font-stretch: 84%;
+  font-size: 76px;
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+
+/* "Más" no puede gritar igual que "Señal": si hojéas, se leen como la
+   misma página impresa dos veces. */
+.notes--digest .notes__name {
+  font-family: var(--italic);
+  font-style: italic;
+  font-weight: 500;
+  font-stretch: 100%;
+  font-size: 92px;
+  line-height: 0.88;
+  letter-spacing: -0.03em;
+  text-transform: none;
+}
+
 .notes__head .t-standfirst {
   max-width: 460px;
   text-align: right;
@@ -360,6 +386,17 @@
   margin-bottom: 10px;
 }
 
+.note__title {
+  font-family: var(--sans);
+  font-weight: 800;
+  font-stretch: 100%;
+  font-size: 40px;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  text-transform: none;
+  text-wrap: balance;
+}
+
 .note__body p {
   margin-bottom: 13px;
 }
@@ -372,12 +409,13 @@
 }
 
 .note__take {
-  font-family: var(--sans);
-  font-weight: 800;
-  font-stretch: 88%;
-  font-size: 34px;
-  line-height: 1.06;
-  letter-spacing: -0.02em;
+  font-family: var(--read);
+  font-style: italic;
+  font-weight: 300;
+  font-stretch: 100%;
+  font-size: 27px;
+  line-height: 1.18;
+  letter-spacing: -0.015em;
   padding-top: 16px;
   border-top: 3px solid var(--teal);
   text-wrap: balance;
@@ -436,8 +474,8 @@
   font-size: 108px;
   line-height: 0.88;
   letter-spacing: -0.03em;
-  /* A 0.14 no se leía ni desaparecía: quedaba una marca indecisa. */
-  color: rgba(253, 253, 253, 0.34);
+  /* A 0.14 no se leía; a 0.34 seguía flojo sobre foto oscura. */
+  color: rgba(253, 253, 253, 0.5);
   text-transform: uppercase;
 }
 
@@ -487,6 +525,17 @@
 }
 
 /* ------------------------------------------------------------ tema: texto */
+.feature__title {
+  font-family: var(--display);
+  font-variation-settings: "SOFT" 20, "WONK" 1, "opsz" 144;
+  font-weight: 800;
+  font-size: 68px;
+  line-height: 0.95;
+  letter-spacing: -0.035em;
+  text-transform: none;
+  text-wrap: balance;
+}
+
 .feature__cols {
   display: grid;
   gap: 42px;
@@ -532,6 +581,15 @@
 }
 
 /* ------------------------------------------------------------ tema: casos */
+.cases__title {
+  font-family: var(--slab);
+  font-weight: 500;
+  font-size: 72px;
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+  text-transform: none;
+}
+
 .cases {
   display: grid;
   grid-template-columns: repeat(var(--case-cols, 3), 1fr);
@@ -615,15 +673,29 @@
 }
 
 /* ----------------------------------------------------------- tema: reglas */
-/* El sobrante se concentra al final, no repartido en cuatro huecos entre
-   reglas: eso dejaba islas de texto flotando en negro. */
+.rules__title {
+  font-family: var(--read);
+  font-style: italic;
+  font-weight: 300;
+  font-size: 76px;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  text-transform: none;
+  max-width: 16ch;
+  text-wrap: balance;
+}
+
+/* Reglas en columna elástica: con cuerpos largos, space-between reparte
+   el aire entre ítems (~150–200px) en vez de un solo hueco de media hoja
+   antes de la cita. */
 .rules {
   flex: 1 1 auto;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
-  gap: 34px;
-  margin-top: 34px;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 28px;
+  min-height: 0;
 }
 
 .rule-item {
@@ -631,7 +703,7 @@
   grid-template-columns: 132px 1fr;
   gap: 34px;
   align-items: start;
-  padding-top: 26px;
+  padding: 22px 0 4px;
   border-top: 1px solid var(--ink-18);
 }
 
@@ -639,7 +711,7 @@
   font-family: var(--display);
   font-variation-settings: "SOFT" 0, "WONK" 0, "opsz" 144;
   font-weight: 900;
-  font-size: 116px;
+  font-size: 96px;
   line-height: 0.82;
   color: var(--teal);
 }
@@ -647,34 +719,45 @@
 .rule-item h3 {
   font-family: var(--sans);
   font-weight: 800;
-  font-stretch: 88%;
-  font-size: 38px;
-  line-height: 1.08;
-  letter-spacing: -0.02em;
-  margin-bottom: 12px;
+  font-stretch: 100%;
+  font-size: 34px;
+  line-height: 1.12;
+  letter-spacing: -0.015em;
+  margin-bottom: 14px;
+  text-transform: none;
   text-wrap: balance;
 }
 
 .rule-item .t-read {
-  font-size: 21px;
-  line-height: 1.6;
+  font-size: 22.5px;
+  line-height: 1.58;
   max-width: 860px;
 }
 
 .rules__quote {
+  flex: 0 0 auto;
+  margin-top: 22px;
   font-family: var(--display);
   font-variation-settings: "SOFT" 26, "WONK" 1, "opsz" 144;
   font-weight: 900;
-  font-size: 52px;
-  line-height: 1.02;
+  font-size: 48px;
+  line-height: 1.04;
   letter-spacing: -0.035em;
-  margin-top: 34px;
   padding-top: 26px;
   border-top: 3px solid var(--teal);
   text-wrap: balance;
 }
 
 /* ---------------------------------------------------------------- tablero */
+.board__title {
+  font-family: var(--mono);
+  font-weight: 500;
+  font-size: 52px;
+  line-height: 1;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
 .board__reading {
   font-family: var(--read);
   font-size: 22px;
@@ -748,20 +831,27 @@
   min-height: 0;
   display: flex;
   flex-direction: column;
-  gap: 18px;
-  margin-top: 26px;
+  gap: 16px;
+  margin-top: 22px;
 }
 
+/* El contenedor crece; la captura tiene que llenarlo. Si la figura solo
+   mide el alto natural del PNG, queda medio tablero en negro. */
 .board__charts figure {
-  flex: 0 1 auto;
+  flex: 1 1 0;
+  min-height: 0;
   background: var(--white);
   overflow: hidden;
   display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .board__charts img {
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
   display: block;
 }
 

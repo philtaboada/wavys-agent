@@ -22,6 +22,13 @@ npm run tool -- render_issue '{"issuePath":"data/radar-issues/n2.json"}'
 Salida en `data/radar-out/<slug>/`: un PNG de 1240×1754 por página y el PDF
 completo.
 
+## Voces tipográficas
+
+Cada tipo de página tiene su titular. El mapa está en `VOICES.md`. El kit lo
+aplica en `kit.css`; el agente escribe el título para esa voz. Reusar
+`.t-section` / `.t-hed` como titular de página es un bug: produce la revista
+con "la misma tipografía en todos los títulos".
+
 ## El contrato
 
 `lib/radar/issue.ts`. Nueve tipos de página (`tapa`, `carta`, `notas`,
@@ -50,9 +57,10 @@ contenido tiene que acortarse de verdad.
 ## Estructura
 
 ```
+VOICES.md     mapa de titular por tipo de página
 templates/
   radar.css   tokens, página, grano, velos, cabeza, folio
-  kit.css     layout elástico de cada tipo de página
+  kit.css     layout elástico + voz de cada tipo
   page.html   arma la página desde el contrato
 fonts/        Archivo, Fraunces, Playfair, Spectral, Zilla, IBM Plex Mono
 bots/

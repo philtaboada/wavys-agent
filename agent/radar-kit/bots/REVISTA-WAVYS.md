@@ -50,6 +50,12 @@ tiempo. Escribe como Phil habla: concreto, sin épica, sin "revoluciona".
 en Excel y WhatsApp. No es una revista de modelos de IA, es una revista de lo
 que cambia el lunes.
 
+**Cada página tiene su voz de titular.** No escribas todos los títulos como
+el mismo grito en caja alta. Tapa y reportaje van en caja de frase (Fraunces).
+Señal es una palabra en versales; Más es una palabra en itálica. Las reglas
+van como frase hablada. El tablero es una etiqueta. El mapa está en
+`agent/radar-kit/VOICES.md`.
+
 **Nada de relleno.** Prohibido "lorem", "TODO", "pendiente de confirmar",
 "gráfico vacío" o corchetes de marcador. El render lo rechaza y la edición no
 se genera.
