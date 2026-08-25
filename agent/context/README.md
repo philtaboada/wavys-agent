@@ -41,6 +41,7 @@ Lee estos archivos **al iniciar cualquier tarea** para Phil / Wavys.
 | `agent/skills/one_call_website/SKILL.md` | **Sistema / app / automatización** → **Next.js** |
 | `agent/skills/reference_ui_copy/SKILL.md` | Capturas Pinterest, Dribbble, Behance — copiar UI fiel |
 | `agent/skills/website_audit/SKILL.md` | **Auditar website** cliente/prospecto — diseño, CTAs rotos, móvil, informe comercial |
+| `agent/skills/workana_daily_bids/SKILL.md` | **Postulación diaria Workana** (Arnold S) — código ∨ Shopify, 5/día |
 | `agent/skills/video_production/SKILL.md` | **Video MP4/reels/promos** — investigación profunda → storytelling → plan visual → ejecutar → validación exhaustiva |
 
 **Gates:** `agent/context/pipeline-gates.md` · índice `agent/pipelines/README.md` · subagentes `agent/pipelines/subagents.md` · **11 pipelines Gate 0 + Gate 1+ ✅**
