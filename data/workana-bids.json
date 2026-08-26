@@ -1,0 +1,95 @@
+{
+  "version": 1,
+  "postedUrls": [],
+  "runs": [
+    {
+      "id": "wrun_mt8sr10b_lubtwd",
+      "startedAt": "2026-08-25T15:05:17.531Z",
+      "account": "Arnold S",
+      "jobsPerDay": 5,
+      "scanned": 0,
+      "eligible": 0,
+      "results": [],
+      "alert": "Sesión Workana no configurada. Exportá storage state de Playwright (Arnold S) a WORKANA_STORAGE_STATE_JSON o data/workana-storage-state.json",
+      "finishedAt": "2026-08-25T15:05:17.532Z"
+    },
+    {
+      "id": "wrun_mt5xwtrv_xwt25a",
+      "startedAt": "2026-08-23T15:06:27.643Z",
+      "account": "Arnold S",
+      "jobsPerDay": 5,
+      "scanned": 0,
+      "eligible": 0,
+      "results": [],
+      "alert": "Sesión Workana no configurada. Exportá storage state de Playwright (Arnold S) a WORKANA_STORAGE_STATE_JSON o data/workana-storage-state.json",
+      "finishedAt": "2026-08-23T15:06:27.645Z"
+    },
+    {
+      "id": "wrun_mt4ies4l_0buvf0",
+      "startedAt": "2026-08-22T15:04:45.285Z",
+      "account": "Arnold S",
+      "jobsPerDay": 5,
+      "scanned": 0,
+      "eligible": 0,
+      "results": [],
+      "alert": "Sesión Workana no configurada. Exportá storage state de Playwright (Arnold S) a WORKANA_STORAGE_STATE_JSON o data/workana-storage-state.json",
+      "finishedAt": "2026-08-22T15:04:45.287Z"
+    },
+    {
+      "id": "wrun_mt32y8za_kiiw81",
+      "startedAt": "2026-08-21T15:04:13.558Z",
+      "account": "Arnold S",
+      "jobsPerDay": 5,
+      "scanned": 0,
+      "eligible": 0,
+      "results": [],
+      "alert": "Sesión Workana no configurada. Exportá storage state de Playwright (Arnold S) a WORKANA_STORAGE_STATE_JSON o data/workana-storage-state.json",
+      "finishedAt": "2026-08-21T15:04:13.559Z"
+    },
+    {
+      "id": "wrun_mt1nhzvr_gzku94",
+      "startedAt": "2026-08-20T15:03:54.855Z",
+      "account": "Arnold S",
+      "jobsPerDay": 5,
+      "scanned": 0,
+      "eligible": 0,
+      "results": [],
+      "alert": "Sesión Workana no configurada. Exportá storage state de Playwright (Arnold S) a WORKANA_STORAGE_STATE_JSON o data/workana-storage-state.json",
+      "finishedAt": "2026-08-20T15:03:54.856Z"
+    },
+    {
+      "id": "wrun_mst2yggq_a0lemx",
+      "startedAt": "2026-08-14T15:06:41.498Z",
+      "account": "Arnold S",
+      "jobsPerDay": 5,
+      "scanned": 0,
+      "eligible": 0,
+      "results": [],
+      "alert": "Sesión Workana no configurada. Exportá storage state de Playwright (Arnold S) a WORKANA_STORAGE_STATE_JSON o data/workana-storage-state.json",
+      "finishedAt": "2026-08-14T15:06:41.499Z"
+    },
+    {
+      "id": "wrun_msrnxeki_0xhd95",
+      "startedAt": "2026-08-13T15:18:11.970Z",
+      "account": "Arnold S",
+      "jobsPerDay": 5,
+      "scanned": 0,
+      "eligible": 0,
+      "results": [],
+      "alert": "Sesión Workana no configurada. Exportá storage state de Playwright (Arnold S) a WORKANA_STORAGE_STATE_JSON o data/workana-storage-state.json",
+      "finishedAt": "2026-08-13T15:18:11.971Z"
+    },
+    {
+      "id": "wrun_msq8oblo_g0x6ba",
+      "startedAt": "2026-08-12T15:23:27.804Z",
+      "account": "Arnold S",
+      "jobsPerDay": 5,
+      "scanned": 0,
+      "eligible": 0,
+      "results": [],
+      "alert": "Sesión Workana no configurada. Exportá storage state de Playwright (Arnold S) a WORKANA_STORAGE_STATE_JSON o data/workana-storage-state.json",
+      "finishedAt": "2026-08-12T15:23:27.805Z"
+    }
+  ],
+  "bids": []
+}
