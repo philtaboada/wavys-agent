@@ -1,0 +1,503 @@
+/* ==========================================================================
+   RADAR N°2 — sistema de interiores (Wavys semanal)
+   Página: 1240 × 1754 exactos. Export: Chrome headless, ver export-page.sh
+   La personalidad de cada sección vive en el <style> de su propio HTML;
+   acá solo va lo que se comparte: material, tinta, tipos, spine, folio, foto.
+
+   No es el sistema del N°1. Cambia a propósito:
+     · material dominante = papel de diario (el N°1 era tinta casi siempre)
+     · acento del número   = bermellón #E2452B (el N°1 era teal)
+     · voz                 = Martian Mono + Bodoni Moda (el N°1 era Archivo + Fraunces)
+     · cabeza              = spine con tab macizo arriba, folio grande abajo a la derecha
+   ========================================================================== */
+
+@import url("../fonts/fonts.css");
+
+:root {
+  /* --------------------------------------------------------------- material */
+  --ink: #0b0b0c;          /* tinta del número: negro neutro, no cálido */
+  --ink-2: #141417;
+  --ink-3: #1d1d21;
+
+  --news: #e7e1d4;         /* papel de diario, material dominante del N°2 */
+  --news-2: #efeae0;
+  --news-cold: #e3e5e2;
+
+  --bone: #d8d2c4;
+  --white: #fbfaf7;
+
+  /* acento del número — bermellón de titular. No teal: el teal era el N°1. */
+  --signal: #e2452b;
+  --signal-deep: #b8301c;
+
+  /* verde de marca: solo vive dentro del logo oficial, nunca como tinta */
+  --brand: #01fd91;
+
+  /* grises sobre tinta */
+  --ink-72: rgba(251, 250, 247, 0.72);
+  --ink-48: rgba(251, 250, 247, 0.48);
+  --ink-30: rgba(251, 250, 247, 0.3);
+  --ink-16: rgba(251, 250, 247, 0.16);
+  --ink-08: rgba(251, 250, 247, 0.08);
+
+  /* grises sobre papel */
+  --pap: #14130f;
+  --pap-72: rgba(20, 19, 15, 0.72);
+  --pap-48: rgba(20, 19, 15, 0.48);
+  --pap-28: rgba(20, 19, 15, 0.28);
+  --pap-16: rgba(20, 19, 15, 0.16);
+  --pap-08: rgba(20, 19, 15, 0.08);
+
+  /* ------------------------------------------------------------------ voces */
+  --mast: "Martian Mono", "Courier New", monospace;      /* masthead, etiquetas, folio */
+  --display: "Bodoni Moda", "Times New Roman", serif;    /* palabra 70 */
+  --grot: "Instrument Sans", "Helvetica Neue", Arial, sans-serif; /* decks, why */
+  --read: "Newsreader", Georgia, serif;                  /* lectura */
+  --serif: "Instrument Serif", Georgia, serif;           /* pull quote, firma */
+  --wide: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif; /* voz 05 */
+  --mono: "JetBrains Mono", "Courier New", monospace;    /* dato, fecha, URL */
+
+  /* ------------------------------------------------------------------ grilla */
+  --m: 68px;                       /* margen de página */
+  --col: 88px;                     /* 12 columnas de 88 con gutter 8 dentro de 1104 */
+  --gut: 8px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  background: #29292b;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+}
+
+.page {
+  position: relative;
+  width: 1240px;
+  height: 1754px;
+  overflow: hidden;
+  background: var(--ink);
+  color: var(--white);
+  font-family: var(--grot);
+  font-synthesis: none;
+}
+
+/* Papel de diario: el material por defecto de los interiores del N°2. */
+.page--news {
+  background: var(--news);
+  color: var(--pap);
+}
+
+.page--news-cold {
+  background: var(--news-cold);
+  color: var(--pap);
+}
+
+/* ----------------------------------------------------------------- material
+   Dos capas: fibra de papel (multiply) y desregistro de prensa (una sombra
+   bermellón de medio pixel en los filetes). Distinto grano que el N°1. */
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: -24px;
+  pointer-events: none;
+  z-index: 70;
+  opacity: 0.2;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.68' numOctaves='5' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 300px 300px;
+}
+
+.page--news.grain::after,
+.page--news-cold.grain::after {
+  opacity: 0.34;
+  mix-blend-mode: multiply;
+}
+
+/* -------------------------------------------------------------- fotografía
+   Las fotos se COLOCAN: sangran, se recortan, pasan por detrás del tipo.
+   Nunca miniatura dentro de una columna, nunca texto quemado con Pillow. */
+.ph {
+  position: absolute;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.ph img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.ph--deep img {
+  filter: saturate(0.74) contrast(1.09) brightness(0.86);
+}
+
+.ph--cold img {
+  filter: saturate(0.6) contrast(1.12) brightness(0.92) hue-rotate(-6deg);
+}
+
+/* Duotono de papel: la foto se imprime con la tinta del número. */
+.ph--news img {
+  filter: grayscale(1) contrast(1.14) brightness(1.02);
+  mix-blend-mode: multiply;
+  opacity: 0.92;
+}
+
+/* Velo direccional. Nunca un velo plano que apague la escena. */
+.veil {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.veil--bottom {
+  background: linear-gradient(
+    180deg,
+    rgba(11, 11, 12, 0) 30%,
+    rgba(11, 11, 12, 0.5) 58%,
+    rgba(11, 11, 12, 0.92) 84%,
+    var(--ink) 100%
+  );
+}
+
+.veil--top {
+  background: linear-gradient(180deg, rgba(11, 11, 12, 0.94) 0%, rgba(11, 11, 12, 0) 46%);
+}
+
+.veil--left {
+  background: linear-gradient(
+    90deg,
+    rgba(11, 11, 12, 0.93) 0%,
+    rgba(11, 11, 12, 0.46) 38%,
+    rgba(11, 11, 12, 0) 70%
+  );
+}
+
+.veil--right {
+  background: linear-gradient(
+    270deg,
+    rgba(11, 11, 12, 0.9) 0%,
+    rgba(11, 11, 12, 0.4) 36%,
+    rgba(11, 11, 12, 0) 68%
+  );
+}
+
+/* ------------------------------------------------------------------- tipos */
+.lab {
+  font-family: var(--mast);
+  font-weight: 600;
+  font-size: 9.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-variation-settings: "wdth" 87;
+}
+
+.lab--signal {
+  color: var(--signal);
+}
+
+.mono {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  letter-spacing: 0.01em;
+}
+
+/* URL impresa: completa, real, cortable. */
+.src {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: -0.01em;
+  line-height: 1.55;
+  color: var(--signal);
+  word-break: break-all;
+}
+
+.page--news .src,
+.page--news-cold .src {
+  color: var(--signal-deep);
+}
+
+.rule {
+  height: 1px;
+  background: var(--ink-16);
+}
+
+.page--news .rule,
+.page--news-cold .rule {
+  background: var(--pap-28);
+}
+
+.rule--heavy {
+  height: 4px;
+  background: var(--signal);
+}
+
+.rule--ink {
+  height: 3px;
+  background: currentColor;
+}
+
+/* Cascada: la estructura de titular del número. La palabra que pesa es 70. */
+.casc {
+  line-height: 0.86;
+}
+
+.casc__lead {
+  font-family: var(--grot);
+  font-weight: 500;
+  font-variation-settings: "wdth" 88;
+  letter-spacing: -0.015em;
+  color: var(--ink-72);
+}
+
+.page--news .casc__lead,
+.page--news-cold .casc__lead {
+  color: var(--pap-72);
+}
+
+/* La palabra 70: didone, apretada, sin color de neón. */
+.casc__70 {
+  font-family: var(--display);
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: -0.035em;
+  font-variation-settings: "opsz" 96;
+  line-height: 0.78;
+}
+
+/* --------------------------------------------------------------- spine (cabeza)
+   Tab macizo + filete. Reemplaza la cabecera con borde del N°1. */
+.spine {
+  position: absolute;
+  top: 44px;
+  left: var(--m);
+  right: var(--m);
+  z-index: 40;
+  display: flex;
+  align-items: stretch;
+  height: 26px;
+  border-bottom: 1px solid var(--ink-16);
+}
+
+.page--news .spine,
+.page--news-cold .spine {
+  border-bottom-color: var(--pap-28);
+}
+
+.spine__tab {
+  background: var(--signal);
+  color: var(--white);
+  font-family: var(--mast);
+  font-weight: 700;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  font-variation-settings: "wdth" 82;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  padding: 0 11px 1px;
+}
+
+.spine__section {
+  font-family: var(--mast);
+  font-weight: 500;
+  font-size: 9.5px;
+  letter-spacing: 0.16em;
+  font-variation-settings: "wdth" 85;
+  text-transform: uppercase;
+  color: var(--ink-48);
+  display: flex;
+  align-items: center;
+  padding-left: 14px;
+}
+
+.page--news .spine__section,
+.page--news-cold .spine__section {
+  color: var(--pap-48);
+}
+
+.spine__date {
+  margin-left: auto;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.02em;
+  color: var(--ink-30);
+  display: flex;
+  align-items: center;
+}
+
+.page--news .spine__date,
+.page--news-cold .spine__date {
+  color: var(--pap-48);
+}
+
+/* --------------------------------------------------------------------- folio
+   Número grande abajo a la derecha + barra de avance del número. */
+.folio {
+  position: absolute;
+  bottom: 40px;
+  left: var(--m);
+  right: var(--m);
+  z-index: 40;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding-top: 10px;
+  border-top: 1px solid var(--ink-16);
+}
+
+.page--news .folio,
+.page--news-cold .folio {
+  border-top-color: var(--pap-28);
+}
+
+.folio__meta {
+  font-family: var(--mast);
+  font-weight: 500;
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  font-variation-settings: "wdth" 85;
+  text-transform: uppercase;
+  color: var(--ink-48);
+  padding-bottom: 4px;
+}
+
+.page--news .folio__meta,
+.page--news-cold .folio__meta {
+  color: var(--pap-48);
+}
+
+.folio__bar {
+  display: flex;
+  gap: 4px;
+  align-items: flex-end;
+  padding-bottom: 6px;
+}
+
+.folio__bar i {
+  display: block;
+  width: 14px;
+  height: 2px;
+  background: var(--ink-16);
+}
+
+.page--news .folio__bar i,
+.page--news-cold .folio__bar i {
+  background: var(--pap-28);
+}
+
+.folio__bar i.on {
+  background: var(--signal);
+  height: 5px;
+}
+
+.folio__num {
+  font-family: var(--mast);
+  font-weight: 700;
+  font-size: 26px;
+  letter-spacing: -0.02em;
+  font-variation-settings: "wdth" 80;
+  line-height: 0.8;
+  color: var(--white);
+}
+
+.page--news .folio__num,
+.page--news-cold .folio__num {
+  color: var(--pap);
+}
+
+/* ------------------------------------------------------------ why it matters
+   Barra sólida al costado, no filete arriba: otra señal que el N°1. */
+.why {
+  display: grid;
+  grid-template-columns: 4px 1fr;
+  gap: 14px;
+}
+
+.why__bar {
+  background: var(--signal);
+}
+
+.why__label {
+  font-family: var(--mast);
+  font-weight: 700;
+  font-size: 8.5px;
+  letter-spacing: 0.18em;
+  font-variation-settings: "wdth" 82;
+  text-transform: uppercase;
+  color: var(--signal);
+  margin-bottom: 7px;
+}
+
+.why__text {
+  font-family: var(--grot);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.38;
+  letter-spacing: -0.012em;
+}
+
+/* --------------------------------------------------------------- utilidades */
+.signal {
+  color: var(--signal);
+}
+
+/* Subrayado de prensa: una regla bermellón bajo la palabra, no un resaltador. */
+.under {
+  box-shadow: inset 0 -0.1em 0 0 var(--signal);
+}
+
+/* Logo oficial pegado como PNG. Nunca se redibuja, nunca se recolorea. */
+.stamp {
+  position: absolute;
+  z-index: 45;
+}
+
+.stamp img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.deck {
+  font-family: var(--grot);
+  font-weight: 500;
+  font-size: 19px;
+  line-height: 1.36;
+  letter-spacing: -0.016em;
+}
+
+.body {
+  font-family: var(--read);
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1.56;
+  font-variation-settings: "opsz" 20;
+}
+
+.body p + p {
+  margin-top: 0.85em;
+}
+
+.drop::first-letter {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 4.1em;
+  line-height: 0.78;
+  float: left;
+  padding: 0.06em 0.09em 0 0;
+  color: var(--signal-deep);
+}

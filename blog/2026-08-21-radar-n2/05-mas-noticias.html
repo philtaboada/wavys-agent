@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>RADAR N°2 — 05 Más noticias</title>
+    <link rel="stylesheet" href="css/radar.css" />
+    <style>
+      /* ============================================================
+         05 · MÁS NOTICIAS — personalidad: TRES COLUMNAS EN PAPEL.
+         Grilla al revés de 03: allá dos zonas horizontales, acá tres
+         columnas verticales con filetes, y una banda de escena oscura
+         al pie que le da el "look" de sección y sostiene las fuentes.
+         Cada nota tiene su propia voz tipográfica.
+         ============================================================ */
+
+      .page {
+        background: linear-gradient(178deg, #ece7dc 0%, #e6e0d3 62%, #ddd7c8 100%);
+        color: #100f0c;
+      }
+
+      .section {
+        position: absolute;
+        left: var(--margin);
+        right: var(--margin);
+        top: 122px;
+        z-index: 20;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        border-bottom: 2px solid #100f0c;
+        padding-bottom: 10px;
+      }
+
+      .section h2 {
+        font-weight: 800;
+        font-stretch: 72%;
+        font-size: 92px;
+        line-height: 0.82;
+        letter-spacing: 0.004em;
+        text-transform: uppercase;
+      }
+
+      .section h2 small {
+        display: block;
+        font-family: var(--mono);
+        font-weight: 400;
+        font-stretch: 100%;
+        font-size: 11px;
+        letter-spacing: 0.26em;
+        color: #0f6b6a;
+        margin-bottom: 12px;
+      }
+
+      .section__meta {
+        text-align: right;
+        padding-bottom: 8px;
+        font-family: var(--mono);
+        font-size: 11px;
+        line-height: 1.8;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: rgba(16, 15, 12, 0.5);
+      }
+
+      .section__meta b {
+        color: #0f6b6a;
+        font-weight: 500;
+      }
+
+      /* tres columnas --------------------------------------------------- */
+      .notes {
+        position: absolute;
+        left: var(--margin);
+        right: var(--margin);
+        top: 300px;
+        z-index: 14;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0;
+      }
+
+      .note {
+        padding: 0 30px;
+        border-left: 1px solid rgba(16, 15, 12, 0.2);
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        min-height: 596px;
+      }
+
+      .note:first-child {
+        padding-left: 0;
+        border-left: 0;
+      }
+
+      .note:last-child {
+        padding-right: 0;
+      }
+
+      .note__meta {
+        display: flex;
+        align-items: baseline;
+        gap: 10px;
+        font-family: var(--sans);
+        font-weight: 800;
+        font-size: 10px;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: rgba(16, 15, 12, 0.45);
+      }
+
+      .note__meta b {
+        color: #0f6b6a;
+      }
+
+      .note__num {
+        position: absolute;
+        right: 30px;
+        top: -6px;
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: 0.12em;
+        color: rgba(16, 15, 12, 0.35);
+      }
+
+      .note:last-child .note__num {
+        right: 0;
+      }
+
+      .note__title {
+        margin-top: 16px;
+      }
+
+      .note__title span {
+        display: block;
+      }
+
+      .note__body {
+        margin-top: 22px;
+      }
+
+      .note__body p {
+        font-family: var(--read);
+        font-size: 16.5px;
+        line-height: 1.6;
+        color: #191713;
+        margin-bottom: 13px;
+      }
+
+      .note .why {
+        margin-top: auto;
+        padding-top: 14px;
+        border-top: 3px solid #0f6b6a;
+      }
+
+      .note .why__label {
+        color: #0f6b6a;
+      }
+
+      .note .why__text {
+        color: #100f0c;
+        font-size: 17px;
+      }
+
+      /* voz 05a: serif en cursiva --------------------------------------- */
+      .voice-italic .note__title {
+        font-family: var(--italic);
+        font-style: italic;
+        font-weight: 500;
+        line-height: 0.94;
+        letter-spacing: -0.02em;
+      }
+
+      .voice-italic .note__title .s1 {
+        font-size: 74px;
+      }
+
+      .voice-italic .note__title .s2 {
+        font-size: 134px;
+        color: #0f6b6a;
+      }
+
+      /* voz 05b: slab de negocio --------------------------------------- */
+      .voice-slab .note__title {
+        font-family: var(--slab);
+        font-weight: 700;
+        line-height: 0.96;
+        letter-spacing: -0.028em;
+      }
+
+      .voice-slab .note__title .s1 {
+        font-size: 66px;
+      }
+
+      .voice-slab .note__title .s2 {
+        font-size: 88px;
+      }
+
+      /* voz 05c: cartel duro ------------------------------------------- */
+      .voice-poster .note__title {
+        font-family: var(--sans);
+        font-weight: 800;
+        font-stretch: 78%;
+        text-transform: uppercase;
+        line-height: 1;
+        letter-spacing: 0.002em;
+      }
+
+      .voice-poster .note__title .s1 {
+        font-size: 62px;
+      }
+
+      .voice-poster .note__title .s2 {
+        font-size: 132px;
+      }
+
+      /* banda de escena al pie ----------------------------------------- */
+      .strip {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 782px;
+        overflow: hidden;
+        z-index: 8;
+        background: var(--ink);
+      }
+
+      .strip img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: 50% 52%;
+        display: block;
+        filter: saturate(0.5) contrast(1.2) brightness(0.68);
+      }
+
+      .strip::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(180deg, #ddd7c8 0%, rgba(7, 6, 4, 0.55) 16%, rgba(7, 6, 4, 0.78) 52%, rgba(7, 6, 4, 0.96) 88%, #070604 100%),
+          linear-gradient(90deg, rgba(7, 6, 4, 0.9) 0%, rgba(7, 6, 4, 0.2) 55%, rgba(7, 6, 4, 0.7) 100%);
+      }
+
+      .strip__text {
+        position: absolute;
+        left: var(--margin);
+        right: var(--margin);
+        bottom: 128px;
+        z-index: 12;
+        display: grid;
+        grid-template-columns: 1fr 520px;
+        gap: 48px;
+        align-items: end;
+      }
+
+      .strip__line {
+        font-family: var(--sans);
+        font-weight: 700;
+        font-stretch: 88%;
+        font-size: 34px;
+        line-height: 1.18;
+        letter-spacing: -0.018em;
+        color: var(--white);
+      }
+
+      .strip__line em {
+        font-style: normal;
+        color: var(--teal);
+      }
+
+      .strip__caption {
+        margin-top: 16px;
+        font-family: var(--mono);
+        font-size: 10.5px;
+        line-height: 1.7;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: rgba(253, 253, 253, 0.55);
+      }
+
+      .strip__sources {
+        border-top: 1px solid var(--ink-18);
+        padding-top: 12px;
+      }
+
+      .strip__sources h5 {
+        font-family: var(--sans);
+        font-weight: 800;
+        font-size: 10px;
+        letter-spacing: 0.26em;
+        text-transform: uppercase;
+        color: var(--ink-45);
+        margin-bottom: 8px;
+      }
+
+      .strip__sources p {
+        font-family: var(--mono);
+        font-size: 10.5px;
+        line-height: 1.75;
+        color: var(--teal);
+        word-break: break-all;
+      }
+
+      /* el folio cae sobre la banda oscura: se invierte */
+      .page--paper .folio {
+        color: rgba(253, 253, 253, 0.5);
+        border-top-color: var(--ink-18);
+      }
+
+      .page--paper .folio__num {
+        color: var(--white);
+      }
+
+      .page--paper .folio__ticks i {
+        background: var(--ink-18);
+      }
+
+      .page--paper .folio__ticks i.on {
+        background: var(--teal);
+      }
+    </style>
+  </head>
+  <body>
+    <article class="page page--paper grain">
+      <header class="head">
+        <span class="head__mast">Radar</span>
+        <span class="head__section">Más noticias · 12–14 ago 2026</span>
+      </header>
+
+      <div class="section">
+        <h2><small>Antes y después del tema central</small>Más noticias</h2>
+        <p class="section__meta">
+          Tres notas cortas<br />
+          <b>12–14 ago 2026</b> · OpenAI · Word · juniors
+        </p>
+      </div>
+
+      <div class="notes">
+        <!-- 05a --------------------------------------------------------- -->
+        <div class="note voice-italic">
+          <span class="note__num">05a</span>
+          <p class="note__meta"><b>OpenAI · Wharton</b> · 12 ago 2026</p>
+          <h3 class="note__title">
+            <span class="s1">los</span>
+            <span class="s2">juniors</span>
+          </h3>
+          <div class="note__body">
+            <p>
+              Un paper de OpenAI, Columbia y Wharton miró 17 millones de mensajes de ChatGPT Enterprise en
+              1.764 empresas. Quien más lo usa no es el jefe. Son los juniors.
+            </p>
+            <p>
+              Lo leí así: el modelo entra por quien escribe la fila, no por quien firma el contrato.
+            </p>
+          </div>
+          <div class="why">
+            <p class="why__label">Why it matters</p>
+            <p class="why__text">Si el sistema no llega a quien anota, no llega a la operación.</p>
+          </div>
+        </div>
+
+        <!-- 05b --------------------------------------------------------- -->
+        <div class="note voice-slab">
+          <span class="note__num">05b</span>
+          <p class="note__meta"><b>Microsoft · Word</b> · ago 2026</p>
+          <h3 class="note__title">
+            <span class="s1">elige</span>
+            <span class="s2">el modelo</span>
+          </h3>
+          <div class="note__body">
+            <p>
+              Copilot en Word ahora deja elegir Claude al lado de OpenAI. El documento decide, no el laboratorio.
+            </p>
+            <p>
+              Es la misma apuesta que veo en la hoja: el valor no está en un modelo único, está en entrar
+              donde ya se escribe.
+            </p>
+          </div>
+          <div class="why">
+            <p class="why__label">Why it matters</p>
+            <p class="why__text">El modelo se elige. La fila, no: o está o no está.</p>
+          </div>
+        </div>
+
+        <!-- 05c --------------------------------------------------------- -->
+        <div class="note voice-poster">
+          <span class="note__num">05c</span>
+          <p class="note__meta"><b>N°1 · recordatorio</b> · 1 oct</p>
+          <h3 class="note__title">
+            <span class="s1">el chat</span>
+            <span class="s2">cuesta</span>
+          </h3>
+          <div class="note__body">
+            <p>El 1 de octubre las respuestas de WhatsApp que no son plantilla vuelven a la cuenta.</p>
+            <p>
+              Este número no lo vuelve a contar. Lo deja puesto: la hoja y el chat se pagan juntos si no
+              hablan.
+            </p>
+          </div>
+          <div class="why">
+            <p class="why__label">Why it matters</p>
+            <p class="why__text">El N°1 era el chat. El N°2 es la fila. Son la misma operación.</p>
+          </div>
+        </div>
+      </div>
+
+      <figure class="strip">
+        <img src="img/escena-laptop-noche.jpg" alt="Laptop de noche: dos ventanas abiertas y una página impresa debajo" />
+      </figure>
+
+      <div class="strip__text">
+        <div>
+          <p class="strip__line">
+            Las tres pasan en el mismo lugar: <em>quien ya escribe la fila</em>.
+          </p>
+          <p class="strip__caption">
+            Noche. La hoja impresa debajo del laptop. Ni canvas, ni proyecto: la sesión de siempre.
+          </p>
+        </div>
+        <div class="strip__sources">
+          <h5>Fuentes</h5>
+          <p>
+            techtimes.com/articles/324500/20260814/junior-workers-drive-chatgpt-enterprise-study-maps-17m-messages-across-firms.htm<br />
+            techbooky.com/microsoft-word-copilot-anthropic-models-openai/<br />
+            developers.facebook.com/documentation/business-messaging/whatsapp/pricing/non-template-messages
+          </p>
+        </div>
+      </div>
+
+      <footer class="folio">
+        <span class="folio__ticks"><i></i><i></i><i></i><i class="on"></i></span>
+        <span>Radar N°2 · Más noticias</span>
+        <span class="folio__num">05</span>
+      </footer>
+    </article>
+  </body>
+</html>

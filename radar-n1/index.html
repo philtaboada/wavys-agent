@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RADAR N°1 — ver la revista</title>
+  <style>
+    :root {
+      --ink: #070604;
+      --teal: #5ad2d0;
+      --paper: #f2ede3;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; }
+    body {
+      background: #0b0a08;
+      color: var(--paper);
+      font-family: "Archivo", "Helvetica Neue", Arial, sans-serif;
+      overflow: hidden;
+    }
+    .desk {
+      height: 100%;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+    }
+    header, footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 28px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 11px;
+    }
+    header strong { letter-spacing: 0.22em; font-size: 14px; }
+    header span, footer span { color: rgba(242, 237, 227, 0.55); }
+    .stage {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 28px;
+      padding: 8px 24px 16px;
+      min-height: 0;
+    }
+    .page-wrap {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .page-wrap img {
+      height: min(78vh, 980px);
+      width: auto;
+      max-width: min(52vw, 720px);
+      object-fit: contain;
+      background: #111;
+      border: 1px solid rgba(242, 237, 227, 0.12);
+    }
+    button.nav {
+      appearance: none;
+      width: 48px;
+      height: 48px;
+      border: 1px solid rgba(242, 237, 227, 0.22);
+      background: transparent;
+      color: var(--paper);
+      font-size: 22px;
+      cursor: pointer;
+    }
+    button.nav:disabled { opacity: 0.25; cursor: default; }
+    button.nav:not(:disabled):hover { border-color: var(--teal); color: var(--teal); }
+    .thumbs {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding: 0 28px 18px;
+      justify-content: center;
+    }
+    .thumbs button {
+      appearance: none;
+      border: 1px solid transparent;
+      background: transparent;
+      padding: 0;
+      cursor: pointer;
+      opacity: 0.45;
+    }
+    .thumbs button.active,
+    .thumbs button:hover { opacity: 1; border-color: var(--teal); }
+    .thumbs img {
+      display: block;
+      height: 72px;
+      width: auto;
+    }
+    .hint { color: var(--teal); }
+  </style>
+</head>
+<body>
+  <div class="desk">
+    <header>
+      <strong>RADAR</strong>
+      <span id="label">Tapa · 01</span>
+      <span class="hint">← → o clic</span>
+    </header>
+    <div class="stage">
+      <button class="nav" id="prev" type="button" aria-label="Anterior">‹</button>
+      <div class="page-wrap">
+        <img id="page" alt="Página de RADAR N°1" />
+      </div>
+      <button class="nav" id="next" type="button" aria-label="Siguiente">›</button>
+    </div>
+    <div class="thumbs" id="thumbs"></div>
+    <footer>
+      <span>N°1 · 10–14 ago 2026</span>
+      <span id="count">1 / 11</span>
+      <span>Wavys · semanal</span>
+    </footer>
+  </div>
+  <script>
+    const PAGES = [
+      { src: "export/01-tapa.png", label: "Tapa · 01" },
+      { src: "export/02-carta-del-editor.png", label: "Carta del editor · 02" },
+      { src: "export/03-senal.png", label: "Señal · 03" },
+      { src: "export/04a-tema-central-apertura.png", label: "Tema central · apertura · 04" },
+      { src: "export/04b-tema-central-relato.png", label: "Tema central · relato · 04" },
+      { src: "export/04c-tema-central-casos.png", label: "Tema central · casos · 04" },
+      { src: "export/04d-tema-central-cita-datos.png", label: "Tema central · cita y datos · 04" },
+      { src: "export/04e-tema-central-reglas.png", label: "Tema central · reglas · 04" },
+      { src: "export/05-mas-noticias.png", label: "Más noticias · 05" },
+      { src: "export/08-tablero-ia.png", label: "Tablero de IA · 08" },
+      { src: "export/09-contratapa.png", label: "Contratapa · 09" }
+    ];
+    let i = 0;
+    const img = document.getElementById("page");
+    const label = document.getElementById("label");
+    const count = document.getElementById("count");
+    const prev = document.getElementById("prev");
+    const next = document.getElementById("next");
+    const thumbs = document.getElementById("thumbs");
+
+    PAGES.forEach((p, idx) => {
+      const b = document.createElement("button");
+      b.type = "button";
+      b.innerHTML = `<img src="${p.src}" alt="${p.label}" />`;
+      b.addEventListener("click", () => go(idx));
+      thumbs.appendChild(b);
+    });
+
+    function go(n) {
+      i = Math.max(0, Math.min(PAGES.length - 1, n));
+      img.src = PAGES[i].src;
+      img.alt = PAGES[i].label;
+      label.textContent = PAGES[i].label;
+      count.textContent = `${i + 1} / ${PAGES.length}`;
+      prev.disabled = i === 0;
+      next.disabled = i === PAGES.length - 1;
+      [...thumbs.children].forEach((el, idx) => el.classList.toggle("active", idx === i));
+    }
+
+    prev.addEventListener("click", () => go(i - 1));
+    next.addEventListener("click", () => go(i + 1));
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowRight" || e.key === " ") { e.preventDefault(); go(i + 1); }
+      if (e.key === "ArrowLeft") go(i - 1);
+    });
+    go(0);
+  </script>
+</body>
+</html>

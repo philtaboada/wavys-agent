@@ -652,11 +652,11 @@
   background:
     linear-gradient(
       90deg,
-      rgba(7, 6, 4, 0.94) 0%,
-      rgba(7, 6, 4, 0.62) 44%,
-      rgba(7, 6, 4, 0.1) 100%
+      rgba(7, 6, 4, 0.82) 0%,
+      rgba(7, 6, 4, 0.42) 38%,
+      rgba(7, 6, 4, 0.08) 100%
     ),
-    linear-gradient(180deg, rgba(7, 6, 4, 0) 40%, rgba(7, 6, 4, 0.72) 100%);
+    linear-gradient(180deg, rgba(7, 6, 4, 0) 48%, rgba(7, 6, 4, 0.55) 100%);
 }
 
 .closer__text {
@@ -692,7 +692,7 @@
   flex: 1 1 auto;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-evenly;
   gap: 12px;
   margin-top: 28px;
   min-height: 0;
@@ -731,7 +731,7 @@
 .rule-item .t-read {
   font-size: 22.5px;
   line-height: 1.58;
-  max-width: 860px;
+  max-width: none;
 }
 
 .rules__quote {

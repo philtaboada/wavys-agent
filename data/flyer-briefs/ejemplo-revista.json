@@ -1,0 +1,24 @@
+{
+  "slug": "ejemplo-revista",
+  "layout": "revista",
+  "format": "a4",
+  "kicker": "Caso de trabajo",
+  "title": "Cómo dejamos de perder pedidos en el chat",
+  "dek": "Una distribuidora de Lima recibía ciento veinte mensajes al día y contestaba sesenta. El resto se enfriaba hasta el lunes.",
+  "body": [
+    "Empezamos midiendo. Durante una semana anotamos cuántos mensajes entraban, cuántos se contestaban el mismo día y cuántos terminaban en pedido. El número incómodo apareció rápido: la mitad de las conversaciones moría sin respuesta antes de las seis de la tarde.",
+    "El agente no reemplazó al vendedor. Contesta el primer mensaje, pregunta qué producto y en qué cantidad, y arma la ficha. Cuando el vendedor abre el chat en la mañana ya tiene el pedido escrito y solo confirma precio y entrega."
+  ],
+  "bullets": [
+    "Respuesta en menos de un minuto",
+    "Pedido armado antes de que abras",
+    "Historial en la hoja que ya usas"
+  ],
+  "cta": {
+    "label": "Quiero el mismo flujo",
+    "url": "https://wavys-technologies.com",
+    "note": "Lo montamos sobre las herramientas que ya tienes."
+  },
+  "contact": ["+51 999 888 777", "wavys-technologies.com"],
+  "image": "blog/2026-08-28-radar-n3/img/escena-relato.jpg"
+}

@@ -1,0 +1,22 @@
+{
+  "slug": "ejemplo-evento",
+  "layout": "evento",
+  "format": "story",
+  "accent": "teal",
+  "kicker": "Taller abierto",
+  "title": "Automatiza tu WhatsApp en una tarde",
+  "dek": "Traes tu negocio y tu teléfono. Sales con un flujo armado y andando.",
+  "date": { "big": "12 SEP", "note": "jueves, 6:30 p.m." },
+  "meta": [
+    { "label": "Dónde", "value": "Av. Arequipa 1234, Lince" },
+    { "label": "Cupos", "value": "20 negocios" },
+    { "label": "Costo", "value": "Entrada libre" }
+  ],
+  "cta": {
+    "label": "Reserva tu sitio",
+    "url": "https://wavys-technologies.com",
+    "note": "Confirmamos por WhatsApp el mismo día."
+  },
+  "contact": ["+51 999 888 777"],
+  "image": "blog/2026-08-28-radar-n3/img/escena-cierre.jpg"
+}

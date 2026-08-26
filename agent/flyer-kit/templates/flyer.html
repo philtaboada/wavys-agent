@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>Wavys — flyer</title>
+    <link rel="stylesheet" href="base.css" />
+    <link rel="stylesheet" href="layouts.css" />
+  </head>
+  <body>
+    <script>
+      (function () {
+        const flyer = window.__FLYER__;
+        const format = window.__FORMAT__;
+        const assets = window.__ASSETS__ || {};
+        const minTitle = window.__MIN_TITLE__ || 54;
+
+        /** Cuántas líneas soporta el titular antes de dejar de ser titular. */
+        const MAX_TITLE_LINES = {
+          cartel: 3,
+          revista: 3,
+          // La columna de oferta es estrecha a propósito: cuatro líneas ahí
+          // siguen leyéndose como titular, y forzarlo a tres solo lo encoge.
+          oferta: 4,
+          servicios: 2,
+          evento: 3,
+        };
+
+        function el(tag, cls, text) {
+          const n = document.createElement(tag);
+          if (cls) n.className = cls;
+          if (text != null) n.textContent = text;
+          return n;
+        }
+
+        function img(src) {
+          const n = document.createElement("img");
+          n.src = src;
+          return n;
+        }
+
+        function photo(cls) {
+          const n = el("figure", `ph ph--deep ${cls}`);
+          n.appendChild(img(assets.image));
+          return n;
+        }
+
+        // --------------------------------------------------------- estructura
+        const article = el("article", `flyer grain f-${flyer.format} ${flyer.layout}`);
+        if (flyer.paper === "claro") article.classList.add("paper");
+        if (flyer.accent === "teal") article.classList.add("acc-teal");
+        document.body.appendChild(article);
+        article.appendChild(el("div", "aurora"));
+
+        const stage = el("div", "stage");
+        const inner = el("div", "stage__inner");
+        stage.appendChild(inner);
+
+        // ------------------------------------------------------------ cabecera
+        const brandbar = el("header", "brandbar");
+        const mark = el("div", "brandbar__mark");
+        if (flyer.logo) {
+          // El lockup lleva el texto en blanco: sobre papel claro desaparece,
+          // así que ahí va el isotipo y el nombre lo pone la tipografía.
+          mark.appendChild(img(flyer.paper === "claro" ? assets.isotipo : assets.logo));
+          if (flyer.paper === "claro") {
+            mark.appendChild(el("span", "brandbar__name", flyer.brand));
+          }
+        } else {
+          mark.appendChild(el("span", "brandbar__name", flyer.brand));
+        }
+        // El kicker NO va aquí. Es la cejilla del titular y vive pegado a él en
+        // el área de obra: repetido arriba a la derecha sale dos veces en la
+        // misma pieza, que es lo que pasó en la primera prueba de los cinco
+        // layouts. Arriba a la derecha se deja vacío a propósito.
+        brandbar.appendChild(mark);
+
+        // ------------------------------------------------------------------ pie
+        const foot = el("footer", "foot");
+        const footMain = el("div", "foot__main");
+
+        const cta = el("div", "cta");
+        cta.appendChild(el("span", null, flyer.cta.label));
+        cta.appendChild(el("span", "cta__arrow", "→"));
+        footMain.appendChild(cta);
+
+        if (flyer.cta.note) footMain.appendChild(el("p", "cta__note", flyer.cta.note));
+
+        if (flyer.contact) {
+          const row = el("div", "contact");
+          for (const c of flyer.contact) row.appendChild(el("span", null, c));
+          footMain.appendChild(row);
+        }
+
+        if (flyer.footnote) footMain.appendChild(el("p", "footnote", flyer.footnote));
+        foot.appendChild(footMain);
+
+        if (assets.qr) {
+          const side = el("div", "foot__side");
+          side.appendChild(el("span", "qr__hint", "Escanea"));
+          const qr = el("div", "qr");
+          qr.appendChild(img(assets.qr));
+          side.appendChild(qr);
+          foot.appendChild(side);
+        }
+
+        // -------------------------------------------------------------- layouts
+        const build = {
+          cartel() {
+            const ph = photo("");
+            ph.style.inset = "0";
+            article.appendChild(ph);
+            article.appendChild(el("div", "veil veil--bottom"));
+            article.appendChild(el("div", "veil veil--top"));
+
+            inner.appendChild(el("div", "grow"));
+            inner.appendChild(el("p", "t-kicker", flyer.kicker));
+
+            const title = el("h1", "cartel__title js-title");
+            title.appendChild(el("span", null, flyer.title));
+            if (flyer.titleAccent) {
+              title.appendChild(el("span", "line2", flyer.titleAccent));
+            }
+            inner.appendChild(title);
+            inner.appendChild(el("p", "t-dek", flyer.dek));
+
+            if (flyer.stat) {
+              const stat = el("div", "cartel__stat");
+              stat.appendChild(el("b", null, flyer.stat.value));
+              stat.appendChild(el("span", null, flyer.stat.label));
+              inner.appendChild(stat);
+            }
+          },
+
+          revista() {
+            const band = el("figure", "revista__band");
+            band.appendChild(img(assets.image));
+            inner.appendChild(band);
+
+            const eyebrow = el("p", "t-kicker", flyer.kicker);
+            eyebrow.style.marginTop = "30px";
+            inner.appendChild(eyebrow);
+            inner.appendChild(el("h1", "revista__title js-title", flyer.title));
+            inner.appendChild(el("p", "t-dek", flyer.dek));
+
+            const cols = el("div", "revista__cols");
+            const textCol = el("div");
+            for (const p of flyer.body) textCol.appendChild(el("p", "t-read", p));
+            cols.appendChild(textCol);
+
+            if (flyer.bullets) {
+              const list = el("ul", "bullets");
+              for (const b of flyer.bullets) list.appendChild(el("li", null, b));
+              cols.appendChild(list);
+            } else {
+              cols.classList.add("revista__cols--single");
+            }
+            inner.appendChild(cols);
+          },
+
+          oferta() {
+            article.appendChild(photo("oferta__ph"));
+            article.appendChild(el("div", "oferta__veil"));
+
+            inner.appendChild(el("p", "t-kicker", flyer.kicker));
+            inner.appendChild(el("h1", "oferta__title js-title", flyer.title));
+            inner.appendChild(el("p", "t-dek", flyer.dek));
+
+            if (flyer.price) {
+              const price = el("div", "oferta__price");
+              price.appendChild(el("b", null, flyer.price.value));
+              const side = el("div", "side");
+              if (flyer.price.before) {
+                side.appendChild(el("span", "before", flyer.price.before));
+              }
+              side.appendChild(el("span", "note", flyer.price.note));
+              price.appendChild(side);
+              inner.appendChild(price);
+            }
+
+            // Sin `grow`: en este layout el elemento elástico es la lista de
+            // beneficios (ver .oferta .bullets). Un grow además de la lista
+            // deja 217px de fondo plano entre el precio y el primer beneficio.
+            const list = el("ul", "bullets");
+            for (const b of flyer.bullets) list.appendChild(el("li", null, b));
+            inner.appendChild(list);
+          },
+
+          servicios() {
+            const head = el("div", "servicios__head");
+            const left = el("div");
+            left.appendChild(el("p", "t-kicker", flyer.kicker));
+            left.appendChild(el("h1", "servicios__title js-title", flyer.title));
+            head.appendChild(left);
+            head.appendChild(el("p", "t-dek", flyer.dek));
+            inner.appendChild(head);
+
+            const grid = el("div", "servicios__grid");
+            grid.dataset.n = String(flyer.items.length);
+            flyer.items.forEach((it, i) => {
+              const cell = el("div", "servicios__cell");
+              cell.appendChild(el("p", "servicios__n", String(i + 1).padStart(2, "0")));
+              cell.appendChild(el("h3", null, it.title));
+              cell.appendChild(el("p", "t-read", it.body));
+              grid.appendChild(cell);
+            });
+            inner.appendChild(grid);
+
+            const band = el("figure", "servicios__band");
+            band.appendChild(img(assets.image));
+            inner.appendChild(band);
+          },
+
+          evento() {
+            // Foto a sangre completa, no una banda al 54%: con banda queda una
+            // costura vertical y, en story, la franja segura de abajo se ve
+            // como media pieza negra sin terminar.
+            const ph = photo("evento__ph");
+            article.appendChild(ph);
+            article.appendChild(el("div", "veil veil--left"));
+
+            inner.appendChild(el("p", "t-kicker", flyer.kicker));
+            const date = el("div", "evento__date");
+            date.style.marginTop = "18px";
+            date.appendChild(el("b", null, flyer.date.big));
+            date.appendChild(el("i", null, flyer.date.note));
+            inner.appendChild(date);
+
+            inner.appendChild(el("h1", "evento__title js-title", flyer.title));
+            inner.appendChild(el("p", "t-dek", flyer.dek));
+
+            // La tabla de datos ancla contra el pie y el aire queda arriba,
+            // donde la foto se ve: al revés deja la mitad de un story vacía.
+            inner.appendChild(el("div", "grow"));
+
+            const meta = el("dl", "evento__meta");
+            for (const m of flyer.meta) {
+              const row = el("div", "evento__row");
+              row.appendChild(el("dt", null, m.label));
+              row.appendChild(el("dd", null, m.value));
+              meta.appendChild(row);
+            }
+            inner.appendChild(meta);
+          },
+        };
+
+        build[flyer.layout]();
+        article.appendChild(brandbar);
+        article.appendChild(stage);
+        article.appendChild(foot);
+
+        // ------------------------------------------------------------ medición
+        /** Palabras de un bloque agrupadas por la línea en la que caen. */
+        function textLines(root) {
+          const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+          const rows = new Map();
+          let node;
+          while ((node = walker.nextNode())) {
+            const text = node.textContent;
+            const re = /\S+/g;
+            let m;
+            while ((m = re.exec(text))) {
+              const range = document.createRange();
+              range.setStart(node, m.index);
+              range.setEnd(node, m.index + m[0].length);
+              const box = range.getBoundingClientRect();
+              if (!box.height) continue;
+              const key = Math.round(box.top / 4) * 4;
+              if (!rows.has(key)) rows.set(key, []);
+              rows.get(key).push(m[0]);
+            }
+          }
+          return Array.from(rows.entries())
+            .sort((a, b) => a[0] - b[0])
+            .map(([, words]) => words);
+        }
+
+        const waitImages = Array.from(document.images).map((i) =>
+          i.complete
+            ? Promise.resolve()
+            : new Promise((res) => {
+                i.onload = res;
+                i.onerror = res;
+              }),
+        );
+
+        Promise.all([document.fonts.ready, ...waitImages]).then(() => {
+          // El área de obra se ajusta a lo que miden de verdad la cabecera y el
+          // pie, en vez de a un hueco fijo: el pie crece con el CTA, la nota
+          // legal y el bloque de contacto.
+          const gapTop = 34;
+          const gapBottom = 40;
+          stage.style.top = `${brandbar.offsetTop + brandbar.offsetHeight + gapTop}px`;
+          stage.style.bottom = `${
+            article.clientHeight - foot.offsetTop + gapBottom
+          }px`;
+
+          // 1) El titular baja de cuerpo antes que el resto de la pieza: un
+          //    titular de cuatro líneas ya perdió la jerarquía, y escalar todo
+          //    el bloque por su culpa encoge también el cuerpo.
+          const title = article.querySelector(".js-title");
+          let titlePx = 0;
+          if (title) {
+            const maxLines = MAX_TITLE_LINES[flyer.layout] ?? 3;
+            titlePx = parseFloat(getComputedStyle(title).fontSize);
+            for (let i = 0; i < 14; i++) {
+              const lh = parseFloat(getComputedStyle(title).lineHeight) || titlePx;
+              const lines = Math.round(title.scrollHeight / lh);
+              if (lines <= maxLines || titlePx <= minTitle) break;
+              titlePx = Math.max(minTitle, titlePx * 0.94);
+              title.style.fontSize = `${titlePx}px`;
+            }
+          }
+
+          // 2) Auto-ajuste del bloque: el texto de un cliente nunca mide lo que
+          //    midió el del anterior. Por debajo de 0.9 el cuerpo queda más
+          //    chico que el de las otras piezas, así que ahí se reporta.
+          const need = inner.scrollHeight;
+          const have = stage.clientHeight;
+          let fit = 1;
+          if (need > have + 1) {
+            fit = Math.max(0.9, have / need);
+            inner.style.transformOrigin = "top left";
+            inner.style.transform = `scale(${fit})`;
+            inner.style.width = `${100 / fit}%`;
+            inner.style.height = `${100 / fit}%`;
+          }
+
+          // Punto más bajo con tinta real dentro del área de obra.
+          let lowest = 0;
+          const queue = Array.from(inner.children);
+          while (queue.length) {
+            const child = queue.shift();
+            const box = child.getBoundingClientRect();
+            const hasInk =
+              (child.textContent ?? "").trim().length > 0 ||
+              child.tagName === "IMG" ||
+              child.tagName === "FIGURE";
+            if (hasInk && box.height > 0) lowest = Math.max(lowest, box.bottom);
+            queue.push(...Array.from(child.children));
+          }
+
+          // Hueco interior: el que queda ENTRE dos bloques. Anclar el último
+          // bloque al pie hace que el hueco no aparezca al final, pero no lo
+          // elimina: lo mueve al medio, donde se ve igual de mal.
+          const blocks = Array.from(inner.children)
+            .filter((c) => {
+              const b = c.getBoundingClientRect();
+              const ink =
+                (c.textContent ?? "").trim().length > 0 || c.tagName === "FIGURE";
+              return ink && b.height > 0;
+            })
+            .map((c) => c.getBoundingClientRect())
+            .sort((a, b) => a.top - b.top);
+
+          let innerGap = 0;
+          for (let i = 1; i < blocks.length; i++) {
+            innerGap = Math.max(innerGap, blocks[i].top - blocks[i - 1].bottom);
+          }
+
+          /** Palabra corta sola en la última línea de un bloque de texto. */
+          function widowOf(node, maxLen) {
+            if (!node) return null;
+            const rows = textLines(node);
+            const last = rows[rows.length - 1] ?? [];
+            return rows.length > 1 && last.length === 1 && last[0].length <= maxLen
+              ? last[0]
+              : null;
+          }
+
+          const lines = title ? textLines(title) : [];
+
+          window.__M__ = {
+            fit,
+            overflow: Math.max(0, Math.round(need * fit - have)),
+            trailingGap: Math.round(foot.getBoundingClientRect().top - lowest),
+            innerGap: Math.round(innerGap),
+            titlePx: Math.round(titlePx),
+            titleLines: lines.length,
+            widow: widowOf(title, 9),
+            // El párrafo tolera una palabra final más larga que el titular:
+            // a cuerpo 22 una viuda de 9 caracteres apenas se nota, y a
+            // cuerpo 88 canta.
+            dekWidow: widowOf(article.querySelector(".t-dek"), 12),
+            brandbarTop: Math.round(brandbar.getBoundingClientRect().top),
+            footBottom: Math.round(foot.getBoundingClientRect().bottom),
+            height: article.clientHeight,
+          };
+          window.__READY__ = true;
+        });
+      })();
+    </script>
+  </body>
+</html>

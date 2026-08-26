@@ -1,0 +1,30 @@
+{
+  "slug": "ejemplo-servicios",
+  "layout": "servicios",
+  "format": "a4",
+  "paper": "claro",
+  "kicker": "Qué hacemos",
+  "title": "Software que trabaja mientras atiendes",
+  "dek": "Tres frentes, un mismo criterio: que el negocio deje de depender de que alguien se acuerde.",
+  "items": [
+    {
+      "title": "Agentes de WhatsApp",
+      "body": "Atienden el primer mensaje, califican al que pregunta y agendan. Tú entras cuando hay algo que cerrar, no para saludar."
+    },
+    {
+      "title": "Automatizaciones",
+      "body": "Lo que hoy pasas a mano de un chat a una hoja lo hace un flujo. Cotizaciones, pedidos y recordatorios sin copiar y pegar."
+    },
+    {
+      "title": "Web y landing",
+      "body": "Una página que carga rápido y pide lo justo para que la conversación siga en WhatsApp, que es donde tu cliente ya está."
+    }
+  ],
+  "cta": {
+    "label": "Conversemos",
+    "url": "https://wavys-technologies.com",
+    "note": "Primera llamada de veinte minutos, sin costo."
+  },
+  "contact": ["+51 999 888 777", "wavys-technologies.com", "Lima, Perú"],
+  "image": "blog/2026-08-28-radar-n3/img/escena-senal.jpg"
+}

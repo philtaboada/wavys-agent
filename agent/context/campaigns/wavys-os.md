@@ -6,7 +6,7 @@
 | Campo | Valor |
 |-------|-------|
 | **Producto** | SaaS chat-first · packs Tienda / Salón / Restaurante |
-| **Landing** | https://software.wavys-technologies.com/wavys-os · repo `theros-website` `/wavys-os` |
+| **Landing** | retirada de software.wavys (2026-08-12) — `/wavys-os` → `/` |
 | **CTA primario** | Demo registrada → https://calendly.com/philtaboada2julio |
 | **Email** | contact@wavys-technologies.com |
 | **Kit operativo** | `data/wavys-os-campaign-brief/` |
@@ -111,6 +111,7 @@ Detalle: `data/wavys-os-brief/mvp-onboarding-tienda-salon-resto.md`.
 | `DEMO-CONTRATO.md` | Guía demo + mini-acuerdo design partner |
 | `Wavys-OS-Brief.pdf` | PDF comercial (flyer) para enviar |
 | `validador-campana.md` | Gate GTM estricto P1–P5 |
+| `CHECKLIST-LANZAMIENTO.md` | Checklist lanzamiento L0–L5 (skills GTM + prod + demos + cobro) |
 | Assets flyer/infografía | `data/wavys-os-brief/marketing/` |
 
 ---
@@ -152,9 +153,11 @@ Detalle: `data/wavys-os-brief/mvp-onboarding-tienda-salon-resto.md`.
 
 ## Pendiente Phil
 
+Checklist completo (marcar ahí): `data/wavys-os-campaign-brief/CHECKLIST-LANZAMIENTO.md`
+
 - [x] Landing pública `/wavys-os` en `theros-website`
 - [ ] Deploy landing a prod (si CI no auto-deploy)
-- [ ] Polar sandbox productos reales
+- [x] Polar sandbox planes Presence/Operate/Scale (IDs en `cobro-polar.md` §2.1) — faltan add-ons/top-ups
 - [ ] Soft launch cobro + DNS `*.wavys.app`
 - [ ] Revisar copy mensajes antes de blast masivo
 - [ ] Contrato / Términos OS (post-legal)

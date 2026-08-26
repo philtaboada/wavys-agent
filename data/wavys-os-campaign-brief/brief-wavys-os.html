@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Wavys OS — Brief</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+    :root {
+      --bg: #f5f5f7;
+      --elevated: #ffffff;
+      --label: #1d1d1f;
+      --secondary: #6e6e73;
+      --tertiary: #86868b;
+      --separator: rgba(0, 0, 0, 0.08);
+      --accent: #0071e3;
+      --accent-soft: rgba(0, 113, 227, 0.1);
+      --shadow: 0 2px 8px rgba(0, 0, 0, 0.04), 0 16px 40px rgba(0, 0, 0, 0.06);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    @page { size: A4; margin: 0; }
+
+    body {
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+      background: #ddd;
+      color: var(--label);
+      font-size: 10.5pt;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      page-break-after: always;
+      background: var(--bg);
+      position: relative;
+      overflow: hidden;
+    }
+    .page:last-child { page-break-after: auto; }
+
+    .luminous {
+      background:
+        radial-gradient(90% 55% at 50% -5%, #ffffff 0%, transparent 58%),
+        var(--bg);
+    }
+
+    .eyebrow {
+      font-size: 8pt;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--tertiary);
+    }
+
+    .mono {
+      font-family: "JetBrains Mono", ui-monospace, monospace;
+      font-size: 8pt;
+      color: var(--accent);
+      letter-spacing: 0.02em;
+    }
+
+    .btn-black {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 980px;
+      background: #000;
+      color: #fff;
+      font-size: 9.5pt;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      padding: 2.8mm 6mm;
+      text-decoration: none;
+    }
+
+    /* ── COVER ── */
+    .cover {
+      display: flex;
+      flex-direction: column;
+      padding: 12mm 14mm 12mm;
+    }
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .nav .wordmark {
+      font-size: 12pt;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+    }
+    .hero-text {
+      text-align: left;
+      max-width: 100%;
+      margin: 10mm 0 0;
+    }
+    .hero-text h1 {
+      font-size: 24pt;
+      font-weight: 600;
+      line-height: 1.4;
+      letter-spacing: -0.02em;
+      max-width: 168mm;
+    }
+    .hero-text h1 .muted { color: var(--tertiary); display: block; margin-bottom: 4mm; }
+    .hero-text h1 .strong { color: var(--label); display: block; }
+    .hero-text .sub {
+      margin: 5mm 0 0;
+      max-width: 145mm;
+      font-size: 11.5pt;
+      color: var(--secondary);
+      line-height: 1.55;
+    }
+    .hero-text .cta { margin-top: 7mm; }
+    .hero-body {
+      margin-top: 9mm;
+      display: grid;
+      grid-template-columns: 1fr 1.05fr;
+      gap: 8mm;
+      align-items: stretch;
+      flex: 1;
+    }
+    .proofs {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      justify-content: center;
+    }
+    .proof {
+      padding: 5mm 0;
+      border-top: 1px solid var(--separator);
+    }
+    .proof:last-child { border-bottom: 1px solid var(--separator); }
+    .proof strong {
+      display: block;
+      font-size: 11pt;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5mm;
+    }
+    .proof span {
+      font-size: 9.5pt;
+      color: var(--secondary);
+      line-height: 1.45;
+    }
+    .cover-chat {
+      background: var(--elevated);
+      border-radius: 18px;
+      padding: 5.5mm;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    /* ── INNER ── */
+    .inner { padding: 14mm 14mm 16mm; }
+    .inner h2 {
+      margin-top: 3.5mm;
+      font-size: 19pt;
+      font-weight: 600;
+      line-height: 1.35;
+      letter-spacing: -0.02em;
+      max-width: 155mm;
+    }
+    .lead {
+      margin-top: 4.5mm;
+      max-width: 135mm;
+      font-size: 10.5pt;
+      color: var(--secondary);
+      line-height: 1.5;
+    }
+
+    .pain-grid {
+      margin-top: 10mm;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      border-top: 1px solid var(--separator);
+    }
+    .pain {
+      padding: 6mm 5mm 0 0;
+    }
+    .pain + .pain {
+      padding-left: 5mm;
+      border-left: 1px solid var(--separator);
+    }
+    .pain h3 {
+      font-size: 11pt;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      line-height: 1.25;
+    }
+    .pain p {
+      margin-top: 2.5mm;
+      font-size: 9pt;
+      color: var(--secondary);
+      line-height: 1.45;
+      padding-right: 2mm;
+    }
+
+    .duo {
+      margin-top: 10mm;
+      display: grid;
+      grid-template-columns: 1.15fr auto 0.85fr;
+      gap: 6mm;
+      align-items: center;
+      justify-items: center;
+    }
+    .duo img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 14px 32px rgba(0,0,0,0.1));
+    }
+    .connector {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2mm;
+    }
+    .connector .line {
+      width: 1px;
+      height: 14mm;
+      background: rgba(0, 113, 227, 0.4);
+    }
+    .connector .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+    .caption {
+      margin-top: 4mm;
+      text-align: center;
+      font-size: 8.5pt;
+      color: var(--tertiary);
+    }
+
+    .features {
+      margin-top: 9mm;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 7mm 6mm;
+    }
+    .feature h3 {
+      margin-top: 2mm;
+      font-size: 10.5pt;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+    }
+    .feature p {
+      margin-top: 2mm;
+      font-size: 8.5pt;
+      color: var(--secondary);
+      line-height: 1.4;
+    }
+
+    .split {
+      margin-top: 6mm;
+      display: grid;
+      grid-template-columns: 1fr 1.05fr;
+      gap: 7mm;
+      align-items: start;
+    }
+    .split h2 {
+      max-width: 95%;
+      font-size: 17pt;
+      line-height: 1.38;
+    }
+    .steps { margin-top: 6mm; }
+    .step {
+      display: grid;
+      grid-template-columns: 10mm 1fr;
+      gap: 4mm;
+      padding: 4.5mm 0;
+      border-top: 1px solid var(--separator);
+    }
+    .step:last-child { border-bottom: 1px solid var(--separator); }
+    .step .n {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 8pt;
+      color: var(--tertiary);
+      padding-top: 0.5mm;
+    }
+    .step h3 {
+      font-size: 10.5pt;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+    }
+    .step p {
+      margin-top: 1.5mm;
+      font-size: 8.5pt;
+      color: var(--secondary);
+      line-height: 1.4;
+    }
+
+    .chat {
+      background: var(--bg);
+      border-radius: 14px;
+      padding: 5mm;
+      box-shadow: var(--shadow);
+    }
+    .chat-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 4mm;
+    }
+    .chat-line { margin-bottom: 3mm; display: flex; }
+    .chat-line.user { justify-content: flex-end; }
+    .bubble {
+      max-width: 88%;
+      padding: 3mm 3.8mm;
+      border-radius: 12px;
+      font-size: 8.5pt;
+      line-height: 1.5;
+    }
+    .bubble.bot {
+      background: var(--elevated);
+      border: 1px solid var(--separator);
+      color: var(--label);
+      border-bottom-left-radius: 4px;
+    }
+    .bubble.user {
+      background: var(--label);
+      color: #fff;
+      border-bottom-right-radius: 4px;
+    }
+
+    .packs {
+      margin-top: 8mm;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 4mm;
+    }
+    .pack {
+      background: var(--elevated);
+      border: 1px solid var(--separator);
+      border-radius: 14px;
+      padding: 5.5mm;
+      min-height: 78mm;
+    }
+    .pack h3 {
+      font-size: 13pt;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+    }
+    .pack .ex {
+      margin-top: 1.5mm;
+      font-size: 8.5pt;
+      color: var(--tertiary);
+    }
+    .pack .block { margin-top: 5mm; }
+    .pack .block .lbl {
+      font-size: 7.5pt;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .pack .block p {
+      margin-top: 1.5mm;
+      font-size: 9pt;
+      color: var(--secondary);
+      line-height: 1.4;
+    }
+    .scenarios {
+      margin-top: 10mm;
+      border-top: 1px solid var(--separator);
+    }
+    .scenario {
+      display: grid;
+      grid-template-columns: 22mm 1fr 1fr;
+      gap: 4mm;
+      padding: 4.5mm 0;
+      border-bottom: 1px solid var(--separator);
+      align-items: start;
+    }
+    .scenario .pack-name {
+      font-size: 9.5pt;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      padding-top: 0.5mm;
+    }
+    .scenario .before,
+    .scenario .after {
+      font-size: 8.5pt;
+      line-height: 1.4;
+      color: var(--secondary);
+    }
+    .scenario .before strong,
+    .scenario .after strong {
+      display: block;
+      font-size: 7.5pt;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--tertiary);
+      margin-bottom: 1.5mm;
+    }
+    .scenario .after strong { color: var(--accent); }
+
+    .plans {
+      margin-top: 8mm;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 4mm;
+    }
+    .plan {
+      background: var(--elevated);
+      border: 1px solid var(--separator);
+      border-radius: 16px;
+      padding: 5.5mm;
+      position: relative;
+    }
+    .plan.featured {
+      border-color: rgba(0,0,0,0.18);
+      box-shadow: var(--shadow);
+    }
+    .plan .badge {
+      display: inline-flex;
+      margin-bottom: 3mm;
+      border-radius: 980px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 7.5pt;
+      font-weight: 600;
+      padding: 1mm 3mm;
+    }
+    .plan h3 {
+      font-size: 12pt;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+    }
+    .plan .blurb {
+      margin-top: 1mm;
+      font-size: 8.5pt;
+      color: var(--secondary);
+    }
+    .plan .price {
+      margin-top: 4mm;
+      font-size: 22pt;
+      font-weight: 600;
+      letter-spacing: -0.04em;
+      line-height: 1;
+    }
+    .plan .price span {
+      font-size: 9pt;
+      font-weight: 500;
+      color: var(--tertiary);
+    }
+    .plan .credits {
+      margin-top: 1.5mm;
+      font-size: 8pt;
+      color: var(--tertiary);
+    }
+    .plan ul {
+      margin-top: 4mm;
+      padding-left: 0;
+      list-style: none;
+    }
+    .plan li {
+      font-size: 8pt;
+      color: var(--secondary);
+      padding: 1.4mm 0;
+      border-top: 1px solid var(--separator);
+      line-height: 1.35;
+    }
+
+    .cta-page {
+      display: flex;
+      flex-direction: column;
+      padding: 14mm 14mm 12mm;
+      background:
+        radial-gradient(90% 55% at 50% -5%, #ffffff 0%, transparent 58%),
+        var(--bg);
+      min-height: 297mm;
+    }
+    .cta-top {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 8mm;
+      align-items: center;
+      flex: 1;
+    }
+    .cta-page h2 {
+      margin-top: 4mm;
+      font-size: 22pt;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      line-height: 1.24;
+      max-width: 110mm;
+    }
+    .cta-page .lead {
+      margin-top: 4mm;
+      font-size: 10.5pt;
+      max-width: 105mm;
+    }
+    .cta-links { margin-top: 7mm; }
+    .cta-links a.main {
+      display: inline-flex;
+      margin-top: 3mm;
+      font-size: 11pt;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .cta-links .url {
+      margin-top: 2mm;
+      font-size: 9pt;
+      color: var(--secondary);
+    }
+    .cta-visual {
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+    }
+    .cta-visual img {
+      max-height: 105mm;
+      width: auto;
+      max-width: 100%;
+      object-fit: contain;
+      filter: drop-shadow(0 16px 36px rgba(0,0,0,0.1));
+    }
+    .faq-mini {
+      margin-top: 4mm;
+      border-top: 1px solid var(--separator);
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 5mm;
+      padding-top: 6mm;
+    }
+    .faq-mini h3 {
+      font-size: 9.5pt;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+    }
+    .faq-mini p {
+      margin-top: 2mm;
+      font-size: 8pt;
+      color: var(--secondary);
+      line-height: 1.4;
+    }
+    .foot {
+      margin-top: 8mm;
+      padding-top: 4mm;
+      border-top: 1px solid var(--separator);
+      font-size: 8.5pt;
+      color: var(--tertiary);
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .white-page { background: var(--elevated); }
+  </style>
+</head>
+<body>
+
+  <!-- 01 Cover — vende el producto: conversación real -->
+  <section class="page cover luminous">
+    <div class="nav">
+      <span class="wordmark">Wavys OS</span>
+      <a class="btn-black" href="https://calendly.com/philtaboada2julio">Agendar demo</a>
+    </div>
+    <div class="hero-text">
+      <h1>
+        <span class="muted">Del chat al negocio real,</span>
+        <span class="strong">ordenado y listo para vender.</span>
+      </h1>
+      <p class="sub">
+        Hablas con Wavys y de ahí salen tu web, tu oferta y tu WhatsApp.
+        Para tiendas, salones y restaurantes — en unos 30 minutos.
+      </p>
+      <div class="cta">
+        <a class="btn-black" href="https://calendly.com/philtaboada2julio">Agendar demo de 20 min</a>
+      </div>
+    </div>
+    <div class="hero-body">
+      <div class="proofs">
+        <div class="proof">
+          <strong>1. Cuentas tu negocio</strong>
+          <span>Nombre, ciudad, WhatsApp. Detectamos Tienda, Salón o Restaurante.</span>
+        </div>
+        <div class="proof">
+          <strong>2. Sale tu web</strong>
+          <span>Con tu marca, oferta y botón real de WhatsApp — lista para compartir.</span>
+        </div>
+        <div class="proof">
+          <strong>3. Operas por chat</strong>
+          <span>Cambias precios, marcas agotado o agendas citas sin paneles eternos.</span>
+        </div>
+      </div>
+      <div class="cover-chat" aria-label="Ejemplo de chat Wavys OS">
+        <div class="chat-head">
+          <p class="eyebrow" style="margin:0;">Así se ve el producto</p>
+          <span style="display:flex;gap:3px;">
+            <span style="width:5px;height:5px;border-radius:50%;background:var(--accent);"></span>
+            <span style="width:5px;height:5px;border-radius:50%;background:var(--accent);"></span>
+            <span style="width:5px;height:5px;border-radius:50%;background:var(--accent);"></span>
+          </span>
+        </div>
+        <div class="chat-line"><div class="bubble bot">¡Hola! En unos minutos dejamos lista tu base digital. ¿Cómo se llama tu negocio?</div></div>
+        <div class="chat-line user"><div class="bubble user">Salón Luna, Miraflores. Cortes y color. Nos escriben por WhatsApp.</div></div>
+        <div class="chat-line"><div class="bubble bot">Te veo como Salón. ¿Arrancamos con plan web (aparecer online) o plan completo (también agenda)?</div></div>
+        <div class="chat-line user"><div class="bubble user">Plan web primero.</div></div>
+        <div class="chat-line"><div class="bubble bot">Listo. Crear la web usa ~80 puntos — te aviso antes. ¿Tu WhatsApp para el botón de la página?</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 Problema -->
+  <section class="page">
+    <div class="inner">
+      <p class="eyebrow">El problema</p>
+      <h2>Tu negocio vive en WhatsApp, Instagram y un Excel. Nada se habla entre sí.</h2>
+      <p class="lead">
+        Mientras tanto, el dueño responde chats a las 11 pm, los precios viven en la cabeza de alguien,
+        y “¿hay stock?” o “¿hay hora?” se resuelven a ojo.
+      </p>
+      <div class="pain-grid">
+        <article class="pain">
+          <h3>El precio está en la cabeza de alguien</h3>
+          <p>Un cliente pregunta por WhatsApp. Tú estás en la calle. Nadie más sabe si el combo sigue a S/45 o ya subió.</p>
+        </article>
+        <article class="pain">
+          <h3>Tu “web” es un link de Instagram</h3>
+          <p>No hay menú claro, ni servicios con precio, ni botón de WhatsApp que no se pierda entre stories.</p>
+        </article>
+        <article class="pain">
+          <h3>Stock y citas viven en el aire</h3>
+          <p>“¿Hay hora mañana?” “¿Queda ese producto?” Toca revisar a mano, o peor: prometer y fallar.</p>
+        </article>
+      </div>
+      <div class="duo" style="margin-top:14mm;">
+        <img src="assets/store-cutout.png" alt="Negocio" style="max-height:78mm;" />
+        <div class="connector">
+          <span class="line"></span>
+          <span class="dot"></span>
+          <span class="line"></span>
+        </div>
+        <img src="assets/phone-cutout.png" alt="Chat" style="max-height:90mm;" />
+      </div>
+      <p class="caption">Tu negocio y tu conversación, conectados.</p>
+    </div>
+  </section>
+
+  <!-- 03 Solución + features -->
+  <section class="page white-page">
+    <div class="inner">
+      <p class="eyebrow">La solución</p>
+      <h2>Wavys OS: el sistema operativo de tu PYME. Todo nace del chat.</h2>
+      <p class="lead">
+        Hablas con Wavys y de ahí salen web, oferta, leads y —cuando toque— stock, citas o pedidos.
+        Un solo espacio. Sin armar paneles a ciegas.
+      </p>
+      <div class="features">
+        <article class="feature">
+          <span class="mono">01</span>
+          <h3>Onboarding por chat</h3>
+          <p>Cuentas tu negocio, ciudad y WhatsApp. Detecta tienda, salón o restaurante y te guía — una idea por mensaje.</p>
+        </article>
+        <article class="feature">
+          <span class="mono">02</span>
+          <h3>Web con tu marca</h3>
+          <p>Elige estilo. La IA arma la página con tu bio, color y tono. Sale en subdominio lista para compartir.</p>
+        </article>
+        <article class="feature">
+          <span class="mono">03</span>
+          <h3>Oferta que se muestra sola</h3>
+          <p>Productos, servicios o menú con precios. Chat o Excel. Un solo lugar para lo que vendes.</p>
+        </article>
+        <article class="feature">
+          <span class="mono">04</span>
+          <h3>WhatsApp + leads</h3>
+          <p>Botón real en la web. Quien te escribe queda registrado — sin perder el hilo en el celular.</p>
+        </article>
+        <article class="feature">
+          <span class="mono">05</span>
+          <h3>Operación cuando toque</h3>
+          <p>Plan completo enciende stock, citas o pedidos según tu rubro. Misma cuenta, mismos datos.</p>
+        </article>
+        <article class="feature">
+          <span class="mono">06</span>
+          <h3>Hecho para PYMEs en Perú</h3>
+          <p>Lenguaje cercano, soles y WhatsApp como canal real. Sin jerga de SaaS.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 Cómo + chat -->
+  <section class="page">
+    <div class="inner">
+      <div class="split">
+        <div>
+          <p class="eyebrow">Cómo funciona</p>
+          <h2>Del primer mensaje a base digital en media hora.</h2>
+          <ol class="steps">
+            <li class="step">
+              <span class="n">01</span>
+              <div>
+                <h3>Cuentas quién eres</h3>
+                <p>Nombre, qué ofreces, ciudad y WhatsApp. Wavys sugiere Tienda, Salón o Restaurante.</p>
+              </div>
+            </li>
+            <li class="step">
+              <span class="n">02</span>
+              <div>
+                <h3>Eliges plan web o completo</h3>
+                <p>Plan web = aparecer online. Plan completo = eso + stock, citas o pedidos. Te avisa antes de gastar puntos en la web.</p>
+              </div>
+            </li>
+            <li class="step">
+              <span class="n">03</span>
+              <div>
+                <h3>Marca + molde + oferta</h3>
+                <p>Bio, tono y color. Cargas lo que vendes. En 20–30 minutos tienes base usable.</p>
+              </div>
+            </li>
+            <li class="step">
+              <span class="n">04</span>
+              <div>
+                <h3>Sigues solo — o con el chat</h3>
+                <p>Cambias un precio, marcas agotado o agendas una cita hablando con Wavys.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+        <div class="chat" aria-label="Ejemplo de chat">
+          <div class="chat-head">
+            <p class="eyebrow" style="margin:0;">Así se ve el chat</p>
+            <span style="display:flex;gap:3px;">
+              <span style="width:5px;height:5px;border-radius:50%;background:var(--accent);"></span>
+              <span style="width:5px;height:5px;border-radius:50%;background:var(--accent);"></span>
+              <span style="width:5px;height:5px;border-radius:50%;background:var(--accent);"></span>
+            </span>
+          </div>
+          <div class="chat-line"><div class="bubble bot">¡Hola! En unos minutos dejamos lista tu base digital: web, contacto y lo que vendes. ¿Cómo se llama tu negocio?</div></div>
+          <div class="chat-line user"><div class="bubble user">Salón Luna, en Miraflores. Cortes y color. Nos escriben por WhatsApp.</div></div>
+          <div class="chat-line"><div class="bubble bot">Te veo como Salón: servicios y citas. ¿Arrancamos con plan web o plan completo?</div></div>
+          <div class="chat-line user"><div class="bubble user">Plan web primero.</div></div>
+          <div class="chat-line"><div class="bubble bot">Listo. Tienes 150 puntos este mes. Crear la web usa ~80 — te aviso antes. ¿Tu WhatsApp para el botón?</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 Packs -->
+  <section class="page white-page">
+    <div class="inner">
+      <p class="eyebrow">Packs</p>
+      <h2>Tienda, Salón o Restaurante. Misma base, distinto día a día.</h2>
+      <p class="lead">Empiezas con plan web. Cuando necesites operar, subes a plan completo sin migrar.</p>
+      <div class="packs">
+        <article class="pack">
+          <h3>Tienda</h3>
+          <p class="ex">Ferretería · boutique · distribuidora</p>
+          <div class="block">
+            <p class="lbl">Plan web</p>
+            <p>Catálogo online, precios claros, WhatsApp y leads.</p>
+          </div>
+          <div class="block">
+            <p class="lbl">Plan completo</p>
+            <p>Stock, pedidos con estados, cotizaciones y clientes.</p>
+          </div>
+        </article>
+        <article class="pack">
+          <h3>Salón</h3>
+          <p class="ex">Barbería · spa · estética</p>
+          <div class="block">
+            <p class="lbl">Plan web</p>
+            <p>Servicios con precios + pedir cita o WhatsApp desde la web.</p>
+          </div>
+          <div class="block">
+            <p class="lbl">Plan completo</p>
+            <p>Agenda por profesional, equipo e insumos.</p>
+          </div>
+        </article>
+        <article class="pack">
+          <h3>Restaurante</h3>
+          <p class="ex">Cevichería · café · dark kitchen</p>
+          <div class="block">
+            <p class="lbl">Plan web</p>
+            <p>Menú público + pedidos o consultas por WhatsApp.</p>
+          </div>
+          <div class="block">
+            <p class="lbl">Plan completo</p>
+            <p>Encargos, agotados, insumos y reportes del día.</p>
+          </div>
+        </article>
+      </div>
+      <div class="scenarios">
+        <div class="scenario">
+          <p class="pack-name">Tienda</p>
+          <p class="before"><strong>Antes</strong>Precios en notas del celular. El ayudante promete un producto que ya no hay.</p>
+          <p class="after"><strong>Con Wavys</strong>Catálogo en la web. Stock en plan completo. El lead llega con nombre y consulta.</p>
+        </div>
+        <div class="scenario">
+          <p class="pack-name">Salón</p>
+          <p class="before"><strong>Antes</strong>Citas en un cuaderno. Doble reserva el sábado a las 4.</p>
+          <p class="after"><strong>Con Wavys</strong>Servicios online. Agenda en plan completo. El cliente pide cita desde la web.</p>
+        </div>
+        <div class="scenario">
+          <p class="pack-name">Restaurante</p>
+          <p class="before"><strong>Antes</strong>El menú es una foto borrosa de Instagram Stories.</p>
+          <p class="after"><strong>Con Wavys</strong>Menú público con precios. Marcas agotado y la web lo refleja.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 Precios -->
+  <section class="page">
+    <div class="inner">
+      <p class="eyebrow">Precios</p>
+      <h2>Planes claros en soles.</h2>
+      <p class="lead">Suscripción mensual. Empieza con plan web; crece a completo cuando toque operar.</p>
+      <div class="plans">
+        <article class="plan featured">
+          <span class="badge">Para empezar</span>
+          <h3>Plan web</h3>
+          <p class="blurb">Para aparecer y vender online.</p>
+          <p class="price">S/169 <span>/mes</span></p>
+          <p class="credits">150 puntos/mes</p>
+          <ul>
+            <li>Web + subdominio .wavys.app</li>
+            <li>Oferta hasta 80 ítems</li>
+            <li>Leads y contacto WhatsApp</li>
+            <li>2 usuarios</li>
+            <li>Onboarding guiado por chat</li>
+          </ul>
+        </article>
+        <article class="plan">
+          <h3 style="margin-top:7mm;">Plan completo</h3>
+          <p class="blurb">Para operar el día a día.</p>
+          <p class="price">S/279 <span>/mes</span></p>
+          <p class="credits">400 puntos/mes</p>
+          <ul>
+            <li>Todo el plan web</li>
+            <li>Stock, citas o pedidos según pack</li>
+            <li>Clientes y reportes</li>
+            <li>Oferta hasta 2000 ítems</li>
+            <li>5 usuarios · import Excel</li>
+          </ul>
+        </article>
+        <article class="plan">
+          <h3 style="margin-top:7mm;">Scale</h3>
+          <p class="blurb">Para equipos que ya viven en el sistema.</p>
+          <p class="price">S/449 <span>/mes</span></p>
+          <p class="credits">1000 puntos/mes</p>
+          <ul>
+            <li>Todo el plan completo</li>
+            <li>Automatizaciones</li>
+            <li>Prioridad al generar web</li>
+            <li>Hasta 20 usuarios</li>
+            <li>Más capacidad de IA</li>
+          </ul>
+        </article>
+      </div>
+      <p class="lead" style="margin-top:8mm;font-size:9pt;">
+        Add-on opcional: Marketing Posts +S/89/mes. No se activa solo.
+        Promo lanzamiento (3 meses, si aplica): plan web S/149 · completo S/249.
+      </p>
+    </div>
+  </section>
+
+  <!-- 07 CTA -->
+  <section class="page cta-page">
+    <div class="cta-top">
+      <div>
+        <p class="eyebrow">Siguiente paso</p>
+        <h2>¿Agendamos una demo de 20 minutos?</h2>
+        <p class="lead">Sin compromiso. Vemos tu pack y si plan web o completo encaja.</p>
+        <div class="cta-links">
+          <a class="btn-black" href="https://calendly.com/philtaboada2julio">Agendar demo</a>
+          <br />
+          <a class="main" href="https://calendly.com/philtaboada2julio">calendly.com/philtaboada2julio</a>
+          <p class="url">contact@wavys-technologies.com</p>
+        </div>
+      </div>
+      <div class="cta-visual">
+        <img src="assets/phone-cutout.png" alt="Chat Wavys OS" />
+      </div>
+    </div>
+    <div class="faq-mini">
+      <div>
+        <h3>¿Necesito saber de tecnología?</h3>
+        <p>No. El chat te explica cada paso en español cercano. Si no entiendes, le pides que lo diga más simple.</p>
+      </div>
+      <div>
+        <h3>¿Qué son los “puntos”?</h3>
+        <p>Créditos de IA del mes. Crear la web usa ~80; el chat te avisa antes. Los cambios chicos no rehacen toda la página.</p>
+      </div>
+      <div>
+        <h3>¿Solo web y después operar?</h3>
+        <p>Sí. Empiezas con plan web. Cuando necesites stock, citas o pedidos, subes a completo sin migrar.</p>
+      </div>
+    </div>
+    <div class="foot">
+      <span>Wavys OS</span>
+      <span>Brief comercial · alineado a la landing del producto</span>
+    </div>
+  </section>
+
+</body>
+</html>

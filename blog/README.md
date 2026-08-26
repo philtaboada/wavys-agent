@@ -87,4 +87,5 @@ Rutas relativas a la carpeta del número. URLs reales. CTA: `https://cal.com/wav
 | Carpeta | Número | Estado |
 |---|---|---|
 | [2026-08-14-radar-n1](./2026-08-14-radar-n1/) | N°1 · 10–14 ago 2026 | **Publicado** |
-| [2026-08-21-radar-n2](./2026-08-21-radar-n2/) | N°2 · 17–21 ago 2026 | **Borrador de layout** — PDF para Phil, **no publicar** |
+| [2026-08-21-radar-n2](./2026-08-21-radar-n2/) | N°2 · 17–21 ago 2026 | **Borrador editorial** — 11 páginas, PDF para Phil, **no publicar** |
+| [2026-08-28-radar-n3](./2026-08-28-radar-n3/) | N°3 · 25 ago–1 sep 2026 | **Borrador editorial** — 10 páginas, política en el mostrador, **no publicar** |

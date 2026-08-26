@@ -27,7 +27,7 @@ Eres el asistente de operaciones de **Phil Taboada / Wavys**. Trabajas dentro de
 - Doc: `agent/context/campaigns/wavys-os.md`
 - Kit venta: `data/wavys-os-campaign-brief/`
 - Producto: `data/wavys-os-brief/`
-- Landing: https://software.wavys-technologies.com/wavys-os
+- Landing pública: **retirada** de software.wavys-technologies.com (2026-08-12). `/wavys-os` redirige a `/`.
 - CTA: https://calendly.com/philtaboada2julio (demo; self-serve solo tras legal+Polar+DNS)
 - ICP: dueños PYME Perú — WhatsApp / referidos / Maps / Meta Ads
 
@@ -140,7 +140,9 @@ Si `git pull` falla (conflictos, sin remote), reportar a Phil antes de seguir.
 - Si falta una credencial de API, indica qué poner en `.env.local`.
 - Lee `agent/skills/` antes de flujos de ventas, propuestas o seguimiento.
 - **Posts / carruseles / copy social:** `agent/skills/content_production/SKILL.md` (investigar → filtro Wavys → formato → generar). Visual: `social_design` + guía Agente.
-- **Video (reels, promos, MP4):** `agent/skills/video_production/SKILL.md` — **obligatorio:** ① investigación profunda (`RESEARCH.md`) → ② guion storytelling → ③ plan visual/assets (imágenes, Three.js, Lottie) → ④ ejecutar → ⑤ validación exhaustiva (lint, snapshot, Browser QA) → render. Proyecto: `wavys-stories`. No renderizar sin `VALIDATION.md` en verde.
+- **Flyers (afiche, oferta, servicios, evento; A4 imprimible o redes):** subagente `flyer` → `agent/skills/flyer_design/SKILL.md`. El layout vive en `agent/flyer-kit/templates/`; nunca escribir HTML por pieza. Revisión visual con `flyer-arte` antes de entregar.
+- **Clips animados (Phil pasa una lista de contenidos y quiere animaciones para montar en un video más largo; o placas, títulos y lower thirds con alfa):** subagente `motion` → `agent/skills/motion_kit/SKILL.md`. El movimiento vive en `agent/motion-kit/templates/`; nunca escribir HTML ni código de animación por reel. Revisión visual con `motion-arte` antes de entregar. Sale un archivo por clip + `MANIFEST.json` con timecodes acumulados.
+- **Video (reels, promos, MP4):** `agent/skills/video_production/SKILL.md` — **obligatorio:** ① investigación profunda (`RESEARCH.md`) → ② guion storytelling → ③ plan visual/assets (imágenes, Three.js, Lottie) → ④ ejecutar → ⑤ validación exhaustiva (lint, snapshot, Browser QA) → render. Proyecto: `wavys-stories`. No renderizar sin `VALIDATION.md` en verde. Este pipeline es para un **video terminado** con guion y voz en off; si el pedido son piezas de montaje, es el motion kit.
 - Para nuevas integraciones (LinkedIn API, Calendly, etc.), extiende `agent/tools/`.
 
 # Pipeline gates (producción web / video / imagen)

@@ -1,0 +1,496 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>RADAR N°2 · 02 Carta del editor</title>
+    <link rel="stylesheet" href="css/radar.css" />
+    <style>
+      /* -------------------------------------------------------- 02 CARTA (papel)
+         Voz: papel de carta. Type-is-layout, cinta, firma.
+         Grilla propia: cascada arriba a la izquierda, recorte de operación
+         sangrando por el canto derecho, una mancha de lectura de medida corta,
+         y abajo el sumario del número en dos tiempos. Nada de slide de fundador. */
+
+      .carta {
+        background: var(--news-2);
+      }
+
+      /* Fibra vertical del papel: se ve al ampliar, no ensucia el tipo. */
+      .carta__fiber {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        pointer-events: none;
+        opacity: 0.5;
+        background: repeating-linear-gradient(
+          90deg,
+          rgba(20, 19, 15, 0.035) 0 1px,
+          rgba(20, 19, 15, 0) 1px 4px
+        );
+      }
+
+      /* --------------------------------------------------------------- cascada */
+      .carta__casc {
+        position: absolute;
+        top: 122px;
+        left: var(--m);
+        z-index: 20;
+        width: 700px;
+      }
+
+      .carta__eyebrow {
+        font-family: var(--mast);
+        font-weight: 700;
+        font-size: 9.5px;
+        letter-spacing: 0.22em;
+        font-variation-settings: "wdth" 82;
+        text-transform: uppercase;
+        color: var(--signal-deep);
+        margin-bottom: 20px;
+      }
+
+      .carta__l1 {
+        display: flex;
+        align-items: baseline;
+        gap: 18px;
+      }
+
+      .carta__el {
+        font-family: var(--grot);
+        font-weight: 400;
+        font-size: 58px;
+        line-height: 1;
+        letter-spacing: -0.03em;
+        font-variation-settings: "wdth" 88;
+        color: var(--pap-48);
+      }
+
+      .carta__70 {
+        font-family: var(--display);
+        font-weight: 800;
+        font-size: 186px;
+        line-height: 0.76;
+        letter-spacing: -0.05em;
+        font-variation-settings: "opsz" 96;
+        color: var(--pap);
+      }
+
+      .carta__l2 {
+        font-family: var(--serif);
+        font-style: italic;
+        font-size: 116px;
+        line-height: 0.94;
+        letter-spacing: -0.026em;
+        color: var(--pap);
+        margin-top: 2px;
+        margin-left: 4px;
+      }
+
+      /* ----------------------------------------------------------- riel derecho
+         El recorte sangra por el canto, impreso en tinta del número (duotono),
+         no pegado como miniatura dentro de una columna. */
+      .carta__crop {
+        position: absolute;
+        top: 112px;
+        right: 0;
+        width: 372px;
+        height: 458px;
+        z-index: 6;
+      }
+
+      .carta__crop img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: 44% 56%;
+        display: block;
+        filter: grayscale(1) contrast(1.24) brightness(1.03);
+        mix-blend-mode: multiply;
+        opacity: 0.95;
+      }
+
+      /* Cinta: fija el recorte a la página. */
+      .tape {
+        position: absolute;
+        z-index: 8;
+        background: rgba(226, 69, 43, 0.15);
+        border-left: 1px solid rgba(226, 69, 43, 0.22);
+        border-right: 1px solid rgba(226, 69, 43, 0.22);
+      }
+
+      .tape--a {
+        top: 88px;
+        right: 296px;
+        width: 138px;
+        height: 26px;
+        transform: rotate(-9deg);
+      }
+
+      .tape--b {
+        top: 552px;
+        right: 18px;
+        width: 124px;
+        height: 24px;
+        transform: rotate(5deg);
+      }
+
+      .carta__caption {
+        position: absolute;
+        top: 596px;
+        right: var(--m);
+        width: 304px;
+        z-index: 20;
+        text-align: right;
+        font-family: var(--mono);
+        font-size: 10px;
+        line-height: 1.62;
+        letter-spacing: 0.01em;
+        color: var(--pap-48);
+        padding-top: 9px;
+        border-top: 1px solid var(--pap-28);
+      }
+
+      /* ------------------------------------------------------------- lectura */
+      .carta__lead {
+        position: absolute;
+        top: 512px;
+        left: var(--m);
+        width: 596px;
+        z-index: 20;
+        font-family: var(--grot);
+        font-weight: 600;
+        font-size: 27px;
+        line-height: 1.26;
+        letter-spacing: -0.02em;
+        color: var(--pap);
+      }
+
+      .carta__lead::after {
+        content: "";
+        display: block;
+        width: 66px;
+        height: 3px;
+        background: var(--signal);
+        margin-top: 24px;
+      }
+
+      .carta__body {
+        position: absolute;
+        top: 654px;
+        left: var(--m);
+        width: 596px;
+        z-index: 20;
+        font-family: var(--read);
+        font-weight: 400;
+        font-size: 25px;
+        line-height: 1.58;
+        font-variation-settings: "opsz" 24;
+        color: #191813;
+      }
+
+      .carta__body p + p {
+        margin-top: 1.04em;
+      }
+
+      .carta__body em {
+        font-style: italic;
+      }
+
+      /* La cifra vive dentro de la lectura, en dato mono. */
+      .fig {
+        font-family: var(--mono);
+        font-weight: 700;
+        font-size: 0.9em;
+        letter-spacing: -0.02em;
+        color: var(--signal-deep);
+      }
+
+      /* ------------------------------------------------------------ traducción
+         La frase que sostiene el número, en cursiva de display, colgada del
+         riel derecho a la altura de la lectura. */
+      .carta__pull {
+        position: absolute;
+        top: 736px;
+        right: var(--m);
+        width: 372px;
+        z-index: 20;
+        padding-top: 20px;
+        border-top: 3px solid var(--pap);
+      }
+
+      .carta__pull p {
+        font-family: var(--serif);
+        font-style: italic;
+        font-size: 38px;
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+        color: var(--pap);
+      }
+
+      .carta__pull span {
+        display: block;
+        margin-top: 16px;
+        font-family: var(--mast);
+        font-weight: 500;
+        font-size: 8.5px;
+        letter-spacing: 0.2em;
+        font-variation-settings: "wdth" 84;
+        text-transform: uppercase;
+        color: var(--pap-48);
+      }
+
+      /* -------------------------------------------------------------- sumario
+         Lo que viene, con folio. Mueble de revista, no lista de bullets. */
+      .carta__sum {
+        position: absolute;
+        top: 1214px;
+        left: var(--m);
+        right: var(--m);
+        z-index: 20;
+      }
+
+      .carta__sum-head {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        padding-bottom: 11px;
+        border-bottom: 3px solid var(--pap);
+      }
+
+      .carta__sum-head b {
+        font-family: var(--mast);
+        font-weight: 700;
+        font-size: 11px;
+        letter-spacing: 0.2em;
+        font-variation-settings: "wdth" 82;
+        text-transform: uppercase;
+      }
+
+      .carta__sum-head i {
+        font-family: var(--mono);
+        font-style: normal;
+        font-size: 10px;
+        letter-spacing: 0.06em;
+        color: var(--pap-48);
+      }
+
+      .carta__sum-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        column-gap: 26px;
+      }
+
+      .sum {
+        padding-top: 15px;
+        border-right: 1px solid var(--pap-28);
+        padding-right: 24px;
+      }
+
+      .sum:last-child {
+        border-right: 0;
+        padding-right: 0;
+      }
+
+      .sum__n {
+        font-family: var(--mast);
+        font-weight: 700;
+        font-size: 22px;
+        letter-spacing: -0.02em;
+        font-variation-settings: "wdth" 78;
+        color: var(--signal-deep);
+        line-height: 1;
+      }
+
+      .sum__t {
+        margin-top: 12px;
+        font-family: var(--grot);
+        font-weight: 600;
+        font-size: 21px;
+        line-height: 1.12;
+        letter-spacing: -0.022em;
+        font-variation-settings: "wdth" 92;
+        color: var(--pap);
+      }
+
+      .sum__d {
+        margin-top: 9px;
+        font-family: var(--read);
+        font-size: 14px;
+        line-height: 1.42;
+        color: var(--pap-72);
+        font-variation-settings: "opsz" 14;
+      }
+
+      /* --------------------------------------------------------------- firma */
+      .carta__cut {
+        position: absolute;
+        left: var(--m);
+        right: var(--m);
+        bottom: 232px;
+        height: 1px;
+        background: var(--pap-28);
+        z-index: 10;
+      }
+
+      .carta__sign {
+        position: absolute;
+        left: var(--m);
+        bottom: 138px;
+        z-index: 20;
+        display: flex;
+        align-items: flex-end;
+        gap: 26px;
+      }
+
+      .carta__sign-name {
+        font-family: var(--serif);
+        font-style: italic;
+        font-size: 78px;
+        line-height: 0.84;
+        letter-spacing: -0.02em;
+        color: var(--pap);
+      }
+
+      .carta__sign-meta {
+        font-family: var(--mast);
+        font-weight: 500;
+        font-size: 9.5px;
+        letter-spacing: 0.18em;
+        font-variation-settings: "wdth" 84;
+        text-transform: uppercase;
+        color: var(--pap-48);
+        padding-bottom: 10px;
+        line-height: 1.9;
+      }
+
+      /* Sello: isotipo oficial en PNG, nunca redibujado. */
+      .carta__seal {
+        position: absolute;
+        right: var(--m);
+        bottom: 142px;
+        z-index: 20;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .carta__seal img {
+        display: block;
+        width: 78px;
+        height: auto;
+      }
+
+      .carta__seal span {
+        text-align: right;
+        font-family: var(--mast);
+        font-weight: 500;
+        font-size: 8.5px;
+        letter-spacing: 0.19em;
+        font-variation-settings: "wdth" 84;
+        text-transform: uppercase;
+        color: var(--pap-48);
+        line-height: 1.9;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page page--news carta grain">
+      <div class="carta__fiber"></div>
+
+      <div class="spine">
+        <span class="spine__tab">Radar N°2</span>
+        <span class="spine__section">Carta del editor</span>
+        <span class="spine__date">14 — 21 AGO 2026</span>
+      </div>
+
+      <div class="carta__casc">
+        <div class="carta__eyebrow">Lo que vi esta semana</div>
+        <div class="carta__l1">
+          <span class="carta__el">el</span>
+          <span class="carta__70">buzón</span>
+        </div>
+        <div class="carta__l2">se queda</div>
+      </div>
+
+      <!-- Recorte de operación: escritorio de noche, la carta y la base del
+           teléfono. gemini-3.1-flash-lite-image · sin caras, texto ilegible. -->
+      <div class="carta__crop"><img src="img/escena-carta.jpg" alt="" /></div>
+      <div class="tape tape--a"></div>
+      <div class="tape tape--b"></div>
+      <div class="carta__caption">
+        El escritorio donde se arma el número.<br />
+        La carta primero, el teléfono al lado.
+      </div>
+
+      <div class="carta__lead">Soy Phil. Esta es la segunda revista que te escribo.</div>
+
+      <div class="carta__body">
+        <p>
+          Esta semana, en Twitter, me paré en una clínica que metió IA en la recepción y en el cobro:
+          reagenda, llama al que no vino y mira el seguro. Yo me quedé en otra imagen: el teléfono en
+          el buzón y la silla vacía. Si <span class="fig">7 de cada 10</span> no dejan recado, el
+          hueco de la agenda no es un <em>“no contesté”</em>: ya se fue.
+        </p>
+        <p>
+          Por eso este número. Te dejo lo que vi: el buzón que se come la silla, el negocio que
+          ChatGPT no nombra, y los papás que dejan de vivir en tres chats. Al final, el ranking de
+          modelos de esta semana.
+        </p>
+      </div>
+
+      <div class="carta__pull">
+        <p>El hueco de la agenda no se decide en el chat. Se decide cuando nadie contesta.</p>
+        <span>La línea del número</span>
+      </div>
+
+      <div class="carta__sum">
+        <div class="carta__sum-head">
+          <b>En este número</b>
+          <i>04 secciones · 7 notas · 1 tablero</i>
+        </div>
+        <div class="carta__sum-grid">
+          <div class="sum">
+            <div class="sum__n">03</div>
+            <div class="sum__t">ChatGPT no te nombra</div>
+            <div class="sum__d">Tres notas de la semana: la búsqueda, los papás y la confirmación.</div>
+          </div>
+          <div class="sum">
+            <div class="sum__n">04</div>
+            <div class="sum__t">La silla vacía</div>
+            <div class="sum__d">El tema: una clínica puso IA en la recepción y en el cobro.</div>
+          </div>
+          <div class="sum">
+            <div class="sum__n">05</div>
+            <div class="sum__t">40 minutos menos</div>
+            <div class="sum__d">Más notas: la huella en el texto, el aviso y el examen dictado.</div>
+          </div>
+          <div class="sum">
+            <div class="sum__n">08</div>
+            <div class="sum__t">Quién contesta primero</div>
+            <div class="sum__d">El tablero de IA de la semana, con capturas reales.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="carta__cut"></div>
+
+      <div class="carta__sign">
+        <span class="carta__sign-name">Phil</span>
+        <span class="carta__sign-meta">Agosto 2026<br />Wavys Technologies</span>
+      </div>
+
+      <div class="carta__seal">
+        <span>Revista semanal<br />Radar · N°2</span>
+        <img src="logo/isotipo.png" alt="Wavys" />
+      </div>
+
+      <div class="folio">
+        <span class="folio__meta">Radar N°2 · Carta del editor</span>
+        <span class="folio__bar"
+          ><i></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i
+        ></span>
+        <span class="folio__num">02</span>
+      </div>
+    </div>
+  </body>
+</html>

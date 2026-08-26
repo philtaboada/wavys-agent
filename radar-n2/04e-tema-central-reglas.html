@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>RADAR N°2 · 04e Tema central · cierre</title>
+    <link rel="stylesheet" href="css/radar.css" />
+    <style>
+      /* ------------------------------------------- 04e TEMA · CIERRE (dos tintas)
+         Voz: type-is-layout. Sin foto.
+         Grilla única: la página se parte en dos materiales y el material dice lo
+         que dice la frase. Arriba, en tinta, lo que el trabajo NO es, alineado a
+         la derecha. Abajo, en papel, lo que SÍ es, alineado a la izquierda.
+         La costura entre las dos mitades es el filete del número. */
+
+      .cie {
+        background: var(--news);
+      }
+
+      .cie__ink {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        height: 806px;
+        background: var(--ink);
+        z-index: 2;
+      }
+
+      .cie__seam {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 806px;
+        height: 7px;
+        background: var(--signal);
+        z-index: 6;
+      }
+
+      /* Costura dentada: el filete no es una línea limpia, es un corte. */
+      .cie__seam-num {
+        position: absolute;
+        right: var(--m);
+        top: 822px;
+        z-index: 20;
+        font-family: var(--mast);
+        font-weight: 700;
+        font-size: 9px;
+        letter-spacing: 0.2em;
+        font-variation-settings: "wdth" 82;
+        text-transform: uppercase;
+        color: var(--signal-deep);
+      }
+
+      /* La cabeza corre sobre la mitad de tinta: se invierte a mano porque la
+         página es papel y el sistema pinta el spine en tinta oscura. */
+      .cie .spine {
+        border-bottom-color: rgba(251, 250, 247, 0.2);
+      }
+
+      .cie .spine__section {
+        color: rgba(251, 250, 247, 0.52);
+      }
+
+      .cie .spine__date {
+        color: rgba(251, 250, 247, 0.34);
+      }
+
+      /* ------------------------------------------------------------- lo que NO */
+      .no {
+        position: absolute;
+        top: 292px;
+        left: 210px;
+        right: var(--m);
+        z-index: 20;
+        text-align: right;
+        color: #fdfcf9;
+      }
+
+      .no__kick {
+        font-family: var(--mast);
+        font-weight: 700;
+        font-size: 9.5px;
+        letter-spacing: 0.22em;
+        font-variation-settings: "wdth" 82;
+        text-transform: uppercase;
+        color: var(--signal);
+        margin-bottom: 40px;
+      }
+
+      .no__l1 {
+        font-family: var(--grot);
+        font-weight: 300;
+        font-size: 84px;
+        line-height: 1;
+        letter-spacing: -0.036em;
+        font-variation-settings: "wdth" 86;
+        color: rgba(251, 250, 247, 0.56);
+      }
+
+      .no__l2 {
+        font-family: var(--display);
+        font-weight: 800;
+        font-size: 152px;
+        line-height: 0.86;
+        letter-spacing: -0.048em;
+        font-variation-settings: "opsz" 96;
+        margin-top: 4px;
+      }
+
+      /* “poner IA” va entre comillas y en mono: es la frase de otro, no la mía. */
+      .no__quote {
+        font-family: var(--mast);
+        font-weight: 700;
+        font-size: 92px;
+        letter-spacing: -0.055em;
+        /* El espacio del mono es de ancho fijo y a 92 px abre un hueco de dos
+           caracteres entre las dos palabras. Se cierra a mano. */
+        word-spacing: -0.34em;
+        font-variation-settings: "wdth" 78;
+        color: rgba(251, 250, 247, 0.44);
+      }
+
+      .no__foot {
+        margin-top: 54px;
+        padding-top: 15px;
+        border-top: 1px solid rgba(251, 250, 247, 0.2);
+        display: inline-flex;
+        gap: 26px;
+        font-family: var(--mast);
+        font-weight: 500;
+        font-size: 9px;
+        letter-spacing: 0.2em;
+        font-variation-settings: "wdth" 84;
+        text-transform: uppercase;
+        color: rgba(251, 250, 247, 0.42);
+      }
+
+      /* ------------------------------------------------------------- lo que SÍ */
+      .si {
+        position: absolute;
+        top: 904px;
+        left: var(--m);
+        width: 1010px;
+        z-index: 20;
+      }
+
+      .si__kick {
+        font-family: var(--mast);
+        font-weight: 700;
+        font-size: 9.5px;
+        letter-spacing: 0.22em;
+        font-variation-settings: "wdth" 82;
+        text-transform: uppercase;
+        color: var(--signal-deep);
+        margin-bottom: 34px;
+      }
+
+      .si__l1 {
+        font-family: var(--grot);
+        font-weight: 300;
+        font-size: 84px;
+        line-height: 1;
+        letter-spacing: -0.036em;
+        font-variation-settings: "wdth" 86;
+        color: var(--pap-48);
+      }
+
+      .si__l2 {
+        font-family: var(--serif);
+        font-style: italic;
+        font-size: 174px;
+        line-height: 0.9;
+        letter-spacing: -0.03em;
+        color: var(--pap);
+        margin-top: 2px;
+        margin-left: -0.02em;
+      }
+
+      /* -------------------------------------------------------------- colofón */
+      .cie__col {
+        position: absolute;
+        left: var(--m);
+        right: var(--m);
+        bottom: 116px;
+        z-index: 20;
+        display: grid;
+        grid-template-columns: 1fr 1fr 226px;
+        gap: 34px;
+        padding-top: 14px;
+        border-top: 1px solid var(--pap-28);
+      }
+
+      .cie__col-lab {
+        font-family: var(--mast);
+        font-weight: 700;
+        font-size: 8.5px;
+        letter-spacing: 0.19em;
+        font-variation-settings: "wdth" 82;
+        text-transform: uppercase;
+        color: var(--pap-48);
+        margin-bottom: 9px;
+      }
+
+      .cie__col-txt {
+        font-family: var(--read);
+        font-size: 15px;
+        line-height: 1.44;
+        color: var(--pap-72);
+        font-variation-settings: "opsz" 16;
+      }
+
+      .cie__next {
+        text-align: right;
+      }
+
+      .cie__next b {
+        display: block;
+        font-family: var(--mast);
+        font-weight: 800;
+        font-size: 30px;
+        letter-spacing: -0.03em;
+        font-variation-settings: "wdth" 78;
+        color: var(--pap);
+        line-height: 1;
+        margin-bottom: 8px;
+      }
+
+      .cie__next span {
+        font-family: var(--grot);
+        font-weight: 600;
+        font-size: 15px;
+        letter-spacing: -0.014em;
+        color: var(--pap-72);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page page--news cie grain">
+      <div class="cie__ink"></div>
+      <div class="cie__seam"></div>
+      <div class="cie__seam-num">Cierre del tema · 04</div>
+
+      <div class="spine">
+        <span class="spine__tab">Radar N°2</span>
+        <span class="spine__section">Tema central · cierre</span>
+        <span class="spine__date">14 — 21 AGO 2026</span>
+      </div>
+
+      <div class="no">
+        <div class="no__kick">Lo que no es</div>
+        <div class="no__l1">El trabajo útil</div>
+        <div class="no__l2">no es <span class="no__quote">“poner IA”</span>.</div>
+        <div class="no__foot">
+          <span>No es una herramienta más</span><span>No es un chat nuevo</span>
+        </div>
+      </div>
+
+      <div class="si">
+        <div class="si__kick">Lo que sí es</div>
+        <div class="si__l1">Es que el teléfono</div>
+        <div class="si__l2">no se coma la silla.</div>
+      </div>
+
+      <div class="cie__col">
+        <div>
+          <div class="cie__col-lab">De dónde salió el tema</div>
+          <div class="cie__col-txt">
+            Raintree, 20 de agosto de 2026: IA en la recepción y en el cobro. La nota completa y la
+            URL están en la apertura y en el relato de esta sección.
+          </div>
+        </div>
+        <div>
+          <div class="cie__col-lab">La prueba del lunes</div>
+          <div class="cie__col-txt">
+            Cuenta cuántas llamadas cayeron al buzón el lunes pasado y cuántas sillas quedaron
+            vacías. El número es el mismo.
+          </div>
+        </div>
+        <div class="cie__next">
+          <div class="cie__col-lab">Sigue</div>
+          <b>05</b>
+          <span>Más notas de la semana</span>
+        </div>
+      </div>
+
+      <div class="folio">
+        <span class="folio__meta">Radar N°2 · Tema central · cierre</span>
+        <span class="folio__bar"
+          ><i></i><i></i><i></i><i class="on"></i><i></i><i></i><i></i
+        ></span>
+        <span class="folio__num">04</span>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Flyer 03 — Qwen3.8-Max</title>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,500;0,600;0,700;0,800&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { width: 1080px; height: 1350px; font-family: Rubik, system-ui, sans-serif; background: #070604; color: #FDFDFD; overflow: hidden; }
+    .c {
+      width: 1080px; height: 1350px; position: relative;
+      background:
+        radial-gradient(ellipse 70% 50% at 20% 70%, rgba(1,253,145,0.22) 0%, transparent 55%),
+        radial-gradient(ellipse 50% 40% at 90% 10%, rgba(90,210,208,0.2) 0%, transparent 50%),
+        #070604;
+      padding: 64px;
+      display: flex; flex-direction: column;
+    }
+    .top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 28px; z-index: 2; }
+    .pill {
+      background: #01FD91; color: #000; font-size: 20px; font-weight: 800;
+      letter-spacing: 0.06em; text-transform: uppercase; padding: 12px 22px; border-radius: 999px;
+    }
+    .src { font-size: 22px; font-weight: 600; color: #5AD2D0; }
+    .hero {
+      flex: 1; display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 24px; align-items: center;
+      background: rgba(0,0,0,0.28); border: 1px solid rgba(253,253,253,0.1);
+      border-radius: 40px; padding: 40px 36px; overflow: hidden; position: relative;
+    }
+    .left { z-index: 2; }
+    .brand { font-size: 22px; font-weight: 700; color: #5AD2D0; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 16px; }
+    h1 { font-size: 64px; font-weight: 800; letter-spacing: -0.07em; line-height: 0.95; margin-bottom: 28px; }
+    h1 .a { color: #01FD91; }
+    .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .stat {
+      background: rgba(1,253,145,0.08); border: 1px solid rgba(1,253,145,0.3);
+      border-radius: 20px; padding: 20px 18px;
+    }
+    .stat .n { font-size: 36px; font-weight: 800; letter-spacing: -0.05em; color: #01FD91; line-height: 1; }
+    .stat .l { font-size: 18px; font-weight: 600; color: rgba(253,253,253,0.6); margin-top: 6px; }
+    .cutout-wrap {
+      position: relative; height: 100%; min-height: 520px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .cutout {
+      width: 480px; height: auto;
+      filter: drop-shadow(0 30px 50px rgba(1,253,145,0.35));
+      transform: rotate(8deg) scale(1.05);
+    }
+    .body {
+      margin-top: 28px; font-size: 28px; font-weight: 500; line-height: 1.35;
+      color: rgba(253,253,253,0.88); max-width: 920px;
+    }
+    .body strong { color: #01FD91; }
+    .footer {
+      display: flex; justify-content: space-between; align-items: center; margin-top: 28px;
+    }
+    .logo { height: 44px; }
+    .note { font-size: 22px; font-weight: 600; color: rgba(253,253,253,0.5); }
+  </style>
+</head>
+<body>
+  <div class="c">
+    <div class="top">
+      <div class="pill">Hoy · 3 ago</div>
+      <div class="src">Alibaba Cloud</div>
+    </div>
+    <div class="hero">
+      <div class="left">
+        <div class="brand">Qwen · flagship</div>
+        <h1>Qwen3.8-<span class="a">Max</span></h1>
+        <div class="stats">
+          <div class="stat"><div class="n">2.4T</div><div class="l">parámetros</div></div>
+          <div class="stat"><div class="n">1M</div><div class="l">contexto</div></div>
+          <div class="stat"><div class="n">Vision</div><div class="l">multimodal</div></div>
+          <div class="stat"><div class="n">Open</div><div class="l">weights pronto</div></div>
+        </div>
+      </div>
+      <div class="cutout-wrap">
+        <img class="cutout" src="assets/qwen-cube-cutout.png" alt="" />
+      </div>
+    </div>
+    <p class="body">El modelo más capaz de Qwen hasta ahora. API ya. <strong>Weights la próxima semana</strong> — para quien construye de verdad.</p>
+    <div class="footer">
+      <img class="logo" src="../../brand-assets/logos/logo-wavys-technologies.png" alt="Wavys" />
+      <div class="note">alibabacloud.com</div>
+    </div>
+  </div>
+</body>
+</html>

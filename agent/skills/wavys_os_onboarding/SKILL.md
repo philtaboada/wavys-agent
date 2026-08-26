@@ -9,6 +9,7 @@ Usar cuando Phil (o el producto) pida **onboarding de un tenant** en Wavys OS: a
 **Guiones (textos exactos):** `data/wavys-os-brief/guiones-chat-onboarding.md`
 **Dominio:** `data/wavys-os-brief/modelo-dominio-nucleo.md`  
 **Planes / tools / créditos:** `data/wavys-os-brief/planes-entitlements-chat.md` · `costos-creditos-precios.md`  
+**Cobro Polar (product IDs sandbox):** `data/wavys-os-brief/cobro-polar.md` §2.1 · env `POLAR_PRODUCT_*` en repo `wavys-os`  
 **Módulos:** `data/wavys-os-brief/catalogo-modulos-submodulos.md`
 
 **Website:** tras ContactProfile + BrandKit mínimo → skill `one_call_landing` (presencia) o `one_call_website` (si el site lleva catálogo/sistema). Modelo potente (default `xai/grok-4.5` vía Gateway) en la **primera** generación. Imágenes: `generate_image` (Gemini lite).

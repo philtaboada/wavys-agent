@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>RADAR N°2 · 04d Tema central · la cifra</title>
+    <link rel="stylesheet" href="css/radar.css" />
+    <style>
+      /* ----------------------------------------- 04d TEMA · LA CIFRA (papel frío)
+         Voz: papel de dato. La cita ocupa el tercio alto y no es un titular
+         nuevo: es la cifra que ordena el número. Debajo, la semana en cifras en
+         una fila de cinco, y al pie la línea de tiempo en mono.
+         Grilla: bandas horizontales de distinta altura. Sin foto. */
+
+      .dat {
+        background: var(--news-cold);
+      }
+
+      /* Retícula de dato: apenas visible, ordena la página como papel milimetrado. */
+      .dat__grid {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        pointer-events: none;
+        opacity: 0.5;
+        background-image:
+          linear-gradient(90deg, rgba(20, 19, 15, 0.05) 1px, transparent 1px),
+          linear-gradient(180deg, rgba(20, 19, 15, 0.05) 1px, transparent 1px);
+        background-size: 68px 68px;
+      }
+
+      /* ------------------------------------------------------------------ cita */
+      .dat__quote {
+        position: absolute;
+        top: 138px;
+        left: var(--m);
+        right: var(--m);
+        z-index: 20;
+      }
+
+      .dat__quote-kick {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        padding-bottom: 12px;
+        border-bottom: 4px solid var(--pap);
+        margin-bottom: 34px;
+      }
+
+      .dat__quote-kick b {
+        font-family: var(--mast);
+        font-weight: 700;
+        font-size: 10px;
+        letter-spacing: 0.2em;
+        font-variation-settings: "wdth" 82;
+        text-transform: uppercase;
+        color: var(--signal-deep);
+      }
+
+      .dat__quote-kick i {
+        font-family: var(--mono);
+        font-style: normal;
+        font-size: 10px;
+        letter-spacing: 0.05em;
+        color: var(--pap-48);
+      }
+
+      .dat__70 {
+        font-family: var(--display);
+        font-weight: 800;
+        font-size: 196px;
+        line-height: 0.78;
+        letter-spacing: -0.052em;
+        font-variation-settings: "opsz" 96;
+        color: var(--pap);
+        margin-left: -0.03em;
+      }
+
+      .dat__l2 {
+        font-family: var(--serif);
+        font-style: italic;
+        font-size: 122px;
+        line-height: 0.94;
+        letter-spacing: -0.026em;
+        color: var(--signal-deep);
+        margin-top: 2px;
+      }
+
+      .dat__attr {
+        margin-top: 30px;
+        display: flex;
+        align-items: flex-start;
+        gap: 20px;
+        padding-top: 14px;
+        border-top: 1px solid var(--pap-28);
+      }
+
+      .dat__attr b {
+        font-family: var(--mast);
+        font-weight: 700;
+        font-size: 8.5px;
+        letter-spacing: 0.19em;
+        font-variation-settings: "wdth" 82;
+        text-transform: uppercase;
+        color: var(--pap-48);
+        white-space: nowrap;
+        padding-top: 3px;
+      }
+
+      .dat__attr span {
+        font-family: var(--grot);
+        font-weight: 500;
+        font-size: 19px;
+        line-height: 1.38;
+        letter-spacing: -0.016em;
+        color: var(--pap-72);
+        max-width: 760px;
+      }
+
+      /* -------------------------------------------------------- fila de cifras */
+      .dat__figs {
+        position: absolute;
+        top: 700px;
+        left: var(--m);
+        right: var(--m);
+        z-index: 20;
+      }
+
+      .dat__figs-head {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        padding-bottom: 10px;
+        border-bottom: 1px solid var(--pap-28);
+        margin-bottom: 24px;
+      }
+
+      .dat__figs-head b {
+        font-family: var(--mast);
+        font-weight: 700;
+        font-size: 10px;
+        letter-spacing: 0.2em;
+        font-variation-settings: "wdth" 82;
+        text-transform: uppercase;
+      }
+
+      .dat__figs-head i {
+        font-family: var(--mono);
+        font-style: normal;
+        font-size: 10px;
+        color: var(--pap-48);
+      }
+
+      .dat__figs-grid {
+        display: grid;
+        grid-template-columns: 0.95fr 1.05fr 0.8fr 1fr 1.2fr;
+        column-gap: 20px;
+      }
+
+      .figc {
+        border-left: 1px solid var(--pap-28);
+        padding-left: 18px;
+      }
+
+      .figc:first-child {
+        border-left: 3px solid var(--signal);
+      }
+
+      .figc__n {
+        font-family: var(--display);
+        font-weight: 800;
+        font-size: 62px;
+        line-height: 0.88;
+        letter-spacing: -0.055em;
+        white-space: nowrap;
+        font-variation-settings: "opsz" 96;
+        color: var(--pap);
+      }
+
+      .figc__t {
+        margin-top: 14px;
+        font-family: var(--grot);
+        font-weight: 600;
+        font-size: 14.5px;
+        line-height: 1.28;
+        letter-spacing: -0.014em;
+        color: var(--pap);
+      }
+
+      .figc__d {
+        margin-top: 9px;
+        font-family: var(--mono);
+        font-size: 9.5px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--pap-48);
+      }
+
+      /* ------------------------------------------------------- línea de tiempo */
+      .dat__time {
+        position: absolute;
+        top: 1042px;
+        left: var(--m);
+        right: var(--m);
+        z-index: 20;
+      }
+
+      .dat__time-head {
+        display: grid;
+        grid-template-columns: 96px 1fr 214px;
+        gap: 20px;
+        padding-bottom: 9px;
+        border-bottom: 3px solid var(--pap);
+        font-family: var(--mast);
+        font-weight: 700;
+        font-size: 8.5px;
+        letter-spacing: 0.19em;
+        font-variation-settings: "wdth" 82;
+        text-transform: uppercase;
+        color: var(--pap-48);
+      }
+
+      .trow {
+        display: grid;
+        grid-template-columns: 96px 1fr 214px;
+        gap: 20px;
+        align-items: baseline;
+        padding: 17px 0;
+        border-bottom: 1px solid var(--pap-16);
+      }
+
+      .trow__d {
+        font-family: var(--mono);
+        font-weight: 700;
+        font-size: 12px;
+        letter-spacing: 0.02em;
+        color: var(--signal-deep);
+      }
+
+      .trow__t {
+        font-family: var(--read);
+        font-size: 16px;
+        line-height: 1.42;
+        color: #191813;
+        font-variation-settings: "opsz" 18;
+      }
+
+      .trow__t b {
+        font-family: var(--grot);
+        font-weight: 700;
+        font-size: 15px;
+        letter-spacing: -0.01em;
+      }
+
+      .trow__w {
+        font-family: var(--mono);
+        font-size: 9.5px;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: var(--pap-48);
+        text-align: right;
+      }
+
+      .dat__note {
+        position: absolute;
+        left: var(--m);
+        right: var(--m);
+        bottom: 112px;
+        z-index: 20;
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        font-family: var(--mono);
+        font-size: 9.5px;
+        letter-spacing: 0.04em;
+        color: var(--pap-48);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page page--news-cold dat grain">
+      <div class="dat__grid"></div>
+
+      <div class="spine">
+        <span class="spine__tab">Radar N°2</span>
+        <span class="spine__section">Tema central · la cifra</span>
+        <span class="spine__date">14 — 21 AGO 2026</span>
+      </div>
+
+      <div class="dat__quote">
+        <div class="dat__quote-kick">
+          <b>La cifra que ordena el número</b>
+          <i>No es un titular nuevo</i>
+        </div>
+        <div class="dat__70">7 de cada 10</div>
+        <div class="dat__l2">no dejan recado.</div>
+        <div class="dat__attr">
+          <b>Qué significa</b>
+          <span>
+            El que llama y cae al buzón no vuelve a llamar y no deja mensaje. El hueco de la agenda
+            no se abre cuando el paciente falta: se abrió antes, cuando nadie contestó.
+          </span>
+        </div>
+      </div>
+
+      <div class="dat__figs">
+        <div class="dat__figs-head">
+          <b>La semana en cifras</b>
+          <i>14 — 21 ago 2026 · las fuentes van con cada nota</i>
+        </div>
+        <div class="dat__figs-grid">
+          <div class="figc">
+            <div class="figc__n">7/10</div>
+            <div class="figc__t">no dejan recado cuando cae al buzón</div>
+            <div class="figc__d">Tema · 04</div>
+          </div>
+          <div class="figc">
+            <div class="figc__n">91,5%</div>
+            <div class="figc__t">de agentes con web no apareció ni una vez</div>
+            <div class="figc__d">Señal A · 20 ago</div>
+          </div>
+          <div class="figc">
+            <div class="figc__n">300+</div>
+            <div class="figc__t">pediatras con recordatorios adentro del sistema</div>
+            <div class="figc__d">Señal B · 19 ago</div>
+          </div>
+          <div class="figc">
+            <div class="figc__n">1.100+</div>
+            <div class="figc__t">consultorios confirman por voz o chat</div>
+            <div class="figc__d">Señal C · 18 ago</div>
+          </div>
+          <div class="figc">
+            <div class="figc__n">42.000</div>
+            <div class="figc__t">suscriptores con el aviso armado solo</div>
+            <div class="figc__d">Más notas · 14 ago</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dat__time">
+        <div class="dat__time-head">
+          <span>Fecha</span><span>Qué pasó</span><span>Dónde se nota el lunes</span>
+        </div>
+        <div class="trow">
+          <span class="trow__d">20 ago</span>
+          <span class="trow__t"
+            ><b>Raintree.</b> IA en la recepción y en el cobro: reagenda, llama al que no vino y mira
+            el seguro.</span
+          >
+          <span class="trow__w">Agenda · cobro</span>
+        </div>
+        <div class="trow">
+          <span class="trow__d">20 ago</span>
+          <span class="trow__t"
+            ><b>Búsqueda.</b> En 37.500 búsquedas de inmobiliaria, el 91,5% de agentes con web no
+            apareció ni una vez.</span
+          >
+          <span class="trow__w">Lead nuevo</span>
+        </div>
+        <div class="trow">
+          <span class="trow__d">19 ago</span>
+          <span class="trow__t"
+            ><b>Luma + PCC.</b> Recordatorios y mensajes adentro del sistema en más de 300 pediatras,
+            más de 30 idiomas.</span
+          >
+          <span class="trow__w">Confirmación</span>
+        </div>
+        <div class="trow">
+          <span class="trow__d">18 ago</span>
+          <span class="trow__t"
+            ><b>PolyAI.</b> Más de 1.100 consultorios confirman y mueven la cita por voz o chat, y
+            eso entra al sistema.</span
+          >
+          <span class="trow__w">Recepción</span>
+        </div>
+        <div class="trow">
+          <span class="trow__d">17 ago</span>
+          <span class="trow__t"
+            ><b>Overjet Voice.</b> El examen se dicta y entra al odontograma sin hardware
+            nuevo.</span
+          >
+          <span class="trow__w">Examen</span>
+        </div>
+        <div class="trow">
+          <span class="trow__d">14 ago</span>
+          <span class="trow__t"
+            ><b>OneKey + Ocusell.</b> Hasta 70 campos y fotos en orden, gratis para 42.000
+            suscriptores.</span
+          >
+          <span class="trow__w">Inventario</span>
+        </div>
+        <div class="trow">
+          <span class="trow__d">14 ago</span>
+          <span class="trow__t"
+            ><b>Claude.</b> Marca invisible en el texto: lo que salió de ahí se puede detectar.</span
+          >
+          <span class="trow__w">Lo que firmas</span>
+        </div>
+      </div>
+
+      <div class="dat__note">
+        <span>Cifras publicadas por cada fuente en la semana del 14 al 21 de agosto de 2026.</span>
+        <span>Nada estimado · nada redondeado por Wavys</span>
+      </div>
+
+      <div class="folio">
+        <span class="folio__meta">Radar N°2 · Tema central · la cifra</span>
+        <span class="folio__bar"
+          ><i></i><i></i><i></i><i class="on"></i><i></i><i></i><i></i
+        ></span>
+        <span class="folio__num">04</span>
+      </div>
+    </div>
+  </body>
+</html>

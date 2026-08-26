@@ -40,16 +40,22 @@ const STYLE = [
 /** @type {{file:string, aspectRatio:string, page:string, prompt:string}[]} */
 const SCENES = [
   {
+    file: "escena-tapa.jpg",
+    aspectRatio: "3:4",
+    page: "01 · Tapa",
+    prompt: `Editorial print magazine cover photograph, 35mm, vertical 3:4. Close three-quarter portrait of a cyborg face: human skin on one side, brushed metal and fine circuit inlay on the other, a teal #5AD2D0 reflection in one iris and along a thin seam at the cheek. Dark ink-black background #070604, single hard key light from the left, deep shadow, fine film grain, muted realistic colour, shallow depth of field. Looking just past the camera, serious, no smile. No text, no caption, no watermark, no logo, no brand marks, no UI, nothing added in post. Photorealistic, honest, not cartoon, not sci-fi chrome, more like a worn machine under the skin.`,
+  },
+  {
     file: "escena-carta.jpg",
     aspectRatio: "1:1",
     page: "02 · Editor's Note",
-    prompt: `${STYLE}. Top-down close view of a working desk at night: one printed sheet of paper with a short typed letter, the paper slightly curled, a ballpoint pen resting across it, a folded notebook, a cooling cup of coffee with a ring stain, a pair of reading glasses at the edge. Warm single desk lamp from the left, deep soft shadow to the right, paper texture and fibre visible. Quiet, human, hand-made feeling. Text on the paper must be out of focus and unreadable.`,
+    prompt: `${STYLE}. Top-down close view of a working desk at night: one printed sheet of paper with a short typed letter, the paper slightly curled, a ballpoint pen resting across it, a folded notebook, a pair of reading glasses at the edge. Warm single desk lamp from the left, deep soft shadow to the right, paper texture and fibre visible. Quiet, human, hand-made feeling. Text on the paper must be out of focus and unreadable. No coffee, no tea, no mug, no cup, no drink, no beverage, no ring stain.`,
   },
   {
     file: "escena-correo.jpg",
     aspectRatio: "4:3",
     page: "03 · Signal",
-    prompt: `${STYLE}. A small business back-office desk at 8am, photographed from a low three-quarter angle: an open laptop turned slightly away so the screen shows only a soft glowing list of email rows, completely out of focus and unreadable, a mobile phone lying face-up next to it with a dim screen, a spiral notebook with pen, a mug. Cold blue morning light from a window behind, dust in the air. The laptop screen is the brightest thing in the frame. No readable interface, no fabricated app windows, nothing legible.`,
+    prompt: `${STYLE}. A small business back-office desk at 8am, photographed from a low three-quarter angle: an open laptop turned slightly away so the screen shows only a soft glowing list of email rows, completely out of focus and unreadable, a mobile phone lying face-up next to it with a dim screen, a spiral notebook with pen. Cold blue morning light from a window behind, dust in the air. The laptop screen is the brightest thing in the frame. No readable interface, no fabricated app windows, nothing legible. No coffee, no tea, no mug, no cup, no drink.`,
   },
   {
     file: "escena-chat-hoja.jpg",
@@ -61,7 +67,7 @@ const SCENES = [
     file: "escena-hoja-estado.jpg",
     aspectRatio: "16:9",
     page: "04 · Tema central (relato)",
-    prompt: `${STYLE}. Extreme close macro band across a printed spreadsheet on a desk: grid of ruled columns filled in by hand with ballpoint, some cells crossed out, some circled, the paper slightly wrinkled and coffee marked; the metal edge of a mobile phone enters the frame from the right, out of focus. Raking side light so the paper grain and the pen indentations are visible. No readable words, numbers illegible, no interface.`,
+    prompt: `${STYLE}. Extreme close macro band across a printed spreadsheet on a desk: grid of ruled columns filled in by hand with ballpoint, some cells crossed out, some circled, the paper slightly wrinkled; the metal edge of a mobile phone enters the frame from the right, out of focus. Raking side light so the paper grain and the pen indentations are visible. No readable words, numbers illegible, no interface. No coffee, no stain, no mug.`,
   },
   {
     file: "escena-mostrador.jpg",
@@ -78,8 +84,44 @@ const SCENES = [
   {
     file: "escena-cierre.jpg",
     aspectRatio: "3:4",
-    page: "09 · Contratapa",
+    page: "09 · Contratapa (v1, archivo)",
     prompt: `${STYLE}. Vertical frame of a small shop after closing: the counter in the foreground, shutter half down at the back, main lights off, one mobile phone left charging on the counter with its cable, screen dark, a stool, a paper pad. Cool blue night light from the street outside plus the faint glow of one small standby light. Empty, quiet, end of the day, no people at all.`,
+  },
+  {
+    file: "escena-bot-pega.jpg",
+    aspectRatio: "3:4",
+    page: "04a · Apertura Grok Bot",
+    prompt: `${STYLE}. Vertical night desk of someone making a small print magazine: an open laptop turned slightly away so the screen is only a soft warm chat glow, completely unreadable, no app chrome, no logos; a short stack of printed magazine page proofs with pencil marks, a red pencil, a pair of glasses. Single warm lamp from the left, deep shadow. The work has left the head and now lives on the desk. No faces, no brand marks, nothing legible. No coffee, no tea, no mug, no cup, no drink.`,
+  },
+  {
+    file: "escena-bot-dia.jpg",
+    aspectRatio: "16:9",
+    page: "04b · Relato",
+    prompt: `${STYLE}. Wide late-afternoon desk: printed magazine signatures fanned across wood, a mobile phone with a blurred unreadable chat glow, an open notebook with crossed-out lines, a glass of water, a ballpoint. Side window light, paper grain visible. Documentary, unstyled, no faces, no logos, nothing legible on screen or paper.`,
+  },
+  {
+    file: "escena-oficio.jpg",
+    aspectRatio: "4:3",
+    page: "04c · Oficio",
+    prompt: `${STYLE}. Sunday morning at a kitchen or living table: a finished printed magazine issue lying open as if being read, not assembled; morning window light, a chair slightly pulled out. Optional hands from the wrists only turning a page, no face, no head. Quiet, the issue already exists. No logos, no readable masthead. No coffee, no tea, no mug, no cup, no drink.`,
+  },
+  {
+    file: "escena-pruebas.jpg",
+    aspectRatio: "16:9",
+    page: "04e · Cierre del tema",
+    prompt: `${STYLE}. Extreme close band of printed magazine page proofs on a desk: pencil marks, a few lines crossed out, a red pencil resting on the paper, raking morning light so the fibre and indentations show. The edit already happened. No readable words, no logos, no faces.`,
+  },
+  {
+    file: "escena-grok-marca.jpg",
+    aspectRatio: "1:1",
+    page: "04 · marca de sección",
+    prompt: `${STYLE}. Extreme close photograph of a small machined metal four-point star or X-shaped mark sitting on matte black steel, lit by a single warm sunset-orange #FF7A17 practical light from the left, hard specular highlight on the metal, deep shadow. No letters, no words, no logos, no brand names, no UI. Feels like a workshop part or a mission badge, not a screenshot. Fine grain, 35mm.`,
+  },
+  {
+    file: "escena-lunes.jpg",
+    aspectRatio: "3:4",
+    page: "09 · Contratapa",
+    prompt: `${STYLE}. Vertical Monday morning small-business desk already started: an open notebook with a short handwritten list, a phone face-down, a chair pulled out, cool window light from the left. Empty of people, the day has begun. Quiet, honest, no faces, no logos, handwriting out of focus and unreadable. No coffee, no tea, no mug, no cup, no drink.`,
   },
 ];
 

@@ -1,0 +1,27 @@
+{
+  "slug": "demo-placas",
+  "format": "wide",
+  "fps": 24,
+  "theme": "agente",
+  "transparent": true,
+  "logo": false,
+  "concat": false,
+  "clips": [
+    {
+      "id": "phil",
+      "type": "lower-third",
+      "hold": 1.2,
+      "title": "Phil Taboada",
+      "subtitle": "Fundador · Wavys Technologies",
+      "position": "bottom-left"
+    },
+    {
+      "id": "cliente",
+      "type": "lower-third",
+      "hold": 1.2,
+      "title": "Pastelería La Miga",
+      "subtitle": "Cliente de Wavys OS desde marzo",
+      "position": "bottom-center"
+    }
+  ]
+}

@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Informe de Avance Mensual — Julio 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,560;9..144,700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #14212b;
+      --muted: #5a6b76;
+      --line: #d7e0e6;
+      --paper: #f7f5f1;
+      --card: #ffffff;
+      --accent: #0f6e56;
+      --accent-soft: #e3f2ed;
+      --warn: #9a6700;
+      --warn-soft: #fff6e0;
+      --done: #0f6e56;
+      --done-soft: #e3f2ed;
+      --progress: #1f4e79;
+      --progress-soft: #e8f0f7;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    @page {
+      size: A4;
+      margin: 0;
+    }
+
+    body {
+      font-family: "Manrope", system-ui, sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      padding: 16mm 16mm 14mm;
+      page-break-after: always;
+      position: relative;
+      background:
+        radial-gradient(1200px 420px at 100% -10%, rgba(15, 110, 86, 0.10), transparent 55%),
+        radial-gradient(900px 360px at -10% 0%, rgba(31, 78, 121, 0.08), transparent 50%),
+        linear-gradient(180deg, #fbfaf7 0%, #f3f1eb 100%);
+    }
+
+    .page:last-child { page-break-after: auto; }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 18px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .brand-kicker {
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    h1 {
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 28px;
+      line-height: 1.15;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      max-width: 14ch;
+    }
+
+    .meta {
+      text-align: right;
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .meta strong {
+      display: block;
+      color: var(--ink);
+      font-size: 13px;
+      margin-bottom: 2px;
+    }
+
+    .summary {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .panel {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 16px 18px;
+    }
+
+    .panel h2 {
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+
+    .panel p {
+      font-size: 12.5px;
+      line-height: 1.55;
+      color: var(--muted);
+    }
+
+    .kpis {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+
+    .kpi {
+      background: #f8fafb;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 12px 10px;
+      text-align: center;
+    }
+
+    .kpi .n {
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 26px;
+      font-weight: 700;
+      line-height: 1;
+      color: var(--ink);
+    }
+
+    .kpi .l {
+      margin-top: 6px;
+      font-size: 10.5px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-weight: 600;
+    }
+
+    .section-title {
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 15px;
+      margin: 4px 0 10px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      overflow: hidden;
+      font-size: 11.5px;
+    }
+
+    thead th {
+      text-align: left;
+      background: #132029;
+      color: #f4f7f8;
+      font-size: 10.5px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-weight: 600;
+      padding: 11px 12px;
+    }
+
+    tbody td {
+      padding: 11px 12px;
+      border-top: 1px solid var(--line);
+      vertical-align: top;
+      line-height: 1.45;
+    }
+
+    tbody tr:nth-child(even) td { background: #fbfcfa; }
+
+    .num {
+      width: 28px;
+      color: var(--muted);
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .task {
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 3px;
+    }
+
+    .desc {
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 4px 8px;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    .badge.done {
+      background: var(--done-soft);
+      color: var(--done);
+    }
+
+    .badge.progress {
+      background: var(--progress-soft);
+      color: var(--progress);
+    }
+
+    .badge.stage {
+      background: var(--warn-soft);
+      color: var(--warn);
+    }
+
+    .highlights {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .highlight {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 14px 16px;
+    }
+
+    .highlight h3 {
+      font-size: 12.5px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .highlight ul {
+      padding-left: 16px;
+      color: var(--muted);
+      font-size: 11.5px;
+      line-height: 1.5;
+    }
+
+    .highlight li { margin-bottom: 4px; }
+
+    .footer {
+      position: absolute;
+      left: 16mm;
+      right: 16mm;
+      bottom: 10mm;
+      display: flex;
+      justify-content: space-between;
+      font-size: 10px;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+      padding-top: 8px;
+    }
+
+    .detail-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 13px 14px;
+      min-height: 112px;
+    }
+
+    .card .head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 8px;
+      margin-bottom: 7px;
+    }
+
+    .card h3 {
+      font-size: 12.5px;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    .card p {
+      font-size: 11.2px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .card .impact {
+      margin-top: 8px;
+      font-size: 10.5px;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .next {
+      margin-top: 14px;
+      background: #132029;
+      color: #eef3f5;
+      border-radius: 14px;
+      padding: 16px 18px;
+    }
+
+    .next h2 {
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+
+    .next ol {
+      padding-left: 18px;
+      font-size: 12px;
+      line-height: 1.55;
+      color: #c7d4db;
+    }
+
+    .next li { margin-bottom: 4px; }
+    .next li strong { color: #fff; }
+
+    .note {
+      margin-top: 12px;
+      font-size: 10.5px;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+  </style>
+</head>
+<body>
+  <!-- PAGE 1 -->
+  <section class="page">
+    <header class="topbar">
+      <div>
+        <div class="brand-kicker">Reporte operativo · Sistemas</div>
+        <h1>Avance mensual Julio 2026</h1>
+      </div>
+      <div class="meta">
+        <strong>Phil Taboada</strong>
+        Periodo: 1 – 31 julio 2026<br />
+        Emisión: 3 agosto 2026<br />
+        Tipo: Informe de avance
+      </div>
+    </header>
+
+    <div class="summary">
+      <div class="panel">
+        <h2>Resumen ejecutivo</h2>
+        <p>
+          En julio se <strong style="color:var(--ink)">entregaron las 10 iniciativas</strong> planificadas de sistemas y operaciones:
+          alertas de renovación Fianza ISO, Polla Mundialista, formatos Nacional–Rimac, chats de Marketing,
+          Oxi ProInversión, Fondo Mi Vivienda (leads Marita), alerta de llamadas (1.ª etapa),
+          herramientas digitales, SEACE DATA Seguros y Sistema Fidenza.
+        </p>
+      </div>
+      <div class="kpis">
+        <div class="kpi"><div class="n">10</div><div class="l">Iniciativas</div></div>
+        <div class="kpi"><div class="n">10</div><div class="l">Entregadas</div></div>
+        <div class="kpi"><div class="n">100%</div><div class="l">Cierre</div></div>
+      </div>
+    </div>
+
+    <h2 class="section-title">Tablero de iniciativas — Julio</h2>
+    <table>
+      <thead>
+        <tr>
+          <th style="width:36px">#</th>
+          <th>Iniciativa</th>
+          <th style="width:120px">Estado</th>
+          <th style="width:88px">Área</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="num">01</td>
+          <td>
+            <div class="task">Alertas de renovaciones — Seguro Fianza ISO</div>
+            <div class="desc">Automatizar avisos de renovación para cartera Fianza ISO y reducir vencimientos no gestionados.</div>
+          </td>
+          <td><span class="badge done">Entregado</span></td>
+          <td>Alertas</td>
+        </tr>
+        <tr>
+          <td class="num">02</td>
+          <td>
+            <div class="task">Polla Mundialista</div>
+            <div class="desc">Módulo / campaña Polla Mundialista entregado para engagement interno o comercial.</div>
+          </td>
+          <td><span class="badge done">Entregado</span></td>
+          <td>Producto</td>
+        </tr>
+        <tr>
+          <td class="num">03</td>
+          <td>
+            <div class="task">Nuevos formatos (Nacional – Rimac)</div>
+            <div class="desc">Nuevos formatos documentales / operativos para pólizas Nacional y Rimac implementados.</div>
+          </td>
+          <td><span class="badge done">Entregado</span></td>
+          <td>Formatos</td>
+        </tr>
+        <tr>
+          <td class="num">04</td>
+          <td>
+            <div class="task">Mejora de los chats de Marketing</div>
+            <div class="desc">Flujos, respuestas y experiencia de los chats de Marketing optimizados y entregados.</div>
+          </td>
+          <td><span class="badge done">Entregado</span></td>
+          <td>Marketing</td>
+        </tr>
+        <tr>
+          <td class="num">05</td>
+          <td>
+            <div class="task">Oxi ProInversión</div>
+            <div class="desc">Integración / flujo Oxi asociado a ProInversión entregado.</div>
+          </td>
+          <td><span class="badge done">Entregado</span></td>
+          <td>Integraciones</td>
+        </tr>
+        <tr>
+          <td class="num">06</td>
+          <td>
+            <div class="task">Fondo Mi Vivienda</div>
+            <div class="desc">Relacionado con el sistema de leads — acceso / flujo exclusivo para Marita.</div>
+          </td>
+          <td><span class="badge done">Entregado</span></td>
+          <td>Leads</td>
+        </tr>
+        <tr>
+          <td class="num">07</td>
+          <td>
+            <div class="task">Alerta de llamadas (1.ª etapa)</div>
+            <div class="desc">Primera etapa del sistema de alertas de llamadas entregada y operativa.</div>
+          </td>
+          <td><span class="badge done">Entregado</span></td>
+          <td>Alertas</td>
+        </tr>
+        <tr>
+          <td class="num">08</td>
+          <td>
+            <div class="task">Herramientas digitales</div>
+            <div class="desc">Mejoras y soporte a herramientas digitales internas del equipo entregados.</div>
+          </td>
+          <td><span class="badge done">Entregado</span></td>
+          <td>Ops</td>
+        </tr>
+        <tr>
+          <td class="num">09</td>
+          <td>
+            <div class="task">Mejora del SEACE DATA Seguros</div>
+            <div class="desc">Filtro y resaltado de procesos de seguros, tooltips, copia de nomenclatura y trazabilidad.</div>
+          </td>
+          <td><span class="badge done">Entregado</span></td>
+          <td>SEACE</td>
+        </tr>
+        <tr>
+          <td class="num">10</td>
+          <td>
+            <div class="task">Sistema Fidenza</div>
+            <div class="desc">Sistema Fidenza entregado según alcance del mes.</div>
+          </td>
+          <td><span class="badge done">Entregado</span></td>
+          <td>Sistemas</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="footer">
+      <span>Informe de avance · Julio 2026</span>
+      <span>Página 1 / 2</span>
+    </div>
+  </section>
+
+  <!-- PAGE 2 -->
+  <section class="page">
+    <header class="topbar">
+      <div>
+        <div class="brand-kicker">Detalle por iniciativa</div>
+        <h1 style="max-width:18ch; font-size:24px;">Entregables del mes</h1>
+      </div>
+      <div class="meta">
+        <strong>Cierre julio</strong>
+        10 / 10 entregadas<br />
+        100% del plan
+      </div>
+    </header>
+
+    <div class="detail-grid">
+      <article class="card">
+        <div class="head">
+          <h3>01 · Alertas renovaciones Fianza ISO</h3>
+          <span class="badge done">Entregado</span>
+        </div>
+        <p>Alertas por vencimiento / renovación de Seguro Fianza ISO implementadas para anticipar gestión comercial y operativa.</p>
+        <div class="impact">Impacto: menos pólizas vencidas sin seguimiento</div>
+      </article>
+
+      <article class="card">
+        <div class="head">
+          <h3>02 · Polla Mundialista</h3>
+          <span class="badge done">Entregado</span>
+        </div>
+        <p>Módulo Polla Mundialista entregado (reglas, UI y flujos de participación según alcance acordado).</p>
+        <div class="impact">Impacto: engagement y adopción interna</div>
+      </article>
+
+      <article class="card">
+        <div class="head">
+          <h3>03 · Formatos Nacional – Rimac</h3>
+          <span class="badge done">Entregado</span>
+        </div>
+        <p>Nuevos formatos para las líneas Nacional y Rimac incorporados, alineados a requisitos de emisión / documentación.</p>
+        <div class="impact">Impacto: estandarización operativa</div>
+      </article>
+
+      <article class="card">
+        <div class="head">
+          <h3>04 · Chats de Marketing</h3>
+          <span class="badge done">Entregado</span>
+        </div>
+        <p>Mejoras en los chats de Marketing entregadas: claridad de flujo, tiempos de respuesta y usabilidad para el equipo.</p>
+        <div class="impact">Impacto: mejor atención a leads inbound</div>
+      </article>
+
+      <article class="card">
+        <div class="head">
+          <h3>05 · Oxi ProInversión</h3>
+          <span class="badge done">Entregado</span>
+        </div>
+        <p>Flujo Oxi vinculado a ProInversión entregado: conexión de datos, reglas de negocio e interfaz del alcance del mes.</p>
+        <div class="impact">Impacto: visibilidad de oportunidades públicas</div>
+      </article>
+
+      <article class="card">
+        <div class="head">
+          <h3>06 · Fondo Mi Vivienda + Leads (Marita)</h3>
+          <span class="badge done">Entregado</span>
+        </div>
+        <p>Fondo Mi Vivienda relacionado con el sistema de leads, con flujo enfocado para uso de Marita.</p>
+        <div class="impact">Impacto: seguimiento focalizado de cartera FMV</div>
+      </article>
+
+      <article class="card">
+        <div class="head">
+          <h3>07 · Alerta de llamadas — 1.ª etapa</h3>
+          <span class="badge done">Entregado</span>
+        </div>
+        <p>Primera etapa del sistema de alerta de llamadas entregada: notifica y prioriza contactos pendientes.</p>
+        <div class="impact">Impacto: menos llamadas perdidas sin aviso</div>
+      </article>
+
+      <article class="card">
+        <div class="head">
+          <h3>08 · Herramientas digitales</h3>
+          <span class="badge done">Entregado</span>
+        </div>
+        <p>Mejoras a herramientas digitales del equipo entregadas (productividad, datos y operación diaria).</p>
+        <div class="impact">Impacto: eficiencia del día a día</div>
+      </article>
+
+      <article class="card">
+        <div class="head">
+          <h3>09 · SEACE DATA Seguros</h3>
+          <span class="badge done">Entregado</span>
+        </div>
+        <p>Mejoras en panel SEACE: filtro seguros, resaltado verde, tooltips de descripción, copia de nomenclatura, ventana 30 días y trazabilidad.</p>
+        <div class="impact">Impacto: detección rápida de procesos seguros</div>
+      </article>
+
+      <article class="card">
+        <div class="head">
+          <h3>10 · Sistema Fidenza</h3>
+          <span class="badge done">Entregado</span>
+        </div>
+        <p>Sistema Fidenza entregado: funcionalidades, estabilización y alineación con necesidades operativas del mes.</p>
+        <div class="impact">Impacto: plataforma central de operación</div>
+      </article>
+    </div>
+
+    <div class="highlights">
+      <div class="highlight">
+        <h3>Logros concretos del mes</h3>
+        <ul>
+          <li>Cierre 100%: las 10 iniciativas del plan de julio entregadas.</li>
+          <li>SEACE Seguros: filtro, highlight, tooltips y trazabilidad.</li>
+          <li>Alertas: renovaciones Fianza ISO + 1.ª etapa de llamadas.</li>
+          <li>Integraciones: Oxi ProInversión y Fondo Mi Vivienda (Marita).</li>
+        </ul>
+      </div>
+      <div class="highlight">
+        <h3>Alcance cerrado</h3>
+        <ul>
+          <li>Formatos Nacional–Rimac listos para operación.</li>
+          <li>Chats de Marketing mejorados y en uso.</li>
+          <li>Polla Mundialista y herramientas digitales entregadas.</li>
+          <li>Sistema Fidenza entregado según alcance de julio.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="next">
+      <h2>Disponible para agosto</h2>
+      <ol>
+        <li><strong>Soporte</strong> a los entregables de julio en producción.</li>
+        <li><strong>Recoger</strong> feedback de usuarios (Marketing, Marita, operaciones).</li>
+        <li><strong>Definir</strong> backlog de nuevas iniciativas con el equipo.</li>
+        <li><strong>Priorizar</strong> siguientes etapas (p. ej. alerta de llamadas 2.ª etapa) si aplica.</li>
+      </ol>
+    </div>
+
+    <p class="note">
+      Estado del informe: cierre completo de julio — 10/10 iniciativas marcadas como entregadas.
+    </p>
+
+    <div class="footer">
+      <span>Phil Taboada · Informe de avance Julio 2026</span>
+      <span>Página 2 / 2</span>
+    </div>
+  </section>
+</body>
+</html>

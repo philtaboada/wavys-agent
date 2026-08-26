@@ -1,0 +1,488 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>RADAR N°2 · 09 Contratapa</title>
+    <link rel="stylesheet" href="css/radar.css" />
+    <style>
+      /* -------------------------------------------------------- 09 CONTRATAPA
+         Voz: cierre. Es el espejo invertido de la tapa: allá la foto ocupaba
+         todo y el tipo entraba abajo; acá el papel manda arriba y la foto
+         entra por el pie hasta el borde. Lo último que ve el lector es la
+         silla vacía con la marca encima.
+         Grilla: banda de tinta (0—92) · papel con cascada y CTA (92—1006) ·
+         foto a sangre (1006—1754). */
+
+      .fin {
+        background: var(--news-cold);
+      }
+
+      /* ------------------------------------------------------- banda de tinta */
+      .fin__bar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 92px;
+        background: var(--ink);
+        z-index: 30;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 var(--m);
+      }
+
+      .fin__bar-l {
+        display: flex;
+        align-items: baseline;
+        gap: 20px;
+      }
+
+      .fin__mast {
+        font-family: var(--mast);
+        font-weight: 800;
+        font-size: 25px;
+        letter-spacing: 0.26em;
+        font-variation-settings: "wdth" 88;
+        text-transform: uppercase;
+        color: var(--white);
+      }
+
+      .fin__bar-tag {
+        font-family: var(--mast);
+        font-weight: 500;
+        font-size: 9.5px;
+        letter-spacing: 0.2em;
+        font-variation-settings: "wdth" 82;
+        text-transform: uppercase;
+        color: rgba(247, 244, 236, 0.5);
+      }
+
+      .fin__bar-r {
+        font-family: var(--mono);
+        font-size: 10px;
+        letter-spacing: 0.06em;
+        color: rgba(247, 244, 236, 0.5);
+      }
+
+      /* ------------------------------------------------------------- cascada */
+      .fin__eyebrow {
+        position: absolute;
+        top: 152px;
+        left: var(--m);
+        z-index: 20;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        font-family: var(--mast);
+        font-weight: 700;
+        font-size: 9.5px;
+        letter-spacing: 0.2em;
+        font-variation-settings: "wdth" 82;
+        text-transform: uppercase;
+        color: var(--signal-deep);
+      }
+
+      .fin__eyebrow::after {
+        content: "";
+        display: block;
+        width: 300px;
+        height: 3px;
+        background: var(--signal);
+      }
+
+      .fin__casc {
+        position: absolute;
+        top: 186px;
+        left: var(--m);
+        z-index: 20;
+      }
+
+      .fin__la {
+        font-family: var(--serif);
+        font-style: italic;
+        font-size: 82px;
+        line-height: 0.9;
+        letter-spacing: -0.02em;
+        color: var(--pap-48);
+        margin-left: 6px;
+      }
+
+      /* La palabra 70 del cierre. Bodoni al máximo: se lee desde el pasillo. */
+      .fin__70 {
+        font-family: var(--display);
+        font-weight: 800;
+        font-size: 274px;
+        line-height: 0.78;
+        letter-spacing: -0.058em;
+        font-variation-settings: "opsz" 96;
+        color: var(--pap);
+        margin-top: -6px;
+      }
+
+      .fin__l2 {
+        font-family: var(--grot);
+        font-weight: 300;
+        font-size: 112px;
+        line-height: 0.9;
+        letter-spacing: -0.042em;
+        font-variation-settings: "wdth" 86, "opsz" 72;
+        color: var(--signal-deep);
+        margin-top: 4px;
+        margin-left: 4px;
+      }
+
+      /* --------------------------------------------------- lo que dejó el número
+         Recapitulación, no índice: son las tres frases que ya salieron adentro,
+         con la página donde están. Ocupa la columna derecha que la cascada
+         deja libre. */
+      .fin__rec {
+        position: absolute;
+        top: 168px;
+        right: var(--m);
+        width: 428px;
+        z-index: 20;
+      }
+
+      .fin__rec-lab {
+        font-family: var(--mast);
+        font-weight: 700;
+        font-size: 9px;
+        letter-spacing: 0.2em;
+        font-variation-settings: "wdth" 82;
+        text-transform: uppercase;
+        color: var(--pap-48);
+        padding-bottom: 11px;
+        border-bottom: 3px solid var(--pap);
+      }
+
+      .rec {
+        display: grid;
+        grid-template-columns: 46px 1fr;
+        gap: 16px;
+        padding: 19px 0 20px;
+        border-bottom: 1px solid var(--pap-16);
+        align-items: start;
+      }
+
+      .rec__n {
+        font-family: var(--mast);
+        font-weight: 700;
+        font-size: 15px;
+        letter-spacing: 0.02em;
+        font-variation-settings: "wdth" 80;
+        color: var(--signal-deep);
+        padding-top: 4px;
+      }
+
+      .rec__t {
+        font-family: var(--serif);
+        font-size: 25px;
+        line-height: 1.24;
+        letter-spacing: -0.012em;
+        color: var(--pap);
+      }
+
+      .rec__t i {
+        font-style: italic;
+        color: var(--signal-deep);
+      }
+
+      .rec__s {
+        margin-top: 7px;
+        font-family: var(--mono);
+        font-size: 9.5px;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: var(--pap-48);
+      }
+
+      /* ---------------------------------------------------------- párrafo cierre */
+      .fin__body {
+        position: absolute;
+        top: 578px;
+        right: var(--m);
+        width: 420px;
+        z-index: 20;
+        padding-top: 16px;
+        border-top: 1px solid var(--pap-28);
+        font-family: var(--read);
+        font-size: 20px;
+        line-height: 1.5;
+        letter-spacing: -0.006em;
+        font-variation-settings: "opsz" 24;
+        color: #191813;
+      }
+
+      .fin__body em {
+        font-style: italic;
+        font-family: var(--serif);
+        font-size: 22px;
+      }
+
+      /* ------------------------------------------------------------------ CTA */
+      .fin__cta {
+        position: absolute;
+        top: 762px;
+        left: var(--m);
+        right: var(--m);
+        z-index: 20;
+        background: var(--signal);
+        padding: 28px 34px 26px;
+        display: grid;
+        grid-template-columns: 1fr 372px;
+        gap: 34px;
+        align-items: center;
+      }
+
+      .fin__cta-txt {
+        font-family: var(--grot);
+        font-weight: 500;
+        font-size: 27px;
+        line-height: 1.22;
+        letter-spacing: -0.02em;
+        color: #fff;
+      }
+
+      .fin__cta-box {
+        border-left: 1px solid rgba(255, 255, 255, 0.42);
+        padding-left: 26px;
+      }
+
+      .fin__cta-lab {
+        font-family: var(--mast);
+        font-weight: 700;
+        font-size: 8.5px;
+        letter-spacing: 0.2em;
+        font-variation-settings: "wdth" 82;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.66);
+        margin-bottom: 9px;
+      }
+
+      .fin__cta-url {
+        font-family: var(--mono);
+        font-weight: 500;
+        font-size: 17px;
+        letter-spacing: -0.01em;
+        color: #fff;
+        word-break: break-all;
+        line-height: 1.3;
+      }
+
+      /* ----------------------------------------------------------- foto a sangre */
+      .fin__ph {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 1006px;
+        bottom: 0;
+        overflow: hidden;
+        z-index: 6;
+      }
+
+      .fin__ph img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: 50% 62%;
+        filter: saturate(0.8) contrast(1.06) brightness(0.9);
+      }
+
+      /* Velos: arriba para pegar la foto al papel, abajo para el pie de página. */
+      .fin__ph::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(180deg, rgba(20, 20, 18, 0.5) 0%, rgba(20, 20, 18, 0) 22%),
+          linear-gradient(0deg, rgba(14, 14, 13, 0.94) 0%, rgba(14, 14, 13, 0.6) 20%, rgba(14, 14, 13, 0) 44%);
+      }
+
+      .fin__cap {
+        position: absolute;
+        left: var(--m);
+        top: 1042px;
+        z-index: 20;
+        width: 470px;
+        font-family: var(--mono);
+        font-size: 10px;
+        line-height: 1.7;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: rgba(247, 244, 236, 0.62);
+      }
+
+      /* Marca oficial, sin redibujar: el PNG va tal cual sobre la foto. */
+      .fin__logo {
+        position: absolute;
+        left: var(--m);
+        top: 1476px;
+        z-index: 20;
+        width: 296px;
+      }
+
+      .fin__logo img {
+        display: block;
+        width: 100%;
+      }
+
+      .fin__sign {
+        position: absolute;
+        right: var(--m);
+        top: 1462px;
+        z-index: 20;
+        width: 400px;
+        text-align: right;
+      }
+
+      .fin__sign-l1 {
+        font-family: var(--serif);
+        font-style: italic;
+        font-size: 40px;
+        line-height: 1.1;
+        letter-spacing: -0.014em;
+        color: var(--white);
+      }
+
+      .fin__sign-l2 {
+        margin-top: 12px;
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: rgba(247, 244, 236, 0.56);
+      }
+
+      /* Pie: el folio de la contratapa cierra con la fecha del número. */
+      .fin__foot {
+        position: absolute;
+        left: var(--m);
+        right: var(--m);
+        bottom: 46px;
+        z-index: 20;
+        padding-top: 14px;
+        border-top: 1px solid rgba(247, 244, 236, 0.22);
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+      }
+
+      .fin__foot-l {
+        font-family: var(--mono);
+        font-size: 10px;
+        line-height: 1.7;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: rgba(247, 244, 236, 0.56);
+      }
+
+      .fin__foot-c {
+        font-family: var(--mast);
+        font-weight: 500;
+        font-size: 9px;
+        letter-spacing: 0.2em;
+        font-variation-settings: "wdth" 82;
+        text-transform: uppercase;
+        color: rgba(247, 244, 236, 0.4);
+        padding-bottom: 4px;
+      }
+
+      .fin__foot-n {
+        font-family: var(--mast);
+        font-weight: 700;
+        font-size: 30px;
+        line-height: 0.8;
+        letter-spacing: -0.02em;
+        font-variation-settings: "wdth" 80;
+        color: var(--white);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page page--news-cold fin grain">
+      <div class="fin__bar">
+        <div class="fin__bar-l">
+          <span class="fin__mast">Radar</span>
+          <span class="fin__bar-tag">N°2 · cierre</span>
+        </div>
+        <div class="fin__bar-r">14 — 21 AGO 2026 · Wavys Technologies</div>
+      </div>
+
+      <div class="fin__eyebrow">Cierre del número</div>
+
+      <div class="fin__casc">
+        <div class="fin__la">la</div>
+        <div class="fin__70">silla</div>
+        <div class="fin__l2">no espera</div>
+      </div>
+
+      <div class="fin__rec">
+        <div class="fin__rec-lab">Lo que dejó el número</div>
+        <div class="rec">
+          <div class="rec__n">04</div>
+          <div>
+            <div class="rec__t">El teléfono queda en el buzón. <i>La silla se queda vacía.</i></div>
+            <div class="rec__s">Tema · Raintree</div>
+          </div>
+        </div>
+        <div class="rec">
+          <div class="rec__n">04</div>
+          <div>
+            <div class="rec__t">7 de cada 10 <i>no dejan recado.</i></div>
+            <div class="rec__s">Dato · cita del número</div>
+          </div>
+        </div>
+        <div class="rec">
+          <div class="rec__n">08</div>
+          <div>
+            <div class="rec__t">El que más sabe <i>no es el que contesta.</i></div>
+            <div class="rec__s">Tablero · lo que leo yo</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="fin__body">
+        Si el teléfono se come la silla, el resto del número ya te dijo
+        <em>por dónde se decide el lunes</em>.
+      </div>
+
+      <div class="fin__cta">
+        <div class="fin__cta-txt">
+          Si quieres te muestro cómo se ve eso en tu operación. Media hora y listo.
+        </div>
+        <div class="fin__cta-box">
+          <div class="fin__cta-lab">Media hora · agenda directa</div>
+          <div class="fin__cta-url">https://cal.com/wavys-call/30min</div>
+        </div>
+      </div>
+
+      <div class="fin__ph">
+        <img src="img/escena-cierre.jpg" alt="" />
+      </div>
+
+      <div class="fin__cap">
+        Recepción a las 8 de la noche.<br />
+        El teléfono con la luz prendida, la silla ya vacía.
+      </div>
+
+      <div class="fin__logo">
+        <img src="logo/logo-wavys-technologies.png" alt="Wavys Technologies" />
+      </div>
+
+      <div class="fin__sign">
+        <div class="fin__sign-l1">Nos leemos el viernes que viene.</div>
+        <div class="fin__sign-l2">Phil · agosto 2026</div>
+      </div>
+
+      <div class="fin__foot">
+        <div class="fin__foot-l">
+          Radar · el semanal de Wavys Technologies<br />
+          Lima · wavys-technologies.com
+        </div>
+        <div class="fin__foot-c">Contratapa</div>
+        <div class="fin__foot-n">09</div>
+      </div>
+    </div>
+  </body>
+</html>

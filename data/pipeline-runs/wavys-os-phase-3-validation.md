@@ -27,4 +27,5 @@
 ## Notas
 
 - Checkout Polar UI full = siguiente (intent stub en `POST /billing/checkout-intent`)
-- Crear products reales en Polar sandbox y llenar `POLAR_PRODUCT_*`
+- Planes sandbox creados 2026-07-23 → IDs en `cobro-polar.md` §2.1 + `wavys-os` `.env` / `.env.example`
+- Pendiente: add-ons/top-ups + `POLAR_ACCESS_TOKEN` + `POLAR_WEBHOOK_SECRET` + prueba checkout E2E

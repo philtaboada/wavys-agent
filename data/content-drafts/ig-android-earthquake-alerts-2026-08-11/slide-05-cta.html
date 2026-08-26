@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Slide 05 — CTA</title>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,500;0,600;0,700;0,800&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { width: 1080px; height: 1350px; font-family: Rubik, system-ui, sans-serif; background: #070604; color: #FDFDFD; overflow: hidden; }
+    .c {
+      width: 1080px; height: 1350px; position: relative;
+      background:
+        radial-gradient(ellipse 70% 50% at 82% 30%, rgba(1,253,145,0.26) 0%, transparent 55%),
+        radial-gradient(ellipse 55% 40% at 10% 75%, rgba(90,210,208,0.2) 0%, transparent 50%),
+        #070604;
+    }
+    .cutout {
+      position: absolute; right: -40px; top: 120px;
+      width: 560px; height: auto;
+      filter: drop-shadow(0 28px 55px rgba(1,253,145,0.3));
+      transform: rotate(6deg);
+      pointer-events: none;
+    }
+    .top {
+      position: absolute; top: 64px; left: 64px; z-index: 2;
+    }
+    .pill {
+      background: #01FD91; color: #000; font-size: 20px; font-weight: 800;
+      letter-spacing: 0.06em; text-transform: uppercase; padding: 12px 22px; border-radius: 999px;
+    }
+    .copy {
+      position: absolute; left: 64px; top: 200px; width: 560px; z-index: 2;
+    }
+    h1 {
+      font-size: 52px; font-weight: 800; letter-spacing: -0.07em; line-height: 1.05;
+      margin-bottom: 28px;
+    }
+    h1 .a { color: #01FD91; }
+    .body {
+      font-size: 28px; font-weight: 500; line-height: 1.35; letter-spacing: -0.02em;
+      color: rgba(253,253,253,0.9); margin-bottom: 40px;
+    }
+    .path {
+      background: rgba(0,0,0,0.4);
+      border: 1px solid rgba(90,210,208,0.28);
+      border-radius: 28px;
+      padding: 28px 32px;
+    }
+    .path-label {
+      font-size: 18px; font-weight: 700; color: #5AD2D0; letter-spacing: 0.08em;
+      text-transform: uppercase; margin-bottom: 16px;
+    }
+    .path-steps {
+      font-size: 26px; font-weight: 600; letter-spacing: -0.03em; line-height: 1.45;
+    }
+    .path-steps span { color: #01FD91; }
+    .footer {
+      position: absolute; left: 64px; right: 64px; bottom: 56px; z-index: 2;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .logo { height: 44px; }
+    .cta {
+      font-size: 24px; font-weight: 700; font-style: italic;
+      color: rgba(253,253,253,0.7); letter-spacing: -0.02em;
+    }
+  </style>
+</head>
+<body>
+  <div class="c">
+    <img class="cutout" src="assets/shield-seconds-cutout.png" alt="" />
+    <div class="top">
+      <div class="pill">Actívalo</div>
+    </div>
+    <div class="copy">
+      <h1>Esos segundos sirven para <span class="a">agacharte, cubrirte y protegerte</span>.</h1>
+      <p class="body">La alerta no evita el sismo. Te da tiempo.</p>
+      <div class="path">
+        <div class="path-label">Revísalo en Android</div>
+        <div class="path-steps">
+          Ajustes <span>→</span> Seguridad y emergencia <span>→</span> Alertas de terremotos
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <img class="logo" src="../../brand-assets/logos/logo-wavys-technologies.png" alt="Wavys" />
+      <div class="cta">Detectar a tiempo cambia el resultado.</div>
+    </div>
+  </div>
+</body>
+</html>

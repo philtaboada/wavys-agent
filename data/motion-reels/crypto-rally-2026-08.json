@@ -1,0 +1,104 @@
+{
+  "slug": "crypto-rally-2026-08",
+  "format": "wide",
+  "fps": 30,
+  "theme": "editorial",
+  "edges": "cut",
+  "concat": true,
+  "logo": true,
+  "clips": [
+    {
+      "id": "cruzo-80-mil",
+      "type": "kinetic",
+      "hold": 1.4,
+      "eyebrow": "25 de agosto",
+      "lines": ["Bitcoin cruzó *80 mil*", "y no fue por cripto"],
+      "footnote": "Forbes · 25 ago 2026"
+    },
+    {
+      "id": "tesoro-recompras",
+      "type": "stat",
+      "hold": 1.8,
+      "value": "2x",
+      "label": "El Tesoro *duplicó* las recompras",
+      "note": "De 2.000 a 4.000 millones por operación, 19 ago.",
+      "source": "crypto.news · 19 ago"
+    },
+    {
+      "id": "tres-motores",
+      "type": "bullets",
+      "hold": 2.8,
+      "eyebrow": "Lo que movió el precio",
+      "title": "Tres motores, *una* semana",
+      "items": [
+        {
+          "text": "Recompras de 2.000 a 4.000 M",
+          "note": "Tesoro de EE.UU., bonos de 10 a 30 años."
+        },
+        {
+          "text": "Squeeze de shorts: 3.500–4.000 M",
+          "note": "Liquidaciones en días. Crypto Economy."
+        },
+        {
+          "text": "ETFs spot absorbieron 1.900 M",
+          "note": "En cuatro días. Según crypto.news."
+        }
+      ]
+    },
+    {
+      "id": "plus-27",
+      "type": "stat",
+      "hold": 1.5,
+      "value": "27%",
+      "label": "Bitcoin en *cuatro días*",
+      "note": "De unos 62.679 a unos 79.500 USD.",
+      "source": "crypto.news · 17–21 ago"
+    },
+    {
+      "id": "medio-billon",
+      "type": "kinetic",
+      "hold": 1.6,
+      "eyebrow": "Forbes · 25 ago",
+      "lines": ["El mercado sumó", "*500.000 millones*", "en una semana"],
+      "footnote": "El dinero no avisó"
+    },
+    {
+      "id": "cita-druckenmiller",
+      "type": "quote",
+      "hold": 2.6,
+      "background": {
+        "image": "data/generated-images/crypto-rally-2026-08/desk-bg.jpg",
+        "motion": "zoom-in",
+        "dim": 0.9,
+        "blur": 28
+      },
+      "quote": "Los gobiernos que defienden precios contra los fundamentos siempre pierden.",
+      "author": "Stanley Druckenmiller",
+      "role": "Duquesne Family Office · WSJ"
+    },
+    {
+      "id": "mercado-vs-negocio",
+      "type": "compare",
+      "hold": 2.6,
+      "title": "El precio no espera *tu* Excel",
+      "left": {
+        "label": "El mercado",
+        "text": "Se reprecía de noche. Bitcoin subió 27% en cuatro días."
+      },
+      "right": {
+        "label": "Tu negocio",
+        "text": "Seguís cotizando a mano, en Excel y WhatsApp."
+      },
+      "verdict": "Si cambia hoy, ¿tu negocio puede?"
+    },
+    {
+      "id": "cierre-radar",
+      "type": "outro",
+      "hold": 2.4,
+      "exit": "hold",
+      "title": "Cada semana, el *Radar*",
+      "cta": "Seguinos en Instagram",
+      "url": "instagram.com/wavys_technologies"
+    }
+  ]
+}

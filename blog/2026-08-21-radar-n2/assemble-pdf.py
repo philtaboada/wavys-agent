@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Arma radar-n2-borrador.pdf: tapa + 6 interiores, 1240×1754."""
+"""Arma radar-n2-borrador.pdf: tapa + 10 interiores, 1240×1754."""
 
 from __future__ import annotations
 
@@ -19,10 +19,14 @@ PDF = HERE / "radar-n2-borrador.pdf"
 INTERIORS = [
     "02-carta-del-editor.png",
     "03-senal.png",
-    "04-apertura.png",
-    "05-modulos.png",
-    "08-data.png",
-    "09-cierre.png",
+    "04a-tema-central-apertura.png",
+    "04b-tema-central-relato.png",
+    "04c-tema-central-casos.png",
+    "04d-tema-central-cita-datos.png",
+    "04e-tema-central-reglas.png",
+    "05-mas-noticias.png",
+    "08-tablero-ia.png",
+    "09-contratapa.png",
 ]
 
 

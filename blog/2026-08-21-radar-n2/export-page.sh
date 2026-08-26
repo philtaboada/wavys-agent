@@ -19,10 +19,14 @@ else
     01-tapa.html
     02-carta-del-editor.html
     03-senal.html
-    04-apertura.html
-    05-modulos.html
-    08-data.html
-    09-cierre.html
+    04a-tema-central-apertura.html
+    04b-tema-central-relato.html
+    04c-tema-central-casos.html
+    04d-tema-central-cita-datos.html
+    04e-tema-central-reglas.html
+    05-mas-noticias.html
+    08-tablero-ia.html
+    09-contratapa.html
   )
 fi
 

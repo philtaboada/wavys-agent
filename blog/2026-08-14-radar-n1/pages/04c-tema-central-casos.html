@@ -2,15 +2,13 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <title>RADAR N°1 — 04 Tema central · casos</title>
+    <title>RADAR N°1 — 04 Tema central · cómo trabaja</title>
     <link rel="stylesheet" href="css/radar.css" />
+    <link rel="stylesheet" href="css/tema-grok.css" />
     <style>
       /* ============================================================
-         04c · TEMA CENTRAL, CASOS — personalidad: CUATRO PUERTAS.
-         Tres casos arriba en columnas con numerales colgados; el
-         cuarto vive dentro de la foto, que sangra por abajo. Al revés
-         que 04b (que tiene la banda arriba): la página se lee de la
-         letra hacia la escena.
+         04c · EL OFICIO — idioma del dueño. Cero courier/vet/obra.
+         Tres arriba, dos en la foto. Contado, no vendido.
          ============================================================ */
 
       .section {
@@ -37,26 +35,26 @@
 
       .section h2 small {
         display: block;
-        font-family: var(--mono);
-        font-weight: 400;
+        font-family: var(--sans);
+        font-weight: 500;
         font-stretch: 100%;
-        font-size: 11px;
-        letter-spacing: 0.26em;
+        font-size: 22px;
+        letter-spacing: 0.08em;
         color: var(--teal);
-        margin-bottom: 12px;
+        margin-bottom: 10px;
+        text-transform: none;
       }
 
       .section__meta {
         text-align: right;
         padding-bottom: 8px;
-        width: 330px;
+        width: 360px;
         font-family: var(--read);
         font-size: 17px;
         line-height: 1.44;
         color: var(--ink-70);
       }
 
-      /* tres casos ----------------------------------------------------- */
       .cases {
         position: absolute;
         left: var(--margin);
@@ -78,11 +76,11 @@
         font-family: var(--display);
         font-variation-settings: "SOFT" 20, "WONK" 0, "opsz" 144;
         font-weight: 900;
-        font-size: 96px;
+        font-size: 58px;
         line-height: 0.8;
         letter-spacing: -0.04em;
         color: transparent;
-        -webkit-text-stroke: 1.4px rgba(90, 210, 208, 0.85);
+        -webkit-text-stroke: 1.4px rgba(255, 122, 23, 0.9);
       }
 
       .case__who {
@@ -96,30 +94,26 @@
       }
 
       .case__ask {
-        margin-top: 12px;
+        margin-top: 8px;
         font-family: var(--italic);
         font-style: italic;
         font-weight: 500;
-        font-size: 44px;
-        line-height: 1.05;
+        font-size: 22px;
+        line-height: 1.12;
         letter-spacing: -0.02em;
         color: var(--white);
       }
 
       .case__text {
-        margin-top: 18px;
+        margin-top: 10px;
         font-family: var(--read);
-        font-size: 17px;
-        line-height: 1.62;
+        font-size: 13.5px;
+        line-height: 1.4;
         color: rgba(253, 253, 253, 0.84);
       }
 
-      .case__text b {
-        font-weight: 600;
-        color: var(--white);
-      }
+      .case__text b { font-weight: 600; color: var(--white); }
 
-      /* foto que sangra abajo + cuarto caso ---------------------------- */
       .floor {
         position: absolute;
         left: 0;
@@ -134,9 +128,9 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
-        object-position: 46% 62%;
+        object-position: 46% 48%;
         display: block;
-        filter: saturate(0.72) contrast(1.12) brightness(0.76);
+        filter: saturate(1.02) contrast(1.1) brightness(0.8) sepia(0.12);
       }
 
       .floor::after {
@@ -145,41 +139,37 @@
         inset: 0;
         background:
           linear-gradient(180deg, #070604 0%, rgba(7, 6, 4, 0.5) 16%, rgba(7, 6, 4, 0) 34%),
-          linear-gradient(90deg, rgba(7, 6, 4, 0.95) 0%, rgba(7, 6, 4, 0.6) 40%, rgba(7, 6, 4, 0.1) 78%),
+          linear-gradient(90deg, rgba(7, 6, 4, 0.95) 0%, rgba(7, 6, 4, 0.55) 44%, rgba(7, 6, 4, 0.12) 78%),
           linear-gradient(180deg, rgba(7, 6, 4, 0) 62%, rgba(7, 6, 4, 0.9) 90%, #070604 100%);
       }
 
-      .case--four {
+      .pair {
         position: absolute;
         left: var(--margin);
-        bottom: 214px;
-        width: 620px;
+        bottom: 268px;
+        width: 720px;
         z-index: 16;
-        border-top: 3px solid var(--teal);
-        padding-top: 20px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
       }
 
-      .case--four .case__num {
+      .pair .case {
+        border-top: 3px solid var(--teal);
+        padding-top: 16px;
+      }
+
+      .pair .case__num {
         -webkit-text-stroke: 0;
         color: var(--teal);
-        font-size: 116px;
+        font-size: 72px;
       }
 
-      .case--four .case__ask {
-        font-family: var(--sans);
-        font-style: normal;
-        font-weight: 800;
-        font-stretch: 76%;
-        text-transform: uppercase;
-        font-size: 88px;
-        line-height: 0.88;
-        letter-spacing: 0.002em;
+      .pair .case__ask {
+        font-size: 24px;
       }
 
-      .case--four .case__text {
-        max-width: 560px;
-        font-size: 18px;
-      }
+      .pair .case__text { font-size: 14.5px; line-height: 1.4; }
 
       .floor__caption {
         position: absolute;
@@ -200,18 +190,17 @@
         position: absolute;
         left: var(--margin);
         right: var(--margin);
-        bottom: 128px;
+        bottom: 118px;
         z-index: 18;
-        display: flex;
-        align-items: baseline;
-        justify-content: space-between;
+        display: block;
         border-top: 1px solid var(--ink-18);
-        padding-top: 14px;
-        font-family: var(--sans);
-        font-weight: 700;
+        padding-top: 12px;
+        font-family: var(--read);
+        font-weight: 400;
         font-size: 15px;
-        letter-spacing: 0.02em;
-        color: rgba(253, 253, 253, 0.82);
+        line-height: 1.42;
+        letter-spacing: 0;
+        color: rgba(253, 253, 253, 0.88);
       }
 
       .rules-hint span {
@@ -225,82 +214,97 @@
     </style>
   </head>
   <body>
-    <article class="page grain">
+    <article class="page page--grok grain">
       <header class="head">
         <span class="head__mast">Radar</span>
-        <span class="head__section">Tema central · casos</span>
+        <span class="head__section">Tema central · Grok Bot · cómo trabaja</span>
       </header>
 
       <div class="section">
-        <h2><small>Las mismas tres reglas</small>Cuatro casos</h2>
+        <h2><small>Grok Bot · los bots se hablan</small>Cómo lo uso</h2>
         <p class="section__meta">
-          Cuatro negocios distintos, una sola pregunta que llega al chat. Lo que cambia es de dónde sale la
-          respuesta.
+          Qué es. Cómo lo uso. Qué hace.
         </p>
       </div>
 
       <div class="cases">
         <div class="case">
           <p class="case__num">01</p>
-          <p class="case__who">Courier · reparto</p>
-          <p class="case__ask">“¿Ya salió mi&nbsp;pedido?”</p>
+          <p class="case__who">Esta revista</p>
+          <p class="case__ask">Me lo trajeron para el ok.</p>
           <p class="case__text">
-            Llega veinte veces al día. La respuesta fácil es “ya te confirmo”, y después nadie confirma. Desde
-            el 1 de octubre esa cadena la pagas dos veces. Si la hoja tiene estado, el chat lo lee y contesta
-            una vez. Si no lo tiene, <b>escala a una persona</b>: diez mensajes de “no sé” no son atención.
+            El domingo yo no estoy armando páginas. Estoy leyendo un número. Yo hablé. Varios bots se
+            repartieron el trabajo: uno buscó las notas, otro escribió, otro editó. Se hablaron. Se
+            corrigieron. Me lo trajeron para el ok. Si no doy el ok, vuelven a intentar. Si lo doy, el número
+            existe.
           </p>
         </div>
 
         <div class="case">
           <p class="case__num">02</p>
-          <p class="case__who">Veterinaria · mascotas</p>
-          <p class="case__ask">“¿Tienen hora el&nbsp;sábado?”</p>
+          <p class="case__who">El texto</p>
+          <p class="case__ask">Como carta, no como lista.</p>
           <p class="case__text">
-            El chat pregunta lo mínimo —qué mascota, para qué, qué día— y después mira la agenda. Si hay hueco,
-            lo ofrece. Si no hay, <b>no promete</b>. Prometer un sábado que no existe cuesta el mensaje y cuesta
-            el cliente.
+            Le pedí un texto que se leyera como carta, no como lista. El que escribe lo mandó. El que revisa lo
+            devolvió. Volvió mal. Lo volvieron a intentar. Volvió bien. No es magia. Es un equipo que se habla.
+            Yo decido. Sin mi ok, no sale. Con mi ok, el texto ya no es un borrador. <b>Está listo.</b>
           </p>
         </div>
 
         <div class="case">
           <p class="case__num">03</p>
-          <p class="case__who">Obra · cotización</p>
-          <p class="case__ask">“Pásame precio de 20&nbsp;bolsas”</p>
+          <p class="case__who">Las noticias</p>
+          <p class="case__ask">El material del viernes llega.</p>
           <p class="case__text">
-            El chat junta qué, cuántas y a qué distrito, y arma la ficha. El número lo manda
-            <b>una persona, una sola vez</b>. Sin ficha, la cotización se vuelve veinte mensajes y ninguno
-            cierra.
+            Antes yo perseguía conversaciones a las once. Ahora varios trabajan a la vez. Uno busca. Otro
+            escribe. Se hablan. Yo no tengo que pasar la misma nota de una ventana a otra. Las notas de la
+            semana llegan el viernes. Yo las leo. El domingo no persigo veinte ventanas.
           </p>
         </div>
       </div>
 
       <figure class="floor">
-        <img src="img/escena-mostrador.jpg" alt="Mostrador de despacho: paquetes listos, hoja de pedidos y una mano anotando" />
+        <img src="img/escena-oficio.jpg" alt="Domingo: un número impreso abierto sobre la mesa, luz de ventana" />
       </figure>
 
-      <div class="case case--four">
-        <p class="case__num">04</p>
-        <p class="case__who">Oficina · grupo del equipo</p>
-        <p class="case__ask">40 sin leer</p>
-        <p class="case__text">
-          Cuarenta mensajes sin leer y tres personas contestando lo mismo. Saca la atención al cliente del
-          grupo. <b>Una puerta, un hilo, un estado.</b>
-        </p>
+      <div class="pair">
+        <div class="case">
+          <p class="case__num">04</p>
+          <p class="case__who">Las ventas</p>
+          <p class="case__ask">Yo doy el ok</p>
+          <p class="case__text">
+            El chat del cliente no espera a que yo desbloquee el celular. Ellos entran a esa conversación:
+            leen, preparan, se detienen cuando hace falta una persona. Se pasan lo que falta. Yo no escribo el
+            primer mensaje de madrugada. Yo doy el ok. El cliente ve una atención. No ve el desorden de atrás.
+          </p>
+        </div>
+        <div class="case">
+          <p class="case__num">05</p>
+          <p class="case__who">El seguimiento</p>
+          <p class="case__ask">Sigue sin mí</p>
+          <p class="case__text">
+            Hay un seguimiento que no puede quedarse atrás. Yo cierro la laptop. Ellos no. Se hablan. Revisan.
+            A la mañana siguiente, los días hábiles, ya está revisado. El trabajo siguió en su computadora (en
+            internet, no en la mía). Por eso a veces falla: siguen sin mí. Por eso lo sigo usando: cuando
+            aciertan, yo llego y el día ya empezó.
+          </p>
+        </div>
       </div>
 
       <p class="floor__caption">
-        Despacho, media tarde. El paquete ya está listo; el estado sigue viviendo en la hoja y en la cabeza de
-        quien lo anotó.
+        Domingo. El número ya existe. No estoy armando el recorte: lo estoy leyendo.
       </p>
 
       <div class="rules-hint">
-        Las tres reglas están en la página 04, al cierre del tema central.
-        <span>Casos · 04</span>
+        Si tu negocio todavía vive en el chat y en una hoja, el problema no es “falta IA”. Es que el trabajo
+        vive en tu cabeza y se apaga cuando apagas el teléfono. Esto lo mueve a un equipo que se habla. Tú das
+        el ok.
+        <span>Cómo trabaja · 04</span>
       </div>
 
       <footer class="folio">
         <span class="folio__ticks"><i></i><i></i><i class="on"></i><i></i></span>
-        <span>Radar N°1 · Tema central</span>
+        <span>Radar N°1 · Grok Bot</span>
         <span class="folio__num">04</span>
       </footer>
     </article>

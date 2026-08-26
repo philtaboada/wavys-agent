@@ -1,0 +1,19 @@
+{
+  "slug": "btc-cruza-80-mil",
+  "layout": "cartel",
+  "format": "feed",
+  "accent": "teal",
+  "kicker": "RADAR · Mercados",
+  "title": "Bitcoin cruzó los 80 mil",
+  "titleAccent": "y no fue por cripto",
+  "dek": "El Tesoro de Estados Unidos duplicó las recompras de bonos largos y el dinero volvió al riesgo. La subida no empezó en cripto.",
+  "stat": { "value": "35% bajo", "label": "su máximo histórico" },
+  "cta": {
+    "label": "Síguenos en Instagram",
+    "url": "https://www.instagram.com/wavys_technologies/",
+    "note": "Las noticias de tecnología de la semana, sin humo."
+  },
+  "contact": ["wavys-technologies.com"],
+  "footnote": "Cotización del 25/08/2026 por la mañana. Fuentes: Bloomberg, Expansión y Negocios.com.",
+  "image": "data/generated-images/flyer-btc-cruza-80-mil-d.jpg"
+}

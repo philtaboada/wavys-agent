@@ -1,0 +1,23 @@
+{
+  "slug": "ejemplo-oferta",
+  "layout": "oferta",
+  "format": "a4",
+  "kicker": "Plan de arranque",
+  "title": "Tu agente listo en dos semanas",
+  "dek": "Montamos, entrenamos y dejamos andando un agente de WhatsApp con tu catálogo y tu forma de vender.",
+  "price": { "value": "S/ 890", "note": "al mes, sin contrato de amarre", "before": "S/ 1 490" },
+  "bullets": [
+    "Agente entrenado con tu catálogo",
+    "Integración con tu hoja de cálculo",
+    "Reporte semanal de conversaciones",
+    "Ajustes ilimitados el primer mes"
+  ],
+  "cta": {
+    "label": "Reserva tu cupo",
+    "url": "https://wavys-technologies.com",
+    "note": "Tomamos cuatro negocios por mes."
+  },
+  "contact": ["+51 999 888 777", "wavys-technologies.com"],
+  "footnote": "Válido hasta el 30 de setiembre de 2026. No incluye el costo de la API de WhatsApp Business.",
+  "image": "blog/2026-08-28-radar-n3/img/escena-casos.jpg"
+}

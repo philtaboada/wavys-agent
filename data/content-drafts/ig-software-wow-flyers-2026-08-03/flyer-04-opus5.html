@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Flyer 04 — Claude Opus 5</title>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,500;0,600;0,700;0,800&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { width: 1080px; height: 1350px; font-family: Rubik, system-ui, sans-serif; background: #070604; color: #FDFDFD; overflow: hidden; }
+    .c {
+      width: 1080px; height: 1350px; position: relative;
+      background:
+        radial-gradient(ellipse 75% 50% at 75% 55%, rgba(1,253,145,0.2) 0%, transparent 55%),
+        radial-gradient(ellipse 50% 35% at 0% 0%, rgba(90,210,208,0.18) 0%, transparent 50%),
+        #070604;
+    }
+    .tag {
+      position: absolute; top: 64px; left: 64px; z-index: 2;
+      font-size: 22px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: #5AD2D0;
+    }
+    .copy {
+      position: absolute; left: 64px; top: 140px; width: 520px; z-index: 2;
+    }
+    h1 { font-size: 78px; font-weight: 800; letter-spacing: -0.08em; line-height: 0.95; margin-bottom: 20px; }
+    h1 .a { color: #01FD91; }
+    .sub { font-size: 30px; font-weight: 500; color: rgba(253,253,253,0.7); letter-spacing: -0.02em; margin-bottom: 36px; }
+    .rank {
+      background: rgba(0,0,0,0.4); border: 1px solid rgba(1,253,145,0.4);
+      border-radius: 28px; padding: 28px 28px; max-width: 420px;
+    }
+    .rank .label { font-size: 18px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #5AD2D0; margin-bottom: 10px; }
+    .rank .big { font-size: 44px; font-weight: 800; letter-spacing: -0.05em; line-height: 1.15; }
+    .rank .big span { color: #01FD91; }
+    .cutout {
+      position: absolute; right: -60px; top: 280px;
+      width: 680px; height: auto;
+      filter: drop-shadow(0 40px 70px rgba(1,253,145,0.3));
+      transform: rotate(4deg);
+      z-index: 1;
+    }
+    .bullets {
+      position: absolute; left: 64px; bottom: 220px; z-index: 2;
+      list-style: none; display: flex; flex-direction: column; gap: 14px;
+    }
+    .bullets li {
+      font-size: 26px; font-weight: 500; letter-spacing: -0.02em;
+      padding-left: 28px; position: relative; line-height: 1.25;
+    }
+    .bullets li::before {
+      content: ""; position: absolute; left: 0; top: 10px;
+      width: 12px; height: 12px; border-radius: 3px;
+      background: linear-gradient(135deg, #5AD2D0, #01FD91);
+    }
+    .bottom {
+      position: absolute; left: 0; right: 0; bottom: 0; z-index: 2;
+      background: linear-gradient(90deg, #5AD2D0, #01FD91);
+      color: #000; padding: 36px 64px;
+      display: flex; align-items: center; justify-content: space-between; min-height: 140px;
+    }
+    .bottom p { font-size: 26px; font-weight: 700; letter-spacing: -0.03em; max-width: 640px; line-height: 1.2; }
+    .logo-wrap { background: #070604; border-radius: 16px; padding: 12px 16px; }
+    .logo { height: 36px; display: block; }
+  </style>
+</head>
+<body>
+  <div class="c">
+    <div class="tag">Anthropic · ~24 jul</div>
+    <div class="copy">
+      <h1>Claude<br /><span class="a">Opus 5</span></h1>
+      <p class="sub">El modelo que ahora manda en agentes y coding.</p>
+      <div class="rank">
+        <div class="label">Rankings</div>
+        <div class="big">#1 <span>inteligencia</span><br />#1 <span>agentes</span></div>
+      </div>
+    </div>
+    <img class="cutout" src="assets/opus-trophy-cutout.png" alt="" />
+    <ul class="bullets">
+      <li>Juicio largo · trabajo confiable</li>
+      <li>Coding fuerte vs Sol / Gemini</li>
+      <li>Default nuevo para Pro / Max</li>
+    </ul>
+    <div class="bottom">
+      <p>Si armamos software a medida, el modelo importa — y esta semana cambió el ranking.</p>
+      <div class="logo-wrap">
+        <img class="logo" src="../../brand-assets/logos/logo-wavys-technologies.png" alt="Wavys" />
+      </div>
+    </div>
+  </div>
+</body>
+</html>

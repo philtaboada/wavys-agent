@@ -27,6 +27,7 @@
 
         function sectionLabel(p) {
           if (p.type === "notas" && p.section) return p.section;
+          if (p.type === "tablero" && p.title) return p.title;
           return SECTION_LABEL[p.type] || p.type;
         }
 

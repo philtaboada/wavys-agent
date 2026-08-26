@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>RADAR N°2 · 04c Tema central · lo que se decide</title>
+    <link rel="stylesheet" href="css/radar.css" />
+    <style>
+      /* --------------------------------- 04c TEMA · LO QUE SE DECIDE (tinta)
+         Voz: escalera. Grilla única del número: la foto entra como banda alta
+         cortada por el titular, y debajo tres tramos bajan en diagonal, cada
+         uno colgado de un filete que arranca donde arranca el bloque.
+         No son tres columnas iguales y no son cuatro puertas. */
+
+      .cas {
+        background: #08080a;
+      }
+
+      /* --------------------------------------------------------------- banda alta */
+      .cas__ph {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        height: 612px;
+        z-index: 0;
+        overflow: hidden;
+      }
+
+      .cas__ph img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: 62% 58%;
+        display: block;
+        filter: saturate(0.5) contrast(1.14) brightness(0.8);
+      }
+
+      .cas__veil {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        height: 612px;
+        z-index: 2;
+        background:
+          linear-gradient(
+            180deg,
+            rgba(6, 6, 9, 0.88) 0%,
+            rgba(6, 6, 9, 0.24) 22%,
+            rgba(6, 6, 9, 0.42) 62%,
+            rgba(6, 6, 9, 0.97) 96%
+          );
+      }
+
+      /* Marca de la silla: aro fino sobre el asiento vacío del frente. */
+      .cas__ring {
+        position: absolute;
+        z-index: 12;
+        left: 892px;
+        top: 262px;
+        width: 254px;
+        height: 132px;
+        border: 1.5px solid rgba(226, 69, 43, 0.92);
+        border-radius: 50%;
+      }
+
+      .cas__ring-lab {
+        position: absolute;
+        z-index: 12;
+        left: 596px;
+        top: 268px;
+        width: 262px;
+        text-align: right;
+        font-family: var(--mono);
+        font-size: 10px;
+        line-height: 1.62;
+        letter-spacing: 0.02em;
+        color: rgba(251, 250, 247, 0.92);
+        /* La etiqueta cae sobre las sillas, que son de tono medio: sin esta
+           sombra el mono de 10 px se pierde en la foto. */
+        text-shadow:
+          0 1px 5px rgba(0, 0, 0, 0.9),
+          0 0 16px rgba(0, 0, 0, 0.75);
+      }
+
+      .cas__ring-lab b {
+        display: block;
+        color: var(--signal);
+        font-size: 9px;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        margin-bottom: 5px;
+      }
+
+      /* Guía del aro hacia la etiqueta. */
+      .cas__ring-lab::after {
+        content: "";
+        position: absolute;
+        right: -34px;
+        top: 42px;
+        width: 30px;
+        height: 1px;
+        background: var(--signal);
+      }
+
+      /* El titular corta el borde de la banda. */
+      .cas__h {
+        position: absolute;
+        left: var(--m);
+        top: 462px;
+        z-index: 20;
+        width: 800px;
+      }
+
+      .cas__h-kick {
+        font-family: var(--mast);
+        font-weight: 700;
+        font-size: 9px;
+        letter-spacing: 0.2em;
+        font-variation-settings: "wdth" 82;
+        text-transform: uppercase;
+        color: var(--signal);
+        margin-bottom: 16px;
+      }
+
+      .cas__h-txt {
+        font-family: var(--display);
+        font-weight: 800;
+        font-size: 86px;
+        line-height: 0.9;
+        letter-spacing: -0.044em;
+        font-variation-settings: "opsz" 96;
+        color: #fdfcf9;
+      }
+
+      .cas__h-txt em {
+        font-style: italic;
+        font-weight: 500;
+        color: rgba(251, 250, 247, 0.62);
+      }
+
+      .cas__sub {
+        position: absolute;
+        left: var(--m);
+        top: 676px;
+        width: 640px;
+        z-index: 20;
+        font-family: var(--grot);
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 1.4;
+        letter-spacing: -0.016em;
+        color: rgba(251, 250, 247, 0.72);
+      }
+
+      /* ---------------------------------------------------------- la escalera */
+      .step {
+        position: absolute;
+        z-index: 20;
+      }
+
+      .step__rule {
+        position: absolute;
+        height: 1px;
+        background: rgba(251, 250, 247, 0.2);
+        z-index: 18;
+      }
+
+      .step__n {
+        font-family: var(--mast);
+        font-weight: 800;
+        font-size: 15px;
+        letter-spacing: 0.06em;
+        font-variation-settings: "wdth" 78;
+        color: var(--signal);
+        margin-bottom: 20px;
+      }
+
+      .step__txt {
+        font-family: var(--serif);
+        font-size: 46px;
+        line-height: 1.04;
+        letter-spacing: -0.022em;
+        color: #fdfcf9;
+      }
+
+      .step__txt em {
+        font-style: italic;
+        color: rgba(251, 250, 247, 0.66);
+      }
+
+      .step__note {
+        margin-top: 18px;
+        font-family: var(--mono);
+        font-size: 10.5px;
+        line-height: 1.66;
+        letter-spacing: 0.02em;
+        color: rgba(251, 250, 247, 0.5);
+      }
+
+      /* Cada tramo baja y se corre a la derecha. */
+      .step--1 {
+        left: var(--m);
+        top: 812px;
+        width: 512px;
+      }
+
+      .rule--1 {
+        left: var(--m);
+        right: var(--m);
+        top: 786px;
+      }
+
+      .step--2 {
+        left: 372px;
+        top: 1092px;
+        width: 512px;
+      }
+
+      .rule--2 {
+        left: 372px;
+        right: var(--m);
+        top: 1066px;
+      }
+
+      .step--3 {
+        left: 660px;
+        top: 1372px;
+        width: 512px;
+      }
+
+      .rule--3 {
+        left: 660px;
+        right: var(--m);
+        top: 1346px;
+      }
+
+      /* Marca de tinta: la palabra que se repite en los tres tramos. */
+      .cas__mark {
+        position: absolute;
+        left: var(--m);
+        bottom: 172px;
+        z-index: 20;
+        width: 400px;
+        padding-top: 14px;
+        border-top: 4px solid var(--signal);
+      }
+
+      .cas__mark b {
+        display: block;
+        font-family: var(--mast);
+        font-weight: 700;
+        font-size: 8.5px;
+        letter-spacing: 0.19em;
+        font-variation-settings: "wdth" 82;
+        text-transform: uppercase;
+        color: var(--signal);
+        margin-bottom: 10px;
+      }
+
+      .cas__mark span {
+        font-family: var(--grot);
+        font-weight: 600;
+        font-size: 22px;
+        line-height: 1.24;
+        letter-spacing: -0.02em;
+        color: #fdfcf9;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page cas grain">
+      <!-- Escena: sala de espera, la silla del frente vacía y corrida de la
+           fila. gemini-3.1-flash-lite-image · sin caras, sin nadie. -->
+      <div class="cas__ph"><img src="img/escena-silla.jpg" alt="" /></div>
+      <div class="cas__veil"></div>
+      <div class="cas__ring"></div>
+      <div class="cas__ring-lab">
+        <b>Las 10 de la mañana</b>
+        La silla del frente, corrida de la fila. La cita existe en la agenda; el
+        paciente nunca supo que había que confirmar.
+      </div>
+
+      <div class="spine">
+        <span class="spine__tab">Radar N°2</span>
+        <span class="spine__section">Tema central · lo que se decide</span>
+        <span class="spine__date">14 — 21 AGO 2026</span>
+      </div>
+
+      <div class="cas__h">
+        <div class="cas__h-kick">Lo que se decide sin que nadie decida</div>
+        <div class="cas__h-txt">El buzón no es <em>un detalle.</em></div>
+      </div>
+
+      <div class="cas__sub">
+        En una clínica que todavía camina con WhatsApp y una hoja, el buzón se cobra tres veces el
+        mismo lunes.
+      </div>
+
+      <div class="step__rule rule--1"></div>
+      <div class="step step--1">
+        <div class="step__n">01 — La agenda</div>
+        <div class="step__txt">Es la silla vacía <em>a las 10.</em></div>
+        <div class="step__note">
+          El hueco no se abre cuando el paciente falta.<br />
+          Se abrió cuando el teléfono quedó en el buzón.
+        </div>
+      </div>
+
+      <div class="step__rule rule--2"></div>
+      <div class="step step--2">
+        <div class="step__n">02 — El cobro</div>
+        <div class="step__txt">Es el cobro que se atrasa porque <em>nadie llamó al que faltó.</em></div>
+        <div class="step__note">
+          La hora perdida no se recupera y la cuenta se corre de semana.
+        </div>
+      </div>
+
+      <div class="step__rule rule--3"></div>
+      <div class="step step--3">
+        <div class="step__n">03 — El seguro</div>
+        <div class="step__txt">Es el seguro que se mira después, <em>cuando el paciente ya no está.</em></div>
+        <div class="step__note">
+          Se revisa a las 8 de la noche, con la silla ya vacía.
+        </div>
+      </div>
+
+      <div class="cas__mark">
+        <b>Las tres veces</b>
+        <span>Agenda, cobro y seguro: el mismo buzón, cobrado tres veces.</span>
+      </div>
+
+      <div class="folio">
+        <span class="folio__meta">Radar N°2 · Tema central · lo que se decide</span>
+        <span class="folio__bar"
+          ><i></i><i></i><i></i><i class="on"></i><i></i><i></i><i></i
+        ></span>
+        <span class="folio__num">04</span>
+      </div>
+    </div>
+  </body>
+</html>

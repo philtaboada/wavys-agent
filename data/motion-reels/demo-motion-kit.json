@@ -1,0 +1,117 @@
+{
+  "slug": "demo-motion-kit",
+  "format": "wide",
+  "fps": 24,
+  "theme": "agente",
+  "clips": [
+    {
+      "id": "apertura",
+      "type": "kinetic",
+      "hold": 1.4,
+      "eyebrow": "Radar de la semana",
+      "lines": ["El agente no", "reemplaza al equipo.", "Le saca *lo repetido.*"],
+      "footnote": "Wavys Technologies · 2026"
+    },
+    {
+      "id": "tema",
+      "type": "hook",
+      "hold": 2.6,
+      "eyebrow": "Tema central",
+      "title": "Tu WhatsApp ya es *un canal de ventas*",
+      "body": "Nueve de cada diez consultas llegan por ahí y se responden a mano, una por una, cuando ya cerró el local.",
+      "cta": "Ver cómo funciona",
+      "cutout": "data/content-drafts/ig-android-earthquake-alerts-2026-08-11/assets/phone-still-cutout.png"
+    },
+    {
+      "id": "senal",
+      "type": "bullets",
+      "hold": 3.4,
+      "eyebrow": "Señal",
+      "title": "Tres cosas cambiaron esta semana",
+      "items": [
+        {
+          "text": "WhatsApp cambió su tarifación",
+          "note": "Ahora se cobra por mensaje, no por conversación de 24 horas."
+        },
+        {
+          "text": "Los agentes ya operan el navegador",
+          "note": "Completan formularios y leen paneles sin API de por medio."
+        },
+        {
+          "text": "El costo por tarea bajó otro 40%",
+          "note": "Los modelos chicos alcanzan para el 80% del trabajo real."
+        }
+      ]
+    },
+    {
+      "id": "dato",
+      "type": "stat",
+      "hold": 1.6,
+      "value": "87%",
+      "label": "de las consultas se resuelven sin intervención humana",
+      "note": "Medido sobre cuatro meses de operación real en tres clientes.",
+      "source": "Wavys OS"
+    },
+    {
+      "id": "marcas",
+      "type": "logos",
+      "hold": 2.0,
+      "eyebrow": "El tablero",
+      "title": "Quién movió la aguja",
+      "layout": "row",
+      "logos": [
+        { "src": "blog/2026-08-14-radar-n1/pages/img/marks/openai.svg", "label": "OpenAI" },
+        { "src": "blog/2026-08-14-radar-n1/pages/img/marks/anthropic.svg", "label": "Anthropic" },
+        { "src": "blog/2026-08-14-radar-n1/pages/img/marks/google-g-white.svg", "label": "Google" },
+        { "src": "blog/2026-08-14-radar-n1/pages/img/marks/whatsapp-white.svg", "label": "WhatsApp" }
+      ]
+    },
+    {
+      "id": "recorte",
+      "type": "cutout",
+      "hold": 2.2,
+      "align": "left",
+      "image": "data/content-drafts/ig-android-earthquake-alerts-2026-08-11/assets/network-phones-cutout.png",
+      "title": "Veinte charlas *a la vez*",
+      "caption": "Cada una con su contexto y su historial. Nadie pierde el hilo porque nadie tiene que recordarlo."
+    },
+    {
+      "id": "cita",
+      "type": "quote",
+      "hold": 2.4,
+      "background": {
+        "image": "blog/2026-08-14-radar-n1/pages/img/escena-oficio.jpg",
+        "motion": "zoom-in",
+        "dim": 0.92,
+        "blur": 40
+      },
+      "quote": "No compramos un chatbot. Sacamos de encima el trabajo que nadie quería hacer los lunes.",
+      "author": "Dueño de pastelería",
+      "role": "Cliente de Wavys OS"
+    },
+    {
+      "id": "antes-despues",
+      "type": "compare",
+      "hold": 2.6,
+      "title": "Lo que cambia en la práctica",
+      "left": {
+        "label": "Antes",
+        "text": "Cuatro horas por día copiando pedidos del chat a la planilla."
+      },
+      "right": {
+        "label": "Con el agente",
+        "text": "El pedido entra ya cargado y con el stock verificado."
+      },
+      "verdict": "Mismo equipo, otro trabajo."
+    },
+    {
+      "id": "cierre",
+      "type": "outro",
+      "hold": 3.0,
+      "exit": "hold",
+      "title": "Automatizá lo repetido. *Quedate el criterio.*",
+      "cta": "Agendar una llamada",
+      "url": "wavys-technologies.com"
+    }
+  ]
+}

@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>RADAR N°2 · 04a Tema central · apertura</title>
+    <link rel="stylesheet" href="css/radar.css" />
+    <style>
+      /* --------------------------------------------- 04a TEMA · APERTURA (tinta)
+         Voz: apertura de reportaje. El objeto es el sujeto: el teléfono con la
+         luz de recado prendida y la silla desenfocada detrás.
+         Grilla: el tipo abraza al objeto en dos anclas — la cascada arriba,
+         sobre el negro, y la frase de apertura abajo. El objeto queda libre en
+         el medio. No es foto + tipo apilado y no es un póster. */
+
+      .op {
+        background: #050506;
+      }
+
+      .op .ph {
+        inset: 0;
+      }
+
+      .op .ph img {
+        object-position: 56% 52%;
+        transform: scale(1.06);
+        filter: saturate(0.72) contrast(1.18) brightness(0.92);
+      }
+
+      /* Asiento de tipo: negro sólo arriba y en la esquina baja izquierda,
+         que es donde ya estaba oscuro. La escena no se apaga. */
+      .op__seat {
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+        background:
+          linear-gradient(180deg, rgba(3, 3, 5, 0.9) 0%, rgba(3, 3, 5, 0.34) 26%, rgba(3, 3, 5, 0) 40%),
+          radial-gradient(
+            76% 46% at 2% 100%,
+            rgba(3, 3, 5, 0.94) 0%,
+            rgba(3, 3, 5, 0.6) 46%,
+            rgba(3, 3, 5, 0) 78%
+          );
+      }
+
+      /* ----------------------------------------------------------- ancla arriba */
+      .op__casc {
+        position: absolute;
+        top: 132px;
+        left: var(--m);
+        z-index: 20;
+        width: 900px;
+      }
+
+      .op__tab {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: var(--signal);
+        color: #fff;
+        font-family: var(--mast);
+        font-weight: 700;
+        font-size: 10px;
+        letter-spacing: 0.16em;
+        font-variation-settings: "wdth" 80;
+        text-transform: uppercase;
+        padding: 5px 11px 6px;
+        margin-bottom: 26px;
+      }
+
+      .op__l1 {
+        font-family: var(--grot);
+        font-weight: 300;
+        font-size: 76px;
+        line-height: 0.98;
+        letter-spacing: -0.038em;
+        font-variation-settings: "wdth" 86;
+        color: rgba(251, 250, 247, 0.72);
+      }
+
+      /* vacía es la palabra que pesa: serif, no el nombre del producto. */
+      .op__70 {
+        font-family: var(--display);
+        font-weight: 800;
+        font-style: italic;
+        font-size: 244px;
+        line-height: 0.8;
+        letter-spacing: -0.05em;
+        font-variation-settings: "opsz" 96;
+        color: #fdfcf9;
+        margin-top: -6px;
+        margin-left: -0.03em;
+      }
+
+      /* Filete que sale del titular y cruza hacia la derecha. */
+      .op__cut {
+        position: absolute;
+        top: 566px;
+        left: var(--m);
+        width: 792px;
+        height: 4px;
+        background: var(--signal);
+        z-index: 20;
+      }
+
+      .op__cut-lab {
+        position: absolute;
+        top: 582px;
+        left: var(--m);
+        z-index: 20;
+        display: flex;
+        gap: 30px;
+        font-family: var(--mast);
+        font-weight: 500;
+        font-size: 9.5px;
+        letter-spacing: 0.2em;
+        font-variation-settings: "wdth" 84;
+        text-transform: uppercase;
+        color: rgba(251, 250, 247, 0.5);
+      }
+
+      /* ----------------------------------------------------------- ancla abajo */
+      .op__open {
+        position: absolute;
+        left: var(--m);
+        bottom: 250px;
+        width: 596px;
+        z-index: 20;
+      }
+
+      .op__open p {
+        font-family: var(--serif);
+        font-size: 50px;
+        line-height: 1.06;
+        letter-spacing: -0.024em;
+        color: #fdfcf9;
+      }
+
+      .op__open p em {
+        font-style: italic;
+        color: var(--signal);
+      }
+
+      .op__open-meta {
+        margin-top: 24px;
+        padding-top: 14px;
+        border-top: 1px solid rgba(251, 250, 247, 0.22);
+        display: flex;
+        align-items: flex-start;
+        gap: 18px;
+      }
+
+      .op__open-meta span {
+        font-family: var(--mast);
+        font-weight: 700;
+        font-size: 9px;
+        letter-spacing: 0.18em;
+        font-variation-settings: "wdth" 82;
+        text-transform: uppercase;
+        color: var(--signal);
+        white-space: nowrap;
+        padding-top: 2px;
+      }
+
+      .op__open-meta div {
+        font-family: var(--mono);
+        font-size: 10px;
+        line-height: 1.6;
+        color: rgba(251, 250, 247, 0.62);
+        word-break: break-all;
+      }
+
+      /* --------------------------------------------------------- riel vertical
+         La ficha de la nota corre por el canto derecho, en mono, girada.
+         Reemplaza la fecha en outline detrás del tipo. */
+      .op__rail {
+        position: absolute;
+        right: 30px;
+        top: 660px;
+        z-index: 20;
+        transform-origin: 100% 0;
+        transform: rotate(90deg);
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: rgba(251, 250, 247, 0.46);
+        white-space: nowrap;
+      }
+
+      .op__rail i {
+        display: block;
+        width: 44px;
+        height: 1px;
+        background: var(--signal);
+      }
+
+      /* Marca del objeto: la luz de recado, señalada como en una lámina. */
+      .op__point {
+        position: absolute;
+        z-index: 20;
+        left: 812px;
+        top: 1160px;
+      }
+
+      .op__point-dot {
+        width: 22px;
+        height: 22px;
+        border: 1.5px solid var(--signal);
+        border-radius: 50%;
+      }
+
+      .op__point-line {
+        position: absolute;
+        left: -104px;
+        top: 11px;
+        width: 104px;
+        height: 1px;
+        background: var(--signal);
+      }
+
+      .op__point-txt {
+        position: absolute;
+        left: -350px;
+        top: -34px;
+        width: 240px;
+        text-align: right;
+        font-family: var(--mono);
+        font-size: 10px;
+        line-height: 1.6;
+        color: rgba(251, 250, 247, 0.82);
+      }
+
+      .op__point-txt b {
+        color: var(--signal);
+        display: block;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        font-size: 9px;
+        margin-bottom: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page op grain">
+      <!-- Escena: teléfono de escritorio con la luz de recado prendida, la silla
+           vacía desenfocada detrás. gemini-3.1-flash-lite-image · sin caras,
+           sin cyborg, sin pantalla legible. -->
+      <div class="ph"><img src="img/escena-telefono.jpg" alt="" /></div>
+      <div class="op__seat"></div>
+
+      <div class="spine">
+        <span class="spine__tab">Radar N°2</span>
+        <span class="spine__section">Tema central · la recepción</span>
+        <span class="spine__date">14 — 21 AGO 2026</span>
+      </div>
+
+      <div class="op__casc">
+        <span class="op__tab">Tema central · 04</span>
+        <div class="op__l1">la silla</div>
+        <div class="op__70">vacía</div>
+      </div>
+
+      <div class="op__cut"></div>
+      <div class="op__cut-lab">
+        <span>Recepción</span><span>Cobro</span><span>Agenda</span><span>20 ago 2026</span>
+      </div>
+
+      <div class="op__point">
+        <div class="op__point-dot"></div>
+        <div class="op__point-line"></div>
+        <div class="op__point-txt">
+          <b>Luz de recado</b>
+          Prendida desde ayer. Nadie la apagó porque nadie devolvió la llamada.
+        </div>
+      </div>
+
+      <div class="op__open">
+        <p>El teléfono queda en el buzón. <em>La silla se queda vacía.</em></p>
+        <div class="op__open-meta">
+          <span>La nota</span>
+          <div>
+            https://www.prnewswire.com/news-releases/raintree-extends-its-invisible-emr-vision-with-agentic-ai-across-the-front-desk-and-revenue-cycle-302854802.html
+          </div>
+        </div>
+      </div>
+
+      <div class="op__rail">
+        <i></i>
+        <span>Apertura del tema · Radar N°2 · Recepción y cobro</span>
+      </div>
+
+      <div class="folio">
+        <span class="folio__meta">Radar N°2 · Tema central</span>
+        <span class="folio__bar"
+          ><i></i><i></i><i></i><i class="on"></i><i></i><i></i><i></i
+        ></span>
+        <span class="folio__num">04</span>
+      </div>
+    </div>
+  </body>
+</html>

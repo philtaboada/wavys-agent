@@ -2,7 +2,7 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <title>RADAR N°1 — 08 Tablero de IA</title>
+    <title>RADAR N°1 — 08 Ranking</title>
     <link rel="stylesheet" href="css/radar.css" />
     <style>
       /* ============================================================
@@ -30,16 +30,24 @@
         align-items: flex-end;
         justify-content: space-between;
         border-bottom: 2px solid var(--white);
-        padding-bottom: 9px;
+        padding-bottom: 16px;
       }
 
       .section h2 {
         font-weight: 800;
-        font-stretch: 72%;
-        font-size: 84px;
-        line-height: 0.82;
+        font-stretch: 80%;
+        font-size: 64px;
+        line-height: 0.94;
         letter-spacing: 0.004em;
-        text-transform: uppercase;
+        text-transform: lowercase;
+        padding-bottom: 8px;
+      }
+
+      .section h2 .rank-word {
+        font-family: var(--mono);
+        font-weight: 500;
+        font-stretch: 100%;
+        letter-spacing: -0.04em;
       }
 
       .section h2 small {
@@ -51,6 +59,7 @@
         letter-spacing: 0.24em;
         color: var(--teal);
         margin-bottom: 10px;
+        text-transform: uppercase;
       }
 
       .section__meta {
@@ -69,13 +78,14 @@
         position: absolute;
         left: var(--margin);
         right: var(--margin);
-        top: 240px;
+        top: 298px;
         z-index: 14;
         border-top: 3px solid var(--teal);
-        padding-top: 14px;
+        padding-top: 16px;
         display: grid;
-        grid-template-columns: 176px 1fr;
-        gap: 30px;
+        grid-template-columns: 220px 1fr;
+        gap: 36px;
+        align-items: start;
       }
 
       .wavys__label {
@@ -114,7 +124,7 @@
       .index {
         position: absolute;
         left: var(--margin);
-        top: 400px;
+        top: 468px;
         width: 526px;
         z-index: 14;
       }
@@ -151,7 +161,7 @@
         grid-template-columns: 30px 1fr 62px;
         align-items: center;
         gap: 12px;
-        padding: 10px 0 11px;
+        padding: 8px 0 8px;
         border-bottom: 1px solid var(--ink-10);
       }
 
@@ -248,7 +258,7 @@
       .chart--cost {
         position: absolute;
         left: 640px;
-        top: 440px;
+        top: 508px;
         width: 461px;
         height: 396px;
       }
@@ -263,7 +273,7 @@
       .chart--board {
         position: absolute;
         left: var(--margin);
-        top: 936px;
+        top: 968px;
         width: 998px;
         height: 248px;
       }
@@ -278,9 +288,9 @@
       .chart--scatter {
         position: absolute;
         left: var(--margin);
-        top: 1240px;
+        top: 1268px;
         width: 1092px;
-        height: 414px;
+        height: 386px;
       }
 
       .chart--scatter img {
@@ -314,17 +324,17 @@
 
       .chart-label--board {
         left: var(--margin);
-        top: 910px;
+        top: 944px;
       }
 
       .chart-label--scatter {
         left: var(--margin);
-        top: 1214px;
+        top: 1242px;
       }
 
       .chart-label--cost {
         left: 640px;
-        top: 404px;
+        top: 472px;
       }
     </style>
   </head>
@@ -332,23 +342,23 @@
     <article class="page grain">
       <header class="head">
         <span class="head__mast">Radar</span>
-        <span class="head__section">Tablero de IA · índice y gráficos</span>
+        <span class="head__section">Ranking · índice y gráficos</span>
       </header>
 
       <div class="section">
-        <h2><small>El tablero, al final</small>Tablero de IA</h2>
+        <h2><small>Artificial Analysis</small>Qué modelo de IA<br />va <span class="rank-word">primero</span></h2>
         <p class="section__meta">
-          Artificial Analysis Intelligence Index<br />
-          Captura del 14 ago 2026 · artificialanalysis.ai
+          Ranking público · 14 de agosto de 2026<br />
+          lista de qué programa de IA va primero
         </p>
       </div>
 
       <div class="wavys">
         <p class="wavys__label">Lo que leo yo<span>Línea Wavys · no es el benchmark</span></p>
         <p class="wavys__text">
-          Arriba siguen los de siempre. Grok se sentó en esa mesa en tres días. Gemini 3.7 Flash no es el más
-          inteligente: <em>es barato y rápido</em>. El tablero no te llena la silla. El cambio útil de la semana
-          es el chat que deja de ser gratis.
+          Arriba siguen los de siempre. Grok 4.6 entró entre los primeros en tres días. Gemini 3.7 Flash no es
+          el más inteligente: <em>es barato y rápido</em>. No le invento puesto. El ranking no te arma el
+          lunes. El cambio útil de la semana no es un puesto. Es el trabajo que ya está hecho el lunes.
         </p>
       </div>
 
@@ -444,7 +454,7 @@
 
       <footer class="folio">
         <span class="folio__ticks"><i></i><i></i><i></i><i class="on"></i></span>
-        <span>Radar N°1 · Tablero de IA</span>
+        <span>Radar N°1 · Ranking</span>
         <span class="folio__num">08</span>
       </footer>
     </article>

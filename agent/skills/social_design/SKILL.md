@@ -8,6 +8,11 @@ Parte del pipeline **`content_production`** — fases 5–6 para piezas **estát
 
 Usar cuando la fase 3 elija post/carrusel cuadrado (no video).
 
+> **Antes de abrir Figma:** si la pieza es estándar y viene de un brief de los
+> bots de Grok, usar `agent/skills/design_kit/SKILL.md` — render determinista,
+> sin composición manual. Figma queda para piezas hero, campañas y layouts
+> nuevos.
+
 ## Antes de diseñar
 
 1. `agent/context/wavys-visual-brand-guide.md` — invariantes, familia C, prompts Gemini

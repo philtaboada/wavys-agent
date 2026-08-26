@@ -303,3 +303,44 @@ Prod redeploy: https://lumen-vet.vercel.app
 - **Masonry discovery** + carousel horizontal
 - Verde bosque editorial + Lora/Nunito Sans
 - Doc reescrito: `design-patterns-textiles-suave-hogar.md`
+
+---
+
+## 2026-08-12 — software.wavys-technologies.com (Phil)
+
+### Qué pidió
+- Sitio potente, no plantilla
+- **No publicar precios**
+- Imágenes generadas + recortadas (cutout), no assets tontos
+- Animaciones reales
+- Skills de UI/motion (ui-ux-pro-max, taste, GSAP, motion-design, Gemini + cutout)
+
+### Qué no funcionó (pase Data Light)
+| Issue | Detalle |
+|-------|---------|
+| Clone de referencia SaaS | Cards lima/cyan, números outline, bento genérico |
+| Precios en home | Pisos S/3.500 / S/8.000 — Phil lo rechazó |
+| Imágenes flojas | Screenshots en marco + iconos SVG, sin cutout |
+| Motion plano | Reveals genéricos, sin cutouts flotando ni WaveField |
+
+### Corrección
+- Home estudio: WaveField Lima + cutout glass-wave, trabajo asimétrico primero, servicios en filas editoriales con cutouts
+- GSAP timeline + ScrollTrigger clip + float + magnetic CTA
+- Inversión sin cifras públicas
+- Logos plata, una sola fila
+
+### 2026-08-12 noche — sección Equipo (home)
+Phil: **no le gusta para nada**. Era un bloque de copy + pills de stack (Next.js, NestJS…) — plantilla “about”.
+Corrección: titular de interlocutor, copy de resultado (sin nombres), cutout escritorio de vidrio, **sin chips de tecnologías**. Stack queda en `/equipo`.
+
+### 2026-08-12 noche — hero tornado
+Phil: el hero **se ve recontra feo**. La hélice/tornado SVG encima de la ola (wireframe tipo ADN) no era llamativa.
+Corrección: quitar `helixFromMark`. Hero = cinta de vidrio en S (`hero-ribbon-cutout.png`). El hilo sale de la base de la escultura y sigue al scroll; no se dibuja encima.
+
+### 2026-08-12 noche — reporte UX/UI post-update
+Phil pidió aplicar `Wavys-Reporte-UX-UI-2026` (12 ago, post-rediseño).
+
+**Hecho (sin contradecir retro previa):** sitemap + robots, `og:image` 1200×630, FAQ en `<details>` + FAQPage JSON-LD, teaser de inversión en home **sin cifras**, footer `/proceso` + `/equipo`, logo a11y (alt vacío junto al wordmark), H1 visible al primer paint, resultado verificable en fichas de casos, `data-cal-click` en CTAs Cal.
+
+**No hecho (Phil ya lo rechazó):** pisos S/3.500 / S/8.000; volver a “Phil + 3 developers” con foto; WhatsApp (no hay número confirmado). Hero de cinta de vidrio se mantiene (el reporte hablaba del `hero-stage` de flujo IA, ya retirado).
+

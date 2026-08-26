@@ -2,235 +2,191 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <title>RADAR N°1 — 04 Tema central · tres reglas</title>
+    <title>RADAR N°1 — 04 Tema central · cierre</title>
     <link rel="stylesheet" href="css/radar.css" />
+    <link rel="stylesheet" href="css/tema-grok.css" />
     <style>
-      /* ============================================================
-         04e · TEMA CENTRAL, CIERRE — personalidad: TRES REGLAS.
-         Página sin foto a propósito: viene después de dos páginas con
-         escena. Numerales enormes colgados a la izquierda, la regla
-         en grotesca y el matiz en serif. Cierra con la firma.
-         ============================================================ */
-
       .page {
         background:
           radial-gradient(80% 50% at 14% 96%, #0e100f 0%, rgba(14, 16, 15, 0) 60%),
           var(--ink);
       }
 
-      .section {
+      .band {
         position: absolute;
-        left: var(--margin);
-        right: var(--margin);
-        top: 124px;
-        z-index: 20;
-        display: flex;
-        align-items: flex-end;
-        justify-content: space-between;
-        border-bottom: 2px solid var(--white);
-        padding-bottom: 10px;
+        left: 0;
+        right: 0;
+        top: 112px;
+        height: 420px;
+        overflow: hidden;
+        z-index: 2;
       }
 
-      .section h2 {
-        font-weight: 800;
-        font-stretch: 74%;
-        font-size: 92px;
-        line-height: 0.82;
-        text-transform: uppercase;
-        letter-spacing: 0.004em;
-      }
-
-      .section h2 small {
+      .band img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: 50% 55%;
         display: block;
-        font-family: var(--mono);
-        font-weight: 400;
-        font-stretch: 100%;
-        font-size: 11px;
-        letter-spacing: 0.26em;
-        color: var(--teal);
-        margin-bottom: 12px;
+        filter: saturate(1.02) contrast(1.14) brightness(0.8) sepia(0.14);
       }
 
-      .section__meta {
-        width: 360px;
+      .band::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(180deg, rgba(7, 6, 4, 0.45) 0%, rgba(7, 6, 4, 0.08) 36%, rgba(7, 6, 4, 0.92) 100%);
+      }
+
+      .band__cap {
+        position: absolute;
+        right: var(--margin);
+        bottom: 22px;
+        z-index: 14;
+        width: 380px;
         text-align: right;
-        padding-bottom: 8px;
-        font-family: var(--read);
-        font-size: 17px;
-        line-height: 1.44;
-        color: var(--ink-70);
-      }
-
-      .rules {
-        position: absolute;
-        left: var(--margin);
-        right: var(--margin);
-        top: 320px;
-        z-index: 12;
-      }
-
-      .rule-row {
-        display: grid;
-        grid-template-columns: 262px 1fr;
-        gap: 44px;
-        padding: 74px 0 80px;
-        border-top: 1px solid var(--ink-18);
-      }
-
-      .rule-row:first-child {
-        border-top: 3px solid var(--teal);
-      }
-
-      .rule-row__num {
-        font-family: var(--display);
-        font-variation-settings: "SOFT" 22, "WONK" 1, "opsz" 144;
-        font-weight: 900;
-        font-size: 224px;
-        line-height: 0.74;
-        letter-spacing: -0.05em;
-        color: var(--white);
-      }
-
-      .rule-row:nth-child(2) .rule-row__num {
-        color: var(--teal);
-      }
-
-      .rule-row__num small {
-        display: block;
         font-family: var(--mono);
-        font-weight: 400;
         font-size: 10.5px;
-        letter-spacing: 0.24em;
+        line-height: 1.7;
+        letter-spacing: 0.05em;
         text-transform: uppercase;
-        color: var(--ink-45);
-        margin-top: 18px;
-      }
-
-      .rule-row__title {
-        font-family: var(--sans);
-        font-weight: 800;
-        font-stretch: 84%;
-        font-size: 62px;
-        line-height: 1.02;
-        letter-spacing: -0.02em;
-        color: var(--white);
-      }
-
-      .rule-row__title em {
-        font-style: normal;
-        color: var(--teal);
-      }
-
-      .rule-row__text {
-        margin-top: 22px;
-        max-width: 760px;
-        font-family: var(--read);
-        font-size: 20px;
-        line-height: 1.6;
-        color: rgba(253, 253, 253, 0.85);
-      }
-
-      .rule-row__text b {
-        font-weight: 600;
-        color: var(--white);
+        color: rgba(253, 253, 253, 0.55);
       }
 
       .close {
         position: absolute;
         left: var(--margin);
         right: var(--margin);
-        bottom: 128px;
-        z-index: 14;
-        border-top: 3px solid var(--teal);
-        padding-top: 20px;
+        top: 568px;
+        z-index: 12;
+      }
+
+      .close__kicker {
         display: flex;
-        align-items: flex-end;
-        justify-content: space-between;
+        align-items: center;
+        gap: 14px;
+        font-family: var(--sans);
+        font-weight: 800;
+        font-size: 11px;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+        color: var(--teal);
+      }
+
+      .close__kicker i {
+        display: block;
+        width: 46px;
+        height: 3px;
+        background: var(--teal);
+      }
+
+      .close h2 {
+        margin-top: 16px;
+        font-family: var(--read);
+        font-weight: 400;
+        font-size: 36px;
+        line-height: 1.22;
+        letter-spacing: -0.02em;
+        color: var(--white);
+        max-width: 980px;
+      }
+
+      .close h2 em {
+        font-style: italic;
+        font-family: var(--italic);
+        font-weight: 500;
+      }
+
+      .cols {
+        margin-top: 28px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
         gap: 40px;
       }
 
-      .close p {
-        max-width: 760px;
-        font-family: var(--sans);
-        font-weight: 600;
-        font-stretch: 92%;
-        font-size: 26px;
-        line-height: 1.26;
-        letter-spacing: -0.012em;
-        color: var(--white);
+      .cols p {
+        font-family: var(--read);
+        font-size: 19px;
+        line-height: 1.5;
+        color: rgba(253, 253, 253, 0.88);
+        margin-bottom: 14px;
       }
 
-      .close span {
-        flex: none;
+      .sign {
+        position: absolute;
+        left: var(--margin);
+        right: var(--margin);
+        bottom: 128px;
+        z-index: 14;
+        border-top: 3px solid var(--teal);
+        padding-top: 18px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+      }
+
+      .sign p {
+        font-family: var(--sans);
+        font-weight: 600;
+        font-size: 20px;
+        color: rgba(253, 253, 253, 0.88);
+        max-width: 720px;
+      }
+
+      .sign span {
         font-family: var(--italic);
         font-style: italic;
         font-weight: 500;
-        font-size: 46px;
-        line-height: 1;
-        color: rgba(253, 253, 253, 0.9);
+        font-size: 42px;
+        color: var(--white);
       }
     </style>
   </head>
   <body>
-    <article class="page grain">
+    <article class="page page--grok grain">
       <header class="head">
         <span class="head__mast">Radar</span>
-        <span class="head__section">Tema central · cierre</span>
+        <span class="head__section">Tema central · Grok Bot · cierre</span>
       </header>
 
-      <div class="section">
-        <h2><small>Antes del 1 de octubre</small>Tres reglas</h2>
-        <p class="section__meta">
-          No es una lista de buenas intenciones. Es lo que yo dejaría escrito en la operación antes de que el
-          chat empiece a costar.
-        </p>
-      </div>
+      <figure class="band">
+        <img src="img/escena-pruebas.jpg" alt="Pruebas de revista marcadas a lápiz rojo sobre el escritorio" />
+        <p class="band__cap">El recorte ya está. El domingo se lee, no se arma.</p>
+      </figure>
 
-      <div class="rules">
-        <div class="rule-row">
-          <p class="rule-row__num">01<small>Confirmar</small></p>
+      <section class="close">
+        <p class="close__kicker"><i></i>Grok Bot · cierre del tema</p>
+        <h2>A veces falla. <em>Lo sigo usando.</em></h2>
+        <div class="cols">
           <div>
-            <p class="rule-row__title">No “ya te confirmo” <em>si no hay nada que confirmar</em>.</p>
-            <p class="rule-row__text">
-              Si no está en la ficha, no lo mandes. <b>Escala.</b> Un mensaje que promete y no cumple te cuesta
-              dos veces: el mensaje y la llamada del cliente preguntando lo mismo.
+            <p>
+              Creo varios. Se hablan. Yo doy el ok. El resto de este número es lo que vi esta semana, con ese
+              equipo ya trabajando.
+            </p>
+            <p>
+              Si tu negocio todavía vive en el chat y en una hoja, el problema no es “falta IA”. Es que el
+              trabajo vive en tu cabeza y se apaga cuando apagas el teléfono.
             </p>
           </div>
-        </div>
-
-        <div class="rule-row">
-          <p class="rule-row__num">02<small>Contestar</small></p>
           <div>
-            <p class="rule-row__title">Lo que se puede decir solo, <em>en una línea corta</em>.</p>
-            <p class="rule-row__text">
-              Horario, estado del pedido, “recibí tu mensaje”. Eso lo dice el sistema y se acaba ahí. Sin
-              saludo de tres párrafos, sin dos mensajes para lo que cabe en uno.
+            <p>
+              Esto lo mueve a un equipo que se habla. Tú das el ok. Desde el escritorio o desde el teléfono. La
+              misma conversación.
             </p>
+            <p>Así lo uso. Así te lo dejo.</p>
           </div>
         </div>
+      </section>
 
-        <div class="rule-row">
-          <p class="rule-row__num">03<small>Cerrar</small></p>
-          <div>
-            <p class="rule-row__title">Lo que mueve plata o una cita, <em>lo ve una persona</em>.</p>
-            <p class="rule-row__text">
-              El sistema prepara: junta los datos, arma la ficha, deja el estado listo. <b>No cierra solo.</b>
-              Quien cobra o agenda es alguien de tu equipo.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="close">
-        <p>
-          Si esto queda escrito antes de octubre, el 1 de octubre no te cambia el mes: te cambia una costumbre.
-        </p>
+      <div class="sign">
+        <p>Sigue la semana: las notas, el ranking del 14, y cómo se ve el lunes.</p>
         <span>— Phil</span>
       </div>
 
       <footer class="folio">
         <span class="folio__ticks"><i></i><i></i><i class="on"></i><i></i></span>
-        <span>Radar N°1 · Tema central</span>
+        <span>Radar N°1 · Grok Bot</span>
         <span class="folio__num">04</span>
       </footer>
     </article>

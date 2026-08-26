@@ -1,0 +1,15 @@
+{
+  "slug": "ejemplo-asset-flotante",
+  "channel": "instagram",
+  "family": "agente",
+  "eyebrow": "Integraciones",
+  "hook": { "line1": "Tu CRM y WhatsApp", "line2": "por fin se hablan." },
+  "body": "Conectamos tus herramientas en una semana. Sin migrar nada.",
+  "proof": ["Sin cambiar tu stack actual", "Listo en 7 días"],
+  "cta": { "label": "Ver cómo funciona", "style": "button" },
+  "asset": {
+    "path": "data/generated-images/hero-wave-mark-glow-cutout.png",
+    "placement": "right"
+  },
+  "logo": true
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "ejemplo-cartel",
+  "layout": "cartel",
+  "format": "a4",
+  "kicker": "Agentes de IA",
+  "title": "Tu WhatsApp responde",
+  "titleAccent": "aunque cierres",
+  "dek": "Un agente atiende, califica y agenda mientras tú atiendes el local. Sin contratar a nadie más.",
+  "stat": { "value": "5 min", "label": "y el cliente ya le escribió a otro" },
+  "cta": {
+    "label": "Agenda una demo",
+    "url": "https://wavys-technologies.com",
+    "note": "Veinte minutos y te mostramos tu propio flujo funcionando."
+  },
+  "contact": ["+51 999 888 777", "wavys-technologies.com"],
+  "image": "blog/2026-08-28-radar-n3/img/escena-tapa.jpg"
+}

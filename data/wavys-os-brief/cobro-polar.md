@@ -35,6 +35,25 @@ Precios en Polar pueden ir en **USD** (común en MoR) con equivalente S/ en la w
 
 ---
 
+## 2.1 Product IDs — sandbox (2026-07-23)
+
+Planes creados en Polar **sandbox**. Mapear en `wavys-os` vía `POLAR_PRODUCT_*` (ver `.env.example` + `packages/shared/src/polar-catalog.ts`).
+
+| Plan | Precio S/ | Env | Product ID (sandbox) |
+|------|-----------|-----|----------------------|
+| **Presence** | 169 | `POLAR_PRODUCT_PRESENCE` | `37640cf7-3e55-4215-9bd6-a8e5c4582841` |
+| **Operate** | 279 | `POLAR_PRODUCT_OPERATE` | `e37bdc5f-de15-4f53-ad39-9ee47a12f589` |
+| **Scale** | 449 | `POLAR_PRODUCT_SCALE` | `9ff5cc6d-4c07-43ac-b834-ad91232f6d09` |
+
+**Moneda en Polar (sandbox, verificado 2026-07-23):** precios en **PEN** (S/169 · S/279 · S/449), no USD.  
+**Auth:** `POLAR_ACCESS_TOKEN` = OAT sandbox en `wavys-os/.env` (no commitear). Smoke: `GET /v1/products` + checkout Presence OK.  
+**Webhook:** `POLAR_WEBHOOK_SECRET` configurado en `wavys-os/.env` (2026-07-23). Endpoint local vía túnel → `POST /webhooks/polar`.  
+**E2E sandbox FULL (2026-07-23):** pago real tarjeta `4242…` → Polar webhooks `subscription.active` + `order.paid` (HTTP 202 vía cloudflared) → DB `plan=presence` `status=active` **150 créditos** + `polarSubscriptionId`. Script: `scripts/e2e-polar-fullpay.ts` + Playwright fill `input[name=number|expiry|cvc]` en iframe Stripe.  
+**Pendiente sandbox:** add-ons/top-ups · checkout UI en app (hoy stub) · túnel estable en día a día (`cloudflared` / `polar listen`).  
+**Prod:** IDs distintos; no reutilizar sandbox. Bloqueado hasta OK legal.
+
+---
+
 ## 3. Flujo
 
 ```text

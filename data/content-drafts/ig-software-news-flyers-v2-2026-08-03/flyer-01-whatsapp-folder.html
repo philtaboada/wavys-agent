@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Flyer 01 — WhatsApp folder</title>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,500;0,600;0,700;0,800;1,600&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { width: 1080px; height: 1350px; overflow: hidden; font-family: Rubik, system-ui, sans-serif; background: #070604; color: #FDFDFD; }
+    .canvas {
+      width: 1080px; height: 1350px; position: relative;
+      background:
+        radial-gradient(ellipse 90% 50% at 100% 0%, rgba(90, 210, 208, 0.25) 0%, transparent 50%),
+        radial-gradient(ellipse 80% 55% at 0% 100%, rgba(1, 253, 145, 0.22) 0%, transparent 55%),
+        #070604;
+      padding: 64px;
+      display: flex; flex-direction: column;
+    }
+    .top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; }
+    .pill {
+      background: #01FD91; color: #000; font-size: 20px; font-weight: 800;
+      letter-spacing: 0.06em; text-transform: uppercase; padding: 12px 22px; border-radius: 999px;
+    }
+    .src { font-size: 22px; font-weight: 600; color: #5AD2D0; }
+    .fake-chat {
+      background: rgba(0,0,0,0.4); border: 1px solid rgba(253,253,253,0.1);
+      border-radius: 32px; padding: 28px; margin-bottom: 40px;
+    }
+    .row {
+      display: flex; align-items: center; gap: 18px; padding: 18px 16px;
+      border-radius: 18px; margin-bottom: 10px;
+    }
+    .row.dim { opacity: 0.35; }
+    .row.alert {
+      background: rgba(1, 253, 145, 0.12);
+      border: 1px solid rgba(1, 253, 145, 0.45);
+    }
+    .avatar {
+      width: 56px; height: 56px; border-radius: 50%;
+      background: linear-gradient(135deg, #5AD2D0, #01FD91); flex-shrink: 0;
+    }
+    .avatar.gray { background: #2a2a2a; }
+    .row p { font-size: 26px; font-weight: 600; letter-spacing: -0.02em; }
+    .row span { display: block; font-size: 20px; font-weight: 500; color: rgba(253,253,253,0.5); margin-top: 4px; }
+    h1 {
+      font-size: 64px; font-weight: 800; letter-spacing: -0.07em; line-height: 0.98;
+      margin: 12px 0 28px;
+    }
+    h1 .accent { color: #01FD91; }
+    .body {
+      font-size: 30px; font-weight: 500; line-height: 1.35; letter-spacing: -0.02em;
+      color: rgba(253,253,253,0.88); max-width: 900px;
+    }
+    .footer {
+      margin-top: auto; display: flex; align-items: center; justify-content: space-between;
+      padding-top: 36px;
+    }
+    .logo { height: 44px; }
+    .note { font-size: 22px; font-weight: 600; color: rgba(253,253,253,0.5); text-align: right; }
+  </style>
+</head>
+<body>
+  <div class="canvas">
+    <div class="top">
+      <div class="pill">Esta semana</div>
+      <div class="src">TechCrunch · 31 jul</div>
+    </div>
+    <div class="fake-chat">
+      <div class="row dim"><div class="avatar gray"></div><p>Mamá<span>Hola, ¿llegaste?</span></p></div>
+      <div class="row dim"><div class="avatar gray"></div><p>Grupo fútbol<span>Partido sábado…</span></p></div>
+      <div class="row alert"><div class="avatar"></div><p>Tu negocio<span>→ se va a “Ofertas y actualizaciones”</span></p></div>
+    </div>
+    <h1>WhatsApp quiere <span class="accent">esconder</span> tus mensajes.</h1>
+    <p class="body">Prueban una carpeta “Offers & Updates”: los chats de empresas grandes salen del inbox principal en horas. Hoy son bancos y aerolíneas… mañana puede ser cualquiera.</p>
+    <div class="footer">
+      <img class="logo" src="../../brand-assets/logos/logo-wavys-technologies.png" alt="Wavys" />
+      <div class="note">Si no aportas valor,<br />te archivan.</div>
+    </div>
+  </div>
+</body>
+</html>

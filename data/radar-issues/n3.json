@@ -1,0 +1,221 @@
+{
+  "number": 3,
+  "dateRange": "25 ago–1 sep 2026",
+  "slug": "radar-n3",
+  "pages": [
+    {
+      "type": "tapa",
+      "overline": "Política en el mostrador",
+      "title": "El diésel llega",
+      "dek": "El estrecho se cierra y el galón en Lima ya está al doble. El lunes se paga en el flete.",
+      "image": "blog/2026-08-28-radar-n3/img/escena-tapa.jpg",
+      "teasers": [
+        { "label": "Hormuz", "text": "El estrecho ya es el flete" },
+        { "label": "Lima", "text": "Diésel al doble en la moción" },
+        { "label": "Aranceles", "text": "China y Canadá mueven precio" }
+      ]
+    },
+    {
+      "type": "carta",
+      "steps": ["Esta semana", "el galón", "cerca"],
+      "dek": "El conflicto queda lejos en el mapa y cerca en la bomba. El lunes se paga en el flete.",
+      "body": [
+        "Esta semana no miré otro modelo de laboratorio. Miré el precio del galón y el chat del transportista. El conflicto queda lejos en el mapa y cerca en la bomba. Ormuz, las sanciones del Tesoro y la moción en Lima no son tres noticias: son el mismo flete del martes.",
+        "El 24 de agosto el Tesoro de Estados Unidos anunció sanciones a unas 60 personas, entidades y buques iraníes. El mismo día, en el Congreso peruano, Juntos por el Perú pidió interpelar al ministro de Energía y Minas, Guillermo Huamaní, con 57 preguntas. La moción trae sus cifras: el diésel B5 UV de Petroperú pasó de 12,14 soles el 24 de febrero a 23,09 el 11 de agosto. Eso es más 90 por ciento, de ellos, no mío.",
+        "Si reparte, cotiza o atiende citas, el lunes no espera a que el crudo baje un día. El cuello no es el barril: es el combustible refinado. El diésel del Golfo por Hormuz va 80 por ciento abajo interanual, según Kpler vía MarketBrief. El camión, la moto y el menú ya lo están cobrando.",
+        "Por eso este número no es de palacio ni de otro chat de WhatsApp. Es de mostrador. La política que no lees es la que te cambia el precio antes de que abras la persiana el lunes."
+      ],
+      "image": "blog/2026-08-28-radar-n3/img/escena-carta.jpg",
+      "caption": "Escritorio de noche. El diario abierto y el chat del que no sale si no carga."
+    },
+    {
+      "type": "notas",
+      "section": "Señal",
+      "standfirst": "Dos señales de la semana: el estrecho que no pasa diésel y el galón que ya dobló en Lima.",
+      "notes": [
+        {
+          "kicker": "Al-Monitor / Tesoro EE.UU.",
+          "title": "El estrecho ya es el camión",
+          "body": [
+            "El 24 de agosto el Tesoro de Estados Unidos, con Scott Bessent, anunció sanciones a unas 60 personas, entidades y buques iraníes. No llegó a las opciones más duras ni nombró bancos chinos. Habló de un D-Day económico: sacar del sistema dólar a quien lave para Irán. Al día siguiente Irán lo llamó gross lawlessness; el ministro de Economía, Ali Madanizadeh, dijo que China y Rusia no las aceptaron.",
+            "Eso no es un mapa. El diésel del Golfo que sale por Hormuz va 80 por ciento abajo interanual, según Kpler vía MarketBrief. El tráfico AIS está 90 por ciento bajo el nivel de antes del conflicto, dice la fuente marítima británica. Un petrolero fue golpeado el martes por un proyectil no identificado a unas 9 millas náuticas al noreste de Ash Shishah, en Omán, entrada de Hormuz: lo reportó UKMTO."
+          ],
+          "takeaway": "Hormuz no es Oriente Medio. Es el flete que sales a cubrir el martes.",
+          "source": {
+            "outlet": "Al-Monitor",
+            "date": "25 ago 2026",
+            "url": "https://www.al-monitor.com/originals/2026/08/iran-vows-retaliate-after-us-widens-sanctions"
+          }
+        },
+        {
+          "kicker": "La República / Congreso",
+          "title": "El galón de la moción",
+          "body": [
+            "Juntos por el Perú presentó el 24 de agosto una moción para interpelar al ministro de Energía y Minas, Guillermo Huamaní. Son 57 preguntas. La moción trae las cifras: el diésel B5 UV de Petroperú pasó de 12,14 soles el 24 de febrero a 23,09 el 11 de agosto: más 90,2 por ciento. El de Repsol llegó a 24,66, más 103,1 por ciento. El gasohol regular, en el mismo texto, fue de 12,11 a 18,52.",
+            "Hubo paros y bloqueos en agosto en Ucayali, Loreto, Arequipa y Tacna, y gremios de Puno. El 14 de agosto se anunció un subsidio temporal de 4 soles por galón y una compensación a transportistas. El lunes se paga igual, con o sin interpelación."
+          ],
+          "takeaway": "El 90 por ciento extra es de la moción. El camión lo cobra igual.",
+          "source": {
+            "outlet": "La República",
+            "date": "24 ago 2026",
+            "url": "https://larepublica.pe/politica/2026/08/24/congreso-plantea-interpelar-a-ministro-de-energia-y-minas-por-alza-de-combustibles-y-protestas-de-transportistas-hnews-2038080"
+          }
+        }
+      ],
+      "image": "blog/2026-08-28-radar-n3/img/escena-senal.jpg"
+    },
+    {
+      "type": "tema-apertura",
+      "stamp": "24 ago",
+      "stampNote": "El día que el estrecho tocó la bomba",
+      "kicker": "Tema central · Hormuz",
+      "titleTop": "El estrecho",
+      "titleMain": "cierra",
+      "dek": "El 24 de agosto el Tesoro sancionó a Irán y el Congreso peruano pidió interpelar por el diésel. El mismo día, dos capitales, un solo precio: el del galón que mueve el camión.",
+      "hint": "El crudo puede caer un día. El cuello es el combustible refinado.",
+      "image": "blog/2026-08-28-radar-n3/img/escena-apertura.jpg"
+    },
+    {
+      "type": "tema-texto",
+      "kicker": "Tema central · el relato",
+      "title": "Lo que no pasa el estrecho",
+      "columns": [
+        "Antes del conflicto, el Estrecho de Ormuz movía cerca de un quinto del petróleo y el GNL del mundo. Hoy está casi cerrado. Irán y Omán hablaron el martes de un corredor de navegación temporal y de limpiar minas. Pakistán media. Nada de eso llena el tanque el lunes. El Brent del 24 cerró en 92,71 dólares, según la EIA; Invezz lo dejó cerca de 93. El crudo puede caer un día. El cuello no es el barril: es el combustible que ya salió de la refinería.",
+        "MarketBrief, con datos de Kpler, dice que los flujos de diésel del Golfo por Hormuz van 80 por ciento abajo interanual. Economic Times lo dice sin vueltas: el debate del volumen de crudo tapa la escasez real, la de los combustibles refinados. En Lima eso ya no es un gráfico. La moción de Juntos por el Perú pone el diésel B5 UV de Petroperú en 23,09 soles el 11 de agosto, contra 12,14 el 24 de febrero. Repsol, 24,66. Es más 90 y más 103. Cifras de ellos.",
+        "Ese galón se traduce. El que reparte cobra el flete o se come el margen. El que cotiza con el precio de ayer firma pérdida. El que atiende un local de barrio ve al cliente quedarse en casa si el pasaje sube. El menú también: gas, delivery, mercadería que llegó más cara. El 14 de agosto se anunció un subsidio temporal de 4 soles por galón y una compensación a transportistas. Un parche no es una lista de precios nueva. Recotiza."
+      ],
+      "pull": "Petroperú: de 12,14 a 23,09 soles. Cifra de la moción, no mía.",
+      "image": "blog/2026-08-28-radar-n3/img/escena-relato.jpg"
+    },
+    {
+      "type": "tema-casos",
+      "kicker": "Los oficios de siempre",
+      "title": "Cuatro oficios",
+      "standfirst": "Una sola pregunta: qué le pasa el lunes al que reparte, cotiza o atiende cuando el galón ya dobló.",
+      "cases": [
+        {
+          "label": "Reparto · el flete",
+          "title": "El margen se va en diésel",
+          "body": "La moto y el camión no esperan a Washington ni al Congreso. Si el galón casi dobló, el viaje que ayer daba para dos encargos hoy da para uno. O subes el flete, o lo escondes en el producto y te comes el margen. El cliente lo nota igual. El que no recotiza sale a perder desde el primer pedido del martes."
+        },
+        {
+          "label": "Citas · el local",
+          "title": "Si el pasaje sube, no viene",
+          "body": "El consultorio, el taller y la tienda de barrio no venden petróleo. Venden que alguien cruce la ciudad. Si el pasaje y el taxi pesan más, la cita se cancela o se queda para otro mes. No es que el servicio haya cambiado. Es que llegar cuesta. El hueco de la tarde no se llena con un aviso en el grupo."
+        },
+        {
+          "label": "Cotiza · el número",
+          "title": "El precio de ayer ya no sirve",
+          "body": "La lista de la semana pasada asume un flete que ya no existe. Si mandas esa cifra, estás regalando el tramo o vas a renegociar a los tres días. Separa el costo de mover la mercadería. Dilo. El mayorista que cotiza sin mirar el galón firma un número que el camión no puede cumplir."
+        }
+      ],
+      "closer": {
+        "label": "Si no carga",
+        "title": "la moto no corre",
+        "body": "El transportista que no carga no sale. El 14 de agosto se anunció un subsidio de 4 soles por galón. Eso no llena el tanque si el pedido no cubre el viaje. Si no corre, no hay delivery, no hay mercadería, no hay menú.",
+        "image": "blog/2026-08-28-radar-n3/img/escena-casos.jpg"
+      }
+    },
+    {
+      "type": "tema-reglas",
+      "kicker": "Tema central · el arreglo",
+      "title": "No esperes a que baje",
+      "rules": [
+        {
+          "title": "Recotiza ahora, no cuando baje",
+          "body": "El Brent puede caer un día y el titular se pone suave. El tanque no. Si tu lista asume el galón de febrero, cada pedido que sales a cubrir ya va con pérdida. Arma el número con el diésel de esta semana. Si después baja, vuelves a bajar. Al revés no se cobra."
+        },
+        {
+          "title": "No prometas un horario que ya no da",
+          "body": "El mismo recorrido, con el galón al doble, no cabe en la misma ventana. Si prometes las diez y el motorizado está en cola o no sale, el cliente no le echa la culpa a Hormuz: te la echa a ti. Corta rutas, junta encargos o di un horario que el tanque sí te deje cumplir."
+        },
+        {
+          "title": "Separa el flete; no lo escondas",
+          "body": "Si metes el diésel dentro del producto, el cliente compara manzanas distintas y tú no sabes qué parte te está matando. Pon el flete en una línea. Si el galón se mueve otra vez, cambias esa línea, no toda la lista. El precio honesto se defiende mejor que el precio escondido."
+        }
+      ],
+      "quote": "El galón no espera a que termines la cotización de la semana."
+    },
+    {
+      "type": "notas",
+      "section": "Más",
+      "standfirst": "Tres notas que ya pegan al almacén: un arancel que aún no se firma, el auto de Canadá y las facultades en Lima.",
+      "notes": [
+        {
+          "kicker": "AP / Trump–Xi",
+          "title": "El 7,5 aún no está firmado",
+          "body": [
+            "Associated Press contó el 24 y 25 de agosto que Trump está considerando un arancel de 7,5 por ciento a China por sobrecapacidad, antes de una cumbre con Xi a fines de septiembre. Straits Times lo dijo igual: se mueve hacia eso, aún no es gaceta. No lo des por hecho. El que importa repuestos, bazar o tech de China puede ver el precio moverse antes de que el 7,5 esté escrito."
+          ],
+          "takeaway": "Lo que entra de China puede subir antes de que el arancel exista en papel.",
+          "source": {
+            "outlet": "AP News",
+            "date": "25 ago 2026",
+            "url": "https://apnews.com/article/trump-china-xi-tariffs-manufacturing-3228ac85fefbddee31cbb9481ec42a2a"
+          }
+        },
+        {
+          "kicker": "CNBC / Canadá",
+          "title": "El auto de Canadá es el furgón",
+          "body": [
+            "Trump amenazó con un 50 por ciento a autos, camiones, partes y acero de Canadá desde el 1 de enero de 2027. El trato se cayó el viernes. Canadá dice que va a responder. CNBC lo publicó el 24 de agosto; The Guardian el mismo día. El auto no es Detroit: es el taxi, el furgón y la van de reparto. Si las partes suben, el taller y el que reparte lo pagan antes que la planta."
+          ],
+          "takeaway": "El 50 por ciento no es un titular de fábrica. Es el taxi y la van.",
+          "source": {
+            "outlet": "CNBC",
+            "date": "24 ago 2026",
+            "url": "https://www.cnbc.com/2026/08/24/trump-canada-auto-tariffs-trade-war.html"
+          }
+        },
+        {
+          "kicker": "El Peruano / Galarreta",
+          "title": "Las facultades te cambian la aduana",
+          "body": [
+            "El premier Galarreta anunció que esta semana entra al Congreso el pedido de facultades legislativas, por menos de 30 días. Seguridad, economía, simplificación, aduanas y El Niño. El Peruano lo subió el 25 de agosto a las 16:06. Dijo que creen que el Congreso va a apoyar. No es palacio: es si te cambian la regla de aduana y el impuesto mientras estás cotizando un contenedor."
+          ],
+          "takeaway": "La regla de aduana puede moverse en el mismo plazo en que cotizas.",
+          "source": {
+            "outlet": "El Peruano",
+            "date": "25 ago 2026",
+            "url": "https://elperuano.pe/noticia/303253-premier-galarreta-creemos-que-el-congreso-apoyara-delegacion-de-facultades-legislativas"
+          }
+        }
+      ],
+      "image": "blog/2026-08-28-radar-n3/img/escena-mas.jpg"
+    },
+    {
+      "type": "tablero",
+      "title": "TABLERO DE PRECIOS",
+      "reading": "No es ranking de modelos: son cierres en dólares. Brent, LLS, WTI y el crack 3:2:1 van por barril. Diésel AAA 5,62 y gasolina 4,10 van en escala por diez (56 y 41) para entrar al 0–100. El crudo puede caer un día; el cuello de esta semana es el combustible refinado.",
+      "ranking": [
+        { "model": "Brent EIA 24 ago", "score": 93 },
+        { "model": "Louisiana Light", "score": 90 },
+        { "model": "WTI", "score": 86 },
+        { "model": "Crack 3:2:1 Gulf", "score": 65 },
+        { "model": "Diésel AAA EE.UU.", "score": 56, "badge": "×10 gal" },
+        { "model": "Gasolina AAA EE.UU.", "score": 41, "badge": "×10 gal" }
+      ],
+      "charts": [
+        "blog/2026-08-28-radar-n3/charts/fred-brent.png",
+        "blog/2026-08-28-radar-n3/charts/fred-diesel.png"
+      ],
+      "disclaimer": "Capturas del 25 ago 2026. EIA es cierre del 24. FRED Brent va al 18 ago; FRED diésel, al 24. El número de cada fila es precio, no un índice Wavys.",
+      "source": {
+        "outlet": "EIA / FRED",
+        "date": "25 ago 2026",
+        "url": "https://www.eia.gov/todayinenergy/prices.php"
+      }
+    },
+    {
+      "type": "contratapa",
+      "steps": ["si no lees", "te cobra"],
+      "body": [
+        "La política que no lees es la que te cambia el precio el lunes. No hace falta el mapa: mira el galón, el flete y la lista de ayer.",
+        "Hormuz y la moción ya están en el mostrador. Recotiza. Separa el flete. No prometas un horario que el tanque no te deja cumplir."
+      ],
+      "ctaLabel": "Leé la moción · La República",
+      "ctaUrl": "https://larepublica.pe/politica/2026/08/24/congreso-plantea-interpelar-a-ministro-de-energia-y-minas-por-alza-de-combustibles-y-protestas-de-transportistas-hnews-2038080",
+      "image": "blog/2026-08-28-radar-n3/img/escena-cierre.jpg"
+    }
+  ]
+}

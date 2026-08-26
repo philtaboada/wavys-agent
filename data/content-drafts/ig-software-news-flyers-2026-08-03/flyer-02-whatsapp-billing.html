@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Flyer 02 — WhatsApp billing</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,500;0,600;0,700;0,800;1,600&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      width: 1080px; height: 1350px; overflow: hidden;
+      font-family: Rubik, system-ui, sans-serif;
+      background: #070604; color: #FDFDFD;
+    }
+    .canvas {
+      width: 1080px; height: 1350px; position: relative;
+      background:
+        linear-gradient(180deg, #070604 0%, #070604 55%, rgba(1, 253, 145, 0.12) 100%),
+        #070604;
+    }
+    .top-bar {
+      position: absolute; top: 0; left: 0; right: 0; height: 10px;
+      background: linear-gradient(90deg, #5AD2D0, #01FD91);
+    }
+    .eyebrow {
+      position: absolute; top: 80px; left: 72px; right: 72px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .pill {
+      font-size: 20px; font-weight: 700; letter-spacing: 0.06em;
+      text-transform: uppercase; color: #000;
+      background: #01FD91; padding: 12px 22px; border-radius: 999px;
+    }
+    .date { font-size: 24px; font-weight: 500; color: rgba(253, 253, 253, 0.55); }
+    .stat-block {
+      position: absolute; left: 72px; right: 72px; top: 220px;
+    }
+    .stat {
+      font-size: 168px; font-weight: 800; letter-spacing: -0.08em;
+      line-height: 0.9; color: #01FD91;
+    }
+    .stat-unit {
+      font-size: 48px; font-weight: 700; letter-spacing: -0.04em;
+      color: #5AD2D0; margin-top: 8px;
+    }
+    h1 {
+      position: absolute; left: 72px; right: 72px; top: 560px;
+      font-size: 64px; font-weight: 800; letter-spacing: -0.07em;
+      line-height: 1.02;
+    }
+    .ticker {
+      position: absolute; left: 0; right: 0; bottom: 280px;
+      background: #000908;
+      border-top: 1px solid rgba(90, 210, 208, 0.35);
+      border-bottom: 1px solid rgba(1, 253, 145, 0.35);
+      padding: 36px 72px;
+      display: flex; gap: 28px; align-items: flex-start;
+    }
+    .ticker-label {
+      flex-shrink: 0; font-size: 18px; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase; color: #5AD2D0;
+      padding-top: 6px;
+    }
+    .ticker p {
+      font-size: 28px; font-weight: 500; line-height: 1.35;
+      letter-spacing: -0.02em; color: rgba(253, 253, 253, 0.9);
+    }
+    .footer {
+      position: absolute; left: 72px; right: 72px; bottom: 64px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .logo { height: 44px; width: auto; }
+    .note { font-size: 22px; font-weight: 500; color: rgba(253, 253, 253, 0.5); text-align: right; max-width: 420px; }
+  </style>
+</head>
+<body>
+  <div class="canvas">
+    <div class="top-bar"></div>
+    <div class="eyebrow">
+      <div class="pill">Desde 1 ago</div>
+      <div class="date">Meta · docs oficiales</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat">~4–5¢</div>
+      <div class="stat-unit">por mensaje con IA</div>
+    </div>
+    <h1>WhatsApp IA<br />ya no es gratis.</h1>
+    <div class="ticker">
+      <div class="ticker-label">Ojo</div>
+      <p>Meta Business Agent cobra $2 / millón de tokens. En octubre también pagan los mensajes de servicio. Audita volumen antes de que duela.</p>
+    </div>
+    <div class="footer">
+      <img class="logo" src="../../brand-assets/logos/logo-wavys-technologies.png" alt="Wavys" />
+      <div class="note">Automatiza con ROI claro — no con bots charlatanes.</div>
+    </div>
+  </div>
+</body>
+</html>

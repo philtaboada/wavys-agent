@@ -6,7 +6,7 @@ Productos empaquetados con **doc de campaña, pricing, kit de ventas y plan de m
 
 | Slug | Producto | Landing | Doc | Kit (`data/`) |
 |------|----------|---------|-----|---------------|
-| **wavys-os** | Wavys OS (SaaS chat-first) | [/wavys-os](https://software.wavys-technologies.com/wavys-os) | [wavys-os.md](./wavys-os.md) | `data/wavys-os-campaign-brief/` + producto `data/wavys-os-brief/` |
+| **wavys-os** | Wavys OS (SaaS chat-first) | landing web **retirada** 2026-08-12 | [wavys-os.md](./wavys-os.md) | `data/wavys-os-campaign-brief/` + producto `data/wavys-os-brief/` |
 
 **Regla:** marketing, demos, mensajes o pricing de sistema PYME → leer **`wavys-os.md`** antes de improvisar. **No vender Presencia Digital.**
 

@@ -99,7 +99,7 @@
 
       .note__meta {
         display: flex;
-        align-items: baseline;
+        align-items: center;
         gap: 10px;
         font-family: var(--sans);
         font-weight: 800;
@@ -113,10 +113,22 @@
         color: #0f6b6a;
       }
 
+      .chip {
+        width: 18px;
+        height: 18px;
+        display: grid;
+        place-items: center;
+        flex: none;
+      }
+
+      .chip img { display: block; width: 16px; height: 16px; }
+
       .note__num {
         position: absolute;
-        right: 30px;
-        top: -6px;
+        left: 0;
+        top: auto;
+        bottom: auto;
+        display: none;
         font-family: var(--mono);
         font-size: 11px;
         letter-spacing: 0.12em;
@@ -172,12 +184,12 @@
       }
 
       .voice-italic .note__title .s1 {
-        font-size: 74px;
+        font-size: 56px;
+        color: #0f6b6a;
       }
 
       .voice-italic .note__title .s2 {
-        font-size: 134px;
-        color: #0f6b6a;
+        font-size: 36px;
       }
 
       /* voz 05b: slab de negocio --------------------------------------- */
@@ -189,11 +201,11 @@
       }
 
       .voice-slab .note__title .s1 {
-        font-size: 66px;
+        font-size: 28px;
       }
 
       .voice-slab .note__title .s2 {
-        font-size: 88px;
+        font-size: 22px;
       }
 
       /* voz 05c: cartel duro ------------------------------------------- */
@@ -207,11 +219,16 @@
       }
 
       .voice-poster .note__title .s1 {
-        font-size: 62px;
+        font-size: 72px;
       }
 
       .voice-poster .note__title .s2 {
-        font-size: 132px;
+        font-size: 18px;
+        letter-spacing: 0.06em;
+        text-transform: none;
+        font-stretch: 96%;
+        font-weight: 600;
+        margin-bottom: 4px;
       }
 
       /* banda de escena al pie ----------------------------------------- */
@@ -260,7 +277,7 @@
         font-family: var(--sans);
         font-weight: 700;
         font-stretch: 88%;
-        font-size: 34px;
+        font-size: 22px;
         line-height: 1.18;
         letter-spacing: -0.018em;
         color: var(--white);
@@ -342,24 +359,24 @@
         <!-- 05a --------------------------------------------------------- -->
         <div class="note voice-italic">
           <span class="note__num">05a</span>
-          <p class="note__meta"><b>Claude</b> · 12 ago 2026</p>
+          <p class="note__meta">
+            <span class="chip" aria-hidden="true"><img src="img/marks/claude-star.svg" alt="" /></span>
+            <b>Claude</b> · 12 ago 2026
+          </p>
           <h3 class="note__title">
-            <span class="s1">sin</span>
-            <span class="s2">API</span>
+            <span class="s2">entra a tu</span>
+            <span class="s1">navegador</span>
           </h3>
           <div class="note__body">
             <p>
-              Claude trabaja dentro de Chrome, con tu sesión abierta. No hay que esperar a que alguien libere
-              una API.
-            </p>
-            <p>
-              Lo usé para mirar un calendario en el navegador, sin integración de nada: la misma pantalla que
-              abre tu equipo todos los días.
+              Claude ahora trabaja adentro de Chrome, con tu usuario. No esperas a que te conecten el sistema.
+              Lo usé para mirar una agenda en el navegador, sin que nadie una las piezas por detrás. El trabajo
+              es cómo atiendes hoy.
             </p>
           </div>
           <div class="why">
             <p class="why__label">Why it matters</p>
-            <p class="why__text">Si tu sistema viejo solo abre en el browser, ya no es excusa esperar la API.</p>
+            <p class="why__text">Si tu sistema viejo solo abre en el navegador, ya no es excusa esperar a que te lo conecten.</p>
           </div>
         </div>
 
@@ -368,43 +385,44 @@
           <span class="note__num">05b</span>
           <p class="note__meta"><b>Thrive</b> · TechCrunch · 12 ago 2026</p>
           <h3 class="note__title">
-            <span class="s1">no es</span>
-            <span class="s2">otro chat</span>
+            <span class="s1">2 mil millones</span>
+            <span class="s2">no es otra app de chat</span>
           </h3>
           <div class="note__body">
             <p>
-              Thrive levantó US$2 mil millones para meter IA en negocios que ya existen, no para sacar otra app
-              de chat.
-            </p>
-            <p>
-              Es la misma apuesta que yo veo desde acá: el valor no está en abrir una ventana nueva, está en
-              entrar donde ya se trabaja.
+              Thrive —con plata de OpenAI— levantó 2 mil millones para meter IA en empresas que ya atienden, ya
+              facturan. No para sacar otra app de chat. La plata grande va a quien ya tiene un desorden, no a
+              un chatbot nuevo.
             </p>
           </div>
           <div class="why">
             <p class="why__label">Why it matters</p>
-            <p class="why__text">Si no entra al chat y a la ficha, es decoración.</p>
+            <p class="why__text">Si no entra al chat y a cómo atiendes hoy, es decoración.</p>
           </div>
         </div>
 
         <!-- 05c --------------------------------------------------------- -->
         <div class="note voice-poster">
           <span class="note__num">05c</span>
-          <p class="note__meta"><b>Amazon · Twitch</b> · 12 ago 2026</p>
+          <p class="note__meta">
+            <span class="chip" aria-hidden="true"><img src="img/marks/twitch.svg" alt="" /></span>
+            <b>Amazon · Twitch</b> · 12 ago 2026
+          </p>
           <h3 class="note__title">
-            <span class="s1">el default</span>
-            <span class="s2">es sí</span>
+            <span class="s2">El video y el chat</span>
+            <span class="s1">Twitch</span>
           </h3>
           <div class="note__body">
-            <p>Amazon y Twitch: tus datos entrenan su IA salvo que te salgas a mano.</p>
             <p>
-              No es una multa ni un escándalo. Es una casilla que ya viene marcada, y el que no la revisa acepta
-              sin querer.
+              Amazon, con Twitch: el video y el chat de los streamers entrenan su IA si no se salen. El jefe de
+              producto lo dijo claro: si te tuvieran que pedir permiso, nadie aceptaba. Un dueño de clínica no
+              está en Twitch. La misma regla puede llegar a tu lista de clientes y a tu chat: hay que decir que
+              no, o dejarlo por escrito.
             </p>
           </div>
           <div class="why">
             <p class="why__label">Why it matters</p>
-            <p class="why__text">El default ya no es tu permiso. Es su sí, hasta que tú te salgas.</p>
+            <p class="why__text">Por defecto ya no es tu permiso. Es su sí, hasta que tú te salgas.</p>
           </div>
         </div>
       </div>
@@ -416,7 +434,8 @@
       <div class="strip__text">
         <div>
           <p class="strip__line">
-            Las tres pasan en el mismo lugar: <em>la pantalla que ya tienes abierta</em>.
+            Tres notas de la misma semana: Claude ya trabaja en el navegador que usas. Thrive levantó 2 mil
+            millones y no es otra app de chat. Y Amazon usa el video y el chat de Twitch si no te sales.
           </p>
           <p class="strip__caption">
             Navegador, once de la noche. Ni integración, ni proyecto: la sesión de siempre y un panel al costado.

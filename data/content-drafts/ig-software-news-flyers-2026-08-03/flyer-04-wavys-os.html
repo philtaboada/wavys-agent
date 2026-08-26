@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Flyer 04 — Wavys OS bridge</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,500;0,600;0,700;0,800;1,600&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      width: 1080px; height: 1350px; overflow: hidden;
+      font-family: Rubik, system-ui, sans-serif;
+      background: #070604; color: #FDFDFD;
+    }
+    .canvas {
+      width: 1080px; height: 1350px; position: relative;
+      background:
+        radial-gradient(ellipse 80% 50% at 50% 110%, rgba(1, 253, 145, 0.35) 0%, transparent 55%),
+        radial-gradient(ellipse 60% 40% at 100% 0%, rgba(90, 210, 208, 0.18) 0%, transparent 50%),
+        #070604;
+      padding: 64px;
+      display: flex; flex-direction: column;
+    }
+    .header {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-bottom: 48px;
+    }
+    .logo { height: 48px; width: auto; }
+    .series {
+      font-size: 20px; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; color: #5AD2D0;
+    }
+    .glass {
+      flex: 1;
+      background: rgba(0, 0, 0, 0.28);
+      border: 1px solid rgba(253, 253, 253, 0.1);
+      border-radius: 40px;
+      padding: 64px 56px;
+      display: flex; flex-direction: column; justify-content: space-between;
+    }
+    .kicker {
+      font-size: 26px; font-weight: 600; color: rgba(253, 253, 253, 0.65);
+      letter-spacing: -0.02em;
+    }
+    h1 {
+      font-size: 68px; font-weight: 800; letter-spacing: -0.07em;
+      line-height: 0.98; margin: 28px 0 36px;
+    }
+    h1 .accent { color: #01FD91; }
+    .bullets { list-style: none; display: flex; flex-direction: column; gap: 22px; }
+    .bullets li {
+      font-size: 30px; font-weight: 500; letter-spacing: -0.02em;
+      display: flex; gap: 18px; align-items: flex-start; line-height: 1.25;
+    }
+    .bullets li::before {
+      content: "";
+      width: 14px; height: 14px; border-radius: 4px; margin-top: 10px; flex-shrink: 0;
+      background: linear-gradient(135deg, #5AD2D0, #01FD91);
+    }
+    .cta-row {
+      margin-top: 48px;
+      display: flex; align-items: center; justify-content: space-between; gap: 24px;
+    }
+    .cta {
+      background: #01FD91; color: #000;
+      font-size: 32px; font-weight: 700; letter-spacing: -0.03em;
+      padding: 22px 36px; border-radius: 20px;
+    }
+    .cta-sub {
+      font-size: 24px; font-weight: 500; color: rgba(253, 253, 253, 0.55);
+      text-align: right; max-width: 320px; line-height: 1.3;
+    }
+    .packs {
+      display: flex; gap: 12px; margin-top: 8px;
+    }
+    .pack {
+      font-size: 20px; font-weight: 700; color: #070604;
+      background: #FDFDFD; padding: 10px 16px; border-radius: 12px;
+    }
+    .pack.teal { background: #5AD2D0; }
+    .pack.green { background: #01FD91; }
+  </style>
+</head>
+<body>
+  <div class="canvas">
+    <div class="header">
+      <img class="logo" src="../../brand-assets/logos/logo-wavys-technologies.png" alt="Wavys" />
+      <div class="series">Para tu negocio</div>
+    </div>
+    <div class="glass">
+      <div>
+        <div class="kicker">Mientras el mercado habla de agentes…</div>
+        <h1>Tú necesitas un sistema que <span class="accent">ya opere</span> en WhatsApp.</h1>
+        <ul class="bullets">
+          <li>Captura y califica leads sin que se enfríen</li>
+          <li>Agenda y sigue conversaciones 24/7</li>
+          <li>Hecho para PYME: Tienda, Salón o Restaurante</li>
+        </ul>
+        <div class="packs" style="margin-top: 36px;">
+          <span class="pack">Tienda</span>
+          <span class="pack teal">Salón</span>
+          <span class="pack green">Restaurante</span>
+        </div>
+      </div>
+      <div class="cta-row">
+        <div class="cta">Agenda demo →</div>
+        <div class="cta-sub">Wavys OS · chat-first<br />calendly.com/philtaboada2julio</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

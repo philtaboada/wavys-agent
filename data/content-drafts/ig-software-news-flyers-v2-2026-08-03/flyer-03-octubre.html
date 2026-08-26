@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Flyer 03 — Octubre WhatsApp</title>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,500;0,600;0,700;0,800;1,600&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { width: 1080px; height: 1350px; overflow: hidden; font-family: Rubik, system-ui, sans-serif; background: #070604; color: #FDFDFD; }
+    .canvas {
+      width: 1080px; height: 1350px; position: relative;
+      background:
+        linear-gradient(180deg, #070604 0%, #0a1a14 100%);
+    }
+    .countdown {
+      position: absolute; top: 80px; left: 72px; right: 72px;
+      display: flex; gap: 16px;
+    }
+    .chip {
+      flex: 1; background: rgba(1,253,145,0.1); border: 1px solid rgba(1,253,145,0.35);
+      border-radius: 20px; padding: 28px 16px; text-align: center;
+    }
+    .chip .n { font-size: 64px; font-weight: 800; letter-spacing: -0.06em; color: #01FD91; line-height: 1; }
+    .chip .l { font-size: 18px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #5AD2D0; margin-top: 8px; }
+    h1 {
+      position: absolute; left: 72px; right: 72px; top: 320px;
+      font-size: 70px; font-weight: 800; letter-spacing: -0.07em; line-height: 0.98;
+    }
+    h1 .accent { color: #01FD91; display: block; margin-top: 8px; }
+    .strike-box {
+      position: absolute; left: 72px; right: 72px; top: 640px;
+      background: #000908; border-radius: 28px; padding: 40px 36px;
+      border-left: 6px solid #01FD91;
+    }
+    .was {
+      font-size: 28px; font-weight: 600; color: rgba(253,253,253,0.4);
+      text-decoration: line-through; text-decoration-color: rgba(253,253,253,0.35);
+      margin-bottom: 12px;
+    }
+    .now {
+      font-size: 36px; font-weight: 800; letter-spacing: -0.04em; line-height: 1.2;
+    }
+    .now span { color: #01FD91; }
+    .body {
+      position: absolute; left: 72px; right: 72px; top: 920px;
+      font-size: 30px; font-weight: 500; line-height: 1.35; letter-spacing: -0.02em;
+      color: rgba(253,253,253,0.85);
+    }
+    .footer {
+      position: absolute; left: 72px; right: 72px; bottom: 64px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .logo { height: 44px; }
+    .src { font-size: 20px; font-weight: 600; color: rgba(253,253,253,0.45); text-align: right; max-width: 420px; }
+  </style>
+</head>
+<body>
+  <div class="canvas">
+    <div class="countdown">
+      <div class="chip"><div class="n">59</div><div class="l">días</div></div>
+      <div class="chip"><div class="n">1</div><div class="l">oct</div></div>
+      <div class="chip"><div class="n">$</div><div class="l">por reply</div></div>
+    </div>
+    <h1>
+      En octubre
+      <span class="accent">cada respuesta cuesta.</span>
+    </h1>
+    <div class="strike-box">
+      <div class="was">Responder gratis en la ventana de 24h</div>
+      <div class="now">Desde el 1 oct: <span>Meta cobra cada reply</span> (humano o IA)</div>
+    </div>
+    <p class="body">Si tu bot habla de más, tu factura crece. Menos relleno. Más respuestas que venden.</p>
+    <div class="footer">
+      <img class="logo" src="../../brand-assets/logos/logo-wavys-technologies.png" alt="Wavys" />
+      <div class="src">Meta Developers · pricing H2 2026</div>
+    </div>
+  </div>
+</body>
+</html>

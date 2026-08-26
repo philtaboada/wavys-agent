@@ -1,0 +1,540 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>RADAR N°2 · 08 Tablero de IA</title>
+    <link rel="stylesheet" href="css/radar.css" />
+    <style>
+      /* ------------------------------------------------ 08 TABLERO (papel frío)
+         Voz: infoporn. El dato es la página.
+         Nada de esta página se dibuja a mano: la tabla usa los números que
+         publicó Artificial Analysis el 21 de agosto de 2026 (volcados a
+         charts/leaderboard.json) y los gráficos son recortes reales por CSS.
+         Grilla: cabeza + lectura propia arriba, tabla tipografiada al centro,
+         dos bandas de captura real abajo. No es un dashboard de SaaS. */
+
+      .tab {
+        background: var(--news-cold);
+      }
+
+      /* ---------------------------------------------------------------- cabeza */
+      .tab__head {
+        position: absolute;
+        top: 104px;
+        left: var(--m);
+        right: var(--m);
+        z-index: 20;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        padding-bottom: 11px;
+        border-bottom: 4px solid var(--pap);
+      }
+
+      .tab__title {
+        font-family: var(--mast);
+        font-weight: 800;
+        font-size: 54px;
+        line-height: 0.82;
+        letter-spacing: -0.035em;
+        font-variation-settings: "wdth" 96;
+        text-transform: uppercase;
+        color: var(--pap);
+      }
+
+      .tab__meta {
+        text-align: right;
+        font-family: var(--mono);
+        font-size: 10.5px;
+        line-height: 1.7;
+        letter-spacing: 0.04em;
+        color: var(--pap-48);
+      }
+
+      .tab__meta b {
+        color: var(--signal-deep);
+      }
+
+      /* ------------------------------------------------------------- titular */
+      .tab__h {
+        position: absolute;
+        top: 200px;
+        left: var(--m);
+        width: 620px;
+        z-index: 20;
+      }
+
+      .tab__h-l1 {
+        font-family: var(--grot);
+        font-weight: 400;
+        font-size: 52px;
+        line-height: 1;
+        letter-spacing: -0.032em;
+        font-variation-settings: "wdth" 88;
+        color: var(--pap-48);
+      }
+
+      .tab__h-70 {
+        font-family: var(--display);
+        font-weight: 800;
+        font-size: 118px;
+        line-height: 0.84;
+        letter-spacing: -0.048em;
+        font-variation-settings: "opsz" 96;
+        color: var(--pap);
+        margin-top: 2px;
+      }
+
+      /* Lectura propia, rotulada aparte: no es el benchmark. */
+      .tab__read {
+        position: absolute;
+        top: 206px;
+        right: var(--m);
+        width: 466px;
+        z-index: 20;
+        padding: 18px 0 0;
+        border-top: 4px solid var(--signal);
+      }
+
+      .tab__read-lab {
+        font-family: var(--mast);
+        font-weight: 700;
+        font-size: 8.5px;
+        letter-spacing: 0.19em;
+        font-variation-settings: "wdth" 82;
+        text-transform: uppercase;
+        color: var(--signal-deep);
+        margin-bottom: 12px;
+      }
+
+      .tab__read p {
+        font-family: var(--grot);
+        font-weight: 500;
+        font-size: 17px;
+        line-height: 1.42;
+        letter-spacing: -0.014em;
+        color: #191813;
+      }
+
+      .tab__read p + p {
+        margin-top: 0.7em;
+      }
+
+      .tab__read em {
+        font-style: normal;
+        color: var(--signal-deep);
+        font-weight: 700;
+      }
+
+      .tab__read span {
+        display: block;
+        margin-top: 14px;
+        padding-top: 10px;
+        border-top: 1px solid var(--pap-28);
+        font-family: var(--mono);
+        font-size: 9.5px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--pap-48);
+      }
+
+      /* ----------------------------------------------------- tabla tipografiada */
+      .tbl {
+        position: absolute;
+        top: 470px;
+        left: var(--m);
+        right: var(--m);
+        z-index: 20;
+      }
+
+      .tbl__cap {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        margin-bottom: 12px;
+      }
+
+      .tbl__cap b {
+        font-family: var(--mast);
+        font-weight: 700;
+        font-size: 10px;
+        letter-spacing: 0.2em;
+        font-variation-settings: "wdth" 82;
+        text-transform: uppercase;
+      }
+
+      .tbl__cap i {
+        font-family: var(--mono);
+        font-style: normal;
+        font-size: 9.5px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--pap-48);
+      }
+
+      .tr {
+        display: grid;
+        grid-template-columns: 30px 1fr 128px 68px 96px 92px 168px;
+        gap: 14px;
+        align-items: center;
+        padding: 13px 0;
+        border-bottom: 1px solid var(--pap-16);
+      }
+
+      .tr--h {
+        padding: 0 0 9px;
+        border-bottom: 3px solid var(--pap);
+        font-family: var(--mast);
+        font-weight: 700;
+        font-size: 8px;
+        letter-spacing: 0.16em;
+        font-variation-settings: "wdth" 80;
+        text-transform: uppercase;
+        color: var(--pap-48);
+        align-items: end;
+      }
+
+      .tr__n {
+        font-family: var(--mono);
+        font-size: 11px;
+        color: var(--pap-48);
+      }
+
+      .tr__m {
+        font-family: var(--grot);
+        font-weight: 700;
+        font-size: 19px;
+        letter-spacing: -0.018em;
+        color: var(--pap);
+      }
+
+      .tr__c {
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: 0.03em;
+        color: var(--pap-72);
+      }
+
+      .tr__i {
+        font-family: var(--display);
+        font-weight: 800;
+        font-size: 34px;
+        line-height: 1;
+        letter-spacing: -0.04em;
+        font-variation-settings: "opsz" 60;
+        color: var(--pap);
+      }
+
+      .tr__u,
+      .tr__s {
+        font-family: var(--mono);
+        font-size: 14px;
+        letter-spacing: -0.01em;
+        color: #191813;
+      }
+
+      /* La barra mide el primer trozo: cuánto tarda en contestar. */
+      .tr__lat {
+        display: grid;
+        grid-template-columns: 1fr 52px;
+        gap: 10px;
+        align-items: center;
+      }
+
+      .tr__lat-bar {
+        height: 7px;
+        background: var(--pap-16);
+        position: relative;
+      }
+
+      .tr__lat-bar i {
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        background: var(--signal);
+        display: block;
+      }
+
+      .tr__lat-bar i.slow {
+        background: var(--pap);
+      }
+
+      .tr__lat span {
+        font-family: var(--mono);
+        font-size: 12px;
+        text-align: right;
+        color: #191813;
+      }
+
+      .tbl__foot {
+        margin-top: 12px;
+        display: flex;
+        justify-content: space-between;
+        font-family: var(--mono);
+        font-size: 9.5px;
+        letter-spacing: 0.04em;
+        color: var(--pap-48);
+      }
+
+      /* --------------------------------------------------------- capturas reales
+         Contenedor con overflow oculto: el recorte se hace por CSS, la imagen
+         nunca se retoca ni se redibuja. */
+      .shot {
+        position: absolute;
+        z-index: 20;
+        overflow: hidden;
+        background: #fff;
+        border: 1px solid var(--pap-28);
+      }
+
+      .shot img {
+        position: absolute;
+        display: block;
+      }
+
+      .shot__tag {
+        position: absolute;
+        z-index: 22;
+        font-family: var(--mast);
+        font-weight: 700;
+        font-size: 8px;
+        letter-spacing: 0.16em;
+        font-variation-settings: "wdth" 80;
+        text-transform: uppercase;
+        color: var(--pap-48);
+      }
+
+      /* Banda A: velocidad de salida, todo el ancho. */
+      .shot--speed {
+        top: 1026px;
+        left: var(--m);
+        width: 1104px;
+        height: 292px;
+      }
+
+      .shot--speed img {
+        width: 1200px;
+        left: -16px;
+        top: -202px;
+      }
+
+      .tag--speed {
+        top: 998px;
+        left: var(--m);
+      }
+
+      .tag--speed-r {
+        top: 998px;
+        right: var(--m);
+        text-align: right;
+      }
+
+      /* Banda B: leaderboard real, primeras filas. */
+      .shot--board {
+        top: 1376px;
+        left: var(--m);
+        width: 700px;
+        height: 260px;
+      }
+
+      .shot--board img {
+        width: 1487px;
+        left: 0;
+        top: 0;
+      }
+
+      .tag--board {
+        top: 1348px;
+        left: var(--m);
+      }
+
+      /* Banda C: el panel de velocidad de los Highlights. */
+      .shot--panel {
+        top: 1376px;
+        left: 875px;
+        width: 297px;
+        height: 260px;
+      }
+
+      .shot--panel img {
+        width: 940px;
+        left: -323px;
+        top: -30px;
+      }
+
+      .tag--panel {
+        top: 1348px;
+        left: 875px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page page--news-cold tab grain">
+      <div class="spine">
+        <span class="spine__tab">Radar N°2</span>
+        <span class="spine__section">Tablero de IA</span>
+        <span class="spine__date">14 — 21 AGO 2026</span>
+      </div>
+
+      <div class="tab__head">
+        <div class="tab__title">Tablero</div>
+        <div class="tab__meta">
+          Artificial Analysis · lista pública<br />
+          <b>Capturado el 21 de agosto de 2026</b> · Chrome headless
+        </div>
+      </div>
+
+      <div class="tab__h">
+        <div class="tab__h-l1">quién contesta</div>
+        <div class="tab__h-70">primero</div>
+      </div>
+
+      <div class="tab__read">
+        <div class="tab__read-lab">Lo que leo yo · línea Wavys, no es el benchmark</div>
+        <p>
+          Arriba siguen los mismos de siempre. Pero el que más sabe no es el que contesta:
+          <em>Claude Opus 5 tarda 42,96 segundos</em> en soltar el primer trozo y
+          <em>GLM-5.3 tarda 1,89</em>.
+        </p>
+        <p>
+          Si lo que te falta es que alguien atienda, el puesto del ranking no es el número que te
+          cambia el lunes. Es el segundo.
+        </p>
+        <span>El ranking no se toca. La lectura es mía.</span>
+      </div>
+
+      <!-- ------------------------------------------------- tabla tipografiada
+           Números tal como los publicó Artificial Analysis el 21 ago 2026.
+           Una fila por casa (la mejor variante). Kimi K3 no va, igual que en el
+           N°1. Ver charts/SOURCES.md. -->
+      <div class="tbl">
+        <div class="tbl__cap">
+          <b>Benchmark AA · lo mejor de cada casa</b>
+          <i>artificialanalysis.ai/leaderboards/models · 21 ago 2026</i>
+        </div>
+
+        <div class="tr tr--h">
+          <span></span><span>Modelo</span><span>Casa</span><span>Índice</span>
+          <span>US$ / tarea</span><span>Tokens / s</span><span>Primer trozo (s)</span>
+        </div>
+
+        <div class="tr">
+          <span class="tr__n">01</span>
+          <span class="tr__m">Claude Opus 5 <i style="font-style: normal; font-weight: 400; font-size: 13px; color: var(--pap-48)">(max)</i></span>
+          <span class="tr__c">Anthropic</span>
+          <span class="tr__i">63</span>
+          <span class="tr__u">$2.34</span>
+          <span class="tr__s">61</span>
+          <span class="tr__lat"
+            ><span class="tr__lat-bar"><i style="width: 35%"></i></span><span>42,96</span></span
+          >
+        </div>
+
+        <div class="tr">
+          <span class="tr__n">02</span>
+          <span class="tr__m">Claude Fable 5 <i style="font-style: normal; font-weight: 400; font-size: 13px; color: var(--pap-48)">(fallback)</i></span>
+          <span class="tr__c">Anthropic</span>
+          <span class="tr__i">62</span>
+          <span class="tr__u">$3.14</span>
+          <span class="tr__s">71</span>
+          <span class="tr__lat"
+            ><span class="tr__lat-bar"><i class="slow" style="width: 100%"></i></span
+            ><span>122,03</span></span
+          >
+        </div>
+
+        <div class="tr">
+          <span class="tr__n">03</span>
+          <span class="tr__m">GPT-5.6 Sol <i style="font-style: normal; font-weight: 400; font-size: 13px; color: var(--pap-48)">(max)</i></span>
+          <span class="tr__c">OpenAI</span>
+          <span class="tr__i">61</span>
+          <span class="tr__u">$1.23</span>
+          <span class="tr__s">73</span>
+          <span class="tr__lat"
+            ><span class="tr__lat-bar"><i class="slow" style="width: 87%"></i></span
+            ><span>105,75</span></span
+          >
+        </div>
+
+        <div class="tr">
+          <span class="tr__n">04</span>
+          <span class="tr__m">Grok 4.6 <i style="font-style: normal; font-weight: 400; font-size: 13px; color: var(--pap-48)">(high)</i></span>
+          <span class="tr__c">SpaceXAI</span>
+          <span class="tr__i">61</span>
+          <span class="tr__u">$0.84</span>
+          <span class="tr__s">70</span>
+          <span class="tr__lat"
+            ><span class="tr__lat-bar"><i style="width: 42%"></i></span><span>51,53</span></span
+          >
+        </div>
+
+        <div class="tr">
+          <span class="tr__n">05</span>
+          <span class="tr__m">GLM-5.3 <i style="font-style: normal; font-weight: 400; font-size: 13px; color: var(--pap-48)">(max)</i></span>
+          <span class="tr__c">Z AI</span>
+          <span class="tr__i">60</span>
+          <span class="tr__u">$0.68</span>
+          <span class="tr__s">95</span>
+          <span class="tr__lat"
+            ><span class="tr__lat-bar"><i style="width: 2%"></i></span><span>1,89</span></span
+          >
+        </div>
+
+        <div class="tr">
+          <span class="tr__n">06</span>
+          <span class="tr__m">Qwen3.8 Max</span>
+          <span class="tr__c">Alibaba</span>
+          <span class="tr__i">58</span>
+          <span class="tr__u">$1.13</span>
+          <span class="tr__s">45</span>
+          <span class="tr__lat"
+            ><span class="tr__lat-bar"><i style="width: 2%"></i></span><span>2,57</span></span
+          >
+        </div>
+
+        <div class="tr">
+          <span class="tr__n">07</span>
+          <span class="tr__m">Gemini 3.7 Flash <i style="font-style: normal; font-weight: 400; font-size: 13px; color: var(--pap-48)">(high)</i></span>
+          <span class="tr__c">Google</span>
+          <span class="tr__i">56</span>
+          <span class="tr__u">$0.40</span>
+          <span class="tr__s">399</span>
+          <span class="tr__lat"
+            ><span class="tr__lat-bar"><i style="width: 13%"></i></span><span>15,42</span></span
+          >
+        </div>
+
+        <div class="tbl__foot">
+          <span>Índice de terceros. No es de Wavys. Una fila por casa: la mejor variante.</span>
+          <span>La barra mide el primer trozo, no el puesto.</span>
+        </div>
+      </div>
+
+      <!-- ---------------------------------------------------- capturas reales -->
+      <div class="shot__tag tag--speed">Captura real · Output Speed · tokens/s</div>
+      <div class="shot__tag tag--speed-r">artificialanalysis.ai/models · 21 ago 2026</div>
+      <div class="shot shot--speed">
+        <img src="charts/aa-output-speed.png" alt="" />
+      </div>
+
+      <div class="shot__tag tag--board">Captura real · LLM Leaderboard, primeras filas</div>
+      <div class="shot shot--board">
+        <img src="charts/aa-leaderboard.png" alt="" />
+      </div>
+
+      <div class="shot__tag tag--panel">Captura real · Highlights · Speed</div>
+      <div class="shot shot--panel">
+        <img src="charts/aa-intelligence-bars.png" alt="" />
+      </div>
+
+      <div class="folio">
+        <span class="folio__meta">Radar N°2 · Tablero de IA</span>
+        <span class="folio__bar"
+          ><i></i><i></i><i></i><i></i><i></i><i class="on"></i><i></i
+        ></span>
+        <span class="folio__num">08</span>
+      </div>
+    </div>
+  </body>
+</html>

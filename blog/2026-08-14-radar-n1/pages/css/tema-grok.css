@@ -1,0 +1,54 @@
+/* ============================================================
+   TEMA CENTRAL · GROK BOT
+   Color y tipo que no se usan en el resto del número.
+   Acento: sunset orange de xAI (#FF7A17). Tipo: Inter (geométrica).
+   Teal del semanario no entra acá.
+   ============================================================ */
+
+.page--grok {
+  --teal: #ff7a17;
+  --heart: #ff7a17;
+  --heart-dim: #c45a10;
+  --grok: "Inter", "Helvetica Neue", Arial, sans-serif;
+  --ink: #000000;
+  background: #000;
+}
+
+.page--grok.page--paper {
+  background: linear-gradient(172deg, #f7f1e8 0%, #efe6d8 58%, #e8dcc8 100%);
+  color: #0a0b0b;
+}
+
+.page--grok .head__section {
+  color: var(--heart);
+}
+
+.mark {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.mark svg {
+  display: block;
+  flex: none;
+}
+
+.mark__who {
+  font-family: var(--grok);
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.wordmark {
+  font-family: var(--grok);
+  font-weight: 600;
+  letter-spacing: -0.045em;
+  text-transform: none;
+  line-height: 0.86;
+}
+
+.page--grok .folio {
+  color: rgba(253, 253, 253, 0.45);
+}

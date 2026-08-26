@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>RADAR N°2 — 04 Tema central · el relato</title>
+    <link rel="stylesheet" href="css/radar.css" />
+    <style>
+      /* ============================================================
+         04b · TEMA CENTRAL, EL RELATO — personalidad: LECTURA.
+         Banda de foto a sangre arriba (macro de la hoja que es el
+         sistema), cortada por la etiqueta de sección. Abajo: riel de
+         datos duros a la izquierda y una sola mancha de texto a la
+         derecha. Ninguna tarjeta.
+         ============================================================ */
+
+      /* banda de foto --------------------------------------------------- */
+      .band {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 112px;
+        height: 588px;
+        overflow: hidden;
+        z-index: 2;
+      }
+
+      .band img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: 50% 56%;
+        display: block;
+        filter: saturate(0.7) contrast(1.14) brightness(0.82);
+      }
+
+      .band::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(90deg, rgba(7, 6, 4, 0.92) 0%, rgba(7, 6, 4, 0.24) 42%, rgba(7, 6, 4, 0) 72%),
+          linear-gradient(180deg, rgba(7, 6, 4, 0.4) 0%, rgba(7, 6, 4, 0) 30%, rgba(7, 6, 4, 0.82) 100%);
+      }
+
+      .band__label {
+        position: absolute;
+        left: var(--margin);
+        top: 512px;
+        z-index: 14;
+        font-weight: 800;
+        font-stretch: 74%;
+        font-size: 108px;
+        line-height: 0.86;
+        letter-spacing: 0.005em;
+        text-transform: uppercase;
+        color: var(--white);
+      }
+
+      .band__label small {
+        display: block;
+        font-family: var(--mono);
+        font-weight: 400;
+        font-size: 11px;
+        letter-spacing: 0.26em;
+        color: var(--teal);
+        margin-bottom: 14px;
+        text-transform: uppercase;
+      }
+
+      .band__caption {
+        position: absolute;
+        right: var(--margin);
+        bottom: 22px;
+        z-index: 14;
+        width: 380px;
+        text-align: right;
+        font-family: var(--mono);
+        font-size: 10.5px;
+        line-height: 1.7;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: rgba(253, 253, 253, 0.55);
+      }
+
+      /* riel de datos duros -------------------------------------------- */
+      .rail {
+        position: absolute;
+        left: var(--margin);
+        top: 806px;
+        width: 306px;
+        z-index: 12;
+      }
+
+      .rail__item {
+        border-top: 1px solid var(--ink-18);
+        padding: 14px 0 18px;
+      }
+
+      .rail__item:first-child {
+        border-top: 3px solid var(--teal);
+      }
+
+      .rail__item dt {
+        font-family: var(--sans);
+        font-weight: 800;
+        font-size: 10px;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+        color: var(--teal);
+        margin-bottom: 8px;
+      }
+
+      .rail__item dd {
+        font-family: var(--sans);
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 1.44;
+        color: rgba(253, 253, 253, 0.86);
+      }
+
+      .rail__item dd b {
+        font-weight: 800;
+        color: var(--white);
+      }
+
+      .rail__num {
+        font-family: var(--mono);
+        font-size: 40px;
+        letter-spacing: -0.02em;
+        color: var(--white);
+        display: block;
+        margin-bottom: 4px;
+      }
+
+      /* mancha de texto ------------------------------------------------- */
+      .story {
+        position: absolute;
+        left: 448px;
+        right: var(--margin);
+        top: 806px;
+        z-index: 12;
+      }
+
+      .story__lead {
+        font-family: var(--read);
+        font-weight: 400;
+        font-size: 37px;
+        line-height: 1.3;
+        letter-spacing: -0.01em;
+        color: var(--white);
+      }
+
+      .story__lead b {
+        font-weight: 600;
+        background: linear-gradient(180deg, rgba(90, 210, 208, 0) 62%, rgba(90, 210, 208, 0.4) 62%);
+      }
+
+      .story__cols {
+        margin-top: 34px;
+        column-count: 2;
+        column-gap: 36px;
+        column-rule: 1px solid var(--ink-10);
+      }
+
+      .story__cols p {
+        font-family: var(--read);
+        font-size: 18px;
+        line-height: 1.66;
+        color: rgba(253, 253, 253, 0.85);
+        margin-bottom: 15px;
+      }
+
+      .story__cols p:first-child::first-letter {
+        float: left;
+        font-family: var(--display);
+        font-variation-settings: "SOFT" 24, "WONK" 1, "opsz" 96;
+        font-weight: 900;
+        font-size: 82px;
+        line-height: 0.74;
+        margin: 8px 10px 0 0;
+        color: var(--teal);
+      }
+
+      .story__turn {
+        position: absolute;
+        left: 448px;
+        right: var(--margin);
+        bottom: 250px;
+        z-index: 12;
+        padding-top: 22px;
+        border-top: 1px solid var(--ink-18);
+        font-family: var(--sans);
+        font-weight: 600;
+        font-stretch: 92%;
+        font-size: 33px;
+        line-height: 1.24;
+        letter-spacing: -0.015em;
+        color: var(--white);
+      }
+
+      .story__turn em {
+        font-style: normal;
+        color: var(--teal);
+      }
+
+      /* banda de navegación al pie ------------------------------------- */
+      .next {
+        position: absolute;
+        left: var(--margin);
+        right: var(--margin);
+        bottom: 128px;
+        z-index: 12;
+        border-top: 3px solid var(--teal);
+        padding-top: 16px;
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 24px;
+      }
+
+      .next__label {
+        font-family: var(--sans);
+        font-weight: 800;
+        font-size: 10.5px;
+        letter-spacing: 0.26em;
+        text-transform: uppercase;
+        color: var(--teal);
+        flex: none;
+      }
+
+      .next__list {
+        display: flex;
+        gap: 34px;
+        font-family: var(--sans);
+        font-weight: 700;
+        font-stretch: 84%;
+        font-size: 30px;
+        letter-spacing: -0.01em;
+        text-transform: uppercase;
+        color: rgba(253, 253, 253, 0.9);
+      }
+
+      .next__list span:nth-child(n) {
+        color: rgba(253, 253, 253, 0.9);
+      }
+
+      .next__meta {
+        flex: none;
+        font-family: var(--mono);
+        font-size: 10.5px;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--ink-45);
+      }
+    </style>
+  </head>
+  <body>
+    <article class="page grain">
+      <header class="head">
+        <span class="head__mast">Radar</span>
+        <span class="head__section">Tema central · el relato</span>
+      </header>
+
+      <figure class="band">
+        <img src="img/escena-macro-excel.jpg" alt="Macro de una hoja impresa: celdas vacías, un nombre a lápiz" />
+        <p class="band__caption">La hoja que ya tienes: columnas, una celda con nombre, el resto en blanco. El chat todavía no la lee.</p>
+      </figure>
+
+      <p class="band__label"><small>El relato</small>La fila<br />es el sistema</p>
+
+      <div class="rail">
+        <div class="rail__item">
+          <dt>Fuente</dt>
+          <dd>
+            Google · Sheets canvas, mini-apps con Gemini encima de la hoja.
+            <span class="src" style="display: block; margin-top: 10px; font-size: 9.6px"
+              >blog.google/products-and-platforms/products/workspace/sheets-canvas-for-google-sheets-spreadsheets/</span
+            >
+          </dd>
+        </div>
+        <div class="rail__item">
+          <dt>Anuncio</dt>
+          <dd><span class="rail__num">13 ago 2026</span>Gemini pinta tableros encima de la grilla.</dd>
+        </div>
+        <div class="rail__item">
+          <dt>Idioma</dt>
+          <dd>Hoy, <b>solo en inglés</b>. Pro, Ultra, Workspace Business y Enterprise.</dd>
+        </div>
+        <div class="rail__item">
+          <dt>Scheduled</dt>
+          <dd>El resto de dominios empieza el <b>31 de agosto</b>. Sin precio en soles acá.</dd>
+        </div>
+      </div>
+
+      <section class="story">
+        <p class="story__lead">
+          Hasta ahora la hoja era el sistema: el chat pregunta, alguien anota, y <b>nadie mira si la fila existe</b>.
+        </p>
+
+        <div class="story__cols">
+          <p>
+            Sheets canvas es una capa que lee y escribe la misma grilla. Cambias el tablero, cambia la hoja.
+            Cambias la hoja, cambia el tablero. Eso es real. Lo publicó Google el 13 de agosto.
+          </p>
+          <p>
+            No lo leí como “ya no necesitas un sistema”. Lo leí así: el modelo se sentó donde ya había filas.
+            Si el lead se quedó en Maps, si el hueco de la agenda no se escribió, el canvas no inventa el
+            lunes.
+          </p>
+          <p>
+            El N°1 era el chat que deja de ser gratis. Este número es la hoja que sigue siendo el sistema —
+            con o sin Gemini encima.
+          </p>
+        </div>
+
+      </section>
+
+      <p class="story__turn">
+        Lo que se rompe no es Excel. Es la costumbre de trabajar
+        <em>sin bajar el lead a una fila</em>.
+      </p>
+
+      <div class="next">
+        <span class="next__label">Sigue</span>
+        <span class="next__list">
+          <span>Maps</span><span>Ficha</span><span>Agenda</span><span>Grupo</span>
+        </span>
+        <span class="next__meta">Cuatro casos, tres reglas</span>
+      </div>
+
+      <footer class="folio">
+        <span class="folio__ticks"><i></i><i></i><i class="on"></i><i></i></span>
+        <span>Radar N°2 · Tema central</span>
+        <span class="folio__num">04</span>
+      </footer>
+    </article>
+  </body>
+</html>

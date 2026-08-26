@@ -10,7 +10,7 @@ folder toca el brand kit, el contexto del agente ni el código de la app.
 
 | Archivo | Página | Sección | Personalidad visual |
 |---|---|---|---|
-| — | 01 | **Tapa — LOCK** | No está acá a propósito: la tapa N°1 ya está aprobada y no se rediseña ni se reemplaza. El interior respeta su idioma: masthead RADAR en tinta, teal `#5AD2D0` como único acento, superficies `#070604` / `#050608`, una palabra golpe por titular. |
+| `01-tapa.html` | 01 | **Tapa** | Masthead RADAR a sangre, cara cyborg, palabra golpe `octubre`. Titular distinto al interior (`deja de / regalar`). |
 | `02-carta-del-editor.html` | 02 | Carta del editor | **Papel.** Carta impresa: serif de lectura, sello de tinta, colofón en versalitas, foto que sangra por la izquierda. Cascada de tamaños *Esta semana → no vi → **más IA*** (la palabra golpe con resaltador teal). |
 | `03-senal.html` | 03 | Señal (2 notas) | **Rápido, denso, una sola página.** Dos ejes cruzados: la nota A entra por la izquierda y su titular (`SE METIÓ / AL CORREO`) corta la única foto; la nota B es puro tipo, cursiva y teal, alineada a la derecha (`un silencio / y cuelgan`). |
 | `04a-tema-central-apertura.html` | 04 | Tema central · apertura | **Foto grande.** Escena de chat + hoja + celular a sangre, la fecha `1 OCT 2026` en outline detrás del tipo, titular `deja de / regalar` y muy poco texto. |

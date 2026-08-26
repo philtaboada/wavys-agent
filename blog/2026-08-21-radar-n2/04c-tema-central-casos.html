@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>RADAR N°2 — 04 Tema central · casos</title>
+    <link rel="stylesheet" href="css/radar.css" />
+    <style>
+      /* ============================================================
+         04c · TEMA CENTRAL, CASOS — personalidad: CUATRO PUERTAS.
+         Tres casos arriba en columnas con numerales colgados; el
+         cuarto vive dentro de la foto, que sangra por abajo. Al revés
+         que 04b (que tiene la banda arriba): la página se lee de la
+         letra hacia la escena.
+         ============================================================ */
+
+      .section {
+        position: absolute;
+        left: var(--margin);
+        right: var(--margin);
+        top: 124px;
+        z-index: 20;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        border-bottom: 2px solid var(--white);
+        padding-bottom: 10px;
+      }
+
+      .section h2 {
+        font-weight: 800;
+        font-stretch: 74%;
+        font-size: 92px;
+        line-height: 0.82;
+        letter-spacing: 0.004em;
+        text-transform: uppercase;
+      }
+
+      .section h2 small {
+        display: block;
+        font-family: var(--mono);
+        font-weight: 400;
+        font-stretch: 100%;
+        font-size: 11px;
+        letter-spacing: 0.26em;
+        color: var(--teal);
+        margin-bottom: 12px;
+      }
+
+      .section__meta {
+        text-align: right;
+        padding-bottom: 8px;
+        width: 330px;
+        font-family: var(--read);
+        font-size: 17px;
+        line-height: 1.44;
+        color: var(--ink-70);
+      }
+
+      /* tres casos ----------------------------------------------------- */
+      .cases {
+        position: absolute;
+        left: var(--margin);
+        right: var(--margin);
+        top: 306px;
+        z-index: 14;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px;
+      }
+
+      .case {
+        position: relative;
+        padding-top: 18px;
+        border-top: 1px solid var(--ink-18);
+      }
+
+      .case__num {
+        font-family: var(--display);
+        font-variation-settings: "SOFT" 20, "WONK" 0, "opsz" 144;
+        font-weight: 900;
+        font-size: 96px;
+        line-height: 0.8;
+        letter-spacing: -0.04em;
+        color: transparent;
+        -webkit-text-stroke: 1.4px rgba(90, 210, 208, 0.85);
+      }
+
+      .case__who {
+        margin-top: 12px;
+        font-family: var(--sans);
+        font-weight: 800;
+        font-size: 11px;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+        color: var(--teal);
+      }
+
+      .case__ask {
+        margin-top: 12px;
+        font-family: var(--italic);
+        font-style: italic;
+        font-weight: 500;
+        font-size: 44px;
+        line-height: 1.05;
+        letter-spacing: -0.02em;
+        color: var(--white);
+      }
+
+      .case__text {
+        margin-top: 18px;
+        font-family: var(--read);
+        font-size: 17px;
+        line-height: 1.62;
+        color: rgba(253, 253, 253, 0.84);
+      }
+
+      .case__text b {
+        font-weight: 600;
+        color: var(--white);
+      }
+
+      /* foto que sangra abajo + cuarto caso ---------------------------- */
+      .floor {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 892px;
+        overflow: hidden;
+        z-index: 4;
+      }
+
+      .floor img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: 46% 62%;
+        display: block;
+        filter: saturate(0.72) contrast(1.12) brightness(0.76);
+      }
+
+      .floor::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(180deg, #070604 0%, rgba(7, 6, 4, 0.5) 16%, rgba(7, 6, 4, 0) 34%),
+          linear-gradient(90deg, rgba(7, 6, 4, 0.95) 0%, rgba(7, 6, 4, 0.6) 40%, rgba(7, 6, 4, 0.1) 78%),
+          linear-gradient(180deg, rgba(7, 6, 4, 0) 62%, rgba(7, 6, 4, 0.9) 90%, #070604 100%);
+      }
+
+      .case--four {
+        position: absolute;
+        left: var(--margin);
+        bottom: 214px;
+        width: 620px;
+        z-index: 16;
+        border-top: 3px solid var(--teal);
+        padding-top: 20px;
+      }
+
+      .case--four .case__num {
+        -webkit-text-stroke: 0;
+        color: var(--teal);
+        font-size: 116px;
+      }
+
+      .case--four .case__ask {
+        font-family: var(--sans);
+        font-style: normal;
+        font-weight: 800;
+        font-stretch: 76%;
+        text-transform: uppercase;
+        font-size: 88px;
+        line-height: 0.88;
+        letter-spacing: 0.002em;
+      }
+
+      .case--four .case__text {
+        max-width: 560px;
+        font-size: 18px;
+      }
+
+      .floor__caption {
+        position: absolute;
+        right: var(--margin);
+        bottom: 640px;
+        width: 330px;
+        z-index: 16;
+        text-align: right;
+        font-family: var(--mono);
+        font-size: 10.5px;
+        line-height: 1.7;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: rgba(253, 253, 253, 0.6);
+      }
+
+      .rules-hint {
+        position: absolute;
+        left: var(--margin);
+        right: var(--margin);
+        bottom: 128px;
+        z-index: 18;
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        border-top: 1px solid var(--ink-18);
+        padding-top: 14px;
+        font-family: var(--sans);
+        font-weight: 700;
+        font-size: 15px;
+        letter-spacing: 0.02em;
+        color: rgba(253, 253, 253, 0.82);
+      }
+
+      .rules-hint span {
+        font-family: var(--mono);
+        font-weight: 400;
+        font-size: 10.5px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--ink-45);
+      }
+    </style>
+  </head>
+  <body>
+    <article class="page grain">
+      <header class="head">
+        <span class="head__mast">Radar</span>
+        <span class="head__section">Tema central · casos</span>
+      </header>
+
+      <div class="section">
+        <h2><small>Las mismas tres reglas</small>Cuatro casos</h2>
+        <p class="section__meta">
+          Cuatro negocios distintos. Una sola pregunta: ¿el lead bajó a una fila, o se quedó en el aire?
+        </p>
+      </div>
+
+      <div class="cases">
+        <div class="case">
+          <p class="case__num">01</p>
+          <p class="case__who">Maps · la ruta</p>
+          <p class="case__ask">“Paso mañana”</p>
+          <p class="case__text">
+            El pin marca un lugar. El lead es una fila. Si el nombre se queda en la ruta y no baja a la hoja,
+            el viernes no hay a quién escribirle. El canvas de Google no va a inventar esa celda.
+            <b>El lead se pierde en el trayecto</b>, no en el modelo.
+          </p>
+        </div>
+
+        <div class="case">
+          <p class="case__num">02</p>
+          <p class="case__who">Ficha · el chat</p>
+          <p class="case__ask">“Si no está, no existe”</p>
+          <p class="case__text">
+            El chat puede estar lleno y la hoja, en blanco. Lo que no escribiste no pasó. El modelo nuevo no
+            te arma la ficha si nadie anotó nombre, pedido y estado. <b>La fila lo confirma. El chat lo niega.</b>
+          </p>
+        </div>
+
+        <div class="case">
+          <p class="case__num">03</p>
+          <p class="case__who">Agenda · el hueco</p>
+          <p class="case__ask">“¿Tienen hora?”</p>
+          <p class="case__text">
+            Un espacio en blanco en la semana. No es “falta de IA”. Es una llamada que no se agendó. El hueco
+            se ve. <b>El modelo no lo llena</b> si la agenda no es una fila que el chat pueda leer.
+          </p>
+        </div>
+      </div>
+
+      <figure class="floor">
+        <img src="img/escena-maps-hoja.jpg" alt="Escritorio: celular con un mapa, hoja con una fila en blanco y llaves" />
+      </figure>
+
+      <div class="case case--four">
+        <p class="case__num">04</p>
+        <p class="case__who">Grupo · el equipo</p>
+        <p class="case__ask">Tres anotando</p>
+        <p class="case__text">
+          Tres personas escribiendo el mismo lead en tres sitios. Saca la atención al cliente del grupo.
+          <b>Una puerta, un hilo, una fila.</b>
+        </p>
+      </div>
+
+      <p class="floor__caption">
+        Media tarde. El pin está en el mapa; la fila de la hoja sigue vacía. El canvas no tiene qué pintar.
+      </p>
+
+      <div class="rules-hint">
+        Las tres reglas están en la página 04, al cierre del tema central.
+        <span>Casos · 04</span>
+      </div>
+
+      <footer class="folio">
+        <span class="folio__ticks"><i></i><i></i><i class="on"></i><i></i></span>
+        <span>Radar N°2 · Tema central</span>
+        <span class="folio__num">04</span>
+      </footer>
+    </article>
+  </body>
+</html>

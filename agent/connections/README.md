@@ -9,6 +9,7 @@ Documenta aquí cada plataforma externa. Los tools en `agent/tools/` consumen cl
 | Resend | `send_email` | `RESEND_API_KEY`, `EMAIL_FROM` |
 | Gemini (imágenes) | `generate_image` | `GEMINI_API_KEY` — solo `gemini-3.1-flash-lite-image` |
 | Figma | MCP Cursor (`figma` / `figma-desktop`) | OAuth o Figma desktop — ver `figma-posts.md` |
+| Affinity Studio | MCP Cursor (`affinity` vía bridge) | Local loopback `localhost:6767` — ver `affinity.md` |
 
 ## Locales (sin API externa)
 

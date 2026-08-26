@@ -3,122 +3,373 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>RADAR N°2 — borrador</title>
-    <link rel="stylesheet" href="fonts/fonts.css" />
-    <style>
-      :root {
-        --ink: #070604;
-        --teal: #5ad2d0;
-        --white: #fdfdfd;
-        --ink-45: rgba(253, 253, 253, 0.45);
-        --ink-18: rgba(253, 253, 253, 0.18);
-        --sans: "Archivo", "Helvetica Neue", Arial, sans-serif;
-        --display: "Fraunces", Georgia, serif;
-        --read: "Spectral", Georgia, serif;
-        --mono: "IBM Plex Mono", monospace;
-      }
-      * { box-sizing: border-box; margin: 0; padding: 0; }
-      body { background: #1b1b1b; color: var(--white); font-family: var(--read); }
-      .wrap { max-width: 820px; margin: 0 auto; background: var(--ink); min-height: 100vh; }
-      .mast {
-        display: flex; justify-content: space-between; align-items: baseline;
-        padding: 28px 32px 16px; border-bottom: 1px solid var(--ink-18);
-        font-family: var(--sans);
-      }
-      .mast b { letter-spacing: 0.34em; font-stretch: 112%; text-transform: uppercase; font-size: 15px; }
-      .mast span { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-45); }
-      .stamp {
-        margin: 48px 32px 0; display: inline-block;
-        border: 2.5px solid var(--teal); color: var(--teal);
-        padding: 12px 16px 10px; transform: rotate(-4deg);
-        font-family: var(--sans); font-weight: 800; letter-spacing: 0.2em; font-size: 14px;
-      }
-      .stamp i { display: block; font-family: var(--mono); font-style: normal; font-size: 10px; margin-top: 6px; letter-spacing: 0.12em; }
-      h1 {
-        padding: 36px 32px 12px;
-        font-family: var(--display); font-weight: 900;
-        font-size: clamp(48px, 10vw, 88px); line-height: 0.9; letter-spacing: -0.04em;
-      }
-      .dek { padding: 0 32px 28px; font-size: 22px; line-height: 1.4; max-width: 36em; }
-      .pdf {
-        display: inline-block; margin: 0 32px 36px; padding: 12px 16px;
-        border: 1px solid var(--teal); color: var(--teal); text-decoration: none;
-        font-family: var(--mono); font-size: 14px;
-      }
-      .slot {
-        margin: 0 32px; padding: 22px 0;
-        border-top: 1px solid var(--ink-18);
-      }
-      .slot b {
-        display: block; font-family: var(--sans); font-size: 11px;
-        letter-spacing: 0.26em; text-transform: uppercase; color: var(--teal); margin-bottom: 8px;
-      }
-      .slot p { font-family: var(--sans); color: var(--ink-45); font-size: 16px; }
-      .note {
-        margin: 40px 32px 0; padding-top: 20px; border-top: 3px solid var(--teal);
-        font-size: 17px; line-height: 1.55;
-      }
-      .folio {
-        margin-top: 56px; padding: 20px 32px 40px;
-        border-top: 1px solid var(--ink-18);
-        font-family: var(--sans); font-size: 11px; letter-spacing: 0.2em;
-        text-transform: uppercase; color: var(--ink-45);
-        display: flex; justify-content: space-between;
-      }
-    </style>
+    <title>RADAR N°2 — 17–21 ago 2026</title>
+    <link rel="stylesheet" href="issue.css" />
   </head>
   <body>
     <article class="wrap">
       <header class="mast">
         <b>Radar</b>
-        <span>N°2 · Borrador · 17–21 ago 2026</span>
+        <span>N°2 · 17–21 ago 2026</span>
       </header>
 
-      <p class="stamp">BORRADOR<i>NO PUBLICAR</i></p>
+      <figure class="cover">
+        <img src="tapa.png" alt="Tapa de RADAR N°2: chip, masthead RADAR, punch OTRA VEZ / EXCEL" />
+      </figure>
 
-      <h1>El modelo nuevo no arregla la hoja de siempre.</h1>
-      <p class="dek">
-        Layout draft. Siete páginas a 1240×1754. La tapa es el lock (chip, RADAR, OTRA VEZ / EXCEL).
-        El tablero de IA se llena el viernes. No hay ranking inventado.
-      </p>
-      <a class="pdf" href="radar-n2-borrador.pdf">radar-n2-borrador.pdf</a>
+      <nav class="toc">
+        <h2>En este número</h2>
+        <ol>
+          <li><a href="#carta">Carta del editor</a><i>02</i></li>
+          <li><a href="#senal">Señal</a><i>03</i></li>
+          <li><a href="#tema">Tema central · la hoja</a><i>04</i></li>
+          <li><a href="#mas">Más noticias</a><i>05</i></li>
+          <li><a href="#tablero">Tablero de IA</a><i>08</i></li>
+          <li><a href="#cierre">Contratapa</a><i>09</i></li>
+        </ol>
+      </nav>
 
-      <div class="slot">
-        <b>01 · Tapa</b>
-        <p>Lock. Chip llena el campo. Masthead RADAR. Punch OTRA VEZ / EXCEL.</p>
-      </div>
-      <div class="slot">
-        <b>02 · Carta</b>
-        <p>HOJA. La abrí después de X. Phil, Lima. Tipo sobre papel.</p>
-      </div>
-      <div class="slot">
-        <b>03 · Señal</b>
-        <p>Tres notas, filetes, espina. Maps / fila / viernes.</p>
-      </div>
-      <div class="slot">
-        <b>04 · Apertura</b>
-        <p>La página es la hoja. Titular sobre el corte. Celdas vacías.</p>
-      </div>
-      <div class="slot">
-        <b>05 · Módulos</b>
-        <p>Tres voces desiguales: el lead se pierde · si no está, no existe · el hueco vacío.</p>
-      </div>
-      <div class="slot">
-        <b>08 · Data</b>
-        <p>21 AGO. Borrador: el tablero se llena el viernes.</p>
-      </div>
-      <div class="slot">
-        <b>09 · Cierre</b>
-        <p>ABRE. https://cal.com/wavys-call/30min</p>
-      </div>
+      <section class="block paper" id="carta">
+        <p class="kicker">Carta del editor · Humano</p>
+        <h1>Cerré X y abrí <em>la hoja</em></h1>
+        <p class="dek">El modelo nuevo no arregla la fila que sigue vacía.</p>
+        <figure class="scene">
+          <img src="img/escena-carta.jpg" alt="Escritorio de noche: carta impresa y laptop con una hoja abierta" />
+          <figcaption>Escritorio, viernes de noche. La carta y la hoja que ya tenía abierta.</figcaption>
+        </figure>
+        <p class="dek" style="font-size: 20px">Hola.</p>
+        <div class="prose">
+          <p>
+            En X vi otro hilo de un modelo nuevo. Lo cerré. No porque no importe: porque el lunes mío no vive
+            en el anuncio. Vive en una hoja que ya tenía abierta, con la misma columna de siempre.
+          </p>
+          <p>
+            El jueves Google sentó a Gemini encima de Sheets. Mini-apps, tableros, sin código. El anuncio es
+            de la hoja. El cambio, si te toca, es otro: si el lead no bajó a una fila, el canvas no tiene
+            nada que pintar.
+          </p>
+          <p>
+            Este número es eso. La señal, los casos, las tres reglas. Al final, el tablero: el ranking no se
+            movió. Lo que se movió es dónde se sentó el modelo.
+          </p>
+        </div>
+        <p class="sign">Phil</p>
+        <p class="src">Phil · agosto 2026 · Wavys Technologies · wavys-technologies.com</p>
+      </section>
 
-      <p class="note">
-        Esto no se publica. Es el PDF para que Phil vea el layout. El N°1 no se tocó.
-      </p>
+      <section class="block" id="senal">
+        <p class="kicker">Señal · 13 ago 2026 · Google · Microsoft</p>
+        <h1>Se sentó <em>en la hoja</em></h1>
+        <figure class="scene">
+          <img src="img/escena-sheets.jpg" alt="Escritorio de mañana: laptop con una hoja abierta y página impresa" />
+        </figure>
+        <div class="prose">
+          <p>
+            Google sacó Sheets canvas. Gemini, con un prompt, convierte la hoja en una mini-app: tablero,
+            tracker, lo que pidas. Sin código. La capa lee y escribe la misma grilla. El anuncio es de Sheets.
+            El cambio, si te toca, es que el modelo se sentó encima de la hoja que ya abres.
+          </p>
+          <p>
+            Sale en inglés, para Google AI Pro y Ultra, y para Workspace Business y Enterprise. Si tu
+            operación vive en un Excel local y en el chat, el canvas no tiene fila que pintar. Se quedó en
+            otra casa.
+          </p>
+        </div>
+        <div class="why">
+          <b>Why it matters</b>
+          El modelo nuevo no crea la fila. Si el lead no bajó a la hoja, el canvas pinta aire.
+        </div>
+
+        <h2 class="hed" style="margin-top: 56px; font-size: 42px">una sola app <em>y recortan</em></h2>
+        <p class="kicker" style="margin-top: 12px">TechCrunch · Microsoft · 13 ago 2026 · Copilot</p>
+        <div class="prose">
+          <p>
+            Microsoft junta el Copilot de casa y el de la oficina en una sola app. El 18 de agosto le quitan
+            al consumidor los group chats, los podcasts de IA, Labs y Deep Research. Dicen que quieren una
+            experiencia más simple.
+          </p>
+          <p>
+            Yo no me quedé en el icono nuevo. Me quedé en lo que cortan. Dos años de “shift generacional” y
+            ahora admiten que el producto se había ido de las manos. El modelo no era el problema. Era tener
+            dos casas y ninguna operación.
+          </p>
+        </div>
+        <div class="why">
+          <b>Why it matters</b>
+          Si el sistema no entra a la hoja que ya usas, tarde o temprano lo recortan.
+        </div>
+        <p class="src">
+          blog.google/products-and-platforms/products/workspace/sheets-canvas-for-google-sheets-spreadsheets/<br />
+          techcrunch.com/2026/08/13/microsoft-kills-off-unsuccessful-ai-features-while-merging-its-separate-copilot-apps/
+        </p>
+      </section>
+
+      <section class="block" id="tema">
+        <p class="kicker">Tema central · Sheets · Excel · la fila</p>
+        <h1>sigue <em>la fila</em></h1>
+        <p class="dek">
+          El modelo nuevo pinta tableros encima de la hoja. Si la fila no existe, pinta aire.
+        </p>
+        <figure class="scene">
+          <img
+            src="img/escena-hoja-celular.jpg"
+            alt="Mostrador: hoja impresa con filas vacías al lado de un celular con el chat abierto"
+          />
+        </figure>
+        <p>Hasta ahora la hoja era “el sistema” en la práctica.</p>
+
+        <h2 class="hed" style="margin-top: 48px; font-size: 40px">La fila es el sistema</h2>
+        <figure class="scene">
+          <img src="img/escena-macro-excel.jpg" alt="Macro de una hoja impresa: celdas vacías, un nombre a lápiz" />
+          <figcaption>La hoja que ya tienes: columnas, una celda con nombre, el resto en blanco. El chat todavía no la lee.</figcaption>
+        </figure>
+        <dl class="rail">
+          <div>
+            <dt>Fuente</dt>
+            <dd>
+              Google · Sheets canvas, mini-apps con Gemini encima de la hoja.
+              <span class="src">blog.google/products-and-platforms/products/workspace/sheets-canvas-for-google-sheets-spreadsheets/</span>
+            </dd>
+          </div>
+          <div>
+            <dt>Anuncio</dt>
+            <dd><span class="num">13 ago 2026</span>Gemini pinta tableros encima de la grilla.</dd>
+          </div>
+          <div>
+            <dt>Idioma</dt>
+            <dd>Hoy, <b>solo en inglés</b>. Pro, Ultra, Workspace Business y Enterprise.</dd>
+          </div>
+          <div>
+            <dt>Scheduled</dt>
+            <dd>El resto de dominios empieza el <b>31 de agosto</b>. Sin precio en soles acá.</dd>
+          </div>
+        </dl>
+        <div class="prose">
+          <p>
+            Sheets canvas es una capa que lee y escribe la misma grilla. Cambias el tablero, cambia la hoja.
+            Cambias la hoja, cambia el tablero. Eso es real. Lo publicó Google el 13 de agosto.
+          </p>
+          <p>
+            No lo leí como “ya no necesitas un sistema”. Lo leí así: el modelo se sentó donde ya había filas.
+            Si el lead se quedó en Maps, si el hueco de la agenda no se escribió, el canvas no inventa el
+            lunes.
+          </p>
+          <p>
+            El N°1 era el chat que deja de ser gratis. Este número es la hoja que sigue siendo el sistema —
+            con o sin Gemini encima.
+          </p>
+        </div>
+        <p class="dek">Lo que se rompe no es Excel. Es la costumbre de trabajar sin bajar el lead a una fila.</p>
+
+        <h2 class="hed" style="margin-top: 48px; font-size: 40px">Cuatro casos</h2>
+        <p class="dek" style="font-size: 18px">
+          Cuatro negocios distintos. Una sola pregunta: ¿el lead bajó a una fila, o se quedó en el aire?
+        </p>
+        <div class="case">
+          <p class="who">01 · Maps · la ruta</p>
+          <h3>“Paso mañana”</h3>
+          <p>
+            El pin marca un lugar. El lead es una fila. Si el nombre se queda en la ruta y no baja a la hoja,
+            el viernes no hay a quién escribirle. El canvas de Google no va a inventar esa celda.
+            <b>El lead se pierde en el trayecto</b>, no en el modelo.
+          </p>
+        </div>
+        <div class="case">
+          <p class="who">02 · Ficha · el chat</p>
+          <h3>“Si no está, no existe”</h3>
+          <p>
+            El chat puede estar lleno y la hoja, en blanco. Lo que no escribiste no pasó. El modelo nuevo no
+            te arma la ficha si nadie anotó nombre, pedido y estado. <b>La fila lo confirma. El chat lo niega.</b>
+          </p>
+        </div>
+        <div class="case">
+          <p class="who">03 · Agenda · el hueco</p>
+          <h3>“¿Tienen hora?”</h3>
+          <p>
+            Un espacio en blanco en la semana. No es “falta de IA”. Es una llamada que no se agendó. El hueco
+            se ve. <b>El modelo no lo llena</b> si la agenda no es una fila que el chat pueda leer.
+          </p>
+        </div>
+        <div class="case">
+          <p class="who">04 · Grupo · el equipo</p>
+          <h3>Tres anotando</h3>
+          <p>
+            Tres personas escribiendo el mismo lead en tres sitios. Saca la atención al cliente del grupo.
+            <b>Una puerta, un hilo, una fila.</b>
+          </p>
+        </div>
+        <figure class="scene">
+          <img src="img/escena-maps-hoja.jpg" alt="Escritorio: celular con un mapa, hoja con una fila en blanco y llaves" />
+          <figcaption>Media tarde. El pin está en el mapa; la fila de la hoja sigue vacía.</figcaption>
+        </figure>
+      </section>
+
+      <section class="block paper">
+        <p class="kicker">Tema central · la cita y los datos</p>
+        <p class="quote">
+          El arreglo no es un canvas más lindo.
+          <em>Es que el chat, la fila y el estado hablen.</em>
+        </p>
+        <p class="src" style="margin-top: 20px">Phil · sobre Sheets canvas</p>
+        <h2 class="hed" style="margin-top: 40px; font-size: 36px">Los datos que sí existen</h2>
+        <p>Solo lo que Google y Microsoft publicaron esta semana. Nada de precios en soles, nada de filas inventadas.</p>
+        <dl class="rail">
+          <div>
+            <dt>Sheets canvas</dt>
+            <dd><span class="num">13 ago 2026</span>Gemini convierte la hoja en <b>mini-app</b>. Lee y escribe la misma grilla. Hoy, en inglés.</dd>
+          </div>
+          <div>
+            <dt>Copilot recorta</dt>
+            <dd><span class="num">18 ago 2026</span>Microsoft junta las dos apps. Al consumidor le quitan group chats, podcasts, Labs y <b>Deep Research</b>.</dd>
+          </div>
+          <div>
+            <dt>Scheduled</dt>
+            <dd><span class="num">31 ago 2026</span>Sheets canvas llega a dominios Scheduled. Hasta entonces, <b>no está en tu hoja</b> si no eres Rapid Release.</dd>
+          </div>
+        </dl>
+        <p>Sin precio en soles en esta página. El canvas no crea la fila: la pinta si ya existe.</p>
+        <p class="src">
+          blog.google/products-and-platforms/products/workspace/sheets-canvas-for-google-sheets-spreadsheets/<br />
+          techcrunch.com/2026/08/13/microsoft-kills-off-unsuccessful-ai-features-while-merging-its-separate-copilot-apps/
+        </p>
+      </section>
+
+      <section class="block">
+        <p class="kicker">Antes de pintar el canvas</p>
+        <h1>Tres reglas</h1>
+        <p class="dek" style="font-size: 18px">
+          No es una lista de buenas intenciones. Es lo que yo dejaría escrito en la operación antes de sentar
+          un modelo encima de la hoja.
+        </p>
+        <div class="rule-row">
+          <p class="n">01</p>
+          <h3>Si no bajó a una fila, no pasó.</h3>
+          <p>
+            El pin de Maps, el “paso mañana”, el hueco de la agenda: si no está en la hoja, <b>no existe</b>.
+            El canvas no inventa celdas. Anótalo o escálalo.
+          </p>
+        </div>
+        <div class="rule-row">
+          <p class="n">02</p>
+          <h3>Una puerta, un hilo, una fila.</h3>
+          <p>
+            Tres personas anotando el mismo lead en tres sitios es ruido. El chat escribe. La hoja confirma.
+            <b>Nadie más.</b>
+          </p>
+        </div>
+        <div class="rule-row">
+          <p class="n">03</p>
+          <h3>Lo que mueve plata o una cita, lo ve una persona.</h3>
+          <p>
+            El sistema prepara: junta los datos, arma la fila, deja el estado listo. <b>No cierra solo.</b>
+            Quien cobra o agenda es alguien de tu equipo. El modelo no firma.
+          </p>
+        </div>
+        <p class="dek" style="margin-top: 28px">
+          Si esto queda escrito, el modelo nuevo no te cambia el mes: te cambia una costumbre. La fila, no el
+          anuncio.
+        </p>
+        <p class="sign">— Phil</p>
+      </section>
+
+      <section class="block paper" id="mas">
+        <p class="kicker">Más noticias · 12–14 ago 2026 · OpenAI · Word · 1 oct</p>
+        <h1>Más noticias</h1>
+        <div class="case">
+          <p class="who">05a · OpenAI · Wharton · 12 ago 2026</p>
+          <h3>los juniors</h3>
+          <p>Un paper de OpenAI, Columbia y Wharton miró 17 millones de mensajes de ChatGPT Enterprise en 1.764 empresas. Quien más lo usa no es el jefe. Son los juniors.</p>
+          <p>Lo leí así: el modelo entra por quien escribe la fila, no por quien firma el contrato.</p>
+          <div class="why"><b>Why it matters</b>Si el sistema no llega a quien anota, no llega a la operación.</div>
+        </div>
+        <div class="case">
+          <p class="who">05b · Microsoft · Word · ago 2026</p>
+          <h3>elige el modelo</h3>
+          <p>Copilot en Word ahora deja elegir Claude al lado de OpenAI. El documento decide, no el laboratorio.</p>
+          <p>Es la misma apuesta que veo en la hoja: el valor no está en un modelo único, está en entrar donde ya se escribe.</p>
+          <div class="why"><b>Why it matters</b>El modelo se elige. La fila, no: o está o no está.</div>
+        </div>
+        <div class="case">
+          <p class="who">05c · N°1 · recordatorio · 1 oct</p>
+          <h3>el chat cuesta</h3>
+          <p>El 1 de octubre las respuestas de WhatsApp que no son plantilla vuelven a la cuenta.</p>
+          <p>Este número no lo vuelve a contar. Lo deja puesto: la hoja y el chat se pagan juntos si no hablan.</p>
+          <div class="why"><b>Why it matters</b>El N°1 era el chat. El N°2 es la fila. Son la misma operación.</div>
+        </div>
+        <figure class="scene">
+          <img src="img/escena-laptop-noche.jpg" alt="Laptop de noche: dos ventanas abiertas y una página impresa debajo" />
+          <figcaption>Noche. La hoja impresa debajo del laptop. Ni canvas, ni proyecto: la sesión de siempre.</figcaption>
+        </figure>
+        <p class="src">
+          techtimes.com/articles/324500/20260814/junior-workers-drive-chatgpt-enterprise-study-maps-17m-messages-across-firms.htm<br />
+          techbooky.com/microsoft-word-copilot-anthropic-models-openai/<br />
+          developers.facebook.com/documentation/business-messaging/whatsapp/pricing/non-template-messages
+        </p>
+      </section>
+
+      <section class="block" id="tablero">
+        <p class="kicker">Tablero de IA · índice y gráficos</p>
+        <h1>Tablero de IA</h1>
+        <p class="dek" style="font-size: 18px">
+          Artificial Analysis Intelligence Index. Captura del 14 ago 2026 · artificialanalysis.ai
+        </p>
+        <div class="why">
+          <b>Lo que leo yo · línea Wavys, no es el benchmark</b>
+          El ranking no se movió. Opus 5 sigue arriba. Grok sigue en la mesa. Lo que se movió esta semana no
+          está en el índice: Gemini se sentó en la hoja. El tablero no te llena la fila.
+        </div>
+        <p class="kicker" style="margin-top: 36px">Índice de inteligencia · Benchmark AA · 14 ago 2026</p>
+        <div class="row"><span>01</span><b>Claude Opus 5</b><em>63</em></div>
+        <div class="row"><span>02</span><b>Claude Fable 5</b><em>62</em></div>
+        <div class="row"><span>03</span><b>GPT-5.6 Sol</b><em>61</em></div>
+        <div class="row"><span>04</span><b>Grok 4.6</b><em>61</em></div>
+        <div class="row"><span>05</span><b>Qwen 3.8 Max</b><em>58</em></div>
+        <div class="row"><span>06</span><b>DeepSeek V4 Flash</b><em>52</em></div>
+        <p class="src">
+          Índice de terceros, no de Wavys. Captura del 14 ago 2026 — la semana no lo movió.
+          Gemini 3.7 Flash no tiene puesto acá: aparece en los gráficos de costo. La noticia es la hoja.
+        </p>
+        <figure class="scene">
+          <img src="charts/aa-intelligence-bars.png" alt="Gráfico real de Artificial Analysis: costo por tarea" />
+          <figcaption>Costo por tarea · captura real · artificialanalysis.ai</figcaption>
+        </figure>
+        <figure class="scene">
+          <img src="charts/aa-leaderboard.png" alt="Captura real del leaderboard de Artificial Analysis" />
+          <figcaption>Leaderboard, primeras filas · 14 ago 2026</figcaption>
+        </figure>
+        <figure class="scene">
+          <img src="charts/aa-intelligence-vs-cost.png" alt="Inteligencia vs costo por tarea, Artificial Analysis" />
+          <figcaption>Inteligencia vs costo por tarea · escala log · AA</figcaption>
+        </figure>
+      </section>
+
+      <section class="block" id="cierre">
+        <p class="kicker">Contratapa · nos leemos el viernes</p>
+        <h1>Mira tu hoja <em>antes del canvas</em></h1>
+        <figure class="scene">
+          <img src="img/escena-cierre.jpg" alt="Negocio después de cerrar: hoja impresa en el mostrador y un celular cargando" />
+          <figcaption>Cierre del día. El mostrador ya está vacío; la hoja impresa se quedó y el celular sigue cargando.</figcaption>
+        </figure>
+        <div class="prose">
+          <p>
+            Si esto te sirve para mirar tu fila antes de sentar un modelo encima, bien. Si quieres ver cómo se
+            ve un sistema que vive en el chat y en la hoja, nos escribes y lo vemos en 30 minutos.
+          </p>
+        </div>
+      </section>
+
+      <div class="cta">
+        <p class="label">30 minutos, una llamada</p>
+        <p><a class="url" href="https://cal.com/wavys-call/30min">https://cal.com/wavys-call/30min</a></p>
+        <p style="margin-top: 16px; font-family: var(--sans); color: var(--ink-70)">
+          Nos escribes, miramos tu chat y tu hoja, y sales con las tres reglas escritas.
+        </p>
+        <p class="sign" style="font-size: 32px">Nos leemos el viernes que viene.</p>
+      </div>
 
       <footer class="folio">
-        <span>Radar N°2 · borrador</span>
-        <span>Wavys</span>
+        <span>Radar N°2 · Wavys</span>
+        <span>wavys-technologies.com</span>
       </footer>
     </article>
   </body>

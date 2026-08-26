@@ -7,10 +7,9 @@
     <style>
       /* ============================================================
          02 · CARTA DEL EDITOR — personalidad: PAPEL.
-         Carta impresa: tipo de lectura (Spectral), sello de tinta,
-         colofón en versalitas y UNA foto colocada que sangra por el
-         borde izquierdo. Sin veló, sin full-bleed, sin índice.
-         Cascada de tamaños: "Esta semana" 34 → "no vi" 96 → "más IA" 158.
+         Cascada: se pierde (70, serif book) → y lo uso (20) →
+         EDITOR'S NOTE (10). Línea 1 para. Minúsculas. No CUESTA.
+         No teal. No kicker. No dek. Oficio, no landing.
          ============================================================ */
 
       .page {
@@ -19,7 +18,6 @@
           linear-gradient(168deg, #f2ede3 0%, #ebe4d6 60%, #e3dbc9 100%);
       }
 
-      /* foto colocada, sangra por la izquierda ------------------------- */
       .rail__photo {
         position: absolute;
         left: 0;
@@ -60,17 +58,18 @@
         top: 1178px;
         z-index: 20;
         transform: rotate(-5.5deg);
-        border: 2.5px solid #0f6b6a;
+        border: 1.5px solid #0f6b6a;
         color: #0f6b6a;
-        padding: 12px 16px 10px;
+        padding: 8px 10px 7px;
         background: rgba(243, 238, 228, 0.9);
+        opacity: 0.72;
       }
 
       .stamp b {
         display: block;
         font-family: var(--sans);
         font-weight: 800;
-        font-size: 15px;
+        font-size: 11px;
         letter-spacing: 0.2em;
         line-height: 1;
       }
@@ -85,7 +84,6 @@
         opacity: 0.85;
       }
 
-      /* la carta -------------------------------------------------------- */
       .letter {
         position: absolute;
         left: 648px;
@@ -94,103 +92,60 @@
         z-index: 10;
       }
 
-      .letter__kicker {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        font-family: var(--sans);
-        font-weight: 700;
-        font-size: 10.5px;
-        letter-spacing: 0.3em;
-        text-transform: uppercase;
-        color: var(--pap-45);
-      }
-
-      .letter__kicker hr {
-        flex: 1;
-        border: 0;
-        height: 1px;
-        background: var(--pap-18);
-      }
-
       h1 {
-        margin-top: 22px;
         font-weight: 400;
         letter-spacing: -0.02em;
       }
 
-      h1 .step1 {
-        display: block;
-        font-family: var(--sans);
-        font-weight: 500;
-        font-stretch: 96%;
-        font-size: 33px;
-        letter-spacing: 0.01em;
-        line-height: 1;
-        color: #4a463c;
-      }
-
       h1 .step2 {
         display: block;
-        font-family: var(--read);
-        font-weight: 300;
+        font-family: var(--italic);
         font-style: italic;
-        font-size: 98px;
-        line-height: 0.98;
-        letter-spacing: -0.035em;
+        font-weight: 500;
+        font-size: 36px;
+        line-height: 1;
+        letter-spacing: -0.03em;
         color: #24211b;
-        margin-top: 4px;
+        margin-bottom: 4px;
+      }
+
+      h1 .step1 {
+        display: block;
+        font-family: var(--read);
+        font-weight: 400;
+        font-style: normal;
+        font-size: 128px;
+        line-height: 0.86;
+        letter-spacing: -0.035em;
+        color: #0c0b09;
       }
 
       h1 .step3 {
         display: block;
-        font-family: var(--display);
-        font-variation-settings: "SOFT" 26, "WONK" 1, "opsz" 144;
-        font-weight: 900;
-        font-size: 162px;
-        line-height: 0.9;
-        letter-spacing: -0.045em;
-        color: #0c0b09;
-        margin-top: 2px;
-      }
-
-      h1 .step3 em {
-        font-style: normal;
-        background: linear-gradient(180deg, rgba(90, 210, 208, 0) 58%, rgba(90, 210, 208, 0.62) 58%);
-        padding: 0 0.03em;
-      }
-
-      .dek {
-        margin-top: 26px;
-        padding-top: 18px;
-        border-top: 1px solid var(--pap-18);
-        font-family: var(--read);
-        font-style: italic;
-        font-weight: 400;
-        font-size: 25px;
-        line-height: 1.34;
-        color: #1a1813;
-      }
-
-      .hello {
-        margin-top: 30px;
-        font-family: var(--read);
-        font-size: 20px;
-        color: #1a1813;
+        margin-top: 14px;
+        font-family: var(--sans);
+        font-weight: 500;
+        font-stretch: 96%;
+        font-size: 13px;
+        letter-spacing: 0.22em;
+        line-height: 1;
+        color: var(--pap-45);
       }
 
       .body {
-        margin-top: 12px;
+        margin-top: 26px;
+        padding-top: 16px;
+        border-top: 1px solid var(--pap-18);
       }
 
       .body p {
         font-family: var(--read);
-        font-size: 17.5px;
-        line-height: 1.68;
+        font-size: 15px;
+        line-height: 1.52;
         color: #17150f;
         text-align: justify;
         hyphens: auto;
-        margin-bottom: 15px;
+        margin-bottom: 13px;
       }
 
       .body p:first-child::first-letter {
@@ -198,23 +153,27 @@
         font-family: var(--display);
         font-variation-settings: "SOFT" 20, "WONK" 0, "opsz" 96;
         font-weight: 800;
-        font-size: 76px;
+        font-size: 68px;
         line-height: 0.76;
-        margin: 7px 9px 0 0;
+        margin: 6px 8px 0 0;
         color: #0c0b09;
       }
 
-      /* banda baja: firma + colofón ------------------------------------ */
+      .body a {
+        color: #0f6b6a;
+        text-decoration: none;
+        font-family: var(--mono);
+        font-size: 13.5px;
+        letter-spacing: 0.02em;
+      }
+
       .foot {
         position: absolute;
-        left: var(--margin);
+        left: 648px;
         right: var(--margin);
         top: 1406px;
         z-index: 12;
-        display: grid;
-        grid-template-columns: 400px 1fr 1fr;
-        gap: 46px;
-        padding-top: 22px;
+        padding-top: 18px;
         border-top: 2px solid #0c0b09;
       }
 
@@ -222,60 +181,19 @@
         font-family: var(--italic);
         font-style: italic;
         font-weight: 500;
-        font-size: 104px;
+        font-size: 72px;
         line-height: 0.82;
         color: #0c0b09;
       }
 
       .sign__meta {
-        margin-top: 16px;
+        margin-top: 10px;
         font-family: var(--mono);
         font-size: 11px;
         line-height: 1.8;
         letter-spacing: 0.1em;
         text-transform: uppercase;
         color: var(--pap-45);
-      }
-
-      .colophon h4 {
-        font-family: var(--sans);
-        font-weight: 800;
-        font-size: 10px;
-        letter-spacing: 0.26em;
-        text-transform: uppercase;
-        color: #0f6b6a;
-        margin-bottom: 12px;
-      }
-
-      .colophon dt {
-        font-family: var(--sans);
-        font-weight: 700;
-        font-size: 9.5px;
-        letter-spacing: 0.2em;
-        text-transform: uppercase;
-        color: var(--pap-45);
-        margin-top: 12px;
-      }
-
-      .colophon dd {
-        font-family: var(--read);
-        font-size: 15px;
-        line-height: 1.44;
-        margin-top: 3px;
-        color: #16140f;
-      }
-
-      .colophon dl {
-        border-top: 1px solid var(--pap-18);
-        padding-top: 2px;
-      }
-
-      .colophon .web {
-        margin-top: 20px;
-        font-family: var(--mono);
-        font-size: 11.5px;
-        letter-spacing: 0.04em;
-        color: #0f6b6a;
       }
     </style>
   </head>
@@ -287,11 +205,10 @@
       </header>
 
       <figure class="rail__photo">
-        <img src="img/escena-carta.jpg" alt="Escritorio de noche: carta impresa, lapicero, cuaderno de apuntes y café" />
+        <img src="img/escena-carta.jpg" alt="Escritorio de noche: carta impresa, lapicero y cuaderno de apuntes" />
       </figure>
       <p class="rail__caption">
-        Escritorio, viernes de noche. La carta, el cuaderno donde<br />anoto lo de la semana y el café que ya se
-        enfrió.
+        Escritorio, viernes de noche. La carta y el cuaderno donde<br />anoto lo de la semana.
       </p>
 
       <div class="stamp">
@@ -300,32 +217,27 @@
       </div>
 
       <section class="letter">
-        <p class="letter__kicker"><span>Carta</span><hr /><span>Humano</span></p>
-
         <h1>
-          <span class="step1">Esta semana</span>
-          <span class="step2">no vi</span>
-          <span class="step3"><em>más IA</em></span>
+          <span class="step2">Grok Bot</span>
+          <span class="step1">falla</span>
+          <span class="step3">Editor's note</span>
         </h1>
 
-        <p class="dek">Si lo usas todos los días, te acaba cambiando el oficio.</p>
-
-        <p class="hello">Hola.</p>
-
         <div class="body">
+          <p>Soy Phil. Hago software. Esta es la primera revista que te escribo.</p>
           <p>
-            Esta semana no vi “más IA”. Vi el chat que ya usas, la hoja que es tu sistema, el cliente que se
-            enfría, y los datos de tu gente. Te las dejo en una sola revista, por secciones, para que no
-            persigas 20 hilos el domingo a la noche.
+            Trabajo con IA todos los días. La pruebo, la corrijo, a veces me convence. Quiero contártelo de
+            cerca. Lo que me sirve. Lo que no.
           </p>
           <p>
-            Da igual si mandas paquetes, atiendes mascotas, construyes o tienes una oficina. Si el negocio
-            todavía camina a mano, esto te habla.
+            Grok Bot a veces falla. Lo sigo usando. Por eso te escribo. Salió el 11 de agosto, todavía en
+            prueba (beta). <a href="https://x.ai/bot">x.ai/bot</a>
           </p>
           <p>
-            El centro de este número es uno solo: el 1 de octubre WhatsApp deja de regalar las respuestas. Me
-            senté a recorrerlo como si fuera mi operación. Antes y después, las otras noticias de la semana. Al
-            final, el tablero de IA, con más de un gráfico.
+            Esta semana, en Twitter, vi tres cosas que te cambian el día: el correo que ahora resume y agenda
+            solo, la llamada que si tarda el cliente cuelga, y que desde octubre WhatsApp cobra las respuestas
+            que antes no cobraba. Más abajo te las cuento. Al final te dejo el ranking de modelos del 14 de
+            agosto (la lista de qué programa de IA va primero esta semana).
           </p>
         </div>
       </section>
@@ -333,28 +245,7 @@
       <div class="foot">
         <div class="sign">
           <p class="sign__name">Phil</p>
-          <p class="sign__meta">Phil · agosto 2026<br />Wavys Technologies</p>
-        </div>
-
-        <div class="colophon">
-          <h4>Quién hace esto</h4>
-          <dl>
-            <dt>Edición y textos</dt>
-            <dd>Phil — Wavys Technologies</dd>
-            <dt>Número</dt>
-            <dd>N°1 · semana del 10 al 14 de agosto de 2026</dd>
-          </dl>
-        </div>
-
-        <div class="colophon">
-          <h4>Cómo está armada</h4>
-          <dl>
-            <dt>Secciones</dt>
-            <dd>Señal · Tema central · Más noticias · Tablero de IA</dd>
-            <dt>Para quién</dt>
-            <dd>Cualquier negocio que todavía camina en Excel y WhatsApp</dd>
-          </dl>
-          <p class="web">wavys-technologies.com</p>
+          <p class="sign__meta">Phil · agosto 2026</p>
         </div>
       </div>
 

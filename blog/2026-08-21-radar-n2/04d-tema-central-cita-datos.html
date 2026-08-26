@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>RADAR N°2 — 04 Tema central · cita y datos</title>
+    <link rel="stylesheet" href="css/radar.css" />
+    <style>
+      /* ============================================================
+         04d · TEMA CENTRAL, CITA + DATOS — personalidad: PAPEL FRÍO.
+         La página invierte el tono en medio del tema central: la cita
+         grande respira arriba y abajo van SOLO hechos de Meta, en
+         línea de tiempo, con mono. Ni una tarifa en soles.
+         La cita es cita, no un titular nuevo.
+         ============================================================ */
+
+      .page {
+        background: linear-gradient(172deg, #f6f6f3 0%, #eeeeea 58%, #e6e7e3 100%);
+        color: #0a0b0b;
+      }
+
+      .quote {
+        position: absolute;
+        left: var(--margin);
+        right: var(--margin);
+        top: 246px;
+        z-index: 12;
+      }
+
+      .quote__mark {
+        font-family: var(--display);
+        font-variation-settings: "SOFT" 40, "WONK" 1, "opsz" 144;
+        font-weight: 900;
+        font-size: 210px;
+        line-height: 0.5;
+        color: var(--teal);
+        display: block;
+        height: 96px;
+      }
+
+      .quote blockquote {
+        margin-top: 18px;
+        font-family: var(--display);
+        font-variation-settings: "SOFT" 22, "WONK" 1, "opsz" 144;
+        font-weight: 800;
+        font-size: 132px;
+        line-height: 0.97;
+        letter-spacing: -0.036em;
+        color: #08090a;
+      }
+
+      .quote blockquote em {
+        font-style: normal;
+        display: block;
+        color: #0f6b6a;
+      }
+
+      .quote__by {
+        margin-top: 46px;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        font-family: var(--sans);
+        font-weight: 800;
+        font-size: 11.5px;
+        letter-spacing: 0.26em;
+        text-transform: uppercase;
+        color: rgba(10, 11, 11, 0.5);
+      }
+
+      .quote__by i {
+        display: block;
+        width: 120px;
+        height: 2px;
+        background: #0a0b0b;
+      }
+
+      /* datos ----------------------------------------------------------- */
+      .data {
+        position: absolute;
+        left: var(--margin);
+        right: var(--margin);
+        bottom: 128px;
+        z-index: 12;
+        border-top: 3px solid #0a0b0b;
+        padding-top: 22px;
+      }
+
+      .data__head {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        margin-bottom: 32px;
+      }
+
+      .data__head h3 {
+        font-family: var(--sans);
+        font-weight: 800;
+        font-stretch: 78%;
+        font-size: 66px;
+        line-height: 0.9;
+        letter-spacing: 0.004em;
+        text-transform: uppercase;
+      }
+
+      .data__head p {
+        width: 430px;
+        text-align: right;
+        font-family: var(--sans);
+        font-weight: 500;
+        font-size: 15px;
+        line-height: 1.45;
+        color: rgba(10, 11, 11, 0.62);
+      }
+
+      .timeline {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 36px;
+      }
+
+      .tl {
+        border-top: 1px solid rgba(10, 11, 11, 0.22);
+        padding-top: 16px;
+      }
+
+      .tl--now {
+        border-top: 6px solid var(--teal);
+      }
+
+      .tl__date {
+        font-family: var(--mono);
+        font-size: 42px;
+        letter-spacing: -0.03em;
+        color: #08090a;
+      }
+
+      .tl__tag {
+        margin-top: 8px;
+        font-family: var(--sans);
+        font-weight: 800;
+        font-size: 10px;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+        color: #0f6b6a;
+      }
+
+      .tl__text {
+        margin-top: 16px;
+        font-family: var(--read);
+        font-size: 18.5px;
+        line-height: 1.56;
+        color: #14161a;
+      }
+
+      .tl__text b {
+        font-weight: 600;
+      }
+
+      .data__foot {
+        margin-top: 30px;
+        padding-top: 16px;
+        border-top: 1px solid rgba(10, 11, 11, 0.22);
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 40px;
+      }
+
+      .data__foot p:first-child {
+        max-width: 560px;
+        font-family: var(--sans);
+        font-weight: 700;
+        font-size: 17px;
+        line-height: 1.42;
+        color: #08090a;
+      }
+
+      .data__foot .src {
+        max-width: 470px;
+        text-align: right;
+      }
+    </style>
+  </head>
+  <body>
+    <article class="page page--paper grain">
+      <header class="head">
+        <span class="head__mast">Radar</span>
+        <span class="head__section">Tema central · la cita y los datos</span>
+      </header>
+
+      <section class="quote">
+        <span class="quote__mark">“</span>
+        <blockquote>
+          El arreglo no es un canvas más lindo.
+          <em>Es que el chat, la fila y el estado hablen.</em>
+        </blockquote>
+        <p class="quote__by"><i></i>Phil · sobre Sheets canvas</p>
+      </section>
+
+      <section class="data">
+        <div class="data__head">
+          <h3>Los datos<br />que sí existen</h3>
+          <p>
+            Solo lo que Google y Microsoft publicaron esta semana. Nada de precios en soles, nada de filas
+            inventadas.
+          </p>
+        </div>
+
+        <div class="timeline">
+          <div class="tl tl--now">
+            <p class="tl__date">13 ago 2026</p>
+            <p class="tl__tag">Sheets canvas</p>
+            <p class="tl__text">
+              Gemini convierte la hoja en <b>mini-app</b>. Lee y escribe la misma grilla. Hoy, en inglés.
+            </p>
+          </div>
+          <div class="tl tl--now">
+            <p class="tl__date">18 ago 2026</p>
+            <p class="tl__tag">Copilot recorta</p>
+            <p class="tl__text">
+              Microsoft junta las dos apps. Al consumidor le quitan group chats, podcasts, Labs y
+              <b>Deep Research</b>.
+            </p>
+          </div>
+          <div class="tl">
+            <p class="tl__date">31 ago 2026</p>
+            <p class="tl__tag">Scheduled</p>
+            <p class="tl__text">
+              Sheets canvas llega a dominios Scheduled. Hasta entonces, <b>no está en tu hoja</b> si no eres
+              Rapid Release.
+            </p>
+          </div>
+        </div>
+
+        <div class="data__foot">
+          <p>Sin precio en soles en esta página. El canvas no crea la fila: la pinta si ya existe.</p>
+          <p class="src">
+            blog.google/products-and-platforms/products/workspace/sheets-canvas-for-google-sheets-spreadsheets/<br />
+            techcrunch.com/2026/08/13/microsoft-kills-off-unsuccessful-ai-features-while-merging-its-separate-copilot-apps/
+          </p>
+        </div>
+      </section>
+
+      <footer class="folio">
+        <span class="folio__ticks"><i></i><i></i><i class="on"></i><i></i></span>
+        <span>Radar N°2 · Tema central</span>
+        <span class="folio__num">04</span>
+      </footer>
+    </article>
+  </body>
+</html>

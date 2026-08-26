@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>RADAR N°2 · 04b Tema central · relato</title>
+    <link rel="stylesheet" href="css/radar.css" />
+    <style>
+      /* ----------------------------------------------- 04b TEMA · RELATO (papel)
+         Voz: lectura. Grilla de tres tiempos verticales que no se repite en
+         ninguna otra página: riel de ficha a la izquierda, una sola mancha de
+         lectura al centro, riel de fuente a la derecha, y la foto entra como
+         banda impresa al pie, sangrando por los dos cantos. */
+
+      .rel {
+        background: var(--news);
+      }
+
+      /* ------------------------------------------------------------ riel ficha */
+      .rel__rail {
+        position: absolute;
+        top: 148px;
+        left: var(--m);
+        width: 186px;
+        z-index: 20;
+        border-top: 4px solid var(--pap);
+        padding-top: 14px;
+      }
+
+      .rel__rail-lab {
+        font-family: var(--mast);
+        font-weight: 700;
+        font-size: 8.5px;
+        letter-spacing: 0.19em;
+        font-variation-settings: "wdth" 82;
+        text-transform: uppercase;
+        color: var(--pap-48);
+        margin-bottom: 16px;
+      }
+
+      .rel__rail-row {
+        padding: 11px 0;
+        border-bottom: 1px solid var(--pap-28);
+      }
+
+      .rel__rail-row b {
+        display: block;
+        font-family: var(--mono);
+        font-size: 9.5px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--pap-48);
+        margin-bottom: 5px;
+      }
+
+      .rel__rail-row span {
+        font-family: var(--grot);
+        font-weight: 600;
+        font-size: 17px;
+        line-height: 1.18;
+        letter-spacing: -0.018em;
+        color: var(--pap);
+      }
+
+      /* Los tres movimientos, colgados del riel en numerales. */
+      .rel__moves {
+        margin-top: 26px;
+      }
+
+      .rel__move {
+        display: flex;
+        gap: 11px;
+        align-items: baseline;
+        padding: 9px 0;
+      }
+
+      .rel__move i {
+        font-family: var(--mast);
+        font-style: normal;
+        font-weight: 700;
+        font-size: 12px;
+        letter-spacing: -0.02em;
+        font-variation-settings: "wdth" 78;
+        color: var(--signal-deep);
+      }
+
+      .rel__move span {
+        font-family: var(--read);
+        font-size: 15px;
+        line-height: 1.34;
+        color: var(--pap-72);
+        font-variation-settings: "opsz" 16;
+      }
+
+      /* ---------------------------------------------------------------- lectura */
+      .rel__main {
+        position: absolute;
+        top: 140px;
+        left: 306px;
+        width: 578px;
+        z-index: 20;
+      }
+
+      .rel__kick {
+        font-family: var(--mast);
+        font-weight: 700;
+        font-size: 9px;
+        letter-spacing: 0.2em;
+        font-variation-settings: "wdth" 82;
+        text-transform: uppercase;
+        color: var(--signal-deep);
+        margin-bottom: 20px;
+      }
+
+      .rel__h {
+        font-family: var(--display);
+        font-weight: 800;
+        font-size: 98px;
+        line-height: 0.86;
+        letter-spacing: -0.046em;
+        font-variation-settings: "opsz" 96;
+        color: var(--pap);
+      }
+
+      .rel__h em {
+        font-style: italic;
+        font-weight: 500;
+      }
+
+      .rel__body {
+        margin-top: 32px;
+        font-family: var(--read);
+        font-size: 19px;
+        line-height: 1.62;
+        font-variation-settings: "opsz" 24;
+        color: #191813;
+      }
+
+      .rel__body p + p {
+        margin-top: 1.02em;
+      }
+
+      .rel__body p:first-child {
+        font-family: var(--grot);
+        font-weight: 500;
+        font-size: 22px;
+        line-height: 1.34;
+        letter-spacing: -0.018em;
+        color: var(--pap);
+      }
+
+      .rel__body em {
+        font-style: italic;
+      }
+
+      .rel__body .fig {
+        font-family: var(--mono);
+        font-weight: 700;
+        font-size: 0.9em;
+        letter-spacing: -0.02em;
+        color: var(--signal-deep);
+      }
+
+      /* ----------------------------------------------------------- riel fuente */
+      .rel__side {
+        position: absolute;
+        top: 148px;
+        right: var(--m);
+        width: 234px;
+        z-index: 20;
+      }
+
+      .rel__side-block {
+        border-top: 4px solid var(--signal);
+        padding-top: 14px;
+        margin-bottom: 34px;
+      }
+
+      .rel__side-lab {
+        font-family: var(--mast);
+        font-weight: 700;
+        font-size: 8.5px;
+        letter-spacing: 0.19em;
+        font-variation-settings: "wdth" 82;
+        text-transform: uppercase;
+        color: var(--signal-deep);
+        margin-bottom: 10px;
+      }
+
+      .rel__side-txt {
+        font-family: var(--serif);
+        font-style: italic;
+        font-size: 27px;
+        line-height: 1.14;
+        letter-spacing: -0.018em;
+        color: var(--pap);
+      }
+
+      .rel__side-src {
+        border-top: 1px solid var(--pap-28);
+        padding-top: 12px;
+      }
+
+      /* ------------------------------------------------------------ banda pie
+         La foto se imprime en la página: duotono de papel, sangra por los dos
+         cantos y deja el folio sobre papel limpio. */
+      .rel__band {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 872px;
+        height: 700px;
+        z-index: 6;
+        overflow: hidden;
+      }
+
+      .rel__band img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: 50% 56%;
+        display: block;
+        filter: grayscale(1) contrast(1.2) brightness(1.05);
+        mix-blend-mode: multiply;
+        opacity: 0.95;
+      }
+
+      .rel__band-lab {
+        position: absolute;
+        top: 826px;
+        left: var(--m);
+        right: var(--m);
+        z-index: 20;
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        padding-bottom: 10px;
+        border-bottom: 1px solid var(--pap-28);
+      }
+
+      .rel__band-lab b {
+        font-family: var(--mast);
+        font-weight: 700;
+        font-size: 8.5px;
+        letter-spacing: 0.19em;
+        font-variation-settings: "wdth" 82;
+        text-transform: uppercase;
+        color: var(--pap-48);
+      }
+
+      .rel__band-lab span {
+        font-family: var(--read);
+        font-size: 15px;
+        line-height: 1.3;
+        color: var(--pap-72);
+        max-width: 700px;
+        text-align: right;
+        font-variation-settings: "opsz" 16;
+      }
+
+      .rel__band-lab span i {
+        font-style: normal;
+        color: var(--signal-deep);
+        font-family: var(--mono);
+        font-size: 13px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page page--news rel grain">
+      <div class="spine">
+        <span class="spine__tab">Radar N°2</span>
+        <span class="spine__section">Tema central · el relato</span>
+        <span class="spine__date">14 — 21 AGO 2026</span>
+      </div>
+
+      <!-- ------------------------------------------------------- riel de ficha -->
+      <div class="rel__rail">
+        <div class="rel__rail-lab">La nota</div>
+        <div class="rel__rail-row"><b>Fecha</b><span>20 de agosto de 2026</span></div>
+        <div class="rel__rail-row"><b>Dónde</b><span>Recepción y cobro</span></div>
+        <div class="rel__rail-row"><b>Quién lo hizo</b><span>Raintree</span></div>
+        <div class="rel__moves">
+          <div class="rel__rail-lab">Lo que hace</div>
+          <div class="rel__move"><i>01</i><span>Reagenda la cita.</span></div>
+          <div class="rel__move"><i>02</i><span>Llama al que no vino.</span></div>
+          <div class="rel__move"><i>03</i><span>Mira el seguro.</span></div>
+        </div>
+      </div>
+
+      <!-- ------------------------------------------------------------- lectura -->
+      <div class="rel__main">
+        <div class="rel__kick">El relato · lo que leí</div>
+        <div class="rel__h">Nadie lo agarró <em>a tiempo.</em></div>
+        <div class="rel__body">
+          <p>
+            El 20 de agosto Raintree metió IA en la recepción y en el cobro: reagenda, llama al que
+            no vino y mira el seguro.
+          </p>
+          <p>
+            No lo leí como <em>“otra herramienta de clínica”</em>. Lo leí así: el lunes, si tu
+            consultorio sigue dejando el teléfono en el buzón, <span class="fig">7 de cada 10</span>
+            no dejan recado. Ese hueco de la agenda ya se decidió. No es que el paciente
+            <em>“no llamó otra vez”</em>. Es que nadie lo agarró a tiempo.
+          </p>
+        </div>
+      </div>
+
+      <!-- -------------------------------------------------------- riel derecho -->
+      <div class="rel__side">
+        <div class="rel__side-block">
+          <div class="rel__side-lab">Lo que cambia</div>
+          <div class="rel__side-txt">El hueco de la agenda ya se decidió.</div>
+        </div>
+        <div class="rel__side-src">
+          <div class="rel__side-lab">Fuente</div>
+          <div class="src">
+            https://www.prnewswire.com/news-releases/raintree-extends-its-invisible-emr-vision-with-agentic-ai-across-the-front-desk-and-revenue-cycle-302854802.html
+          </div>
+        </div>
+      </div>
+
+      <!-- ------------------------------------------------------------ banda pie -->
+      <div class="rel__band-lab">
+        <b>La agenda del lunes</b>
+        <span>El renglón en blanco es el que ya se decidió: <i>nadie devolvió la llamada.</i></span>
+      </div>
+      <div class="rel__band">
+        <!-- Escena: cuaderno de citas abierto en el mostrador, un renglón vacío,
+             el cordón del teléfono entrando por el canto.
+             gemini-3.1-flash-lite-image · sin caras, escritura ilegible. -->
+        <img src="img/escena-agenda.jpg" alt="" />
+      </div>
+
+      <div class="folio">
+        <span class="folio__meta">Radar N°2 · Tema central · relato</span>
+        <span class="folio__bar"
+          ><i></i><i></i><i></i><i class="on"></i><i></i><i></i><i></i
+        ></span>
+        <span class="folio__num">04</span>
+      </div>
+    </div>
+  </body>
+</html>

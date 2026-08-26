@@ -78,5 +78,9 @@ bots/
 
 ## Qué no va aquí
 
-Los posts de redes usan `agent/design-kit/`, que es otro contrato y otro
-formato. Este kit es solo la revista.
+Los posts de redes usan `agent/design-kit/` y los flyers de una hoja
+`agent/flyer-kit/`; cada uno es otro contrato y otro formato. Este kit es solo
+la revista.
+
+Las fuentes editoriales de `fonts/` las comparte el flyer kit por `@import`:
+si mueves o renombras esta carpeta, se rompe `agent/flyer-kit/fonts/fonts.css`.

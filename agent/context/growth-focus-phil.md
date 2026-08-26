@@ -14,7 +14,7 @@ Este doc manda sobre el plan general cuando haya conflicto de prioridades.
 | **Kit venta** | `data/wavys-os-campaign-brief/` |
 | **Producto** | `data/wavys-os-brief/` |
 | **CTA** | https://calendly.com/philtaboada2julio |
-| **Landing** | https://software.wavys-technologies.com/wavys-os |
+| **Landing** | retirada de software.wavys (2026-08-12) |
 | **Meta fase** | 5–10 demos / design partners en 14–21 días |
 | **Plan acción** | `data/wavys-os-campaign-brief/PLAN-MARKETING-7-DIAS.md` |
 

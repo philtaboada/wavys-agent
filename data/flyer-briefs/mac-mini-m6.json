@@ -1,0 +1,18 @@
+{
+  "slug": "mac-mini-m6",
+  "layout": "cartel",
+  "format": "feed",
+  "accent": "teal",
+  "kicker": "RADAR · Hardware",
+  "title": "El M6 no es el Pro",
+  "titleAccent": "está en el barato",
+  "dek": "Apple saltó el M5 en la base y estrenó el primer chip de 2 nm en el modelo de entrada. El caro llega con M5 Pro, que ya existía en el MacBook Pro.",
+  "cta": {
+    "label": "Síguenos en Instagram",
+    "url": "https://www.instagram.com/wavys_technologies/",
+    "note": "Hardware de la semana, sin el tono de tienda."
+  },
+  "contact": ["wavys-technologies.com"],
+  "footnote": "Apple Newsroom, 25/08/2026. Preventa desde hoy. Llega el 22 de septiembre.",
+  "image": "data/generated-images/flyer-mac-mini-m6-c.jpg"
+}

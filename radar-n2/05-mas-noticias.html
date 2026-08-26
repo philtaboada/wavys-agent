@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>RADAR N°2 · 05 Más notas</title>
+    <link rel="stylesheet" href="css/radar.css" />
+    <style>
+      /* --------------------------------------------------- 05 MÁS NOTAS (papel)
+         Voz: tres módulos desiguales, una voz tipográfica por nota.
+         Grilla al revés de la 03: acá la cabeza va a la derecha, una columna
+         angosta corre todo el alto por la izquierda, los otros dos módulos se
+         apilan a la derecha en alturas distintas, y la banda de foto cierra al
+         pie con las fuentes impresas encima.
+         Si las tres notas parecieran la misma tarjeta, no sirve. */
+
+      .mas {
+        background: var(--news);
+      }
+
+      /* ---------------------------------------------------------------- cabeza */
+      .mas__head {
+        position: absolute;
+        top: 104px;
+        left: var(--m);
+        right: var(--m);
+        z-index: 20;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        padding-bottom: 12px;
+        border-bottom: 4px solid var(--pap);
+      }
+
+      .mas__meta {
+        font-family: var(--mono);
+        font-size: 10.5px;
+        line-height: 1.7;
+        letter-spacing: 0.05em;
+        color: var(--pap-48);
+        max-width: 420px;
+      }
+
+      .mas__meta b {
+        color: var(--signal-deep);
+      }
+
+      .mas__title {
+        font-family: var(--mast);
+        font-weight: 800;
+        font-size: 58px;
+        line-height: 0.82;
+        letter-spacing: -0.035em;
+        font-variation-settings: "wdth" 96;
+        text-transform: uppercase;
+        color: var(--pap);
+        text-align: right;
+      }
+
+      /* --------------------------------------------------------- kicker común */
+      .mk {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        font-family: var(--mast);
+        font-weight: 700;
+        font-size: 9px;
+        letter-spacing: 0.19em;
+        font-variation-settings: "wdth" 82;
+        text-transform: uppercase;
+        color: var(--pap-48);
+        margin-bottom: 18px;
+      }
+
+      .mk b {
+        background: var(--pap);
+        color: var(--news);
+        padding: 3px 7px 4px;
+        letter-spacing: 0.1em;
+      }
+
+      .mtxt {
+        font-family: var(--read);
+        font-size: 16px;
+        line-height: 1.55;
+        font-variation-settings: "opsz" 18;
+        color: #191813;
+        margin-top: 20px;
+      }
+
+      /* ------------------------------------------------- nota 1 · voz cursiva
+         Columna angosta que corre todo el alto. */
+      .n1 {
+        position: absolute;
+        top: 214px;
+        left: var(--m);
+        width: 318px;
+        padding-right: 30px;
+        border-right: 1px solid var(--pap-28);
+        z-index: 20;
+        min-height: 830px;
+      }
+
+      .n1__l1 {
+        font-family: var(--grot);
+        font-weight: 400;
+        font-size: 42px;
+        line-height: 1;
+        letter-spacing: -0.03em;
+        font-variation-settings: "wdth" 88;
+        color: var(--pap-48);
+      }
+
+      .n1__70 {
+        font-family: var(--serif);
+        font-style: italic;
+        font-size: 96px;
+        line-height: 0.9;
+        letter-spacing: -0.026em;
+        color: var(--pap);
+        margin-top: 2px;
+      }
+
+      /* Marca de agua: la huella de la nota, en filigrana de papel. */
+      .n1__mark {
+        margin-top: 30px;
+        padding-top: 16px;
+        border-top: 3px solid var(--pap);
+        font-family: var(--mono);
+        font-size: 10px;
+        line-height: 1.7;
+        letter-spacing: 0.04em;
+        color: var(--pap-48);
+        text-transform: uppercase;
+      }
+
+      /* ------------------------------------------- nota 2 · voz grotesca ancha */
+      .n2 {
+        position: absolute;
+        top: 214px;
+        left: 448px;
+        width: 724px;
+        z-index: 20;
+      }
+
+      /* El titular cruza los 724 px y el cuerpo baja en dos columnas: estructura
+         interna distinta a la nota 1 (vertical) y a la nota 3 (lado a lado). */
+      .n2__70 {
+        font-family: var(--wide);
+        font-weight: 800;
+        font-size: 100px;
+        line-height: 0.86;
+        letter-spacing: -0.044em;
+        font-variation-settings: "wdth" 100, "opsz" 96;
+        color: var(--pap);
+        white-space: nowrap;
+      }
+
+      .n2__l2 {
+        font-family: var(--wide);
+        font-weight: 200;
+        font-size: 68px;
+        line-height: 0.96;
+        letter-spacing: -0.032em;
+        font-variation-settings: "wdth" 92, "opsz" 72;
+        color: var(--signal-deep);
+        margin-top: 2px;
+      }
+
+      .n2__row {
+        display: grid;
+        grid-template-columns: 1fr 302px;
+        gap: 34px;
+        align-items: start;
+        margin-top: 28px;
+        padding-top: 20px;
+        border-top: 1px solid var(--pap-28);
+      }
+
+      /* ------------------------------------------------- nota 3 · voz mono
+         Se apoya en un filete que arranca dentro de la columna derecha. */
+      .n3 {
+        position: absolute;
+        top: 780px;
+        left: 448px;
+        width: 724px;
+        padding-top: 24px;
+        border-top: 4px solid var(--signal);
+        z-index: 20;
+      }
+
+      .n3__row {
+        display: grid;
+        grid-template-columns: 1fr 292px;
+        gap: 34px;
+        align-items: start;
+      }
+
+      .n3__70 {
+        font-family: var(--mast);
+        font-weight: 800;
+        font-size: 74px;
+        line-height: 0.94;
+        letter-spacing: -0.055em;
+        font-variation-settings: "wdth" 84;
+        color: var(--pap);
+      }
+
+      .n3__l2 {
+        font-family: var(--grot);
+        font-weight: 300;
+        font-size: 54px;
+        line-height: 1;
+        letter-spacing: -0.032em;
+        font-variation-settings: "wdth" 88;
+        color: var(--pap-48);
+        margin-top: 6px;
+      }
+
+      .n3__sys {
+        margin-top: 18px;
+        font-family: var(--mono);
+        font-size: 10.5px;
+        line-height: 1.7;
+        letter-spacing: 0.04em;
+        color: var(--pap-48);
+      }
+
+      /* ---------------------------------------------------------- banda al pie
+         Escena de oficio en tinta: sostiene las tres fuentes impresas. */
+      .mas__band {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 1158px;
+        height: 424px;
+        z-index: 6;
+        overflow: hidden;
+        background: #08080a;
+      }
+
+      .mas__band img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: 52% 50%;
+        display: block;
+        filter: saturate(0.46) contrast(1.1) brightness(0.72);
+      }
+
+      .mas__band-veil {
+        position: absolute;
+        inset: 0;
+        z-index: 8;
+        background: linear-gradient(
+          90deg,
+          rgba(5, 5, 7, 0.95) 0%,
+          rgba(5, 5, 7, 0.66) 46%,
+          rgba(5, 5, 7, 0.18) 78%
+        );
+      }
+
+      .mas__src {
+        position: absolute;
+        left: var(--m);
+        top: 1200px;
+        width: 700px;
+        z-index: 20;
+      }
+
+      .mas__src-lab {
+        font-family: var(--mast);
+        font-weight: 700;
+        font-size: 9px;
+        letter-spacing: 0.2em;
+        font-variation-settings: "wdth" 82;
+        text-transform: uppercase;
+        color: var(--signal);
+        padding-bottom: 11px;
+        border-bottom: 1px solid rgba(251, 250, 247, 0.24);
+        margin-bottom: 15px;
+      }
+
+      .mas__src-row {
+        display: grid;
+        grid-template-columns: 88px 1fr;
+        gap: 16px;
+        padding: 8px 0;
+      }
+
+      .mas__src-row b {
+        font-family: var(--mast);
+        font-weight: 700;
+        font-size: 9px;
+        letter-spacing: 0.14em;
+        font-variation-settings: "wdth" 82;
+        text-transform: uppercase;
+        color: rgba(251, 250, 247, 0.62);
+      }
+
+      .mas__src-row span {
+        font-family: var(--mono);
+        font-size: 10px;
+        line-height: 1.5;
+        letter-spacing: -0.01em;
+        color: rgba(251, 250, 247, 0.86);
+        word-break: break-all;
+      }
+
+      .mas__band-cap {
+        position: absolute;
+        right: var(--m);
+        bottom: 1754px;
+        z-index: 20;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page page--news mas grain">
+      <div class="spine">
+        <span class="spine__tab">Radar N°2</span>
+        <span class="spine__section">Más notas de la semana</span>
+        <span class="spine__date">14 — 21 AGO 2026</span>
+      </div>
+
+      <div class="mas__head">
+        <div class="mas__meta">
+          Tres notas que no son el tema<br />
+          <b>14 · 14 · 17 AGO 2026</b> — lo que firmas, el aviso, el examen
+        </div>
+        <div class="mas__title">Más<br />notas</div>
+      </div>
+
+      <!-- ------------------------------------------------ nota 1 · voz cursiva -->
+      <div class="n1">
+        <div class="mk"><b>01</b> Claude · 14 ago</div>
+        <div class="n1__l1">el texto</div>
+        <div class="n1__70">deja huella</div>
+        <div class="mtxt">
+          Anthropic metió una marca invisible en el texto que arma Claude. El presupuesto o el
+          consentimiento que salió de ahí se puede detectar. Si se lo mandas al paciente o al
+          comprador, alguien más puede saber que lo escribió una IA.
+        </div>
+        <div class="why" style="margin-top: 22px">
+          <div class="why__bar"></div>
+          <div>
+            <div class="why__label">Why it matters</div>
+            <div class="why__text" style="font-size: 15px">
+              Si lo firmas tú, alguien puede saber que no lo escribiste.
+            </div>
+          </div>
+        </div>
+        <div class="n1__mark">
+          Marca invisible<br />
+          en el texto que sale<br />
+          de la máquina
+        </div>
+      </div>
+
+      <!-- ----------------------------------------- nota 2 · voz grotesca ancha -->
+      <div class="n2">
+        <div class="mk"><b>02</b> OneKey MLS + Ocusell · 14 ago</div>
+        <div class="n2__70">40 minutos</div>
+        <div class="n2__l2">menos</div>
+        <div class="n2__row">
+          <div class="mtxt" style="margin-top: 0">
+            OneKey MLS con Ocusell: hasta 70 campos, fotos en orden, textos con IA y chequeo de
+            reglas, gratis para 42.000 suscriptores en Nueva York. El inventario deja de vivir 40
+            minutos en un WhatsApp con 12 fotos.
+          </div>
+          <div class="why">
+            <div class="why__bar"></div>
+            <div>
+              <div class="why__label">Why it matters</div>
+              <div class="why__text" style="font-size: 15px">
+                Si el aviso se arma en el chat, el lunes se te va la mañana.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- --------------------------------------------------- nota 3 · voz mono -->
+      <div class="n3">
+        <div class="mk"><b>03</b> Overjet Voice · 17 ago</div>
+        <div class="n3__row">
+          <div>
+            <div class="n3__70">se dicta</div>
+            <div class="n3__l2">entra solo</div>
+            <div class="n3__sys">
+              Dentrix · Eaglesoft · Open Dental<br />
+              Sin hardware nuevo
+            </div>
+          </div>
+          <div>
+            <div class="mtxt" style="margin-top: 0">
+              Overjet Voice: el examen va al odontograma y al sistema sin hardware nuevo. Deja de
+              reconstruirse de memoria a las 8 de la noche.
+            </div>
+            <div class="why" style="margin-top: 20px">
+              <div class="why__bar"></div>
+              <div>
+                <div class="why__label">Why it matters</div>
+                <div class="why__text" style="font-size: 15px">
+                  Si el examen vive en tu cabeza hasta la noche, el lunes empieza atrasado.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ---------------------------------------------------------- banda al pie -->
+      <div class="mas__band">
+        <!-- Escena: back office de noche, el teléfono en silueta y la bandeja de
+             instrumentos. gemini-3.1-flash-lite-image · sin caras. -->
+        <img src="img/escena-oficio.jpg" alt="" />
+        <div class="mas__band-veil"></div>
+      </div>
+
+      <div class="mas__src">
+        <div class="mas__src-lab">Fuentes · impresas completas</div>
+        <div class="mas__src-row">
+          <b>01 Claude</b><span>https://www.anthropic.com/news/claude-text-watermark</span>
+        </div>
+        <div class="mas__src-row">
+          <b>02 OneKey</b
+          ><span
+            >https://www.rismedia.com/2026/08/14/onekey-mls-prepares-to-launch-ocusell-list-bringing-the-latest-listing-tools-to-subscribers/</span
+          >
+        </div>
+        <div class="mas__src-row">
+          <b>03 Overjet</b
+          ><span>https://www.overjet.com/blog/overjet-voice-hard-tissue-perio-charting</span>
+        </div>
+      </div>
+
+      <div class="folio">
+        <span class="folio__meta">Radar N°2 · Más notas</span>
+        <span class="folio__bar"
+          ><i></i><i></i><i></i><i></i><i class="on"></i><i></i><i></i
+        ></span>
+        <span class="folio__num">05</span>
+      </div>
+    </div>
+  </body>
+</html>

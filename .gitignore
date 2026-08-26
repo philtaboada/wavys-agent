@@ -14,3 +14,8 @@ data/*.json
 !data/.gitkeep
 data/generated-images/*
 !data/generated-images/.gitkeep
+data/flyer-out/*
+!data/flyer-out/.gitkeep
+data/motion-out/*
+!data/motion-out/.gitkeep
+agent/motion-kit/vendor

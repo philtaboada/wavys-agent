@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>RADAR N°2 · 01 Tapa</title>
+    <link rel="stylesheet" href="css/radar.css" />
+    <style>
+      /* ---------------------------------------------------------------- 01 TAPA
+         Businessweek: la recepción ocupa el campo. El tipo se sienta en la base
+         de ESA imagen — sobre el mostrador, no sobre un velo.
+         Masthead mono a sangre para que RADAR pegue a un metro. */
+
+      .tapa {
+        background: #07070a;
+      }
+
+      .tapa .ph {
+        inset: 0;
+      }
+
+      /* La escena se sube desde la base: el teléfono y la silla quedan en el
+         tercio medio y el mostrador vacío queda libre abajo para el tipo.
+         Así la palabra no se come al teléfono, que es el sujeto. */
+      .tapa .ph img {
+        object-position: 50% 100%;
+        transform: scale(1.3);
+        transform-origin: 44% 96%;
+        filter: saturate(0.66) contrast(1.14) brightness(0.88);
+      }
+
+      /* Sombra de imprenta: hunde el mostrador del fondo para que el tipo
+         apoye. No es un velo plano, va solo en la esquina de trabajo. */
+      .tapa__seat {
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+        background:
+          linear-gradient(
+            180deg,
+            rgba(4, 4, 6, 0) 62%,
+            rgba(4, 4, 6, 0.42) 70%,
+            rgba(4, 4, 6, 0.86) 79%,
+            rgba(4, 4, 6, 0.96) 88%
+          ),
+          linear-gradient(180deg, rgba(4, 4, 6, 0.88) 0%, rgba(4, 4, 6, 0) 15%);
+      }
+
+      /* -------------------------------------------------------------- masthead */
+      .mast {
+        position: absolute;
+        top: 34px;
+        left: 44px;
+        right: 44px;
+        z-index: 20;
+        display: flex;
+        justify-content: space-between;
+        font-family: var(--mast);
+        font-weight: 800;
+        font-size: 208px;
+        line-height: 0.84;
+        font-variation-settings: "wdth" 112.5;
+        color: #fdfcf9;
+      }
+
+      .mast span {
+        display: block;
+      }
+
+      .tapa__issue {
+        position: absolute;
+        top: 226px;
+        left: 44px;
+        right: 44px;
+        z-index: 20;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding-top: 11px;
+        border-top: 2px solid rgba(253, 252, 249, 0.9);
+      }
+
+      .tapa__n {
+        font-family: var(--mast);
+        font-weight: 700;
+        font-size: 12px;
+        letter-spacing: 0.06em;
+        font-variation-settings: "wdth" 80;
+        background: var(--signal);
+        color: #fff;
+        padding: 4px 9px 5px;
+      }
+
+      .tapa__week {
+        font-family: var(--mono);
+        font-size: 12px;
+        letter-spacing: 0.1em;
+        color: rgba(253, 252, 249, 0.82);
+      }
+
+      .tapa__rail {
+        margin-left: auto;
+        font-family: var(--mast);
+        font-weight: 500;
+        font-size: 10px;
+        letter-spacing: 0.2em;
+        font-variation-settings: "wdth" 85;
+        text-transform: uppercase;
+        color: rgba(253, 252, 249, 0.6);
+      }
+
+      /* --------------------------------------------------------------- cascada */
+      .punch {
+        position: absolute;
+        left: 44px;
+        bottom: 208px;
+        z-index: 22;
+        width: 720px;
+      }
+
+      .punch__kick {
+        font-family: var(--mast);
+        font-weight: 700;
+        font-size: 10px;
+        letter-spacing: 0.24em;
+        font-variation-settings: "wdth" 82;
+        text-transform: uppercase;
+        color: #fff;
+        background: var(--signal);
+        display: inline-block;
+        padding: 4px 9px 5px;
+        margin-bottom: 20px;
+      }
+
+      /* BUZÓN es la palabra que pesa: didone, apretada, blanco de papel. */
+      .punch__70 {
+        font-family: var(--display);
+        font-weight: 800;
+        font-size: 214px;
+        line-height: 0.76;
+        letter-spacing: -0.045em;
+        font-variation-settings: "opsz" 96;
+        color: #fdfcf9;
+        margin-left: -0.045em;
+      }
+
+      .punch__mid {
+        font-family: var(--grot);
+        font-weight: 400;
+        font-size: 56px;
+        line-height: 1;
+        letter-spacing: -0.03em;
+        font-variation-settings: "wdth" 90;
+        color: rgba(253, 252, 249, 0.66);
+        margin-top: 6px;
+      }
+
+      .punch__end {
+        font-family: var(--serif);
+        font-style: italic;
+        font-size: 122px;
+        line-height: 0.88;
+        letter-spacing: -0.028em;
+        color: #fdfcf9;
+        margin-top: -2px;
+      }
+
+      /* ------------------------------------------------------------------ deck */
+      .tapa__deck {
+        position: absolute;
+        right: 44px;
+        bottom: 216px;
+        z-index: 22;
+        width: 330px;
+        padding-left: 18px;
+        border-left: 3px solid var(--signal);
+      }
+
+      .tapa__deck p {
+        font-family: var(--grot);
+        font-weight: 500;
+        font-size: 19.5px;
+        line-height: 1.34;
+        letter-spacing: -0.016em;
+        color: #f4f1ea;
+      }
+
+      .tapa__deck strong {
+        font-weight: 700;
+        color: #fff;
+      }
+
+      /* -------------------------------------------------------------- teasers */
+      .tapa__teasers {
+        position: absolute;
+        left: 44px;
+        right: 44px;
+        bottom: 176px;
+        z-index: 22;
+        display: flex;
+        align-items: baseline;
+        gap: 22px;
+        padding-top: 13px;
+        border-top: 1px solid rgba(253, 252, 249, 0.28);
+        font-family: var(--mast);
+        font-weight: 500;
+        font-size: 13px;
+        letter-spacing: 0.05em;
+        font-variation-settings: "wdth" 84;
+        color: rgba(253, 252, 249, 0.9);
+      }
+
+      .tapa__teasers b {
+        font-weight: 700;
+        color: var(--signal);
+      }
+
+      /* ----------------------------------------------------------------- pie */
+      .tapa__foot {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 132px;
+        z-index: 24;
+        background: #050507;
+        display: flex;
+        align-items: center;
+        padding: 0 44px;
+        gap: 30px;
+        border-top: 1px solid rgba(253, 252, 249, 0.14);
+      }
+
+      .tapa__logo {
+        width: 214px;
+      }
+
+      .tapa__logo img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      .tapa__foot-txt {
+        font-family: var(--mast);
+        font-weight: 500;
+        font-size: 9.5px;
+        letter-spacing: 0.17em;
+        font-variation-settings: "wdth" 85;
+        text-transform: uppercase;
+        color: rgba(253, 252, 249, 0.46);
+        line-height: 1.7;
+      }
+
+      .tapa__foot-txt b {
+        color: rgba(253, 252, 249, 0.86);
+        font-weight: 700;
+      }
+
+      .tapa__bars {
+        margin-left: auto;
+        display: flex;
+        align-items: flex-end;
+        gap: 3px;
+        height: 34px;
+      }
+
+      .tapa__bars i {
+        display: block;
+        width: 3px;
+        background: rgba(253, 252, 249, 0.5);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page tapa grain">
+      <!-- Escena: recepción, teléfono de escritorio con luz de recado, UNA silla vacía.
+           gemini-3.1-flash-lite-image · sin caras, sin cyborg, sin interfaz legible. -->
+      <div class="ph"><img src="img/escena-tapa.jpg" alt="" /></div>
+      <div class="tapa__seat"></div>
+
+      <div class="mast">
+        <span>R</span><span>A</span><span>D</span><span>A</span><span>R</span>
+      </div>
+
+      <div class="tapa__issue">
+        <span class="tapa__n">N°2</span>
+        <span class="tapa__week">14 — 21 AGO 2026</span>
+        <span class="tapa__rail">Tecnología · Operación · Inteligencia</span>
+      </div>
+
+      <div class="punch">
+        <div class="punch__kick">Tema central · la recepción</div>
+        <div class="punch__70">BUZÓN</div>
+        <div class="punch__mid">se come</div>
+        <div class="punch__end">la silla</div>
+      </div>
+
+      <div class="tapa__deck">
+        <p>
+          Si el teléfono queda en el buzón, <strong>7 de cada 10 no dejan recado</strong>. El hueco
+          de la agenda ya se decidió.
+        </p>
+      </div>
+
+      <div class="tapa__teasers">
+        <span><b>·</b> ChatGPT no te nombra</span>
+        <span><b>·</b> Los papás dejan de vivir en 3 apps</span>
+        <span><b>·</b> El ranking de la semana, al final</span>
+      </div>
+
+      <div class="tapa__foot">
+        <!-- Logo oficial pegado como PNG. Nunca redibujado. -->
+        <div class="tapa__logo"><img src="logo/logo-wavys-technologies.png" alt="Wavys Technologies" /></div>
+        <div class="tapa__foot-txt">
+          Revista semanal<br /><b>Wavys Technologies</b>
+        </div>
+        <div class="tapa__foot-txt">
+          Lo que pasó de IA esta semana<br /><b>y qué te cambia el lunes</b>
+        </div>
+        <div class="tapa__bars">
+          <i style="height: 34px"></i><i style="height: 16px"></i><i style="height: 28px"></i>
+          <i style="height: 10px"></i><i style="height: 34px"></i><i style="height: 22px"></i>
+          <i style="height: 13px"></i><i style="height: 30px"></i><i style="height: 18px"></i>
+          <i style="height: 34px"></i><i style="height: 11px"></i><i style="height: 25px"></i>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

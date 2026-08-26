@@ -4,16 +4,13 @@
     <meta charset="UTF-8" />
     <title>RADAR N°1 — 04 Tema central · el relato</title>
     <link rel="stylesheet" href="css/radar.css" />
+    <link rel="stylesheet" href="css/tema-grok.css" />
     <style>
       /* ============================================================
-         04b · TEMA CENTRAL, EL RELATO — personalidad: LECTURA.
-         Banda de foto a sangre arriba (macro de la hoja que es el
-         sistema), cortada por la etiqueta de sección. Abajo: riel de
-         datos duros a la izquierda y una sola mancha de texto a la
-         derecha. Ninguna tarjeta.
+         04b · EL RELATO — contado, no vendido. Cero ficha. Cero
+         nombres. Cascada sigue / sin ti. No CUESTA.
          ============================================================ */
 
-      /* banda de foto --------------------------------------------------- */
       .band {
         position: absolute;
         left: 0;
@@ -28,9 +25,9 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
-        object-position: 50% 56%;
+        object-position: 50% 42%;
         display: block;
-        filter: saturate(0.7) contrast(1.14) brightness(0.82);
+        filter: saturate(1.02) contrast(1.12) brightness(0.84) sepia(0.16);
       }
 
       .band::after {
@@ -47,24 +44,24 @@
         left: var(--margin);
         top: 512px;
         z-index: 14;
-        font-weight: 800;
-        font-stretch: 74%;
-        font-size: 108px;
-        line-height: 0.86;
-        letter-spacing: 0.005em;
-        text-transform: uppercase;
-        color: var(--white);
+        font-family: var(--display);
+        font-variation-settings: "SOFT" 18, "WONK" 0, "opsz" 144;
+        font-weight: 900;
+        font-size: 128px;
+        line-height: 0.82;
+        letter-spacing: -0.04em;
+        color: #f3ead4;
       }
 
       .band__label small {
         display: block;
-        font-family: var(--mono);
-        font-weight: 400;
-        font-size: 11px;
-        letter-spacing: 0.26em;
-        color: var(--teal);
-        margin-bottom: 14px;
-        text-transform: uppercase;
+        font-family: var(--sans);
+        font-weight: 500;
+        font-size: 28px;
+        letter-spacing: 0.08em;
+        color: rgba(253, 253, 253, 0.72);
+        margin-bottom: 8px;
+        text-transform: none;
       }
 
       .band__caption {
@@ -82,7 +79,6 @@
         color: rgba(253, 253, 253, 0.55);
       }
 
-      /* riel de datos duros -------------------------------------------- */
       .rail {
         position: absolute;
         left: var(--margin);
@@ -96,9 +92,7 @@
         padding: 14px 0 18px;
       }
 
-      .rail__item:first-child {
-        border-top: 3px solid var(--teal);
-      }
+      .rail__item:first-child { border-top: 3px solid var(--teal); }
 
       .rail__item dt {
         font-family: var(--sans);
@@ -118,10 +112,7 @@
         color: rgba(253, 253, 253, 0.86);
       }
 
-      .rail__item dd b {
-        font-weight: 800;
-        color: var(--white);
-      }
+      .rail__item dd b { font-weight: 800; color: var(--white); }
 
       .rail__num {
         font-family: var(--mono);
@@ -132,7 +123,6 @@
         margin-bottom: 4px;
       }
 
-      /* mancha de texto ------------------------------------------------- */
       .story {
         position: absolute;
         left: 448px;
@@ -144,19 +134,19 @@
       .story__lead {
         font-family: var(--read);
         font-weight: 400;
-        font-size: 37px;
-        line-height: 1.3;
+        font-size: 34px;
+        line-height: 1.28;
         letter-spacing: -0.01em;
         color: var(--white);
       }
 
       .story__lead b {
         font-weight: 600;
-        background: linear-gradient(180deg, rgba(90, 210, 208, 0) 62%, rgba(90, 210, 208, 0.4) 62%);
+        background: linear-gradient(180deg, rgba(255, 122, 23, 0) 62%, rgba(255, 122, 23, 0.45) 62%);
       }
 
       .story__cols {
-        margin-top: 34px;
+        margin-top: 28px;
         column-count: 2;
         column-gap: 36px;
         column-rule: 1px solid var(--ink-10);
@@ -164,10 +154,10 @@
 
       .story__cols p {
         font-family: var(--read);
-        font-size: 18px;
-        line-height: 1.66;
+        font-size: 17.5px;
+        line-height: 1.62;
         color: rgba(253, 253, 253, 0.85);
-        margin-bottom: 15px;
+        margin-bottom: 14px;
       }
 
       .story__cols p:first-child::first-letter {
@@ -175,7 +165,7 @@
         font-family: var(--display);
         font-variation-settings: "SOFT" 24, "WONK" 1, "opsz" 96;
         font-weight: 900;
-        font-size: 82px;
+        font-size: 78px;
         line-height: 0.74;
         margin: 8px 10px 0 0;
         color: var(--teal);
@@ -192,18 +182,14 @@
         font-family: var(--sans);
         font-weight: 600;
         font-stretch: 92%;
-        font-size: 33px;
+        font-size: 30px;
         line-height: 1.24;
         letter-spacing: -0.015em;
         color: var(--white);
       }
 
-      .story__turn em {
-        font-style: normal;
-        color: var(--teal);
-      }
+      .story__turn em { font-style: normal; color: var(--teal); }
 
-      /* banda de navegación al pie ------------------------------------- */
       .next {
         position: absolute;
         left: var(--margin);
@@ -230,17 +216,13 @@
 
       .next__list {
         display: flex;
-        gap: 34px;
+        gap: 28px;
         font-family: var(--sans);
         font-weight: 700;
         font-stretch: 84%;
-        font-size: 30px;
+        font-size: 26px;
         letter-spacing: -0.01em;
         text-transform: uppercase;
-        color: rgba(253, 253, 253, 0.9);
-      }
-
-      .next__list span:nth-child(n) {
         color: rgba(253, 253, 253, 0.9);
       }
 
@@ -255,83 +237,72 @@
     </style>
   </head>
   <body>
-    <article class="page grain">
+    <article class="page page--grok grain">
       <header class="head">
         <span class="head__mast">Radar</span>
-        <span class="head__section">Tema central · el relato</span>
+        <span class="head__section">Tema central · Grok Bot · el relato</span>
       </header>
 
       <figure class="band">
-        <img src="img/escena-hoja-estado.jpg" alt="Macro de una hoja de control llenada a mano sobre el escritorio" />
-        <p class="band__caption">La hoja que ya tienes: columnas, tachones, un estado por pedido. El chat todavía no la lee.</p>
+        <img src="img/escena-bots-hablan.jpg" alt="Tres compañeros de trabajo en el escritorio, se hablan; el número se arma solo" />
+        <p class="band__caption">Creo varios. Se hablan. Yo doy el ok.</p>
       </figure>
 
-      <p class="band__label"><small>El relato</small>La hoja<br />es el sistema</p>
+      <p class="band__label"><small>Los bots</small>se hablan</p>
 
       <div class="rail">
         <div class="rail__item">
           <dt>Fuente</dt>
           <dd>
-            Meta · WhatsApp Business, precios de mensajes que no son plantilla.
-            <span class="src" style="display: block; margin-top: 10px; font-size: 9.6px"
-              >developers.facebook.com/documentation/business-messaging/whatsapp/pricing/non-template-messages</span
-            >
+            <img src="img/marks/grok-bot-on-dark.svg" alt="" style="width: 36px; height: 36px; display: block; margin-bottom: 10px" />
+            xAI · early beta.
+            <span class="src" style="display: block; margin-top: 10px; font-size: 9.6px">x.ai/bot<br />x.ai/news/introducing-grok-bot</span>
           </dd>
         </div>
         <div class="rail__item">
-          <dt>Gratis desde</dt>
-          <dd><span class="rail__num">1 nov 2024</span>Meta dejó de cobrar las líneas de servicio.</dd>
+          <dt>Salió</dt>
+          <dd><span class="rail__num">11 ago 2026</span>Todavía en prueba (beta).</dd>
         </div>
         <div class="rail__item">
-          <dt>Vuelven a la cuenta</dt>
-          <dd><span class="rail__num">1 oct 2026</span>Por mensaje. Por mercado.</dd>
-        </div>
-        <div class="rail__item">
-          <dt>Tarifas</dt>
-          <dd>Meta las publica el <b>1 de septiembre</b>. No las voy a adivinar acá: sin precio en soles.</dd>
+          <dt>Cómo lo uso</dt>
+          <dd>La revista. Los textos. El día.</dd>
         </div>
       </div>
 
       <section class="story">
         <p class="story__lead">
-          Hasta ahora escribías tú, escribía el cliente, alguien contestaba “ya te confirmo” veinte veces al día
-          y <b>nadie miraba la cuenta</b>.
+          Creo varios. Se hablan. <b>Yo doy el ok.</b>
         </p>
 
         <div class="story__cols">
           <p>
-            Esas líneas de servicio que no son plantilla oficial Meta no las cobraba desde el 1 de noviembre de
-            2024. El 1 de octubre de 2026 vuelven a la cuenta. Por mensaje. Por mercado.
+            Grok Bot salió el 11 de agosto, todavía en prueba (beta). <span class="src">x.ai/bot</span> No lo
+            uso como un chat más. Lo uso así: creo varios bots (compañeros de trabajo). Uno busca. Otro
+            escribe. Otro revisa. Se conectan entre ellos. Se hablan. Se pasan el trabajo. Deciden. Vuelven a
+            intentar. Mejoran. Yo no estoy en cada ida y vuelta. Yo doy el ok. Sin mi ok, no sale.
           </p>
           <p>
-            Las tarifas de servicio se publican el 1 de septiembre. No las voy a adivinar acá, y si alguien ya
-            te pasó un número en soles, te lo inventó.
-          </p>
-          <p>
-            No lo leí como “manda menos”. Mandar menos es perder al cliente. Lo leí así: el sistema no puede
-            contestar a lo loco. Tiene que saber qué es ruido, qué es una confirmación y qué necesita una
-            persona.
+            Yo lo uso para armar Wavys. La revista. Los textos. El día. A veces falla. Lo sigo usando. Porque
+            cuando el trabajo deja de vivir solo en mi cabeza, el lunes ya no empieza desde cero.
           </p>
         </div>
-
       </section>
 
       <p class="story__turn">
-        Lo que se rompe el 1 de octubre no es tu WhatsApp. Es la costumbre de contestar
-        <em>sin mirar la hoja</em>.
+        Ellos se hablan. <em>Yo doy el ok.</em>
       </p>
 
       <div class="next">
         <span class="next__label">Sigue</span>
         <span class="next__list">
-          <span>Courier</span><span>Veterinaria</span><span>Obra</span><span>Oficina</span>
+          <span>Revista</span><span>Texto</span><span>Noticias</span><span>Ventas</span><span>Seguimiento</span>
         </span>
-        <span class="next__meta">Cuatro casos, tres reglas</span>
+        <span class="next__meta">Cómo trabaja</span>
       </div>
 
       <footer class="folio">
         <span class="folio__ticks"><i></i><i></i><i class="on"></i><i></i></span>
-        <span>Radar N°1 · Tema central</span>
+        <span>Radar N°1 · Grok Bot</span>
         <span class="folio__num">04</span>
       </footer>
     </article>

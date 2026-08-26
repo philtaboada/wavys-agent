@@ -219,6 +219,7 @@ Estos viven en `agent/skills/` y Cursor los lee en contexto del repo:
 | `email` | Envío con `send_email` tool |
 | `reminders` | Plazos y follow-ups |
 | `business_notes` | Contexto persistente |
+| `svg_icon_from_image` | Foto/imagen → ícono SVG por abstracción (no auto-trace); Affinity MCP |
 
 No compiten con skills globales: los globales **redactan/mejoran**; los del proyecto **ejecutan** (`npm run tool`).
 

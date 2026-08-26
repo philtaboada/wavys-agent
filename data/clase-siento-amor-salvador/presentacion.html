@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Siento el amor de mi Salvador — Clase interactiva</title>
+  <style>
+    :root {
+      --gold: #c9a227;
+      --gold-soft: #e8d48b;
+      --cream: #f7f1e4;
+      --muted: #b8c0cc;
+      --ok: #3dba7a;
+      --warn: #e07a5f;
+      --panel: rgba(255, 255, 255, 0.06);
+      --line: rgba(232, 212, 139, 0.28);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      height: 100%;
+      background: #0f141c;
+      color: var(--cream);
+      font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+      overflow: hidden;
+    }
+    .progress {
+      height: 3px;
+      background: rgba(255, 255, 255, 0.12);
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 30;
+    }
+    .progress > i {
+      display: block;
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--gold), var(--gold-soft));
+      transition: width 0.25s ease;
+    }
+    .hint {
+      position: fixed;
+      right: 1.1rem;
+      top: 0.85rem;
+      z-index: 30;
+      font-family: "Avenir Next", "Segoe UI", sans-serif;
+      font-size: 0.72rem;
+      color: rgba(255, 255, 255, 0.4);
+    }
+    .footer-bar {
+      position: fixed;
+      left: 0; right: 0; bottom: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.7rem 1.2rem;
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(8px);
+      font-family: "Avenir Next", "Segoe UI", sans-serif;
+      font-size: 0.78rem;
+      color: var(--muted);
+      z-index: 30;
+    }
+    .deck { height: 100%; width: 100%; }
+    .slide {
+      display: none;
+      height: 100%;
+      width: 100%;
+      padding: clamp(1.6rem, 4.5vw, 3.8rem);
+      padding-bottom: 3.2rem;
+      position: relative;
+      overflow: auto;
+      background:
+        radial-gradient(ellipse at 18% 0%, rgba(201, 162, 39, 0.14), transparent 45%),
+        linear-gradient(160deg, #1a2332 0%, #121820 55%, #0f141c 100%);
+    }
+    .slide.active { display: flex; flex-direction: column; justify-content: center; }
+    .slide.has-image {
+      background-size: cover;
+      background-position: center;
+    }
+    .slide.has-image::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(15, 20, 28, 0.9) 0%, rgba(15, 20, 28, 0.75) 55%, rgba(15, 20, 28, 0.5) 100%);
+    }
+    .slide > * { position: relative; z-index: 1; }
+    .kicker {
+      color: var(--gold-soft);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-size: clamp(0.7rem, 1.3vw, 0.9rem);
+      font-family: "Avenir Next", "Segoe UI", sans-serif;
+      margin-bottom: 0.85rem;
+      font-weight: 700;
+    }
+    .badge {
+      display: inline-block;
+      font-family: "Avenir Next", "Segoe UI", sans-serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.35rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      color: var(--gold-soft);
+      margin-bottom: 0.8rem;
+      width: fit-content;
+    }
+    .badge.read { background: rgba(201, 162, 39, 0.15); }
+    .badge.ask { background: rgba(61, 186, 122, 0.12); border-color: rgba(61, 186, 122, 0.4); color: #8fe0b4; }
+    .badge.play { background: rgba(224, 122, 95, 0.14); border-color: rgba(224, 122, 95, 0.45); color: #f0b4a4; }
+    .badge.video { background: rgba(90, 160, 220, 0.14); border-color: rgba(90, 160, 220, 0.45); color: #9cc8ef; }
+    h1 {
+      font-size: clamp(2rem, 5vw, 3.8rem);
+      line-height: 1.12;
+      max-width: 16ch;
+      margin-bottom: 0.8rem;
+    }
+    h2 {
+      font-size: clamp(1.55rem, 3.6vw, 2.7rem);
+      line-height: 1.18;
+      max-width: 24ch;
+      margin-bottom: 1rem;
+    }
+    .lead {
+      font-size: clamp(1.05rem, 2vw, 1.4rem);
+      line-height: 1.45;
+      max-width: 40ch;
+      opacity: 0.95;
+    }
+    .meta {
+      margin-top: 1.2rem;
+      color: var(--muted);
+      font-family: "Avenir Next", "Segoe UI", sans-serif;
+      font-size: 0.92rem;
+    }
+    .quote-box {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-left: 5px solid var(--gold);
+      border-radius: 0.9rem;
+      padding: 1.2rem 1.35rem;
+      max-width: 46rem;
+      font-size: clamp(1.05rem, 2vw, 1.35rem);
+      line-height: 1.45;
+      font-style: italic;
+    }
+    .quote-box .who {
+      display: block;
+      margin-top: 0.9rem;
+      font-style: normal;
+      font-size: 0.88rem;
+      color: var(--gold-soft);
+      font-family: "Avenir Next", "Segoe UI", sans-serif;
+      letter-spacing: 0.03em;
+    }
+    .ask-box {
+      margin-top: 1.1rem;
+      background: rgba(61, 186, 122, 0.1);
+      border: 1px solid rgba(61, 186, 122, 0.35);
+      border-radius: 0.9rem;
+      padding: 1rem 1.2rem;
+      max-width: 42rem;
+      font-family: "Avenir Next", "Segoe UI", sans-serif;
+      font-size: clamp(1rem, 1.8vw, 1.2rem);
+      line-height: 1.4;
+    }
+    .ask-box strong { color: #8fe0b4; }
+    .grid2 {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 1.4rem;
+      width: min(1100px, 100%);
+      align-items: start;
+    }
+    @media (max-width: 860px) {
+      .grid2 { grid-template-columns: 1fr; }
+    }
+    .video-wrap {
+      width: min(920px, 100%);
+      aspect-ratio: 16 / 9;
+      border-radius: 1rem;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: #000;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+    }
+    .video-wrap iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    .links {
+      margin-top: 0.8rem;
+      font-family: "Avenir Next", "Segoe UI", sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    .links a { color: var(--gold-soft); }
+    /* Minijuego */
+    .game-score {
+      font-family: "Avenir Next", "Segoe UI", sans-serif;
+      color: var(--gold-soft);
+      margin-bottom: 0.6rem;
+      font-size: 0.95rem;
+    }
+    .game-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 1rem;
+      padding: 1.3rem 1.4rem;
+      max-width: 46rem;
+      min-height: 8rem;
+    }
+    .game-card .scene {
+      font-size: clamp(1.15rem, 2.2vw, 1.55rem);
+      line-height: 1.4;
+      margin-bottom: 1.1rem;
+    }
+    .game-btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+    .game-btns button, .btn {
+      font-family: "Avenir Next", "Segoe UI", sans-serif;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--cream);
+      border-radius: 999px;
+      padding: 0.7rem 1.2rem;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: transform 0.15s ease, background 0.15s ease;
+    }
+    .game-btns button:hover, .btn:hover { transform: translateY(-1px); background: rgba(255, 255, 255, 0.12); }
+    .game-btns button.bru { border-color: rgba(61, 186, 122, 0.55); }
+    .game-btns button.rui { border-color: rgba(224, 122, 95, 0.55); }
+    .game-feedback {
+      margin-top: 1rem;
+      font-family: "Avenir Next", "Segoe UI", sans-serif;
+      font-size: 1rem;
+      line-height: 1.4;
+      min-height: 2.5rem;
+      max-width: 46rem;
+    }
+    .game-feedback.ok { color: #8fe0b4; }
+    .game-feedback.no { color: #f0b4a4; }
+    .reader-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-family: "Avenir Next", "Segoe UI", sans-serif;
+      font-weight: 700;
+      color: var(--gold-soft);
+      margin-bottom: 0.7rem;
+      font-size: 1rem;
+    }
+    .reader-tag span {
+      width: 1.7rem;
+      height: 1.7rem;
+      border-radius: 50%;
+      display: inline-grid;
+      place-items: center;
+      background: rgba(201, 162, 39, 0.2);
+      border: 1px solid var(--line);
+      font-size: 0.85rem;
+    }
+    ul.points {
+      list-style: none;
+      display: grid;
+      gap: 0.75rem;
+      max-width: 42rem;
+      font-size: clamp(1.05rem, 1.9vw, 1.35rem);
+      line-height: 1.35;
+    }
+    ul.points li {
+      padding-left: 1.3rem;
+      position: relative;
+    }
+    ul.points li::before {
+      content: "";
+      width: 0.5rem;
+      height: 0.5rem;
+      border-radius: 50%;
+      background: var(--gold);
+      position: absolute;
+      left: 0;
+      top: 0.55em;
+    }
+    .chain {
+      display: grid;
+      gap: 0.55rem;
+      max-width: 30rem;
+      font-size: clamp(1rem, 1.8vw, 1.25rem);
+    }
+    .chain span {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 0.75rem;
+      padding: 0.75rem 1rem;
+    }
+    .chain .arrow {
+      text-align: center;
+      color: var(--gold);
+      border: none;
+      background: transparent;
+      padding: 0;
+    }
+    .big-word {
+      font-size: clamp(2.3rem, 7vw, 5rem);
+      color: var(--gold-soft);
+    }
+    .timer {
+      font-family: "Avenir Next", "Segoe UI", sans-serif;
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-top: 0.6rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="progress"><i id="bar"></i></div>
+  <div class="hint">← → · Espacio · Clic (fuera de botones/video)</div>
+
+  <div class="deck" id="deck">
+
+    <!-- 1 PORTADA -->
+    <section class="slide has-image active" style="background-image:url('assets/01-amor-salvador.jpg')" data-title="Portada">
+      <p class="kicker">Conferencia General · Abril 2026</p>
+      <h1>Siento el amor de mi Salvador</h1>
+      <p class="lead">Élder Pedro X. Larreal · Clase interactiva 60 min</p>
+      <p class="meta">Minijuego · Lecturas · Preguntas · Videos oficiales LDS</p>
+    </section>
+
+    <!-- 2 REGLAS -->
+    <section class="slide" data-title="Cómo vamos a jugar">
+      <p class="badge play">Modo clase viva</p>
+      <h2>Hoy no solo escuchan… participan</h2>
+      <ul class="points">
+        <li><strong>Minijuego</strong> al inicio (todos votan).</li>
+        <li><strong>Lectores</strong>: 5 voluntarios leen pedazos del discurso.</li>
+        <li><strong>Preguntas abiertas</strong>: no hay “respuesta única”.</li>
+        <li><strong>Videos LDS</strong>: discurso oficial + Santa Cena (3 Nefi).</li>
+      </ul>
+      <p class="ask-box"><strong>Maestro:</strong> pide ya 5 voluntarios (Lectores A–E) y anótalos en la pizarra.</p>
+    </section>
+
+    <!-- 3 MINIJUEGO INTRO -->
+    <section class="slide" data-title="Minijuego intro">
+      <p class="badge play">Minijuego · 6–8 min</p>
+      <h2>Brújula o Ruido</h2>
+      <p class="lead">El élder Larreal cita que el adversario <em>disfraza la verdad</em>. Vamos a entrenar el oído espiritual.</p>
+      <ul class="points" style="margin-top:1rem">
+        <li><strong>Brújula</strong> = te acerca a Cristo / al Espíritu.</li>
+        <li><strong>Ruido</strong> = suena “bien”, pero te aleja o te confunde.</li>
+      </ul>
+      <p class="ask-box"><strong>Cómo jugar:</strong> lees la escena → la clase vota con las manos (izquierda = Brújula, derecha = Ruido) → luego tocas la respuesta en pantalla.</p>
+    </section>
+
+    <!-- 4 MINIJUEGO INTERACTIVO -->
+    <section class="slide" data-title="Brújula o Ruido" data-interactive="1">
+      <p class="badge play">¡Jueguen!</p>
+      <p class="game-score" id="gameScore">Ronda 1 / 5 · Aciertos: 0</p>
+      <div class="game-card">
+        <p class="scene" id="gameScene">Cargando…</p>
+        <div class="game-btns" id="gameBtns">
+          <button type="button" class="bru" data-choice="brujula">🧭 Brújula</button>
+          <button type="button" class="rui" data-choice="ruido">📡 Ruido</button>
+        </div>
+      </div>
+      <p class="game-feedback" id="gameFeedback"></p>
+      <p class="timer">Tip: después de cada ronda pregunta: <em>«¿Por qué lo eligieron?»</em></p>
+    </section>
+
+    <!-- 5 PUENTE -->
+    <section class="slide has-image" style="background-image:url('assets/03-espiritu-brujula.jpg')" data-title="Puente al discurso">
+      <p class="badge ask">Pregunta abierta</p>
+      <h2>¿Qué “ruidos” disfrazan la verdad en tu semana?</h2>
+      <p class="ask-box">
+        <strong>Hablen 90 segundos en parejas.</strong><br />
+        No digan nombres de personas. Hablen de situaciones: redes, presión, cansancio, “todo el mundo lo hace”…
+      </p>
+      <p class="lead" style="margin-top:1.2rem">El discurso no se queda en el problema. Da una solución semanal.</p>
+    </section>
+
+    <!-- 6 LECTOR A -->
+    <section class="slide" data-title="Lector A">
+      <p class="badge read">Lectura del discurso</p>
+      <p class="reader-tag"><span>A</span> Lector A — lee en voz alta</p>
+      <div class="quote-box">
+        «Mis queridos hermanos y hermanas, ¿saben cuánto los ama el Salvador? Si no lo saben o nunca lo han pensado antes, espero que al final de este mensaje sepan cómo encontrar la respuesta a esa pregunta.»
+        <span class="who">Élder Pedro X. Larreal</span>
+      </div>
+      <div class="ask-box">
+        <strong>Pregunta abierta (1–2 min):</strong><br />
+        Si alguien te preguntara mañana “¿cómo sé que Cristo me ama?”, ¿qué responderías <em>hoy</em>… y qué te falta descubrir todavía?
+      </div>
+    </section>
+
+    <!-- 7 LECTOR B -->
+    <section class="slide" data-title="Lector B">
+      <p class="badge read">Lectura del discurso</p>
+      <p class="reader-tag"><span>B</span> Lector B — lee en voz alta</p>
+      <div class="quote-box">
+        «…en los días futuros, no será posible sobrevivir espiritualmente sin la influencia guiadora, orientadora, consoladora y constante del Espíritu Santo… viven en una época en la que el adversario se ha vuelto tan eficaz en disfrazar la verdad que, si no tienen el Espíritu Santo, serán engañados.»
+        <span class="who">Presidente Nelson · citado por el élder Larreal (vía presidente Oaks)</span>
+      </div>
+      <div class="ask-box">
+        <strong>Pregunta abierta:</strong><br />
+        ¿En qué momento de tu vida sentiste que necesitabas una “brújula” espiritual… y no solo tu opinión?
+      </div>
+    </section>
+
+    <!-- 8 VIDEO SANTA CENA BOM -->
+    <section class="slide" data-title="Video 3 Nefi" data-interactive="1">
+      <p class="badge video">Video oficial LDS · ~clip corto</p>
+      <h2>Jesucristo establece la Santa Cena</h2>
+      <p class="lead" style="margin-bottom:0.8rem">Videos del Libro de Mormón · 3 Nefi 18 (el mismo momento que cita el discurso).</p>
+      <div class="video-wrap">
+        <iframe
+          src="https://www.youtube.com/embed/az9q_tPfrXY?rel=0"
+          title="Jesucristo establece la Santa Cena | 3 Nefi 18"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+          loading="lazy"></iframe>
+      </div>
+      <p class="links">
+        Fuente:
+        <a href="https://www.churchofjesuschrist.org/media/video/2022-07-0600-jesus-christ-introduces-the-sacrament-to-the-people-3-nephi-18?lang=spa" target="_blank" rel="noopener">Biblioteca del Evangelio</a>
+        ·
+        <a href="https://www.youtube.com/watch?v=az9q_tPfrXY" target="_blank" rel="noopener">YouTube oficial</a>
+        · Clip más corto:
+        <a href="https://www.youtube.com/watch?v=mo4MEARlCec" target="_blank" rel="noopener">pan en memoria de Él</a>
+      </p>
+      <div class="ask-box">
+        <strong>Después del video:</strong> ¿Qué detalle te impactó más: Sus palabras, Su gesto, o la promesa del Espíritu?
+      </div>
+    </section>
+
+    <!-- 9 LECTOR C -->
+    <section class="slide has-image" style="background-image:url('assets/02-santa-cena.jpg')" data-title="Lector C">
+      <p class="badge read">Lectura del discurso</p>
+      <p class="reader-tag"><span>C</span> Lector C — lee en voz alta</p>
+      <div class="quote-box">
+        «Y si os acordáis siempre de mí, tendréis mi Espíritu para que esté con vosotros.»
+        <span class="who">Promesa citada por el élder Larreal (Santa Cena entre los nefitas)</span>
+      </div>
+      <div class="ask-box">
+        <strong>Pregunta abierta:</strong><br />
+        ¿Qué significa para ti, en la práctica, “acordarte siempre de Él” entre lunes y sábado?
+      </div>
+    </section>
+
+    <!-- 10 LECTOR D -->
+    <section class="slide" data-title="Lector D">
+      <p class="badge read">Lectura del discurso</p>
+      <p class="reader-tag"><span>D</span> Lector D — lee despacio; la clase cuenta “por vosotros”</p>
+      <div class="quote-box">
+        «Esto es mi cuerpo, que por vosotros es dado… Esta copa es el nuevo convenio en mi sangre, que por vosotros se derrama.» … «El Señor usa una y otra vez el pronombre vosotros para enfatizar y recordarnos que la Santa Cena es para nosotros: ¡para ustedes y para mí!»
+        <span class="who">Lucas 22:19–20 + élder Larreal</span>
+      </div>
+      <div class="ask-box">
+        <strong>Dinámica:</strong> cada vez que oigan <em>por vosotros / ustedes / mí</em>, toquen el pecho suavemente.<br /><br />
+        <strong>Pregunta abierta:</strong> Si la Santa Cena es “para ti”, ¿cómo cambia la forma en que te sientas en esa banca el domingo?
+      </div>
+    </section>
+
+    <!-- 11 LECTOR E -->
+    <section class="slide has-image" style="background-image:url('assets/04-reverencia.jpg')" data-title="Lector E">
+      <p class="badge read">Lectura del discurso</p>
+      <p class="reader-tag"><span>E</span> Lector E — lee en voz alta</p>
+      <div class="quote-box">
+        «Durante la Santa Cena, debemos esforzarnos por apartar de nuestra mente todo pensamiento mundano… no es un momento para revisar nuestro teléfono celular. Este momento sagrado es para sentir Su amor por nosotros y recordarlo a Él, para saber que nunca estamos solos…»
+        <span class="who">Élder Pedro X. Larreal</span>
+      </div>
+      <div class="ask-box">
+        <strong>Pregunta abierta (grupos de 3 · 3 min):</strong><br />
+        1) ¿Qué te distrae más?<br />
+        2) ¿Qué sí te ayuda a sentir Su amor?<br />
+        3) ¿Qué harás diferente el próximo domingo?
+      </div>
+    </section>
+
+    <!-- 12 CADENA -->
+    <section class="slide" data-title="Cadena del mensaje">
+      <p class="badge ask">Comprueben si lo entendieron</p>
+      <h2>Armen la cadena en voz alta</h2>
+      <div class="chain">
+        <span>1. Quiero saber / sentir que Él me ama</span>
+        <span class="arrow">↓</span>
+        <span>2. Me centro en Su sacrificio en la Santa Cena</span>
+        <span class="arrow">↓</span>
+        <span>3. Recibo la promesa de Su Espíritu</span>
+        <span class="arrow">↓</span>
+        <span>4. Ese Espíritu es mi brújula contra el “ruido”</span>
+      </div>
+      <div class="ask-box">
+        <strong>Reto:</strong> un voluntario explica la cadena <em>sin mirar la pantalla</em>. Otro la completa si falta algo.
+      </div>
+    </section>
+
+    <!-- 13 VIDEO DISCURSO -->
+    <section class="slide" data-title="Video discurso" data-interactive="1">
+      <p class="badge video">Video oficial · Conferencia General</p>
+      <h2>Veamos al élder Larreal</h2>
+      <p class="lead" style="margin-bottom:0.7rem">Versión en español · ~8 min. Si hay poco tiempo: minutos 0:00–2:00 y 4:50–7:40.</p>
+      <div class="video-wrap">
+        <iframe
+          src="https://www.youtube.com/embed/iFOt93ek-T4?rel=0"
+          title="Siento el amor de mi Salvador | Pedro X. Larreal"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+          loading="lazy"></iframe>
+      </div>
+      <p class="links">
+        Español oficial:
+        <a href="https://www.youtube.com/watch?v=iFOt93ek-T4" target="_blank" rel="noopener">YouTube Conferencia General</a>
+        ·
+        Texto:
+        <a href="https://www.churchofjesuschrist.org/study/general-conference/2026/04/43larreal?lang=spa" target="_blank" rel="noopener">Gospel Library</a>
+        · Inglés:
+        <a href="https://www.youtube.com/watch?v=OddT263qUt4" target="_blank" rel="noopener">OddT263qUt4</a>
+      </p>
+      <div class="ask-box">
+        <strong>Mientras miran:</strong> anoten 1 frase que “les pegó” el corazón. La compartimos al final.
+      </div>
+    </section>
+
+    <!-- 14 INVITACIÓN -->
+    <section class="slide" data-title="Invitación y compromiso">
+      <p class="badge read">Lectura final · todos juntos</p>
+      <div class="quote-box">
+        «Quiero invitarles, con todas mis fuerzas y con todo mi amor, a que salgamos hoy con la determinación de elevar nuestra preparación espiritual y reverencia al participar de la Santa Cena. Es vital.»
+        <span class="who">Élder Pedro X. Larreal</span>
+      </div>
+      <div class="ask-box">
+        <strong>Compromiso silencioso (3 min):</strong><br />
+        1) Antes de la reunión voy a: _______________________<br />
+        2) Durante la Santa Cena voy a: _____________________<br /><br />
+        Opcional: 2 voluntarios comparten (sin presión).
+      </div>
+    </section>
+
+    <!-- 15 CIERRE -->
+    <section class="slide has-image" style="background-image:url('assets/01-amor-salvador.jpg')" data-title="Cierre">
+      <p class="kicker">Mensaje para llevar</p>
+      <p class="big-word">Él te ama</p>
+      <p class="lead" style="margin-top:1rem">
+        Jesucristo vive. Tiene los brazos abiertos.<br />
+        En la Santa Cena podemos sentir Su amor<br />
+        y caminar con Su Espíritu — nuestra brújula.
+      </p>
+      <div class="ask-box" style="margin-top:1.2rem">
+        <strong>Última pregunta abierta:</strong><br />
+        ¿Qué vas a recordar de esta clase cuando el domingo llegue el himno sacramental?
+      </div>
+      <p class="meta">En el nombre de Jesucristo. Amén.</p>
+    </section>
+
+  </div>
+
+  <div class="footer-bar">
+    <span id="slideTitle">Portada</span>
+    <span id="counter">1 / 15</span>
+  </div>
+
+  <script>
+    const slides = Array.from(document.querySelectorAll(".slide"));
+    const counter = document.getElementById("counter");
+    const bar = document.getElementById("bar");
+    const slideTitle = document.getElementById("slideTitle");
+    let index = 0;
+
+    function show(next) {
+      index = Math.max(0, Math.min(slides.length - 1, next));
+      slides.forEach((slide, i) => slide.classList.toggle("active", i === index));
+      counter.textContent = `${index + 1} / ${slides.length}`;
+      bar.style.width = `${((index + 1) / slides.length) * 100}%`;
+      slideTitle.textContent = slides[index].dataset.title || "";
+    }
+
+    function next() { show(index + 1); }
+    function prev() { show(index - 1); }
+
+    document.addEventListener("keydown", (event) => {
+      const tag = (event.target && event.target.tagName) || "";
+      if (tag === "INPUT" || tag === "TEXTAREA" || tag === "BUTTON") return;
+      if (["ArrowRight", "ArrowDown", "PageDown", " "].includes(event.key)) {
+        event.preventDefault();
+        next();
+      }
+      if (["ArrowLeft", "ArrowUp", "PageUp"].includes(event.key)) {
+        event.preventDefault();
+        prev();
+      }
+      if (event.key === "Home") show(0);
+      if (event.key === "End") show(slides.length - 1);
+    });
+
+    document.getElementById("deck").addEventListener("click", (event) => {
+      const target = event.target;
+      if (!(target instanceof Element)) return;
+      if (target.closest("button, a, iframe, .video-wrap, .game-btns")) return;
+      if (slides[index].dataset.interactive === "1" && target.closest(".game-card, .game-feedback")) return;
+      if (event.clientX > window.innerWidth * 0.35) next();
+      else prev();
+    });
+
+    /* —— Minijuego Brújula o Ruido —— */
+    const rounds = [
+      {
+        scene: "Alguien te dice: «Si te hace feliz, debe ser correcto… aunque sepas que va contra lo que prometiste a Dios».",
+        answer: "ruido",
+        why: "Ruido: usa una verdad a medias (felicidad importa) para justificar alejarte de convenios."
+      },
+      {
+        scene: "Antes de la reunión sacramental apagas el celular, respiras y pides en oración sentir el amor del Salvador.",
+        answer: "brujula",
+        why: "Brújula: preparación personal — exactamente lo que enseña el discurso."
+      },
+      {
+        scene: "Durante la Santa Cena abres el chat «solo un segundito» porque llegó una notificación importante.",
+        answer: "ruido",
+        why: "Ruido: el élder Larreal dice que no es momento de revisar el celular; ese segundo roba reverencia."
+      },
+      {
+        scene: "Recuerdas la frase «por vosotros» y piensas: «Esto también es por mí», aunque te sientas imperfecto.",
+        answer: "brujula",
+        why: "Brújula: personalizar la Expiación abre el corazón a Su amor."
+      },
+      {
+        scene: "Una publicación dice: «No necesitas el Espíritu Santo; solo sé buena persona y ya».",
+        answer: "ruido",
+        why: "Ruido disfrazado: suena noble, pero niega la advertencia profética que cita el discurso."
+      }
+    ];
+
+    let roundIndex = 0;
+    let hits = 0;
+    let locked = false;
+    const gameScene = document.getElementById("gameScene");
+    const gameFeedback = document.getElementById("gameFeedback");
+    const gameScore = document.getElementById("gameScore");
+    const gameBtns = document.getElementById("gameBtns");
+
+    function renderRound() {
+      locked = false;
+      const round = rounds[roundIndex];
+      gameScene.textContent = round.scene;
+      gameFeedback.textContent = "";
+      gameFeedback.className = "game-feedback";
+      gameScore.textContent = `Ronda ${roundIndex + 1} / ${rounds.length} · Aciertos: ${hits}`;
+      gameBtns.innerHTML = `
+        <button type="button" class="bru" data-choice="brujula">🧭 Brújula</button>
+        <button type="button" class="rui" data-choice="ruido">📡 Ruido</button>
+      `;
+    }
+
+    function finishGame() {
+      gameScene.textContent = `¡Listo! Aciertos: ${hits} de ${rounds.length}. Ahora conectamos esto con el discurso del élder Larreal.`;
+      gameFeedback.className = "game-feedback ok";
+      gameFeedback.textContent = "Pregunta puente: ¿Qué ruido te cuesta más detectar en tu propia vida?";
+      gameBtns.innerHTML = `<button type="button" class="btn" id="replayGame">Jugar de nuevo</button>`;
+      document.getElementById("replayGame").addEventListener("click", () => {
+        roundIndex = 0;
+        hits = 0;
+        renderRound();
+      });
+    }
+
+    gameBtns.addEventListener("click", (event) => {
+      const button = event.target.closest("button[data-choice]");
+      if (!button || locked) return;
+      locked = true;
+      const choice = button.getAttribute("data-choice");
+      const round = rounds[roundIndex];
+      const isOk = choice === round.answer;
+      if (isOk) hits += 1;
+      gameFeedback.className = `game-feedback ${isOk ? "ok" : "no"}`;
+      gameFeedback.textContent = `${isOk ? "✔ Bien." : "✘ Casi."} ${round.why}`;
+      gameScore.textContent = `Ronda ${roundIndex + 1} / ${rounds.length} · Aciertos: ${hits}`;
+      setTimeout(() => {
+        roundIndex += 1;
+        if (roundIndex >= rounds.length) finishGame();
+        else renderRound();
+      }, 1600);
+    });
+
+    renderRound();
+    show(0);
+  </script>
+</body>
+</html>

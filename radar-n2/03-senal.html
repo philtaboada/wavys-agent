@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>RADAR N°2 · 03 Señal</title>
+    <link rel="stylesheet" href="css/radar.css" />
+    <style>
+      /* ------------------------------------------------------- 03 SEÑAL (mosaico)
+         Voz: front-of-book de diario. Papel frío, filetes, tres notas en una
+         página. La grilla es un mosaico: nota A grande con su cifra ancla,
+         banda de foto a sangre por los dos cantos, y abajo dos notas en
+         columnas desiguales. Cada nota tiene otra voz tipográfica.
+         Nada de tres bandas horizontales iguales. */
+
+      .senal {
+        background: var(--news-cold);
+      }
+
+      /* ---------------------------------------------------------------- cabeza */
+      .senal__head {
+        position: absolute;
+        top: 108px;
+        left: var(--m);
+        right: var(--m);
+        z-index: 20;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        padding-bottom: 12px;
+        border-bottom: 4px solid var(--pap);
+      }
+
+      .senal__title {
+        font-family: var(--mast);
+        font-weight: 800;
+        font-size: 66px;
+        line-height: 0.8;
+        letter-spacing: -0.03em;
+        font-variation-settings: "wdth" 100;
+        text-transform: uppercase;
+        color: var(--pap);
+      }
+
+      .senal__meta {
+        text-align: right;
+        font-family: var(--mono);
+        font-size: 10.5px;
+        line-height: 1.7;
+        letter-spacing: 0.05em;
+        color: var(--pap-48);
+      }
+
+      .senal__meta b {
+        color: var(--signal-deep);
+      }
+
+      /* ---------------------------------------------------------------- nota A
+         Voz didone. Cifra ancla colgada a la derecha. */
+      .a {
+        position: absolute;
+        top: 224px;
+        left: var(--m);
+        width: 596px;
+        z-index: 20;
+      }
+
+      .kick {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        font-family: var(--mast);
+        font-weight: 700;
+        font-size: 9px;
+        letter-spacing: 0.19em;
+        font-variation-settings: "wdth" 82;
+        text-transform: uppercase;
+        color: var(--pap-48);
+        margin-bottom: 18px;
+      }
+
+      .kick b {
+        background: var(--signal);
+        color: #fff;
+        padding: 3px 7px 4px;
+        letter-spacing: 0.1em;
+      }
+
+      .a__l1 {
+        font-family: var(--grot);
+        font-weight: 500;
+        font-size: 54px;
+        line-height: 1;
+        letter-spacing: -0.032em;
+        font-variation-settings: "wdth" 88;
+        color: var(--pap-72);
+      }
+
+      .a__70 {
+        font-family: var(--display);
+        font-weight: 800;
+        font-size: 104px;
+        line-height: 0.86;
+        letter-spacing: -0.042em;
+        font-variation-settings: "opsz" 96;
+        color: var(--pap);
+        margin-top: 2px;
+      }
+
+      .a__body {
+        margin-top: 26px;
+        font-family: var(--read);
+        font-size: 17.5px;
+        line-height: 1.58;
+        font-variation-settings: "opsz" 20;
+        color: #191813;
+      }
+
+      /* Cifra ancla: el dato es tipografía, no una tarjeta. */
+      .anchor {
+        position: absolute;
+        top: 236px;
+        left: 712px;
+        width: 460px;
+        z-index: 20;
+        padding-top: 16px;
+        border-top: 4px solid var(--signal);
+      }
+
+      .anchor__n {
+        font-family: var(--display);
+        font-weight: 800;
+        font-size: 172px;
+        line-height: 0.78;
+        letter-spacing: -0.052em;
+        font-variation-settings: "opsz" 96;
+        color: var(--pap);
+      }
+
+      .anchor__t {
+        margin-top: 10px;
+        font-family: var(--grot);
+        font-weight: 600;
+        font-size: 19px;
+        line-height: 1.26;
+        letter-spacing: -0.018em;
+        color: var(--pap);
+      }
+
+      .anchor__s {
+        margin-top: 12px;
+        padding-top: 11px;
+        border-top: 1px solid var(--pap-28);
+        font-family: var(--mono);
+        font-size: 10.5px;
+        line-height: 1.6;
+        color: var(--pap-48);
+      }
+
+      .a .why {
+        margin-top: 24px;
+      }
+
+      /* ------------------------------------------------------------ banda foto
+         Sangra por los dos cantos y corta la página en dos tiempos. */
+      .band {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 728px;
+        height: 302px;
+        z-index: 6;
+        overflow: hidden;
+        background: #0b0b0c;
+      }
+
+      .band img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: 44% 62%;
+        display: block;
+        filter: saturate(0.5) contrast(1.1) brightness(0.82);
+      }
+
+      .band__cap {
+        position: absolute;
+        left: var(--m);
+        bottom: 18px;
+        z-index: 10;
+        max-width: 560px;
+        font-family: var(--mono);
+        font-size: 10.5px;
+        line-height: 1.6;
+        letter-spacing: 0.02em;
+        color: rgba(251, 250, 247, 0.86);
+      }
+
+      .band__cap b {
+        color: var(--signal);
+      }
+
+      .band__veil {
+        position: absolute;
+        inset: 0;
+        z-index: 8;
+        background: linear-gradient(
+          0deg,
+          rgba(6, 6, 8, 0.9) 0%,
+          rgba(6, 6, 8, 0.2) 34%,
+          rgba(6, 6, 8, 0) 62%
+        );
+      }
+
+      /* -------------------------------------------------------- notas B y C
+         Columnas desiguales separadas por filete. Voces distintas. */
+      .b {
+        position: absolute;
+        top: 1112px;
+        left: var(--m);
+        width: 508px;
+        z-index: 20;
+      }
+
+      .c {
+        position: absolute;
+        top: 1112px;
+        left: 634px;
+        width: 538px;
+        padding-left: 34px;
+        border-left: 1px solid var(--pap-28);
+        z-index: 20;
+      }
+
+      /* B: grotesca ancha, la cifra dentro del titular. */
+      .b__70 {
+        font-family: var(--wide);
+        font-weight: 800;
+        font-size: 92px;
+        line-height: 0.88;
+        letter-spacing: -0.038em;
+        font-variation-settings: "wdth" 100, "opsz" 72;
+        color: var(--pap);
+      }
+
+      .b__l2 {
+        font-family: var(--wide);
+        font-weight: 300;
+        font-size: 62px;
+        line-height: 0.98;
+        letter-spacing: -0.03em;
+        font-variation-settings: "wdth" 96, "opsz" 60;
+        color: var(--pap-48);
+      }
+
+      /* C: voz mono, la del tablero. */
+      .c__70 {
+        font-family: var(--mast);
+        font-weight: 800;
+        font-size: 62px;
+        line-height: 0.94;
+        letter-spacing: -0.045em;
+        font-variation-settings: "wdth" 88;
+        color: var(--pap);
+      }
+
+      .c__l2 {
+        font-family: var(--serif);
+        font-style: italic;
+        font-size: 66px;
+        line-height: 1;
+        letter-spacing: -0.02em;
+        color: var(--pap-72);
+        margin-top: 4px;
+      }
+
+      .note__body {
+        margin-top: 20px;
+        font-family: var(--read);
+        font-size: 16.5px;
+        line-height: 1.56;
+        font-variation-settings: "opsz" 18;
+        color: #191813;
+      }
+
+      .b .why,
+      .c .why {
+        margin-top: 20px;
+      }
+
+      .b .why__text,
+      .c .why__text {
+        font-size: 15px;
+      }
+
+      /* ---------------------------------------------------------------- fuentes */
+      .senal__src {
+        position: absolute;
+        left: var(--m);
+        right: var(--m);
+        bottom: 116px;
+        z-index: 20;
+        display: grid;
+        grid-template-columns: 96px 1fr;
+        gap: 20px;
+        padding-top: 12px;
+        border-top: 1px solid var(--pap-28);
+      }
+
+      .senal__src-lab {
+        font-family: var(--mast);
+        font-weight: 700;
+        font-size: 8.5px;
+        letter-spacing: 0.19em;
+        font-variation-settings: "wdth" 82;
+        text-transform: uppercase;
+        color: var(--pap-48);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page page--news-cold senal grain">
+      <div class="spine">
+        <span class="spine__tab">Radar N°2</span>
+        <span class="spine__section">Señal · tres notas</span>
+        <span class="spine__date">14 — 21 AGO 2026</span>
+      </div>
+
+      <div class="senal__head">
+        <div class="senal__title">Señal</div>
+        <div class="senal__meta">
+          Tres notas de la semana<br />
+          <b>18 · 19 · 20 AGO 2026</b> — búsqueda, consultorio, recepción
+        </div>
+      </div>
+
+      <!-- ------------------------------------------------------------ nota A -->
+      <div class="a">
+        <div class="kick"><b>A</b> Búsqueda · 20 ago 2026</div>
+        <div class="a__l1">ChatGPT</div>
+        <div class="a__70">no te nombra</div>
+        <div class="a__body">
+          En 37.500 búsquedas de inmobiliaria, el 91,5% de agentes con web no apareció ni una vez. El
+          lead nuevo pregunta a ChatGPT. Si no sales, el portal y el WhatsApp del asesor ya no te
+          salvan.
+        </div>
+        <div class="why">
+          <div class="why__bar"></div>
+          <div>
+            <div class="why__label">Why it matters</div>
+            <div class="why__text">Si ChatGPT no te nombra, el cliente nuevo no llega a tu chat.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="anchor">
+        <div class="anchor__n">91,5%</div>
+        <div class="anchor__t">de agentes con web no apareció ni una vez.</div>
+        <div class="anchor__s">
+          Base: 37.500 búsquedas de inmobiliaria.<br />
+          El que pregunta ya no escribe en el portal: pregunta en el chat.
+        </div>
+      </div>
+
+      <!-- --------------------------------------------------------- banda foto -->
+      <div class="band">
+        <!-- Escena: el lado de trabajo de una recepción a las 8am, el auricular
+             fuera de la horquilla. gemini-3.1-flash-lite-image · sin caras. -->
+        <img src="img/escena-recepcion.jpg" alt="" />
+        <div class="band__veil"></div>
+        <div class="band__cap">
+          <b>El lado de trabajo.</b> El auricular fuera de la horquilla, la libreta en blanco y la
+          pantalla encendida: la cita todavía no entró a ningún lado.
+        </div>
+      </div>
+
+      <!-- ------------------------------------------------------------ nota B -->
+      <div class="b">
+        <div class="kick"><b>B</b> Consultorio · 19 ago 2026</div>
+        <div class="b__70">3 apps</div>
+        <div class="b__l2">ya no</div>
+        <div class="note__body">
+          Luma y PCC metieron recordatorios y mensajes adentro del sistema del consultorio en más de
+          300 pediatras. Más de 30 idiomas. Por niño, no por número. El “¿confirmas?” deja de
+          perderse entre Excel y WhatsApp.
+        </div>
+        <div class="why">
+          <div class="why__bar"></div>
+          <div>
+            <div class="why__label">Why it matters</div>
+            <div class="why__text">
+              Si el recordatorio no entra al sistema del consultorio, vive en el chat y se pierde.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ------------------------------------------------------------ nota C -->
+      <div class="c">
+        <div class="kick"><b>C</b> Recepción · 18 ago 2026</div>
+        <div class="c__70">sin hold</div>
+        <div class="c__l2">confirma</div>
+        <div class="note__body">
+          Más de 1.100 consultorios confirman y mueven la cita por voz o chat, y eso entra al
+          sistema. La recepción deja de pasar el mismo mensaje de la agenda al WhatsApp a mano.
+        </div>
+        <div class="why">
+          <div class="why__bar"></div>
+          <div>
+            <div class="why__label">Why it matters</div>
+            <div class="why__text">
+              Si la confirmación no entra sola a la agenda, alguien la pasa a mano y se atrasa.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="senal__src">
+        <div class="senal__src-lab">Fuentes</div>
+        <div class="src">
+          https://www.inman.com/2026/08/20/ai-search-real-estate-agents/<br />
+          https://www.prnewswire.com/news-releases/luma-and-pcc-partner-to-bring-patient-centered-ai-enabled-communications-to-300-pediatric-practices-302854659.html<br />
+          https://poly.ai/blog/polyai-launches-direct-integration-with-epic
+        </div>
+      </div>
+
+      <div class="folio">
+        <span class="folio__meta">Radar N°2 · Señal</span>
+        <span class="folio__bar"
+          ><i></i><i></i><i class="on"></i><i></i><i></i><i></i><i></i
+        ></span>
+        <span class="folio__num">03</span>
+      </div>
+    </div>
+  </body>
+</html>

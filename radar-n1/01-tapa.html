@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>RADAR N°1 — 01 Tapa</title>
+    <link rel="stylesheet" href="css/radar.css" />
+    <style>
+      /* ============================================================
+         01 · TAPA — personalidad: LOCK.
+         Masthead RADAR a sangre, una cara, una palabra golpe.
+         El interior no se toca: titular distinto a "deja de / regalar".
+         ============================================================ */
+
+      .hero {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        overflow: hidden;
+      }
+
+      .hero img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: 58% 28%;
+        display: block;
+        filter: saturate(0.78) contrast(1.12) brightness(0.88);
+      }
+
+      .hero__veil {
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(180deg, rgba(7, 6, 4, 0.88) 0%, rgba(7, 6, 4, 0.18) 18%, rgba(7, 6, 4, 0) 32%),
+          linear-gradient(90deg, rgba(7, 6, 4, 0.72) 0%, rgba(7, 6, 4, 0.12) 38%, rgba(7, 6, 4, 0) 58%),
+          linear-gradient(
+            180deg,
+            rgba(7, 6, 4, 0) 48%,
+            rgba(7, 6, 4, 0.42) 68%,
+            rgba(7, 6, 4, 0.88) 84%,
+            #070604 100%
+          );
+      }
+
+      .mast {
+        position: absolute;
+        left: 48px;
+        right: 48px;
+        top: 38px;
+        z-index: 20;
+      }
+
+      .mast__top {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        font-family: var(--sans);
+        font-weight: 700;
+        font-size: 13px;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+        color: var(--ink-70);
+      }
+
+      .mast__top em {
+        font-style: normal;
+        color: var(--teal);
+      }
+
+      .mast h1 {
+        margin-top: 6px;
+        font-family: var(--sans);
+        font-weight: 800;
+        font-stretch: 78%;
+        font-size: 268px;
+        line-height: 0.72;
+        letter-spacing: -0.055em;
+        text-transform: uppercase;
+        color: var(--white);
+      }
+
+      .issue {
+        position: absolute;
+        left: var(--margin);
+        top: 368px;
+        z-index: 20;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        font-family: var(--sans);
+        font-weight: 800;
+        font-size: 13px;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+        color: var(--teal);
+      }
+
+      .issue i {
+        display: block;
+        width: 42px;
+        height: 3px;
+        background: var(--teal);
+      }
+
+      .rails {
+        position: absolute;
+        left: var(--margin);
+        top: 520px;
+        width: 360px;
+        z-index: 20;
+        display: flex;
+        flex-direction: column;
+        gap: 28px;
+      }
+
+      .rail {
+        border-top: 1px solid var(--ink-18);
+        padding-top: 12px;
+      }
+
+      .rail b {
+        display: block;
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--teal);
+        margin-bottom: 8px;
+      }
+
+      .rail p {
+        font-family: var(--sans);
+        font-weight: 700;
+        font-size: 26px;
+        line-height: 1.05;
+        letter-spacing: -0.03em;
+        color: var(--white);
+      }
+
+      .hit {
+        position: absolute;
+        left: var(--margin);
+        right: var(--margin);
+        bottom: 128px;
+        z-index: 20;
+      }
+
+      .hit__kicker {
+        font-family: var(--sans);
+        font-weight: 800;
+        font-size: 12px;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        color: var(--ink-45);
+        margin-bottom: 10px;
+      }
+
+      .hit h2 {
+        font-family: var(--sans);
+        font-weight: 800;
+        font-stretch: 88%;
+        font-size: 92px;
+        line-height: 0.86;
+        letter-spacing: -0.04em;
+        text-transform: lowercase;
+        color: var(--white);
+      }
+
+      .hit h2 em {
+        display: block;
+        font-family: var(--display);
+        font-style: normal;
+        font-variation-settings: "SOFT" 26, "WONK" 1, "opsz" 144;
+        font-weight: 900;
+        font-size: 168px;
+        line-height: 0.82;
+        letter-spacing: -0.05em;
+        color: var(--teal);
+      }
+
+      .folio {
+        border-top-color: rgba(253, 253, 253, 0.12);
+      }
+    </style>
+  </head>
+  <body>
+    <article class="page grain">
+      <figure class="hero">
+        <img
+          src="img/escena-tapa.jpg"
+          alt="Retrato editorial: cara humana y máquina, costura teal"
+        />
+        <div class="hero__veil"></div>
+      </figure>
+
+      <header class="mast">
+        <p class="mast__top">Wavys · semanal<em>10–14 ago 2026</em></p>
+        <h1>Radar</h1>
+      </header>
+
+      <p class="issue"><i></i>N°1 · lo que importa esta semana</p>
+
+      <aside class="rails">
+        <div class="rail">
+          <b>03 · Señal</b>
+          <p>Gemini se metió al correo</p>
+        </div>
+        <div class="rail">
+          <b>04 · Tema central</b>
+          <p>El chat deja de ser un favor</p>
+        </div>
+        <div class="rail">
+          <b>08 · Tablero</b>
+          <p>Quién manda en el índice</p>
+        </div>
+      </aside>
+
+      <div class="hit">
+        <p class="hit__kicker">Tema de tapa · WhatsApp · 1 oct</p>
+        <h2>antes de<em>octubre</em></h2>
+      </div>
+
+      <footer class="folio">
+        <span class="folio__ticks"><i class="on"></i><i></i><i></i><i></i></span>
+        <span>Radar N°1 · Tapa</span>
+        <span class="folio__num">01</span>
+      </footer>
+    </article>
+  </body>
+</html>

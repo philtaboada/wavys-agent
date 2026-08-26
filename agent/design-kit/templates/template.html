@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>Wavys design kit</title>
+    <style>
+      @font-face {
+        font-family: "Rubik";
+        font-style: normal;
+        font-weight: 300 900;
+        font-display: block;
+        src: url("../fonts/rubik-variable.woff2") format("woff2");
+      }
+      @font-face {
+        font-family: "Rubik";
+        font-style: italic;
+        font-weight: 300 900;
+        font-display: block;
+        src: url("../fonts/rubik-variable-italic.woff2") format("woff2");
+      }
+
+      :root {
+        --surface-dark: #000908;
+        --surface-agente: #070604;
+        --text-primary: #fdfdfd;
+        --accent-green: #01fd91;
+        --accent-teal: #5ad2d0;
+        --cta-text: #000000;
+        --pad: 72px;
+        --hook-size: 92px;
+        --body-size: 32px;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        width: var(--canvas-w);
+        height: var(--canvas-h);
+        overflow: hidden;
+      }
+
+      body {
+        font-family: "Rubik", system-ui, sans-serif;
+        background: var(--surface-agente);
+        color: var(--text-primary);
+        -webkit-font-smoothing: antialiased;
+        text-rendering: geometricPrecision;
+      }
+
+      #stage {
+        position: relative;
+        width: var(--canvas-w);
+        height: var(--canvas-h);
+        overflow: hidden;
+        isolation: isolate;
+      }
+
+      /* --- Fondo: aurora + grano. Sin esto la pieza se ve plana. --- */
+      .aurora {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+      }
+      .aurora::before,
+      .aurora::after {
+        content: "";
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(130px);
+      }
+      .aurora::before {
+        width: 130%;
+        height: 62%;
+        left: -34%;
+        bottom: -22%;
+        background: radial-gradient(
+          circle,
+          rgba(1, 253, 145, 0.72) 0%,
+          rgba(1, 253, 145, 0) 68%
+        );
+      }
+      .aurora::after {
+        width: 90%;
+        height: 46%;
+        right: -22%;
+        top: -14%;
+        background: radial-gradient(
+          circle,
+          rgba(90, 210, 208, 0.42) 0%,
+          rgba(90, 210, 208, 0) 70%
+        );
+      }
+
+      .grain {
+        position: absolute;
+        inset: 0;
+        z-index: 3;
+        opacity: 0.05;
+        pointer-events: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E");
+      }
+
+      .asset-bg {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        opacity: 0.55;
+      }
+
+      /* --- Card ---
+         Altura automática anclada abajo: el bloque de texto queda compacto y
+         el aire sobrante se va al fondo, donde la aurora sí aporta. Estirar la
+         card a todo el alto abría un hueco muerto entre el cuerpo y el CTA. */
+      .card {
+        position: absolute;
+        z-index: 2;
+        left: var(--pad);
+        right: var(--pad);
+        bottom: var(--safe-bottom);
+        max-height: calc(100% - var(--safe-top) - var(--safe-bottom));
+        border-radius: 40px;
+        padding: 64px;
+        display: flex;
+        flex-direction: column;
+        background: rgba(0, 0, 0, 0.2);
+        border: 1px solid rgba(253, 253, 253, 0.08);
+        backdrop-filter: blur(28px);
+        overflow: hidden;
+      }
+
+      /* Story: la zona segura es alta y estrecha; anclar abajo dejaría un
+         tercio del canvas vacío. Centrado dentro del área visible. */
+      body[data-channel="story"] .card {
+        top: 50%;
+        bottom: auto;
+        transform: translateY(-50%);
+      }
+
+      body[data-family="ventas"] .card {
+        background: var(--surface-dark);
+        border: 1px solid rgba(90, 210, 208, 0.18);
+        backdrop-filter: none;
+      }
+
+      body[data-family="editorial"] .card {
+        background: rgba(0, 9, 8, 0.55);
+        border: none;
+      }
+
+      /* Texto y asset comparten una fila: el ancho se reparte por flex, así el
+         objeto nunca puede pisar el copy ni el CTA. */
+      .content {
+        display: flex;
+        align-items: center;
+        gap: 44px;
+        flex: none;
+        min-height: 0;
+      }
+      .text-col {
+        flex: 1 1 auto;
+        min-width: 0;
+      }
+      .asset-col {
+        flex: none;
+        width: 34%;
+      }
+      .asset-col img,
+      .asset-row img {
+        display: block;
+        width: 100%;
+        height: auto;
+        filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.55));
+      }
+      .asset-row {
+        flex: none;
+        display: flex;
+        justify-content: center;
+        margin-top: 44px;
+      }
+      .asset-row img {
+        width: 54%;
+      }
+
+      .eyebrow {
+        font-size: 26px;
+        font-weight: 500;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--accent-teal);
+        margin-bottom: 32px;
+        flex: none;
+      }
+
+      .hook {
+        font-weight: 700;
+        font-size: var(--hook-size);
+        line-height: 0.98;
+        letter-spacing: -0.07em;
+        text-wrap: balance;
+        flex: none;
+      }
+      .hook .l2 {
+        display: block;
+        color: var(--accent-green);
+      }
+
+      .body-copy {
+        margin-top: 32px;
+        font-size: var(--body-size);
+        font-weight: 400;
+        line-height: 1.35;
+        letter-spacing: -0.02em;
+        color: rgba(253, 253, 253, 0.82);
+        text-wrap: pretty;
+        flex: none;
+      }
+
+      .proof {
+        margin-top: 40px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        list-style: none;
+        flex: none;
+      }
+      .proof li {
+        position: relative;
+        padding-left: 40px;
+        font-size: 30px;
+        font-weight: 500;
+        line-height: 1.25;
+        letter-spacing: -0.02em;
+      }
+      .proof li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 12px;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: var(--accent-green);
+      }
+
+      .spacer {
+        flex: none;
+        height: 56px;
+      }
+
+      .footer {
+        flex: none;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 32px;
+      }
+
+      .cta-button {
+        display: inline-block;
+        background: var(--accent-green);
+        color: var(--cta-text);
+        font-size: 32px;
+        font-weight: 600;
+        letter-spacing: -0.02em;
+        padding: 24px 44px;
+        border-radius: 20px;
+        white-space: nowrap;
+      }
+
+      .cta-italic {
+        font-style: italic;
+        font-weight: 600;
+        font-size: 38px;
+        letter-spacing: -0.03em;
+        color: var(--text-primary);
+        white-space: nowrap;
+      }
+
+      .logo {
+        height: 46px;
+        width: auto;
+        flex: none;
+        opacity: 0.95;
+      }
+
+      .footnote {
+        margin-top: 24px;
+        font-size: 22px;
+        font-weight: 400;
+        letter-spacing: 0.01em;
+        color: rgba(253, 253, 253, 0.45);
+        flex: none;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div id="stage">
+      <div class="aurora"></div>
+      <div class="grain"></div>
+    </div>
+
+    <script>
+      (function () {
+        const brief = window.__BRIEF__;
+        const canvas = window.__CANVAS__;
+        const assets = window.__ASSETS__ || {};
+        const stage = document.getElementById("stage");
+
+        document.body.dataset.family = brief.family;
+        document.body.dataset.channel = brief.channel;
+
+        const root = document.documentElement.style;
+        root.setProperty("--canvas-w", canvas.width + "px");
+        root.setProperty("--canvas-h", canvas.height + "px");
+
+        // Story reserva espacio para la UI de IG/TikTok arriba y abajo.
+        const isStory = brief.channel === "story";
+        root.setProperty("--pad", isStory ? "56px" : "60px");
+        root.setProperty("--safe-top", isStory ? "260px" : "60px");
+        root.setProperty("--safe-bottom", isStory ? "340px" : "60px");
+        root.setProperty(
+          "--hook-size",
+          (isStory ? 104 : canvas.height > 1100 ? 92 : 80) + "px",
+        );
+
+        function el(tag, cls, text) {
+          const node = document.createElement(tag);
+          if (cls) node.className = cls;
+          if (text != null) node.textContent = text;
+          return node;
+        }
+
+        if (assets.background && brief.asset?.placement === "background") {
+          const img = el("img", "asset-bg");
+          img.src = assets.background;
+          stage.appendChild(img);
+        }
+
+        const card = el("div", "card");
+        const content = el("div", "content");
+        const textCol = el("div", "text-col");
+        content.appendChild(textCol);
+        card.appendChild(content);
+
+        if (brief.eyebrow) {
+          textCol.appendChild(el("div", "eyebrow", brief.eyebrow));
+        }
+
+        const hook = el("h1", "hook");
+        hook.appendChild(document.createTextNode(brief.hook.line1));
+        if (brief.hook.line2) {
+          hook.appendChild(el("span", "l2", brief.hook.line2));
+        }
+        textCol.appendChild(hook);
+
+        if (brief.body) textCol.appendChild(el("p", "body-copy", brief.body));
+
+        if (brief.proof?.length) {
+          const list = el("ul", "proof");
+          for (const item of brief.proof) list.appendChild(el("li", null, item));
+          textCol.appendChild(list);
+        }
+
+        if (assets.float) {
+          const wrap = el(
+            "div",
+            brief.asset.placement === "right" ? "asset-col" : "asset-row",
+          );
+          const img = el("img");
+          img.src = assets.float;
+          wrap.appendChild(img);
+          if (brief.asset.placement === "right") content.appendChild(wrap);
+          else card.appendChild(wrap);
+        }
+
+        card.appendChild(el("div", "spacer"));
+
+        const footer = el("div", "footer");
+        const cta =
+          brief.cta.style === "italic"
+            ? el("div", "cta-italic", brief.cta.label)
+            : el("div", "cta-button", brief.cta.label);
+        footer.appendChild(cta);
+
+        if (brief.logo && assets.logo) {
+          const logo = el("img", "logo");
+          logo.src = assets.logo;
+          footer.appendChild(logo);
+        }
+        card.appendChild(footer);
+
+        if (brief.footnote) {
+          card.appendChild(el("div", "footnote", brief.footnote));
+        }
+
+        stage.appendChild(card);
+
+        // Grano siempre encima de todo.
+        stage.appendChild(stage.querySelector(".grain"));
+
+        /**
+         * Auto-fit: baja el titular hasta que quepa en el ancho de la card y el
+         * bloque completo entre en el alto disponible. El brief ya limita
+         * caracteres; esto absorbe el resto de casos borde.
+         */
+        function fit() {
+          let size = parseFloat(getComputedStyle(hook).fontSize);
+          const minSize = isStory ? 62 : 48;
+          let guard = 0;
+          while (guard++ < 80) {
+            const overflowsWidth = hook.scrollWidth > hook.clientWidth + 1;
+            const overflowsHeight = card.scrollHeight > card.clientHeight + 1;
+            if ((!overflowsWidth && !overflowsHeight) || size <= minSize) break;
+            size -= 2;
+            hook.style.fontSize = size + "px";
+          }
+        }
+
+        const waitAssets = Array.from(document.images).map((img) =>
+          img.complete
+            ? Promise.resolve()
+            : new Promise((res) => {
+                img.onload = res;
+                img.onerror = res;
+              }),
+        );
+
+        Promise.all([document.fonts.ready, ...waitAssets]).then(() => {
+          fit();
+          window.__READY__ = true;
+        });
+      })();
+    </script>
+  </body>
+</html>

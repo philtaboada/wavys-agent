@@ -1,0 +1,17 @@
+{
+  "slug": "agente-whatsapp-mostrador",
+  "layout": "cartel",
+  "format": "a4",
+  "kicker": "Agentes de WhatsApp",
+  "title": "Uno atiende el mostrador",
+  "titleAccent": "el otro, el chat",
+  "dek": "Tu agente contesta, cotiza y agenda en WhatsApp mientras tú despachas en el local. Y sigue ahí cuando cierras.",
+  "stat": { "value": "24/7", "label": "atendiendo, también cuando cierras" },
+  "cta": {
+    "label": "Agenda una demo de 20 min",
+    "url": "https://calendly.com/philtaboada2julio",
+    "note": "Te mostramos tu propio flujo andando, con tu catálogo."
+  },
+  "contact": ["wavys-technologies.com", "contact@wavys-technologies.com"],
+  "image": "data/generated-images/flyer-ferreteria-mostrador.jpg"
+}

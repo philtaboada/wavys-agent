@@ -2,17 +2,10 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <title>RADAR N°1 — 04 Tema central · cita y datos</title>
+    <title>RADAR N°1 — 04 Tema central · la cita</title>
     <link rel="stylesheet" href="css/radar.css" />
+    <link rel="stylesheet" href="css/tema-grok.css" />
     <style>
-      /* ============================================================
-         04d · TEMA CENTRAL, CITA + DATOS — personalidad: PAPEL FRÍO.
-         La página invierte el tono en medio del tema central: la cita
-         grande respira arriba y abajo van SOLO hechos de Meta, en
-         línea de tiempo, con mono. Ni una tarifa en soles.
-         La cita es cita, no un titular nuevo.
-         ============================================================ */
-
       .page {
         background: linear-gradient(172deg, #f6f6f3 0%, #eeeeea 58%, #e6e7e3 100%);
         color: #0a0b0b;
@@ -22,46 +15,47 @@
         position: absolute;
         left: var(--margin);
         right: var(--margin);
-        top: 246px;
+        top: 138px;
         z-index: 12;
+        padding-bottom: 28px;
+        border-bottom: 2px solid #0a0b0b;
       }
 
       .quote__mark {
         font-family: var(--display);
         font-variation-settings: "SOFT" 40, "WONK" 1, "opsz" 144;
         font-weight: 900;
-        font-size: 210px;
-        line-height: 0.5;
+        font-size: 96px;
+        line-height: 0.6;
         color: var(--teal);
         display: block;
-        height: 96px;
+        height: 46px;
       }
 
       .quote blockquote {
-        margin-top: 18px;
-        font-family: var(--display);
-        font-variation-settings: "SOFT" 22, "WONK" 1, "opsz" 144;
-        font-weight: 800;
-        font-size: 132px;
-        line-height: 0.97;
-        letter-spacing: -0.036em;
+        margin-top: 8px;
+        font-family: var(--read);
+        font-weight: 400;
+        font-size: 42px;
+        line-height: 1.12;
+        letter-spacing: -0.02em;
         color: #08090a;
       }
 
       .quote blockquote em {
-        font-style: normal;
-        display: block;
-        color: #0f6b6a;
+        font-family: var(--italic);
+        font-style: italic;
+        font-weight: 500;
       }
 
       .quote__by {
-        margin-top: 46px;
+        margin-top: 18px;
         display: flex;
         align-items: center;
         gap: 16px;
         font-family: var(--sans);
         font-weight: 800;
-        font-size: 11.5px;
+        font-size: 11px;
         letter-spacing: 0.26em;
         text-transform: uppercase;
         color: rgba(10, 11, 11, 0.5);
@@ -69,12 +63,41 @@
 
       .quote__by i {
         display: block;
-        width: 120px;
+        width: 72px;
         height: 2px;
         background: #0a0b0b;
       }
 
-      /* datos ----------------------------------------------------------- */
+      .body {
+        position: absolute;
+        left: var(--margin);
+        right: var(--margin);
+        top: 430px;
+        z-index: 12;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 48px;
+      }
+
+      .body p {
+        font-family: var(--read);
+        font-size: 18.5px;
+        line-height: 1.52;
+        color: #14161a;
+        margin-bottom: 16px;
+      }
+
+      .body p:first-child::first-letter {
+        float: left;
+        font-family: var(--display);
+        font-variation-settings: "SOFT" 20, "WONK" 0, "opsz" 96;
+        font-weight: 800;
+        font-size: 62px;
+        line-height: 0.78;
+        margin: 4px 8px 0 0;
+        color: #0c0b09;
+      }
+
       .data {
         position: absolute;
         left: var(--margin);
@@ -82,28 +105,28 @@
         bottom: 128px;
         z-index: 12;
         border-top: 3px solid #0a0b0b;
-        padding-top: 22px;
+        padding-top: 20px;
       }
 
       .data__head {
         display: flex;
         align-items: baseline;
         justify-content: space-between;
-        margin-bottom: 32px;
+        margin-bottom: 22px;
       }
 
       .data__head h3 {
         font-family: var(--sans);
         font-weight: 800;
         font-stretch: 78%;
-        font-size: 66px;
+        font-size: 36px;
         line-height: 0.9;
         letter-spacing: 0.004em;
         text-transform: uppercase;
       }
 
       .data__head p {
-        width: 430px;
+        width: 420px;
         text-align: right;
         font-family: var(--sans);
         font-weight: 500;
@@ -114,28 +137,24 @@
 
       .timeline {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 36px;
+        grid-template-columns: 1fr 1fr;
+        gap: 48px;
       }
 
       .tl {
-        border-top: 1px solid rgba(10, 11, 11, 0.22);
-        padding-top: 16px;
-      }
-
-      .tl--now {
         border-top: 6px solid var(--teal);
+        padding-top: 14px;
       }
 
       .tl__date {
         font-family: var(--mono);
-        font-size: 42px;
+        font-size: 32px;
         letter-spacing: -0.03em;
         color: #08090a;
       }
 
       .tl__tag {
-        margin-top: 8px;
+        margin-top: 6px;
         font-family: var(--sans);
         font-weight: 800;
         font-size: 10px;
@@ -145,105 +164,79 @@
       }
 
       .tl__text {
-        margin-top: 16px;
+        margin-top: 12px;
         font-family: var(--read);
-        font-size: 18.5px;
-        line-height: 1.56;
+        font-size: 17px;
+        line-height: 1.45;
         color: #14161a;
       }
 
-      .tl__text b {
-        font-weight: 600;
-      }
-
       .data__foot {
-        margin-top: 30px;
-        padding-top: 16px;
+        margin-top: 20px;
+        padding-top: 14px;
         border-top: 1px solid rgba(10, 11, 11, 0.22);
-        display: flex;
-        align-items: flex-start;
-        justify-content: space-between;
-        gap: 40px;
-      }
-
-      .data__foot p:first-child {
-        max-width: 560px;
         font-family: var(--sans);
         font-weight: 700;
-        font-size: 17px;
-        line-height: 1.42;
+        font-size: 16px;
         color: #08090a;
-      }
-
-      .data__foot .src {
-        max-width: 470px;
-        text-align: right;
       }
     </style>
   </head>
   <body>
-    <article class="page page--paper grain">
+    <article class="page page--paper page--grok grain">
       <header class="head">
         <span class="head__mast">Radar</span>
-        <span class="head__section">Tema central · la cita y los datos</span>
+        <span class="head__section">Tema central · Grok Bot · la cita</span>
       </header>
 
       <section class="quote">
         <span class="quote__mark">“</span>
-        <blockquote>
-          El arreglo no es un chatbot más lindo.
-          <em>Es que el chat, la ficha y el estado hablen.</em>
-        </blockquote>
-        <p class="quote__by"><i></i>Phil · sobre el 1 de octubre</p>
+        <blockquote>Ellos se hablan. <em>Yo doy el ok.</em></blockquote>
+        <p class="quote__by"><i></i>Phil · sobre Grok Bot</p>
+      </section>
+
+      <section class="body">
+        <div>
+          <p>
+            No lo uso como un chat más. Creo varios bots —compañeros de trabajo—. Uno busca. Otro escribe. Otro
+            revisa. Se conectan. Se hablan. Se pasan el trabajo. Deciden. Vuelven a intentar. Mejoran.
+          </p>
+          <p>Yo no estoy en cada ida y vuelta. Yo doy el ok. Sin mi ok, no sale.</p>
+        </div>
+        <div>
+          <p>
+            Lo uso para armar Wavys. La revista. Los textos. El día. A veces falla. Lo sigo usando. Porque
+            cuando el trabajo deja de vivir solo en mi cabeza, el lunes ya no empieza desde cero.
+          </p>
+          <p>
+            Salió el 11 de agosto de 2026, todavía en prueba (beta).
+          </p>
+        </div>
       </section>
 
       <section class="data">
         <div class="data__head">
-          <h3>Los datos<br />que sí existen</h3>
-          <p>
-            Solo lo que Meta publicó. Nada de tarifas en soles, nada de estimados: el detalle sale el 1 de
-            septiembre.
-          </p>
+          <h3>Fecha y fuentes</h3>
+          <p>11 de agosto de 2026. Todavía en prueba.</p>
         </div>
-
         <div class="timeline">
           <div class="tl">
-            <p class="tl__date">1 sept 2026</p>
-            <p class="tl__tag">Publicación</p>
-            <p class="tl__text">
-              Meta publica las <b>tarifas de servicio</b>. Hasta ese día, cualquier precio que te pasen es
-              invento.
-            </p>
+            <p class="tl__date">11 ago 2026</p>
+            <p class="tl__tag">Versión de prueba (beta)</p>
+            <p class="tl__text">Grok Bot salió. Todavía en prueba. x.ai/bot</p>
           </div>
-          <div class="tl tl--now">
-            <p class="tl__date">1 oct 2026</p>
-            <p class="tl__tag">Servicio</p>
-            <p class="tl__text">
-              Las respuestas de servicio que <b>no son plantilla</b> vuelven a la cuenta. Por mensaje, por
-              mercado.
-            </p>
-          </div>
-          <div class="tl tl--now">
-            <p class="tl__date">1 oct 2026</p>
-            <p class="tl__tag">Utility · ventana 24 h</p>
-            <p class="tl__text">
-              La plantilla <b>utility dentro de la ventana de 24 horas</b> vuelve a cobrarse. Era gratis desde
-              el 1 de julio de 2025.
-            </p>
+          <div class="tl">
+            <p class="tl__date">x.ai</p>
+            <p class="tl__tag">Fuentes</p>
+            <p class="tl__text">x.ai/news/introducing-grok-bot<br />x.ai/bot</p>
           </div>
         </div>
-
-        <div class="data__foot">
-          <p>Sin tarifa en soles en esta página. Si aparece un precio local antes del 1 de septiembre, no es de Meta.</p>
-          <p class="src">
-            developers.facebook.com/documentation/business-messaging/whatsapp/pricing/non-template-messages
-          </p>
-        </div>
+        <p class="data__foot">x.ai/news/introducing-grok-bot · x.ai/bot</p>
       </section>
 
       <footer class="folio">
         <span class="folio__ticks"><i></i><i></i><i class="on"></i><i></i></span>
-        <span>Radar N°1 · Tema central</span>
+        <span>Radar N°1 · Grok Bot</span>
         <span class="folio__num">04</span>
       </footer>
     </article>
