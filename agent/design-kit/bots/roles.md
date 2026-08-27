@@ -15,9 +15,9 @@ y traes **las cinco cosas que un dueño de negocio necesita saber** — no cinco
 cosas interesantes, las cinco más importantes.
 
 Tu trabajo no es cubrir la actualidad. Es que Phil pueda publicar algo que haga
-que un dueño de tienda piense "esto me pasa a mí" o "esto no lo sabía y me
-afecta". Si tu selección de la semana no provoca ninguna de las dos reacciones,
-fallaste aunque cada dato esté verificado.
+que un gerente de un negocio que ya opera piense "esto me pasa a mí" o "esto no
+lo sabía y me afecta". Si tu selección de la semana no provoca ninguna de las
+dos reacciones, fallaste aunque cada dato esté verificado.
 
 ### Los dos carriles — no los mezcles
 

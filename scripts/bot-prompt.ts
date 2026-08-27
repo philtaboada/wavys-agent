@@ -10,7 +10,7 @@
  */
 
 import { execFileSync } from "node:child_process";
-import { readFileSync } from "node:fs";
+import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -102,10 +102,24 @@ const prompt = [
 
 process.stdout.write(`${prompt}\n`);
 
+const outDir = resolve(BOTS_DIR, "prompts");
+mkdirSync(outDir, { recursive: true });
+const outPath = resolve(outDir, `${slug}.md`);
+writeFileSync(
+  outPath,
+  [
+    `<!-- Generado. No editar a mano. npm run bot -- ${slug} -->`,
+    "",
+    prompt,
+    "",
+  ].join("\n"),
+);
+
 const copied = copyToClipboard(prompt);
 const words = prompt.split(/\s+/).length;
 
 console.error(
   `\n[${role.title}] ${prompt.length} caracteres · ~${words} palabras` +
-    (copied ? " · copiado al portapapeles" : " · pbcopy no disponible, copia de arriba"),
+    (copied ? " · copiado al portapapeles" : " · pbcopy no disponible, copia de arriba") +
+    `\nEscrito en agent/design-kit/bots/prompts/${slug}.md`,
 );
