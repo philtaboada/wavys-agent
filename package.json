@@ -10,6 +10,7 @@
   "scripts": {
     "tool": "tsx scripts/tool.ts",
     "tools": "tsx scripts/tool.ts --list",
+    "bot": "tsx scripts/bot-prompt.ts",
     "typecheck": "tsc"
   },
   "dependencies": {

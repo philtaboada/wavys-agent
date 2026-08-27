@@ -29,15 +29,15 @@ Responde siempre con un único bloque ```json con esta forma:
   "slug": "kebab-case-corto",
   "channel": "instagram",
   "family": "agente",
-  "eyebrow": "Agentes IA",
-  "hook": { "line1": "No respondiste a tiempo.", "line2": "Perdiste la venta." },
-  "body": "Agentes de IA que responden, califican y dan seguimiento en WhatsApp 24/7.",
+  "eyebrow": "Webs",
+  "hook": { "line1": "Se ve bien.", "line2": "Y no vende." },
+  "body": "Direccion visual e ingenieria en el mismo equipo. En produccion en 3 a 5 semanas.",
   "proof": [
-    "Respuesta en menos de 5 minutos",
-    "Califica leads sin que muevas un dedo",
-    "Se integra a tu CRM actual"
+    "Diagnostico escrito antes de construir",
+    "Builds semanales en entorno real",
+    "Handoff y mapa de la siguiente fase"
   ],
-  "cta": { "label": "Agenda demo", "style": "button" },
+  "cta": { "label": "Agenda diagnostico", "style": "button" },
   "logo": true
 }
 ```

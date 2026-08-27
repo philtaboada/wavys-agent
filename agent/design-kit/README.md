@@ -26,6 +26,20 @@ Las instrucciones de cada bot se arman con **tres bloques, en este orden**:
 Los dos primeros son lo que hace que todos hablen el mismo idioma; el tercero es
 lo que los diferencia.
 
+No armes esto a mano. El comando concatena los tres bloques en orden, imprime el
+resultado y lo deja en el portapapeles:
+
+```bash
+npm run bot -- content-scout   # arma y copia las instrucciones de ese bot
+npm run bot                    # lista los bots disponibles
+```
+
+Slugs: `content-scout`, `copy-wavys`, `scout-visual-wavys`, `crecimiento-redes`,
+`tiktok-scout`, `revista-wavys`.
+
+Después de editar cualquiera de los tres archivos hay que **volver a pegar** las
+instrucciones en el bot: Grok no lee este repo.
+
 ## Uso
 
 ```bash
