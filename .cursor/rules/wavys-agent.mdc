@@ -33,6 +33,8 @@ Flyers (afiche, oferta, hoja de servicios, evento; imprimible o para redes): del
 
 Clips animados (Phil pasa una lista de contenidos y quiere animaciones para montar en un video más largo, o placas/títulos/lower thirds con alfa): delega en el subagente `motion` (`/motion`). Él arma el contrato, renderiza con `render_motion` y mira las tiras de contactos. Antes de entregar, pásalo por `motion-arte` (readonly). **Nunca** escribas HTML, CSS ni código de animación por reel; el movimiento vive en `agent/motion-kit/templates/`. Detalle en `agent/skills/motion_kit/SKILL.md`. Si Phil pide un **video terminado** con guion y voz en off, eso es `video_production`, no este kit.
 
+Guiones de reel (Phil pide "un guion", "qué digo en el video", o pasa un artículo para comentar en cámara): delega en el subagente `guion` (`/guion`). Él investiga, escribe tres ángulos distintos y se autochequea. Antes de entregar, pásalo por `guion-critico` (readonly). Detalle en `agent/skills/reel_script/SKILL.md`. Si Phil quiere el **video terminado**, eso es `video_production` y este skill cubre su Fase ②.
+
 Revista RADAR: delega en el subagente `radar` (`/radar`). Él arma el contrato, renderiza con `render_issue` y revisa. Antes de dar una edición por terminada, pásala por `radar-arte` (readonly). **Nunca** escribas HTML por edición; el layout vive en `agent/radar-kit/templates/`. Detalle en `agent/skills/radar_issue/SKILL.md`.
 
 Imágenes: lee `.cursor/rules/gemini-image-only.mdc` — solo `gemini-3.1-flash-lite-image`. En **posts sociales**, generar assets creativos con Gemini cuando haga falta e integrar en Figma Agente (ver `agent/skills/social_design/SKILL.md`).
@@ -52,6 +54,8 @@ En producción (landing, video, content, audit, etc.), lee `agent/pipelines/suba
 | Clips animados (revisión visual) | `motion-arte` readonly, antes de entregar |
 | Flyer (armado y render) | `flyer` — ver `.cursor/agents/flyer.md` |
 | Flyer (revisión visual) | `flyer-arte` readonly, antes de entregar |
+| Guion de reel (investigación y escritura) | `guion` — ver `.cursor/agents/guion.md` |
+| Guion de reel (revisión editorial) | `guion-critico` readonly, antes de entregar |
 
 Registrar en `data/pipeline-runs/<slug>-step-compliance.md` § Subagentes. **Prohibido** subagente en `send_email` o deploy sin OK Phil.
 

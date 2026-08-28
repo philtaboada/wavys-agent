@@ -97,6 +97,29 @@ Retroalimentación acumulada para **próximos videos/posts**. El agente debe lee
 
 ---
 
+## 2026-08-27 — Guiones de reel (estreno del skill `reel_script`)
+
+### Qué pidió
+- Un agente que escriba **guiones de reel** para grabar en cámara
+- Prueba con la carta de ciberdefensa de OpenAI (https://openai.com/collective-cyberdefense/)
+
+### Qué no funcionó
+- La primera versión vendía el **CRM de agentes de WhatsApp**. Phil: *"es en base a Theros website, no en base a Wavys Technologies. No tenemos que hablar de WhatsApp sino de software a medida"*
+- La causa no fue el guionista: el skill tenía el ángulo *"negocio que cotiza en Excel y vende por WhatsApp"* **escrito duro**, así que ataba todo guion futuro al SaaS
+
+### Qué sí funcionó
+- El bucle guionista → crítico readonly caza errores reales: una atribución falsa a la fuente, una cita entrecomillada no literal y un cierre que abandonaba su propio hook
+- El guionista contradijo al crítico con evidencia (contó los firmantes: 128 hoy, no 116) y sacó la cifra exacta de cámara
+
+### Reglas derivadas (permanentes)
+1. **El default de todo guion es el estudio** — software y diseño a medida, `software.wavys-technologies.com`. El CRM de WhatsApp solo si Phil lo pide en ese mensaje
+2. En un guion del estudio, el chat aparece como **síntoma** del desorden del cliente, nunca como la oferta
+3. El archivo declara la **línea de negocio** en el encabezado; el crítico la revisa como error de primer orden
+4. Cifras que un tercero puede recontar (firmantes, participantes) → decir "más de cien", no el número exacto
+5. Toda regla de posicionamiento va en la tabla del skill, **no clavada en una frase suelta**
+
+---
+
 ## Plantilla (añadir entradas nuevas)
 
 ```markdown

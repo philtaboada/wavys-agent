@@ -36,7 +36,10 @@
 | `reference_ui_copy` | ② | `explore` | Análisis secciones desde capturas |
 | `reference_ui_copy` | ⑥ | `bugbot` | Comparar build vs capturas Phil |
 | `video_production` | ① | `explore` | RESEARCH profundo (8+ búsquedas) |
+| `video_production` | ② | `guion` | Guion con 3 ángulos (cubre Fase ② completa) |
 | `video_production` | ⑤ | `shell` + `bugbot` | hyperframes + review frames vs STORYBOARD |
+| `reel_script` | escritura | `guion` | Investigar + 3 guiones + autochequeo |
+| `reel_script` | pre-entrega | `guion-critico` | Review editorial (hook, conteo, cifras, ángulo) |
 | `content_production` | ① | `explore` | Tendencias + fuentes |
 | `content_production` | ④ | `generalPurpose` | Review copy (filtro Wavys, anti-slop) |
 | `website_audit` | ② | `explore` + Browser | Capturas + checklist CTAs |
