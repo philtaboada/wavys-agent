@@ -12,10 +12,13 @@ dist
 *.tsbuildinfo
 data/*.json
 !data/.gitkeep
+!data/workana-bids.json
 data/generated-images/*
 !data/generated-images/.gitkeep
 data/flyer-out/*
 !data/flyer-out/.gitkeep
 data/motion-out/*
 !data/motion-out/.gitkeep
+data/workana-storage-state.json
+data/workana-screenshots/
 agent/motion-kit/vendor
