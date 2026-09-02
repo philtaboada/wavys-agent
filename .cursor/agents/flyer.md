@@ -103,7 +103,7 @@ una preposición pierde el mismo sentido que estás tratando de salvar.
 ## Piezas de prensa
 
 RADAR es una revista de noticias, así que a veces el flyer informa en lugar de
-vender. Ahí cambian tres cosas:
+vender. Ahí cambian cuatro cosas:
 
 - **El CTA invita al canal, no al producto.** Un botón de agendar llamada bajo
   una noticia convierte el periodismo en anzuelo.
@@ -114,6 +114,12 @@ vender. Ahí cambian tres cosas:
 - **El ángulo es la causa, no el hecho.** "Bitcoin subió" lo publica cualquiera;
   "subió y no fue por cripto, fue el Tesoro recomprando deuda" es lo que hace
   que la pieza valga. El titular carga la corrección, no el titular obvio.
+- **Logo de la empresa del tema.** Si la noticia es de Google, Anthropic, Apple
+  u otra marca conocida, la pieza lleva su logo oficial — bien recortado y bien
+  puesto — además del de Wavys. Assets en `data/brand-assets/logos/third-party/`
+  (Gemini sparkle, Anthropic mark, Claude star, etc.). Nunca lo inventes dentro
+  de la foto de Gemini. Si el contrato o el kit aún no tienen slot para esa
+  marca, no entregues la pieza “sin logo”: avisa a Phil o abre el slot antes.
 
 ## Fotos
 

@@ -66,8 +66,33 @@ chequeo no cazó porque la palabra era larga, un bullet a dos líneas con una
 palabra sola en la segunda.
 
 **7. Marca.** ¿El acento aparece con intención —titular, precio, CTA— o está
-salpicado? ¿El logo se lee sobre su fondo? ¿El CTA es uno solo y dice una
-acción concreta?
+salpicado? ¿El logo de Wavys se lee sobre su fondo? ¿El CTA es uno solo y dice
+una acción concreta?
+
+**8. Logo de la empresa del tema (regla dura en prensa).** Si la pieza habla
+de una empresa o producto conocido —Google, Gemini, Anthropic, Claude, Apple,
+Microsoft, Meta, OpenAI, Shopify, etc.— **tiene que llevar el logo oficial de
+esa empresa**, no solo el nombre en el kicker. Sin esa marca, la pieza se lee
+como un post genérico y falla la revisión.
+
+Qué exigir del logo ajeno:
+
+- **Fuente:** asset real en `data/brand-assets/logos/third-party/` (o marca
+  oficial descargada y recortada ahí). Nunca un logo inventado dentro de la
+  foto de Gemini.
+- **Recorte:** limpio, sin fondo sucio, sin halo, sin márgenes irregulares.
+  Si el PNG llega con caja blanca o bordes rotos, hay que corregir el asset,
+  no “arreglarlo” con CSS a ciegas.
+- **Colocación:** intencional y secundaria — cerca del kicker, en una esquina
+  de apoyo o como badge que acompaña. Nunca pelea con el titular, nunca tapa
+  el dato que manda el layout, nunca flota al azar en el centro.
+- **Contraste:** legible sobre el papel (oscuro o claro). Un mark negro sobre
+  `#070604` es invisible: pide la versión clara o un contenedor que lo sostenga.
+
+Si falta el logo, o está mal recortado / mal puesto / ilegible: **hay que
+corregir**. Di el campo del contrato o la regla de `layouts.css` donde se
+arregla. Si el kit todavía no tiene slot para marcas de terceros, dilo
+explícito — no apruebes la pieza “porque el kit no lo soporta”.
 
 ## Cómo reportas
 
