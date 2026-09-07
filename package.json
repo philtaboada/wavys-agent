@@ -11,12 +11,15 @@
     "tool": "tsx scripts/tool.ts",
     "tools": "tsx scripts/tool.ts --list",
     "bot": "tsx scripts/bot-prompt.ts",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "workana:smoke": "tsx scripts/workana-smoke-test.ts",
+    "workana:export-session": "tsx scripts/workana-export-session.ts",
+    "workana:daily": "tsx scripts/tool.ts workana_daily_bids"
   },
   "dependencies": {
     "dotenv": "^16.6.1",
     "gsap": "^3.15.0",
-    "playwright": "^1.61.1",
+    "playwright": "^1.63.0",
     "qrcode": "^1.5.4",
     "sharp": "^0.35.3",
     "zod": "4.4.3"
