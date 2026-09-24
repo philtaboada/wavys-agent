@@ -3,6 +3,17 @@
   "postedUrls": [],
   "runs": [
     {
+      "id": "wrun_mufocxnx_c9f882",
+      "startedAt": "2026-09-24T15:16:27.117Z",
+      "account": "Arnold S",
+      "jobsPerDay": 5,
+      "scanned": 0,
+      "eligible": 0,
+      "results": [],
+      "alert": "Sesión Workana no configurada. Exportá storage state de Playwright (Arnold S) a WORKANA_STORAGE_STATE_JSON o data/workana-storage-state.json",
+      "finishedAt": "2026-09-24T15:16:27.118Z"
+    },
+    {
       "id": "wrun_mue8trat_vewtq8",
       "startedAt": "2026-09-23T15:13:51.989Z",
       "account": "Arnold S",
