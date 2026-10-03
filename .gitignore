@@ -19,3 +19,6 @@ data/flyer-out/*
 data/motion-out/*
 !data/motion-out/.gitkeep
 agent/motion-kit/vendor
+!data/workana-bids.json
+data/workana-storage-state.json
+data/workana-screenshots/
