@@ -29,7 +29,6 @@ Lee estos archivos **al iniciar cualquier tarea** para Phil / Wavys.
 | [design-patterns-bakery-playful-pinterest.md](./design-patterns-bakery-playful-pinterest.md) | **Patrones UI** — pastelería playful (dark hero, scallop, circular text); **no clonar florería** |
 | [design-patterns-football-club-sports.md](./design-patterns-football-club-sports.md) | **Patrones UI** — club de fútbol (scoreboard, dorsales, rayas kit); **no clonar pastelería** |
 | [design-patterns-textiles-suave-hogar.md](./design-patterns-textiles-suave-hogar.md) | **Patrones UI** — textiles/toallas/medias (editorial crema, catálogo); **no clonar fc-altamar** |
-| [design-patterns-wavys-software.md](./design-patterns-wavys-software.md) | **Patrones** — rediseño `software.wavys-technologies.com` (estudio + product lane OS) |
 
 ## Skills del repo (procedimientos)
 
@@ -38,12 +37,12 @@ Lee estos archivos **al iniciar cualquier tarea** para Phil / Wavys.
 | `agent/skills/wavys_os_onboarding/SKILL.md` | **Onboarding Wavys OS** — Tienda / Salón / Restaurante (chat → pack → web → oferta → módulos) |
 | `agent/skills/wavys_os_phase_validator/SKILL.md` | **Gates build** Wavys OS por fase |
 | `agent/skills/wavys_os_campaign_validator/SKILL.md` | **Gate GTM** campaña OS (doc, kit, landing, CTA) |
-| `agent/skills/wavys_os_brief_validator/SKILL.md` | **Gate briefs pack** Tienda/Salón/Restaurante (imágenes + módulos) antes de entregar PDF |
 | `agent/skills/one_call_landing/SKILL.md` | **Landing cliente** → Astro — **pipeline fijo:** investigar → doc patrones → build → validar |
 | `agent/skills/one_call_website/SKILL.md` | **Sistema / app / automatización** → **Next.js** |
 | `agent/skills/reference_ui_copy/SKILL.md` | Capturas Pinterest, Dribbble, Behance — copiar UI fiel |
 | `agent/skills/website_audit/SKILL.md` | **Auditar website** cliente/prospecto — diseño, CTAs rotos, móvil, informe comercial |
 | `agent/skills/video_production/SKILL.md` | **Video MP4/reels/promos** — investigación profunda → storytelling → plan visual → ejecutar → validación exhaustiva |
+| `agent/skills/workana_daily_bids/SKILL.md` | **Postulación diaria Workana** (Arnold S) — código ∨ Shopify, 5/día |
 
 **Gates:** `agent/context/pipeline-gates.md` · índice `agent/pipelines/README.md` · subagentes `agent/pipelines/subagents.md` · **11 pipelines Gate 0 + Gate 1+ ✅**
 
@@ -51,6 +50,7 @@ Lee estos archivos **al iniciar cualquier tarea** para Phil / Wavys.
 
 - `data/notes.json` — notas de negocio registradas
 - `data/reminders.json` — recordatorios pendientes
+- `data/workana-bids.json` — historial postulaciones Workana (Arnold S)
 - `agent/instructions.md` — reglas permanentes del agente
 
 ## Flujo al recibir una tarea de Phil
