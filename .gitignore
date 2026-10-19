@@ -19,3 +19,8 @@ data/flyer-out/*
 data/motion-out/*
 !data/motion-out/.gitkeep
 agent/motion-kit/vendor
+
+# Workana daily bids
+!data/workana-bids.json
+data/workana-storage-state.json
+data/workana-screenshots/
